@@ -26,8 +26,8 @@ function HeroSection() {
   return (
     <section className="relative min-h-[88vh] flex items-center overflow-hidden bg-frost-900" data-testid="hero-section">
       <div className="absolute inset-0">
-        <img src={HERO_IMAGE} alt="Frozen raw shrimp on ice, UK wholesale supply" className="w-full h-full object-cover opacity-25" />
-        <div className="absolute inset-0 bg-gradient-to-r from-frost-900 via-frost-900/90 to-frost-900/50" />
+        <img src={HERO_IMAGE} alt="Frozen raw shrimp on ice, UK wholesale supply" className="w-full h-full object-cover" style={{ opacity: 0.12 }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, #1E293B 40%, rgba(30,41,59,0.85) 100%)' }} />
       </div>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="max-w-3xl">
