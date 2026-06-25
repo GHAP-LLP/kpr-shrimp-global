@@ -1,0 +1,158 @@
+{
+  "theme": "light",
+  "archetype": "4",
+  "archetype_name": "Swiss & High-Contrast",
+  "brand_identity": {
+    "tone": "Direct, declarative, B2B professional",
+    "positioning": "The UK's specialist shrimp supplier",
+    "target_audience": "Foodservice operators (HORECA), food manufacturers, wholesalers/distributors, and retail private label buyers."
+  },
+  "typography": {
+    "fonts": {
+      "headings": {
+        "family": "Fraunces",
+        "weights": ["400", "600"],
+        "usage": "H1, H2, H3 (Sentence case headings)"
+      },
+      "body": {
+        "family": "Inter",
+        "weights": ["400", "500"],
+        "usage": "Body text, UI elements, navigation"
+      },
+      "data": {
+        "family": "JetBrains Mono",
+        "weights": ["400", "500"],
+        "usage": "Spec tables, SKUs, technical product dimensions"
+      }
+    },
+    "hierarchy": {
+      "h1": "text-4xl sm:text-5xl lg:text-6xl tracking-tight leading-none text-white",
+      "h2": "text-2xl sm:text-3xl lg:text-4xl tracking-tight leading-tight text-[var(--ink-900)]",
+      "h3": "text-xl sm:text-2xl font-medium tracking-tight text-[var(--ink-900)]",
+      "body": "text-base leading-relaxed text-[var(--ink-900)]",
+      "table_header": "text-xs uppercase tracking-wider font-semibold text-[var(--frost-700)]",
+      "table_data": "text-sm text-[var(--ink-900)]"
+    }
+  },
+  "colors": {
+    "primary": {
+      "frost-900": "#1E293B",
+      "frost-700": "#475569",
+      "frost-500": "#94A3B8"
+    },
+    "accent": {
+      "neon-500": "#F97316"
+    },
+    "surface": {
+      "ice-100": "#F1F5F9",
+      "ice-300": "#E2E8F0",
+      "white": "#FFFFFF"
+    },
+    "text": {
+      "ink-900": "#0F172A",
+      "white": "#FFFFFF"
+    },
+    "usage_rules": {
+      "hero_background": "var(--frost-900)",
+      "hero_text": "var(--white)",
+      "page_background": "var(--ice-100)",
+      "card_background": "var(--white)",
+      "card_border": "var(--ice-300)",
+      "primary_text": "var(--ink-900)",
+      "secondary_text": "var(--frost-700)",
+      "hover_state": "var(--frost-700)",
+      "accents_and_highlights": "var(--neon-500)",
+      "dividers": "var(--ice-300)"
+    }
+  },
+  "layout_and_spacing": {
+    "spacing_scale": "Tailwind standard (p-4, p-6, p-8, p-12, p-16, p-24, p-32). Generous vertical rhythm.",
+    "section_padding": "py-16 md:py-24",
+    "container": "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+    "grids": {
+      "bento_marketing": "grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8",
+      "product_cards": "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6",
+      "sector_cards": "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6"
+    },
+    "table_ui": {
+      "pattern": "Horizontal scrolling for overflow, sticky headers, subtle hover state on rows (bg-ice-100).",
+      "borders": "border-b border-[var(--ice-300)]"
+    },
+    "components": {
+      "cards": "Flat background (white), 1px solid border (ice-300), no drop shadow by default. Hover: border-frost-500, slight translate-y-1, shadow-sm.",
+      "buttons": {
+        "primary": "bg-[var(--neon-500)] text-white hover:bg-[#EA580C] px-6 py-3 font-medium transition-colors",
+        "secondary": "bg-transparent border-2 border-[var(--frost-900)] text-[var(--frost-900)] hover:bg-[var(--frost-900)] hover:text-white px-6 py-3 font-medium transition-colors"
+      },
+      "forms": "Inputs should have flat borders (border-ice-300), bg-white, focus:ring-2 focus:ring-[var(--neon-500)]."
+    }
+  },
+  "components": {
+    "header": {
+      "type": "Sticky navigation",
+      "style": "bg-white/95 backdrop-blur-md border-b border-[var(--ice-300)] z-50",
+      "links": "text-[var(--ink-900)] hover:text-[var(--neon-500)] font-medium text-sm transition-colors"
+    },
+    "hero": {
+      "style": "bg-[var(--frost-900)] text-white relative overflow-hidden",
+      "overlay": "bg-black/40",
+      "accent": "Thin neon-orange line accent (border-t-4 border-[var(--neon-500)])"
+    },
+    "trust_bar": {
+      "style": "bg-[var(--ice-300)] py-8 border-b border-[var(--frost-500)] text-[var(--frost-900)]"
+    }
+  },
+  "motion_and_interaction": {
+    "hover": "transition-all duration-200 ease-in-out",
+    "cards": "Hover lifts card slightly (transform: translateY(-4px)) and deepens border color.",
+    "links": "Underline expand on hover or color shift to neon-500.",
+    "tables": "Row background turns to ice-100 on hover for clear tracking."
+  },
+  "media": {
+    "images": [
+      {
+        "id": "hero_bg",
+        "category": "hero",
+        "url": "https://images.unsplash.com/photo-1756364084889-9a8d9ece6112?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzMzJ8MHwxfHNlYXJjaHwzfHxyYXclMjBzaHJpbXAlMjBvbiUyMGljZXxlbnwwfHx8fDE3ODIzNzgzMjR8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Raw shrimp on ice. Use as hero background with bg-black/40 overlay to ensure text contrast."
+      },
+      {
+        "id": "prod_cooked",
+        "category": "product",
+        "url": "https://images.unsplash.com/photo-1550951791-cbf1ff280109?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjAzNTl8MHwxfHNlYXJjaHwyfHxjb29rZWQlMjBzaHJpbXB8ZW58MHx8fHwxNzgyMzc4MzI0fDA&ixlib=rb-4.1.0&q=85",
+        "description": "Cooked shrimp."
+      },
+      {
+        "id": "sector_horeca",
+        "category": "sector",
+        "url": "https://images.pexels.com/photos/17086289/pexels-photo-17086289.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Commercial kitchen / Foodservice (HORECA) sector visual."
+      },
+      {
+        "id": "sector_wholesale",
+        "category": "sector",
+        "url": "https://images.unsplash.com/photo-1689942010216-dc412bb1e7a9?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MDZ8MHwxfHNlYXJjaHwyfHx3YXJlaG91c2UlMjBmb3JrbGlmdCUyMHBhbGxldHxlbnwwfHx8fDE3ODIzNzgzMjR8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Warehouse with pallets / Wholesale distribution sector visual."
+      },
+      {
+        "id": "sector_retail",
+        "category": "sector",
+        "url": "https://images.unsplash.com/photo-1594394491044-67a665a3c925?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2OTF8MHwxfHNlYXJjaHwxfHxjb21tZXJjaWFsJTIwa2l0Y2hlbiUyMGNoZWZ8ZW58MHx8fHwxNzgyMzc4MzI0fDA&ixlib=rb-4.1.0&q=85",
+        "description": "Food manufacturing / Processing visual."
+      }
+    ]
+  },
+  "testing": {
+    "attributes": "All interactive and key informational elements MUST include a data-testid attribute in kebab-case."
+  },
+  "instructions_to_main_agent": [
+    "Use Tailwind CSS for layouts. Apply custom colors strictly as CSS variables (--frost-900, etc.) extending Tailwind config.",
+    "Implement routing using react-router-dom.",
+    "For components (forms, inputs), utilize Shadcn UI, customized via Tailwind config.",
+    "Hero section text MUST contrast against the dark background. Use text-white over var(--frost-900) background.",
+    "DO NOT USE INTER FOR HEADINGS. Always use Fraunces for H1, H2, H3.",
+    "Product specification tables must use JetBrains Mono to look highly professional and B2B-focused.",
+    "Build the forms as UI-only (no actual backend logic required).",
+    "Use the exact Unsplash/Pexels image URLs provided in the media section, NEVER use placeholder services like dummyimage.com."
+  ]
+}
