@@ -74,7 +74,17 @@ Build a B2B marketing website for KPR Shrimp Global Ltd based on the provided bu
 - `src/pages/NotFoundPage.jsx` — 404 page
 
 ## Last Updated
-2026-02-12
+2026-02-12 (v2 — homepage redesigned to match spec reference images)
+
+### Homepage v2 Changes
+- Hero redesigned: no background image, pure frost-900 dark navy, compact layout
+- Trust bar: centered dot-separated labels (BRC AA · BAP CERTIFIED · HACCP · EU APPROVED · FSA REGISTERED)
+- Sections now numbered: 01 · PRODUCT RANGE, 02 · WHO WE SERVE, 03 · WHY SPECIALIST MATTERS, 04 · SIZING & SPECIFICATIONS, 05 · SOURCING
+- Product cards: icon-based (Snowflake, Flame, UtensilsCrossed) — no photos
+- Sector cards: icon-based (ShoppingBag, ChefHat, Truck, Factory)
+- Sizing section: COUNT 16/20 | PIECES/KG 35–44 | GLAZE 10–20% | PACK 10×1kg data boxes
+- Lead capture: neon-500 orange bg, email input + dark CTA button
+- Fixed critical Tailwind config bug (duplicate `colors` key overwriting brand tokens)
 
 ## Prioritized Backlog
 
