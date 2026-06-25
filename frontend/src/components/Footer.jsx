@@ -15,6 +15,7 @@ const sectorLinks = [
 const companyLinks = [
   { name: 'About us', to: '/about' },
   { name: 'Sustainability', to: '/sustainability' },
+  { name: 'Resources & Docs', to: '/resources' },
   { name: 'Request a sample', to: '/request-a-sample' },
   { name: 'Contact', to: '/contact' },
 ];

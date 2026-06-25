@@ -74,7 +74,7 @@ Build a B2B marketing website for KPR Shrimp Global Ltd based on the provided bu
 - `src/pages/NotFoundPage.jsx` — 404 page
 
 ## Last Updated
-2026-02-12 (v4 — About & Sustainability pages added; 11 unique product variant images)
+2026-02-12 (v5 — Resources & Downloads page)
 
 ### v3 Site-wide Dark Theme (all sub-pages)
 - All 6 sub-pages migrated from light `ice-100` to dark `frost-900` background

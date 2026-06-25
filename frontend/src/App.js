@@ -11,6 +11,7 @@ import RequestSamplePage from "@/pages/RequestSamplePage";
 import ContactPage from "@/pages/ContactPage";
 import AboutPage from "@/pages/AboutPage";
 import SustainabilityPage from "@/pages/SustainabilityPage";
+import ResourcesPage from "@/pages/ResourcesPage";
 import NotFoundPage from "@/pages/NotFoundPage";
 import "./App.css";
 
@@ -37,6 +38,7 @@ function App() {
             <Route path="/contact" element={<ContactPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/sustainability" element={<SustainabilityPage />} />
+            <Route path="/resources" element={<ResourcesPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>
