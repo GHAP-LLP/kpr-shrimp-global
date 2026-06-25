@@ -2,19 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    margin: 0;
-    font-family:
-        -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-        sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+:root {
+  --frost-900: #1E293B;
+  --frost-700: #475569;
+  --frost-500: #94A3B8;
+  --neon-500: #F97316;
+  --ice-100: #F1F5F9;
+  --ice-300: #E2E8F0;
+  --ink-900: #0F172A;
+  --white: #FFFFFF;
 }
 
-code {
-    font-family:
-        source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--ice-100);
+  color: var(--ink-900);
 }
 
 @layer base {

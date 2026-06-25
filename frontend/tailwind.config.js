@@ -7,6 +7,18 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        frost: { 900: '#1E293B', 700: '#475569', 500: '#94A3B8' },
+        neon: { 500: '#F97316', 600: '#EA580C' },
+        ice: { 100: '#F1F5F9', 300: '#E2E8F0' },
+        ink: { 900: '#0F172A' },
+      },
+      fontFamily: {
+        fraunces: ['Fraunces', 'Georgia', 'serif'],
+        inter: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'Consolas', 'monospace'],
+        sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
