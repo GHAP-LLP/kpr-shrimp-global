@@ -1,34 +1,59 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Snowflake, Flame, UtensilsCrossed } from 'lucide-react';
 import { productCategories, COUNT_SIZES } from '@/data/products';
 import Breadcrumb from '@/components/Breadcrumb';
 
+const CATEGORY_ICONS = {
+  'frozen-raw-shrimp': Snowflake,
+  'cooked-shrimp': Flame,
+  'ready-to-cook': UtensilsCrossed,
+};
+
+function SectionLabel({ number, text }) {
+  return (
+    <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neon-500 font-inter mb-3">
+      {number} · {text}
+    </p>
+  );
+}
+
 export default function ProductsHubPage() {
   return (
-    <div className="bg-ice-100 min-h-screen">
-      <div className="bg-frost-900 py-16">
+    <div className="bg-frost-900 min-h-screen">
+
+      {/* Page header */}
+      <div className="py-16 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumb items={[{ label: 'Products' }]} />
-          <h1 className="font-fraunces text-4xl sm:text-5xl text-white mt-6 mb-3" data-testid="products-hub-h1">Products</h1>
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neon-500 font-inter mt-6 mb-3">KPR Shrimp Global</p>
+          <h1 className="font-fraunces text-4xl sm:text-5xl text-white mb-3" data-testid="products-hub-h1">Products</h1>
           <p className="text-frost-500 text-lg max-w-2xl font-inter">The complete range of frozen and ready-to-cook shrimp. Consistent specification across all 11 variants, supplied from a single-category specialist.</p>
         </div>
       </div>
 
+      {/* 01 Categories */}
       <section className="py-16" data-testid="products-hub">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {productCategories.map(category => (
-              <div key={category.id} className="bg-white border border-ice-300 rounded-xl overflow-hidden" data-testid={`category-card-${category.slug}`}>
-                <img src={category.image} alt={category.name} className="w-full aspect-[4/3] object-cover" />
-                <div className="p-6">
-                  <div className="flex items-center gap-2 mb-3">
-                    <h2 className="font-fraunces text-xl text-ink-900">{category.name}</h2>
-                    <span className="text-xs bg-ice-100 text-frost-700 px-2 py-0.5 rounded-full font-mono ml-auto flex-shrink-0">{category.variantCount} variants</span>
+          <div className="mb-10">
+            <SectionLabel number="01" text="Product Categories" />
+            <h2 className="font-fraunces text-3xl text-white">Three formats. One specialist.</h2>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {productCategories.map(category => {
+              const Icon = CATEGORY_ICONS[category.slug] || Snowflake;
+              return (
+                <div key={category.id} className="bg-white/5 border border-white/10 rounded-xl p-7 hover:bg-white/[0.08] hover:border-white/20 transition-all duration-200" data-testid={`category-card-${category.slug}`}>
+                  <div className="mb-4 text-frost-500">
+                    <Icon size={28} />
                   </div>
-                  <p className="text-sm text-frost-700 leading-relaxed mb-4 font-inter">{category.description}</p>
-                  <ul className="space-y-1.5 mb-5">
+                  <div className="flex items-center gap-2 mb-3">
+                    <h2 className="font-fraunces text-xl text-white">{category.name}</h2>
+                    <span className="text-xs bg-neon-500/20 text-neon-500 px-2 py-0.5 rounded-full font-mono ml-auto flex-shrink-0">{category.variantCount} variants</span>
+                  </div>
+                  <p className="text-sm text-frost-500 leading-relaxed mb-4 font-inter">{category.description}</p>
+                  <ul className="space-y-1.5 mb-6">
                     {category.highlights.map(h => (
-                      <li key={h} className="flex items-center gap-2 text-xs text-frost-700 font-inter">
+                      <li key={h} className="flex items-center gap-2 text-xs text-frost-500 font-inter">
                         <span className="w-1.5 h-1.5 bg-neon-500 rounded-full flex-shrink-0" />
                         {h}
                       </li>
@@ -38,33 +63,37 @@ export default function ProductsHubPage() {
                     View range <ArrowRight size={14} />
                   </Link>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
 
-      <section className="py-16 bg-white" data-testid="sizing-reference">
+      {/* 02 Count Size Reference */}
+      <section className="py-16 border-t border-white/10" data-testid="sizing-reference">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-fraunces text-2xl sm:text-3xl text-ink-900 mb-2">Count size reference</h2>
-          <p className="text-frost-700 mb-8 font-inter">Shrimp count = number of shrimp per pound (lb). Smaller count number = larger shrimp. Available across our frozen raw range.</p>
-          <div className="overflow-x-auto rounded-xl border border-ice-300">
+          <div className="mb-8">
+            <SectionLabel number="02" text="Sizing Reference" />
+            <h2 className="font-fraunces text-3xl text-white mb-2">Count size reference</h2>
+            <p className="text-frost-500 font-inter">Shrimp count = number of shrimp per pound (lb). Smaller count number = larger shrimp. Available across our frozen raw range.</p>
+          </div>
+          <div className="overflow-x-auto rounded-xl border border-white/10">
             <table className="w-full font-mono text-sm" data-testid="sizing-table">
               <thead>
-                <tr className="bg-frost-900 text-white">
-                  <th className="text-left py-3 px-4 text-xs uppercase tracking-wider font-semibold">Count</th>
-                  <th className="text-left py-3 px-4 text-xs uppercase tracking-wider font-semibold">Name</th>
-                  <th className="text-left py-3 px-4 text-xs uppercase tracking-wider font-semibold">Per kg</th>
-                  <th className="text-left py-3 px-4 text-xs uppercase tracking-wider font-semibold hidden sm:table-cell">Typical use</th>
+                <tr className="bg-white/10 border-b border-white/10">
+                  <th className="text-left py-3 px-4 text-xs uppercase tracking-wider font-semibold text-frost-500">Count</th>
+                  <th className="text-left py-3 px-4 text-xs uppercase tracking-wider font-semibold text-frost-500">Name</th>
+                  <th className="text-left py-3 px-4 text-xs uppercase tracking-wider font-semibold text-frost-500">Per kg</th>
+                  <th className="text-left py-3 px-4 text-xs uppercase tracking-wider font-semibold text-frost-500 hidden sm:table-cell">Typical use</th>
                 </tr>
               </thead>
               <tbody>
                 {COUNT_SIZES.map((row, i) => (
-                  <tr key={row.count} className={`border-t border-ice-300 hover:bg-ice-100 transition-colors ${i % 2 === 0 ? 'bg-white' : 'bg-ice-100/40'}`}>
-                    <td className="py-3 px-4 text-ink-900 font-semibold">{row.count}</td>
-                    <td className="py-3 px-4 text-ink-900">{row.name}</td>
-                    <td className="py-3 px-4 text-frost-700">{row.perKg}</td>
-                    <td className="py-3 px-4 text-frost-700 hidden sm:table-cell">{row.typicalUse}</td>
+                  <tr key={row.count} className={`border-t border-white/5 hover:bg-white/5 transition-colors ${i % 2 === 0 ? 'bg-transparent' : 'bg-white/[0.03]'}`}>
+                    <td className="py-3 px-4 text-white font-semibold">{row.count}</td>
+                    <td className="py-3 px-4 text-white">{row.name}</td>
+                    <td className="py-3 px-4 text-frost-500">{row.perKg}</td>
+                    <td className="py-3 px-4 text-frost-500 hidden sm:table-cell">{row.typicalUse}</td>
                   </tr>
                 ))}
               </tbody>
@@ -72,6 +101,19 @@ export default function ProductsHubPage() {
           </div>
         </div>
       </section>
+
+      {/* CTA Strip */}
+      <section className="py-16 bg-neon-500">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="font-fraunces text-3xl text-white mb-3">Get a sample on your bench.</h2>
+          <p className="text-white/80 mb-8 font-inter">Tell us your sector and the spec you're benchmarking. We'll ship samples within 5 working days.</p>
+          <Link to="/request-a-sample"
+            className="inline-flex items-center gap-2 px-8 py-3.5 bg-frost-900 hover:bg-ink-900 text-white font-medium rounded-md transition-colors font-inter">
+            Request a sample <ArrowRight size={14} />
+          </Link>
+        </div>
+      </section>
+
     </div>
   );
 }

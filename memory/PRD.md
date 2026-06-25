@@ -74,7 +74,17 @@ Build a B2B marketing website for KPR Shrimp Global Ltd based on the provided bu
 - `src/pages/NotFoundPage.jsx` — 404 page
 
 ## Last Updated
-2026-02-12 (v2 — homepage redesigned to match spec reference images)
+2026-02-12 (v3 — full site-wide dark theme applied to all sub-pages)
+
+### v3 Site-wide Dark Theme (all sub-pages)
+- All 6 sub-pages migrated from light `ice-100` to dark `frost-900` background
+- Cards: `bg-white/5 border-white/10` dark glass surface on all pages
+- Tables: dark alternating rows (`bg-transparent` / `bg-white/[0.03]`), `bg-white/10` header
+- Forms: dark inputs (`bg-white/10 border-white/20 text-white placeholder-frost-500`)
+- Sector buttons: `bg-neon-500` selected, `bg-white/5` unselected
+- CTA sidebar: `bg-neon-500` card with `bg-frost-900` primary button
+- Pages updated: `ProductsHubPage`, `ProductHubPage`, `ProductVariantPage`, `SectorPage`, `ContactPage`, `RequestSamplePage`
+- Numbered section labels (`SectionLabel`) added to all sub-pages
 
 ### Homepage v2 Changes
 - Hero redesigned: no background image, pure frost-900 dark navy, compact layout
