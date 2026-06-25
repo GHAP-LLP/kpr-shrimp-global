@@ -1,7 +1,22 @@
 export const IMG = {
-  frozenRaw: "https://images.unsplash.com/photo-1756364084889-9a8d9ece6112?crop=entropy&cs=srgb&fm=jpg&q=85&w=900",
-  cooked: "https://images.unsplash.com/photo-1550951791-cbf1ff280109?crop=entropy&cs=srgb&fm=jpg&q=85&w=900",
-  readyToCook: "https://images.unsplash.com/photo-1579887829114-282b4fa31072?crop=entropy&cs=srgb&fm=jpg&q=85&w=900",
+  // Category hero images
+  frozenRaw: "https://images.pexels.com/photos/14062144/pexels-photo-14062144.jpeg?auto=compress&cs=tinysrgb&w=900",
+  cooked: "https://images.unsplash.com/photo-1691201659377-978b28daa417?crop=entropy&cs=srgb&fm=jpg&q=85&w=900",
+  readyToCook: "https://images.pexels.com/photos/8953713/pexels-photo-8953713.jpeg?auto=compress&cs=tinysrgb&w=900",
+  // Frozen Raw variants
+  hoso: "https://images.unsplash.com/photo-1548587468-971ebe4c8c3b?crop=entropy&cs=srgb&fm=jpg&q=85&w=900",
+  hlso: "https://images.pexels.com/photos/32685291/pexels-photo-32685291.jpeg?auto=compress&cs=tinysrgb&w=900",
+  pd: "https://images.pexels.com/photos/21771250/pexels-photo-21771250.jpeg?auto=compress&cs=tinysrgb&w=900",
+  pud: "https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?crop=entropy&cs=srgb&fm=jpg&q=85&w=900",
+  ezpeel: "https://images.pexels.com/photos/9222008/pexels-photo-9222008.jpeg?auto=compress&cs=tinysrgb&w=900",
+  // Cooked variants
+  cookedPD: "https://images.unsplash.com/photo-1691201659377-978b28daa417?crop=entropy&cs=srgb&fm=jpg&q=85&w=900",
+  cookedHLSO: "https://images.pexels.com/photos/6372957/pexels-photo-6372957.jpeg?auto=compress&cs=tinysrgb&w=900",
+  // Ready-to-Cook variants
+  tempura: "https://images.pexels.com/photos/32967532/pexels-photo-32967532.jpeg?auto=compress&cs=tinysrgb&w=900",
+  breaded: "https://images.unsplash.com/photo-1750680229991-726754d4d58b?crop=entropy&cs=srgb&fm=jpg&q=85&w=900",
+  marinated: "https://images.unsplash.com/photo-1625943553852-781c6dd46faa?crop=entropy&cs=srgb&fm=jpg&q=85&w=900",
+  skewers: "https://images.pexels.com/photos/8250276/pexels-photo-8250276.jpeg?auto=compress&cs=tinysrgb&w=900",
 };
 
 export const COUNT_SIZES = [
@@ -29,7 +44,7 @@ export const productCategories = [
       {
         id: "hoso", slug: "hoso", name: "HOSO", fullName: "Head-On Shell-On",
         description: "Head-on, shell-on shrimp in natural whole form. Preferred for presentations where visual impact matters, and for markets where head-on weight is valued. Ideal for Asian cuisine, whole-shrimp dishes, and foodservice presentations.",
-        image: IMG.frozenRaw,
+        image: IMG.hoso,
         specs: {
           species: "Litopenaeus vannamei (Whiteleg shrimp)",
           form: "IQF frozen / Block frozen",
@@ -46,7 +61,7 @@ export const productCategories = [
       {
         id: "hlso", slug: "hlso", name: "HLSO", fullName: "Headless Shell-On",
         description: "Headless, shell-on shrimp — the most widely traded frozen shrimp format globally. Shell-on provides protection during cooking and retains moisture and flavour. Preferred for grilling, BBQ, and dishes where shell removal at the table is acceptable.",
-        image: IMG.frozenRaw,
+        image: IMG.hlso,
         specs: {
           species: "Litopenaeus vannamei (Whiteleg shrimp)",
           form: "IQF frozen / Block frozen",
@@ -63,7 +78,7 @@ export const productCategories = [
       {
         id: "peeled-deveined", slug: "peeled-deveined", name: "PD", fullName: "Peeled & Deveined",
         description: "Fully peeled and deveined shrimp — the most operationally convenient format for professional kitchens. No shell removal, no vein to clean. Ready to cook directly from frozen or after a brief thaw. The default choice for most foodservice and food manufacturing applications.",
-        image: IMG.frozenRaw,
+        image: IMG.pd,
         specs: {
           species: "Litopenaeus vannamei (Whiteleg shrimp)",
           form: "IQF frozen",
@@ -80,7 +95,7 @@ export const productCategories = [
       {
         id: "peeled-undeveined", slug: "peeled-undeveined", name: "PUD", fullName: "Peeled Undeveined",
         description: "Peeled but not deveined — a cost-efficient option for applications where the vein is not a visual concern, typically large-batch processing and manufacturing. Often used as an ingredient in processed foods, pastes, and fillings.",
-        image: IMG.frozenRaw,
+        image: IMG.pud,
         specs: {
           species: "Litopenaeus vannamei (Whiteleg shrimp)",
           form: "IQF frozen / Block frozen",
@@ -97,7 +112,7 @@ export const productCategories = [
       {
         id: "ez-peel", slug: "ez-peel", name: "EZ-peel", fullName: "Easy Peel (Shell-on, Deveined)",
         description: "Shell-on with the vein removed and a split cut along the back. Combines the flavour and presentation benefits of shell-on shrimp with the convenience of easy shell removal. Popular in foodservice for grilled shrimp dishes.",
-        image: IMG.frozenRaw,
+        image: IMG.ezpeel,
         specs: {
           species: "Litopenaeus vannamei (Whiteleg shrimp)",
           form: "IQF frozen",
@@ -126,7 +141,7 @@ export const productCategories = [
       {
         id: "iqf-cooked-pd", slug: "iqf-cooked-pd", name: "IQF Cooked PD", fullName: "IQF Cooked Peeled & Deveined",
         description: "Individually quick frozen, fully cooked, peeled and deveined shrimp. Simply thaw and serve. Ideal for prawn cocktail, salads, sandwiches, and ready meal finishing.",
-        image: IMG.cooked,
+        image: IMG.cookedPD,
         specs: {
           species: "Litopenaeus vannamei (Whiteleg shrimp)",
           form: "IQF frozen (fully cooked)",
@@ -143,7 +158,7 @@ export const productCategories = [
       {
         id: "iqf-cooked-hlso", slug: "iqf-cooked-hlso", name: "IQF Cooked HLSO", fullName: "IQF Cooked Headless Shell-On",
         description: "Cooked, headless, shell-on shrimp, IQF frozen. The shell-on format retains moisture better through freeze-thaw cycles and offers a higher-quality thawed texture. Ideal for seafood platters and premium retail.",
-        image: IMG.cooked,
+        image: IMG.cookedHLSO,
         specs: {
           species: "Litopenaeus vannamei (Whiteleg shrimp)",
           form: "IQF frozen (fully cooked)",
@@ -189,7 +204,7 @@ export const productCategories = [
       {
         id: "breaded", slug: "breaded", name: "Breaded", fullName: "Breadcrumb Coated Shrimp",
         description: "Shrimp coated in golden breadcrumbs, delivering substantial crispy texture. Available in scampi-style (HLSO, natural shape) and butterfly (PD, butterflied). Both cook from frozen in under 5 minutes.",
-        image: IMG.readyToCook,
+        image: IMG.breaded,
         specs: {
           species: "Litopenaeus vannamei (Whiteleg shrimp)",
           form: "IQF frozen, breadcrumb coated",
@@ -206,7 +221,7 @@ export const productCategories = [
       {
         id: "marinated", slug: "marinated", name: "Marinated", fullName: "Marinated & Seasoned Shrimp",
         description: "PD or EZ-peel shrimp pre-marinated in seasoned blends for direct cooking. Removes menu development and kitchen prep time. Available in garlic butter, lemon herb, chilli lime, and plain (unseasoned) variants.",
-        image: IMG.readyToCook,
+        image: IMG.marinated,
         specs: {
           species: "Litopenaeus vannamei (Whiteleg shrimp)",
           form: "IQF frozen, marinated",
@@ -222,7 +237,7 @@ export const productCategories = [
       {
         id: "shrimp-skewers", slug: "shrimp-skewers", name: "Skewers", fullName: "Shrimp on Skewers",
         description: "PD or EZ-peel shrimp, threaded on bamboo skewers, IQF frozen. Ready to grill, griddle, or oven-bake directly. A high-margin, visually appealing product for restaurant menus and retail summer ranges.",
-        image: IMG.readyToCook,
+        image: IMG.skewers,
         specs: {
           species: "Litopenaeus vannamei (Whiteleg shrimp)",
           form: "IQF frozen, skewered",

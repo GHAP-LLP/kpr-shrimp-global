@@ -14,6 +14,11 @@ const NAV_SECTORS = [
   { name: 'Wholesale Distributors', to: '/sectors/wholesale-distributors' },
   { name: 'Retail Private Label', to: '/sectors/retail-private-label' },
 ];
+const NAV_COMPANY = [
+  { name: 'About us', to: '/about' },
+  { name: 'Sustainability', to: '/sustainability' },
+  { name: 'Contact', to: '/contact' },
+];
 
 function Dropdown({ items, isOpen }) {
   if (!isOpen) return null;
@@ -32,12 +37,14 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [productsOpen, setProductsOpen] = useState(false);
   const [sectorsOpen, setSectorsOpen] = useState(false);
+  const [companyOpen, setCompanyOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
     setMobileOpen(false);
     setProductsOpen(false);
     setSectorsOpen(false);
+    setCompanyOpen(false);
   }, [location.pathname]);
 
   return (
@@ -67,9 +74,12 @@ export default function Navbar() {
               </button>
               <Dropdown items={NAV_SECTORS} isOpen={sectorsOpen} />
             </div>
-            <Link to="/contact" className="text-sm text-ink-900 hover:text-neon-500 font-medium transition-colors" data-testid="nav-contact">
-              Contact
-            </Link>
+            <div className="relative" onMouseEnter={() => setCompanyOpen(true)} onMouseLeave={() => setCompanyOpen(false)}>
+              <button className="flex items-center gap-1 text-sm text-ink-900 hover:text-neon-500 font-medium transition-colors py-2" data-testid="nav-company-btn">
+                Company <ChevronDown size={14} className={`transition-transform ${companyOpen ? 'rotate-180' : ''}`} />
+              </button>
+              <Dropdown items={NAV_COMPANY} isOpen={companyOpen} />
+            </div>
           </div>
 
           <div className="flex items-center gap-3">
@@ -94,11 +104,13 @@ export default function Navbar() {
             {NAV_SECTORS.map(item => (
               <Link key={item.to} to={item.to} className="block py-2 text-sm text-ink-900 hover:text-neon-500 transition-colors border-b border-ice-300/50 last:border-0">{item.name}</Link>
             ))}
+            <p className="text-xs font-semibold uppercase tracking-widest text-frost-500 pb-2 pt-5">Company</p>
+            {NAV_COMPANY.map(item => (
+              <Link key={item.to} to={item.to} className="block py-2 text-sm text-ink-900 hover:text-neon-500 transition-colors border-b border-ice-300/50 last:border-0">{item.name}</Link>
+            ))}
             <div className="pt-5">
-              <Link to="/contact" className="block py-2 text-sm text-ink-900 hover:text-neon-500 border-b border-ice-300/50">Contact</Link>
               <Link to="/request-a-sample" className="mt-4 block w-full text-center px-4 py-3 bg-neon-500 text-white text-sm font-medium rounded-md hover:bg-neon-600 transition-colors">Request a sample</Link>
-            </div>
-          </div>
+            </div>          </div>
         </div>
       )}
     </nav>

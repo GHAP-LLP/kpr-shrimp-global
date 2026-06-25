@@ -13,6 +13,8 @@ const sectorLinks = [
   { name: 'Retail Private Label', to: '/sectors/retail-private-label' },
 ];
 const companyLinks = [
+  { name: 'About us', to: '/about' },
+  { name: 'Sustainability', to: '/sustainability' },
   { name: 'Request a sample', to: '/request-a-sample' },
   { name: 'Contact', to: '/contact' },
 ];

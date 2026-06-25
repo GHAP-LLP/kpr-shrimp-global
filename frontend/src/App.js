@@ -9,6 +9,8 @@ import ProductVariantPage from "@/pages/ProductVariantPage";
 import SectorPage from "@/pages/SectorPage";
 import RequestSamplePage from "@/pages/RequestSamplePage";
 import ContactPage from "@/pages/ContactPage";
+import AboutPage from "@/pages/AboutPage";
+import SustainabilityPage from "@/pages/SustainabilityPage";
 import NotFoundPage from "@/pages/NotFoundPage";
 import "./App.css";
 
@@ -33,6 +35,8 @@ function App() {
             <Route path="/sectors/:sector" element={<SectorPage />} />
             <Route path="/request-a-sample" element={<RequestSamplePage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/sustainability" element={<SustainabilityPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>

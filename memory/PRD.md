@@ -74,7 +74,7 @@ Build a B2B marketing website for KPR Shrimp Global Ltd based on the provided bu
 - `src/pages/NotFoundPage.jsx` — 404 page
 
 ## Last Updated
-2026-02-12 (v3 — full site-wide dark theme applied to all sub-pages)
+2026-02-12 (v4 — About & Sustainability pages added; 11 unique product variant images)
 
 ### v3 Site-wide Dark Theme (all sub-pages)
 - All 6 sub-pages migrated from light `ice-100` to dark `frost-900` background
@@ -99,9 +99,11 @@ Build a B2B marketing website for KPR Shrimp Global Ltd based on the provided bu
 ## Prioritized Backlog
 
 ### P0 (Critical — Phase 3)
-- [ ] Individual product variant pages (e.g., /products/cooked-shrimp/iqf-cooked-pd) — already routed, data present
-- [ ] About page (/about)
-- [ ] Sustainability page (/sustainability)
+- [x] About page (/about) — company story, stats, sourcing, certifications
+- [x] Sustainability page (/sustainability) — cert roadmap, commitments, practices, documentation
+- [x] Unique product variant images across all 11 variants
+- [ ] Resources / Downloads page (spec sheets, CoA, datasheets)
+- [ ] Quote request form (separate from sample)
 
 ### P1 (Important)
 - [ ] Resources / Downloads page (spec sheets, CoA, datasheets)
