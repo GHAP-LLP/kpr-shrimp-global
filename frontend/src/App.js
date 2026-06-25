@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { HelmetProvider } from "react-helmet-async";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import HomePage from "@/pages/HomePage";
@@ -23,7 +24,8 @@ function ScrollToTop() {
 
 function App() {
   return (
-    <BrowserRouter>
+    <HelmetProvider>
+      <BrowserRouter>
       <ScrollToTop />
       <div className="min-h-screen flex flex-col bg-ice-100">
         <Navbar />
@@ -44,7 +46,8 @@ function App() {
         </main>
         <Footer />
       </div>
-    </BrowserRouter>
+      </BrowserRouter>
+    </HelmetProvider>
   );
 }
 

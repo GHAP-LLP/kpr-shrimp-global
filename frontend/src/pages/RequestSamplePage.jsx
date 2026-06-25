@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { CheckCircle } from 'lucide-react';
 import Breadcrumb from '@/components/Breadcrumb';
 import { productCategories } from '@/data/products';
+import SEO from '@/components/SEO';
 
 const SECTORS = ["Foodservice / HORECA", "Food Manufacturer", "Wholesale / Distributor", "Retail / Private Label", "Other"];
 
@@ -42,6 +43,11 @@ export default function RequestSamplePage() {
       {/* Header */}
       <div className="py-16 border-b border-white/10">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SEO
+            title="Request a Sample"
+            description="Request frozen shrimp samples from KPR Shrimp Global. Tell us your sector and the products you want to assess — we'll arrange samples within 5 working days."
+            path="/request-a-sample"
+          />
           <Breadcrumb items={[{ label: 'Request a sample' }]} />
           <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neon-500 font-inter mt-6 mb-3">KPR Shrimp Global</p>
           <h1 className="font-fraunces text-4xl text-white mb-3" data-testid="sample-h1">Request a sample</h1>

@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Target, MapPin, Users, Snowflake, Award, TrendingUp } from 'lucide-react';
+import SEO from '@/components/SEO';
+import { FadeUp, FadeUpGrid, FadeUpItem } from '@/components/FadeUp';
 
 const FARM_IMG = "https://images.unsplash.com/photo-1611119260234-521fc340d9c4?crop=entropy&cs=srgb&fm=jpg&q=85&w=1200";
 const FISHING_IMG = "https://images.unsplash.com/photo-1761529729790-b3cdcc25fe24?crop=entropy&cs=srgb&fm=jpg&q=85&w=900";
@@ -49,6 +51,11 @@ export default function AboutPage() {
       {/* Header */}
       <div className="py-20 md:py-28 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SEO
+            title="About Us"
+            description="KPR Shrimp Global Ltd is a UK-registered specialist importer backed by Green House Agro Products, Nellore. Single-category shrimp focus, full traceability, sterling pricing."
+            path="/about"
+          />
           <p className="text-xs font-semibold tracking-[0.25em] uppercase text-neon-500 font-inter mb-6">KPR Shrimp Global</p>
           <h1 className="font-fraunces text-5xl sm:text-6xl lg:text-7xl text-white font-normal leading-[1.05] mb-6 max-w-4xl" data-testid="about-h1">
             The UK's specialist shrimp supplier.
@@ -62,14 +69,16 @@ export default function AboutPage() {
       {/* Stats strip */}
       <section className="py-12 border-b border-white/10" data-testid="about-stats">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+          <FadeUpGrid className="grid grid-cols-2 sm:grid-cols-4 gap-6">
             {STATS.map(stat => (
-              <div key={stat.label} className="text-center">
-                <div className="font-fraunces text-4xl text-white mb-1">{stat.value}</div>
-                <div className="text-xs uppercase tracking-widest text-frost-500 font-inter">{stat.label}</div>
-              </div>
+              <FadeUpItem key={stat.label}>
+                <div className="text-center">
+                  <div className="font-fraunces text-4xl text-white mb-1">{stat.value}</div>
+                  <div className="text-xs uppercase tracking-widest text-frost-500 font-inter">{stat.label}</div>
+                </div>
+              </FadeUpItem>
             ))}
-          </div>
+          </FadeUpGrid>
         </div>
       </section>
 
@@ -94,23 +103,25 @@ export default function AboutPage() {
       {/* 02 — Why single-category */}
       <section className="py-16 md:py-24 border-t border-white/10" data-testid="about-pillars">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-12">
+          <FadeUp className="mb-12">
             <SectionLabel number="02" text="The KPR Difference" />
             <h2 className="font-fraunces text-3xl sm:text-4xl text-white max-w-2xl">Why single-category focus produces better outcomes for buyers.</h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+          </FadeUp>
+          <FadeUpGrid className="grid grid-cols-1 sm:grid-cols-2 gap-8">
             {PILLARS.map(pillar => (
-              <div key={pillar.title} className="flex items-start gap-4" data-testid={`pillar-${pillar.title.split(' ')[0].toLowerCase()}`}>
-                <div className="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <pillar.icon size={18} className="text-neon-500" />
+              <FadeUpItem key={pillar.title}>
+                <div className="flex items-start gap-4" data-testid={`pillar-${pillar.title.split(' ')[0].toLowerCase()}`}>
+                  <div className="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <pillar.icon size={18} className="text-neon-500" />
+                  </div>
+                  <div>
+                    <h3 className="font-fraunces text-lg text-white mb-2">{pillar.title}</h3>
+                    <p className="text-sm text-frost-500 leading-relaxed font-inter">{pillar.desc}</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-fraunces text-lg text-white mb-2">{pillar.title}</h3>
-                  <p className="text-sm text-frost-500 leading-relaxed font-inter">{pillar.desc}</p>
-                </div>
-              </div>
+              </FadeUpItem>
             ))}
-          </div>
+          </FadeUpGrid>
         </div>
       </section>
 
@@ -138,12 +149,12 @@ export default function AboutPage() {
       {/* 04 — Certifications */}
       <section className="py-16 border-t border-white/10" data-testid="about-certs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-10">
+          <FadeUp className="mb-10">
             <SectionLabel number="04" text="Certifications" />
             <h2 className="font-fraunces text-3xl text-white mb-3">Standards we hold and work towards.</h2>
             <p className="text-frost-500 font-inter max-w-2xl">Our supply chain is built to meet the documentation and certification requirements of UK retail and foodservice buyers.</p>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+          </FadeUp>
+          <FadeUpGrid className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
             {[
               { name: "BRC AA", status: "Working towards", icon: Award },
               { name: "BAP Certified", status: "Working towards", icon: Award },
@@ -151,13 +162,15 @@ export default function AboutPage() {
               { name: "EU Approved", status: "In place", icon: Award },
               { name: "FSA Registered", status: "In place", icon: Award },
             ].map(cert => (
-              <div key={cert.name} className="bg-white/5 border border-white/10 rounded-xl p-4 text-center" data-testid={`cert-${cert.name.toLowerCase().replace(/ /g, '-')}`}>
-                <Award size={20} className="text-neon-500 mx-auto mb-3" />
-                <p className="font-inter font-semibold text-white text-sm mb-1">{cert.name}</p>
-                <p className="text-xs text-frost-500 font-inter">{cert.status}</p>
-              </div>
+              <FadeUpItem key={cert.name}>
+                <div className="bg-white/5 border border-white/10 rounded-xl p-4 text-center" data-testid={`cert-${cert.name.toLowerCase().replace(/ /g, '-')}`}>
+                  <Award size={20} className="text-neon-500 mx-auto mb-3" />
+                  <p className="font-inter font-semibold text-white text-sm mb-1">{cert.name}</p>
+                  <p className="text-xs text-frost-500 font-inter">{cert.status}</p>
+                </div>
+              </FadeUpItem>
             ))}
-          </div>
+          </FadeUpGrid>
         </div>
       </section>
 

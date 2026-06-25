@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Leaf, Shield, Eye, Thermometer, CheckCircle, Clock } from 'lucide-react';
+import SEO from '@/components/SEO';
+import { FadeUp, FadeUpGrid, FadeUpItem } from '@/components/FadeUp';
 
 const FARM_IMG = "https://images.unsplash.com/photo-1611119260234-521fc340d9c4?crop=entropy&cs=srgb&fm=jpg&q=85&w=1200";
 const FISHING_IMG = "https://images.unsplash.com/photo-1761529729790-b3cdcc25fe24?crop=entropy&cs=srgb&fm=jpg&q=85&w=900";
@@ -62,6 +64,11 @@ export default function SustainabilityPage() {
         <img src={FARM_IMG} alt="Aquaculture facility" className="absolute inset-0 w-full h-full object-cover opacity-10" />
         <div className="absolute inset-0 bg-frost-900/80" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SEO
+            title="Sustainability"
+            description="KPR Shrimp Global's commitment to responsible aquaculture, lot-level traceability, unbroken cold chain, and certification. HACCP in place, working towards BAP and BRC AA."
+            path="/sustainability"
+          />
           <p className="text-xs font-semibold tracking-[0.25em] uppercase text-neon-500 font-inter mb-6">Responsible Sourcing</p>
           <h1 className="font-fraunces text-5xl sm:text-6xl lg:text-7xl text-white font-normal leading-[1.05] mb-6 max-w-4xl" data-testid="sustainability-h1">
             Supply chain integrity, from farm to UK warehouse.
@@ -75,60 +82,64 @@ export default function SustainabilityPage() {
       {/* 01 — Certification roadmap */}
       <section className="py-16 md:py-24" data-testid="cert-roadmap">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-12">
+          <FadeUp className="mb-12">
             <SectionLabel number="01" text="Certification Roadmap" />
             <h2 className="font-fraunces text-3xl sm:text-4xl text-white mb-3">Standards we hold and are actively pursuing.</h2>
             <p className="text-frost-500 font-inter max-w-2xl">Certification is a process, not a moment. Here is exactly where we stand — and what we are working towards.</p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          </FadeUp>
+          <FadeUpGrid className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {CERT_ROADMAP.map(cert => (
-              <div key={cert.name} className="bg-white/5 border border-white/10 rounded-xl p-5" data-testid={`cert-${cert.name.toLowerCase().replace(/ /g, '-')}`}>
-                <div className="flex items-start gap-3 mb-3">
-                  {cert.status === 'active' ? (
-                    <CheckCircle size={18} className="text-neon-500 flex-shrink-0 mt-0.5" />
-                  ) : (
-                    <Clock size={18} className="text-frost-500 flex-shrink-0 mt-0.5" />
-                  )}
-                  <div>
-                    <div className="flex items-center gap-2 mb-1">
-                      <h3 className="font-inter font-semibold text-white text-sm">{cert.name}</h3>
-                      <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded uppercase tracking-wider ${
-                        cert.status === 'active'
-                          ? 'bg-neon-500/20 text-neon-500'
-                          : 'bg-white/10 text-frost-500'
-                      }`}>
-                        {cert.status === 'active' ? 'In place' : 'In progress'}
-                      </span>
+              <FadeUpItem key={cert.name}>
+                <div className="bg-white/5 border border-white/10 rounded-xl p-5 h-full" data-testid={`cert-${cert.name.toLowerCase().replace(/ /g, '-')}`}>
+                  <div className="flex items-start gap-3 mb-3">
+                    {cert.status === 'active' ? (
+                      <CheckCircle size={18} className="text-neon-500 flex-shrink-0 mt-0.5" />
+                    ) : (
+                      <Clock size={18} className="text-frost-500 flex-shrink-0 mt-0.5" />
+                    )}
+                    <div>
+                      <div className="flex items-center gap-2 mb-1">
+                        <h3 className="font-inter font-semibold text-white text-sm">{cert.name}</h3>
+                        <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded uppercase tracking-wider ${
+                          cert.status === 'active'
+                            ? 'bg-neon-500/20 text-neon-500'
+                            : 'bg-white/10 text-frost-500'
+                        }`}>
+                          {cert.status === 'active' ? 'In place' : 'In progress'}
+                        </span>
+                      </div>
+                      <p className="text-xs text-frost-500 leading-relaxed font-inter">{cert.desc}</p>
                     </div>
-                    <p className="text-xs text-frost-500 leading-relaxed font-inter">{cert.desc}</p>
                   </div>
                 </div>
-              </div>
+              </FadeUpItem>
             ))}
-          </div>
+          </FadeUpGrid>
         </div>
       </section>
 
       {/* 02 — Our commitments */}
       <section className="py-16 md:py-24 border-t border-white/10" data-testid="commitments">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-12">
+          <FadeUp className="mb-12">
             <SectionLabel number="02" text="Our Commitments" />
             <h2 className="font-fraunces text-3xl sm:text-4xl text-white">What we guarantee on every shipment.</h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+          </FadeUp>
+          <FadeUpGrid className="grid grid-cols-1 sm:grid-cols-2 gap-8">
             {COMMITMENTS.map(item => (
-              <div key={item.title} className="flex items-start gap-4" data-testid={`commitment-${item.title.split(' ')[0].toLowerCase()}`}>
-                <div className="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <item.icon size={18} className="text-neon-500" />
+              <FadeUpItem key={item.title}>
+                <div className="flex items-start gap-4" data-testid={`commitment-${item.title.split(' ')[0].toLowerCase()}`}>
+                  <div className="w-10 h-10 bg-white/5 border border-white/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                    <item.icon size={18} className="text-neon-500" />
+                  </div>
+                  <div>
+                    <h3 className="font-fraunces text-lg text-white mb-2">{item.title}</h3>
+                    <p className="text-sm text-frost-500 leading-relaxed font-inter">{item.desc}</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-fraunces text-lg text-white mb-2">{item.title}</h3>
-                  <p className="text-sm text-frost-500 leading-relaxed font-inter">{item.desc}</p>
-                </div>
-              </div>
+              </FadeUpItem>
             ))}
-          </div>
+          </FadeUpGrid>
         </div>
       </section>
 

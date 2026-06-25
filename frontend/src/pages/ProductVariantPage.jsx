@@ -2,6 +2,8 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { getCategoryBySlug, getVariantBySlug } from '@/data/products';
 import Breadcrumb from '@/components/Breadcrumb';
+import SEO from '@/components/SEO';
+import { FadeUp } from '@/components/FadeUp';
 
 function SectionLabel({ number, text }) {
   return (
@@ -50,6 +52,12 @@ export default function ProductVariantPage() {
       {/* Header */}
       <div className="py-16 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SEO
+            title={variant.fullName}
+            description={`${variant.fullName} frozen shrimp from KPR Shrimp Global. ${variant.description.split('.')[0]}.`}
+            path={`/products/${categorySlug}/${variantSlug}`}
+            image={variant.image}
+          />
           <Breadcrumb items={[
             { label: 'Products', to: '/products' },
             { label: category.name, to: `/products/${categorySlug}` },

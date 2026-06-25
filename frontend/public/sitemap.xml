@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Core pages -->
+  <url><loc>https://www.kprshrimpglobal.com/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://www.kprshrimpglobal.com/products</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://www.kprshrimpglobal.com/about</loc><changefreq>yearly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.kprshrimpglobal.com/sustainability</loc><changefreq>yearly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.kprshrimpglobal.com/resources</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.kprshrimpglobal.com/request-a-sample</loc><changefreq>yearly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.kprshrimpglobal.com/contact</loc><changefreq>yearly</changefreq><priority>0.6</priority></url>
+
+  <!-- Product category hubs -->
+  <url><loc>https://www.kprshrimpglobal.com/products/frozen-raw-shrimp</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.kprshrimpglobal.com/products/cooked-shrimp</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://www.kprshrimpglobal.com/products/ready-to-cook</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+
+  <!-- Frozen Raw variants -->
+  <url><loc>https://www.kprshrimpglobal.com/products/frozen-raw-shrimp/hoso</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.kprshrimpglobal.com/products/frozen-raw-shrimp/hlso</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.kprshrimpglobal.com/products/frozen-raw-shrimp/peeled-deveined</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.kprshrimpglobal.com/products/frozen-raw-shrimp/peeled-undeveined</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.kprshrimpglobal.com/products/frozen-raw-shrimp/ez-peel</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Cooked variants -->
+  <url><loc>https://www.kprshrimpglobal.com/products/cooked-shrimp/iqf-cooked-pd</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.kprshrimpglobal.com/products/cooked-shrimp/iqf-cooked-hlso</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Ready-to-Cook variants -->
+  <url><loc>https://www.kprshrimpglobal.com/products/ready-to-cook/tempura-battered</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.kprshrimpglobal.com/products/ready-to-cook/breaded</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.kprshrimpglobal.com/products/ready-to-cook/marinated</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.kprshrimpglobal.com/products/ready-to-cook/shrimp-skewers</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Sectors -->
+  <url><loc>https://www.kprshrimpglobal.com/sectors/foodservice-horeca</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.kprshrimpglobal.com/sectors/food-manufacturers</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.kprshrimpglobal.com/sectors/wholesale-distributors</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.kprshrimpglobal.com/sectors/retail-private-label</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+</urlset>

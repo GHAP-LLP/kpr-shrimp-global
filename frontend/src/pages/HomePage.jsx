@@ -1,5 +1,10 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Snowflake, Flame, UtensilsCrossed, ShoppingBag, ChefHat, Truck, Factory, Target, MapPin, Users } from 'lucide-react';
+import { motion } from 'framer-motion';
+import SEO from '@/components/SEO';
+import { FadeUp, FadeUpGrid, FadeUpItem } from '@/components/FadeUp';
+
+const EASE = [0.22, 1, 0.36, 1];
 
 // ─── Reusable section label ───────────────────────────────────────────────────
 function SectionLabel({ number, text }) {
@@ -15,7 +20,12 @@ function HeroSection() {
   return (
     <section className="bg-frost-900 py-20 md:py-28" data-testid="hero-section">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl">
+        <motion.div
+          className="max-w-3xl"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: EASE }}
+        >
           <p className="text-xs font-semibold tracking-[0.25em] uppercase text-neon-500 font-inter mb-6" data-testid="hero-eyebrow">
             Specialist Shrimp · UK Supply
           </p>
@@ -37,7 +47,7 @@ function HeroSection() {
               Download catalogue
             </Link>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
@@ -83,7 +93,7 @@ function ProductRangeSection() {
   return (
     <section className="py-16 md:py-24 bg-white" data-testid="product-range-section">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+        <FadeUp className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
           <div>
             <SectionLabel number="01" text="Product Range" />
             <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900">Three formats. One specialist.</h2>
@@ -91,23 +101,25 @@ function ProductRangeSection() {
           <Link to="/products" className="flex items-center gap-2 text-sm text-frost-700 hover:text-neon-500 font-medium transition-colors whitespace-nowrap font-inter">
             View all <ArrowRight size={14} />
           </Link>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+        </FadeUp>
+        <FadeUpGrid className="grid grid-cols-1 sm:grid-cols-3 gap-5">
           {PRODUCT_CARDS.map(card => (
-            <Link key={card.name} to={card.to}
-              className="group bg-ice-100 border border-ice-300 rounded-xl p-7 hover:border-frost-500 hover:bg-white hover:-translate-y-0.5 hover:shadow-sm transition-all duration-200"
-              data-testid={`product-card-${card.name.toLowerCase().replace(/ /g, '-')}`}>
-              <div className="mb-4 text-frost-500 group-hover:text-neon-500 transition-colors">
-                <card.icon size={28} />
-              </div>
-              <h3 className="font-fraunces text-xl text-ink-900 mb-2">{card.name}</h3>
-              <p className="text-sm text-frost-700 leading-relaxed font-inter">{card.desc}</p>
-              <div className="mt-5 flex items-center gap-1 text-neon-500 text-xs font-semibold font-inter uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
-                View range <ArrowRight size={12} />
-              </div>
-            </Link>
+            <FadeUpItem key={card.name}>
+              <Link to={card.to}
+                className="group bg-ice-100 border border-ice-300 rounded-xl p-7 hover:border-frost-500 hover:bg-white hover:-translate-y-0.5 hover:shadow-sm transition-all duration-200 block h-full"
+                data-testid={`product-card-${card.name.toLowerCase().replace(/ /g, '-')}`}>
+                <div className="mb-4 text-frost-500 group-hover:text-neon-500 transition-colors">
+                  <card.icon size={28} />
+                </div>
+                <h3 className="font-fraunces text-xl text-ink-900 mb-2">{card.name}</h3>
+                <p className="text-sm text-frost-700 leading-relaxed font-inter">{card.desc}</p>
+                <div className="mt-5 flex items-center gap-1 text-neon-500 text-xs font-semibold font-inter uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
+                  View range <ArrowRight size={12} />
+                </div>
+              </Link>
+            </FadeUpItem>
           ))}
-        </div>
+        </FadeUpGrid>
       </div>
     </section>
   );
@@ -125,23 +137,25 @@ function SectorsSection() {
   return (
     <section className="py-16 md:py-24 bg-ice-100" data-testid="sectors-section">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-10">
+        <FadeUp className="mb-10">
           <SectionLabel number="02" text="Who We Serve" />
           <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900">Built for serious UK buyers.</h2>
-        </div>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        </FadeUp>
+        <FadeUpGrid className="grid grid-cols-2 sm:grid-cols-4 gap-4">
           {SECTOR_CARDS.map(card => (
-            <Link key={card.name} to={card.to}
-              className="group bg-white border border-ice-300 rounded-xl p-5 hover:border-frost-500 hover:-translate-y-0.5 hover:shadow-sm transition-all duration-200"
-              data-testid={`sector-card-${card.name.toLowerCase()}`}>
-              <div className="mb-3 text-frost-500 group-hover:text-neon-500 transition-colors">
-                <card.icon size={22} />
-              </div>
-              <h3 className="font-fraunces text-base text-ink-900 mb-1">{card.name}</h3>
-              <p className="text-xs text-frost-700 leading-relaxed font-inter">{card.desc}</p>
-            </Link>
+            <FadeUpItem key={card.name}>
+              <Link to={card.to}
+                className="group bg-white border border-ice-300 rounded-xl p-5 hover:border-frost-500 hover:-translate-y-0.5 hover:shadow-sm transition-all duration-200 block h-full"
+                data-testid={`sector-card-${card.name.toLowerCase()}`}>
+                <div className="mb-3 text-frost-500 group-hover:text-neon-500 transition-colors">
+                  <card.icon size={22} />
+                </div>
+                <h3 className="font-fraunces text-base text-ink-900 mb-1">{card.name}</h3>
+                <p className="text-xs text-frost-700 leading-relaxed font-inter">{card.desc}</p>
+              </Link>
+            </FadeUpItem>
           ))}
-        </div>
+        </FadeUpGrid>
       </div>
     </section>
   );
@@ -159,23 +173,25 @@ function WhySpecialistSection() {
   return (
     <section className="py-16 md:py-24 bg-white" data-testid="why-specialist-section">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-10">
+        <FadeUp className="mb-10">
           <SectionLabel number="03" text="Why Specialist Matters" />
           <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900">Generalists carry shrimp. We are shrimp.</h2>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+        </FadeUp>
+        <FadeUpGrid className="grid grid-cols-1 sm:grid-cols-2 gap-8">
           {WHY_POINTS.map(point => (
-            <div key={point.title} className="flex items-start gap-4" data-testid={`why-${point.title.split(',')[0].toLowerCase().replace(/ /g, '-')}`}>
-              <div className="w-9 h-9 bg-ice-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                <point.icon size={16} className="text-neon-500" />
+            <FadeUpItem key={point.title}>
+              <div className="flex items-start gap-4" data-testid={`why-${point.title.split(',')[0].toLowerCase().replace(/ /g, '-')}`}>
+                <div className="w-9 h-9 bg-ice-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <point.icon size={16} className="text-neon-500" />
+                </div>
+                <div>
+                  <h3 className="font-fraunces text-lg text-ink-900 mb-1">{point.title}</h3>
+                  <p className="text-sm text-frost-700 leading-relaxed font-inter">{point.desc}</p>
+                </div>
               </div>
-              <div>
-                <h3 className="font-fraunces text-lg text-ink-900 mb-1">{point.title}</h3>
-                <p className="text-sm text-frost-700 leading-relaxed font-inter">{point.desc}</p>
-              </div>
-            </div>
+            </FadeUpItem>
           ))}
-        </div>
+        </FadeUpGrid>
       </div>
     </section>
   );
@@ -193,23 +209,27 @@ function SizingSection() {
   return (
     <section className="py-16 md:py-20 bg-ice-100" data-testid="sizing-section">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="mb-8">
+        <FadeUp className="mb-8">
           <SectionLabel number="04" text="Sizing & Specifications" />
           <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900">Speak the buyer's language.</h2>
-        </div>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+        </FadeUp>
+        <FadeUpGrid className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
           {SIZING_DATA.map(item => (
-            <div key={item.label} className="bg-white border border-ice-300 rounded-xl p-5" data-testid={`sizing-${item.label.toLowerCase()}`}>
-              <div className="text-xs font-mono uppercase tracking-widest text-frost-500 mb-2">{item.label}</div>
-              <div className="font-fraunces text-3xl text-ink-900">{item.value}</div>
-            </div>
+            <FadeUpItem key={item.label}>
+              <div className="bg-white border border-ice-300 rounded-xl p-5" data-testid={`sizing-${item.label.toLowerCase()}`}>
+                <div className="text-xs font-mono uppercase tracking-widest text-frost-500 mb-2">{item.label}</div>
+                <div className="font-fraunces text-3xl text-ink-900">{item.value}</div>
+              </div>
+            </FadeUpItem>
           ))}
-        </div>
-        <Link to="/products"
-          className="inline-flex items-center gap-2 px-5 py-3 bg-frost-900 hover:bg-ink-900 text-white text-sm font-medium rounded-md transition-colors font-inter"
-          data-testid="sizing-guide-btn">
-          Download full sizing guide
-        </Link>
+        </FadeUpGrid>
+        <FadeUp>
+          <Link to="/products"
+            className="inline-flex items-center gap-2 px-5 py-3 bg-frost-900 hover:bg-ink-900 text-white text-sm font-medium rounded-md transition-colors font-inter"
+            data-testid="sizing-guide-btn">
+            Download full sizing guide
+          </Link>
+        </FadeUp>
       </div>
     </section>
   );
@@ -223,7 +243,7 @@ function SourcingSection() {
     <section className="py-16 md:py-24 bg-white" data-testid="sourcing-section">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div>
+          <FadeUp>
             <SectionLabel number="05" text="Sourcing" />
             <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900 mb-6">Backed by three decades of aquaculture expertise.</h2>
             <p className="text-frost-700 leading-relaxed mb-5 font-inter">Our sourcing is anchored by our parent group's established farming and processing operations — giving us direct supply lines, full traceability, and volume reliability most importers can't match.</p>
@@ -231,10 +251,12 @@ function SourcingSection() {
             <Link to="/contact" className="inline-flex items-center gap-2 text-sm text-neon-500 hover:text-neon-600 font-medium font-inter transition-colors" data-testid="sourcing-link">
               Read our story <ArrowRight size={14} />
             </Link>
-          </div>
-          <div className="rounded-2xl overflow-hidden aspect-[4/3] border border-ice-300">
-            <img src={FARM_IMAGE} alt="Shrimp aquaculture facility, Andhra Pradesh, India" className="w-full h-full object-cover" />
-          </div>
+          </FadeUp>
+          <FadeUp delay={0.12}>
+            <div className="rounded-2xl overflow-hidden aspect-[4/3] border border-ice-300">
+              <img src={FARM_IMAGE} alt="Shrimp aquaculture facility, Andhra Pradesh, India" className="w-full h-full object-cover" />
+            </div>
+          </FadeUp>
         </div>
       </div>
     </section>
@@ -267,6 +289,10 @@ function LeadCaptureSection() {
 export default function HomePage() {
   return (
     <>
+      <SEO
+        description="KPR Shrimp Global is the UK's specialist frozen shrimp supplier. 11 variants — HOSO, HLSO, PD, cooked, tempura, breaded — consistent spec, traceable Indian origin, UK account team."
+        path="/"
+      />
       <HeroSection />
       <TrustBar />
       <ProductRangeSection />

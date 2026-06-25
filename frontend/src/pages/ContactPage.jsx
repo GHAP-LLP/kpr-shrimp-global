@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Mail, Phone, MapPin, CheckCircle, Linkedin } from 'lucide-react';
 import Breadcrumb from '@/components/Breadcrumb';
+import SEO from '@/components/SEO';
+import { FadeUp } from '@/components/FadeUp';
 
 const CONTACT_INFO = [
   { icon: Mail, label: 'Sales enquiries', value: 'sales@kprshrimpglobal.com', href: 'mailto:sales@kprshrimpglobal.com' },
@@ -27,6 +29,11 @@ export default function ContactPage() {
       {/* Header */}
       <div className="py-16 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SEO
+            title="Contact Us"
+            description="Get in touch with KPR Shrimp Global to discuss supply requirements, arrange samples, or find out more about our frozen shrimp products."
+            path="/contact"
+          />
           <Breadcrumb items={[{ label: 'Contact' }]} />
           <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neon-500 font-inter mt-6 mb-3">KPR Shrimp Global</p>
           <h1 className="font-fraunces text-4xl text-white mb-3" data-testid="contact-h1">Contact us</h1>

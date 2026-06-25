@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FileText, ArrowRight, CheckCircle, Download, Shield, Leaf, Package, ClipboardList } from 'lucide-react';
 import { productCategories } from '@/data/products';
+import SEO from '@/components/SEO';
+import { FadeUp, FadeUpGrid, FadeUpItem } from '@/components/FadeUp';
 
 // ─── Data ──────────────────────────────────────────────────────────────────────
 
@@ -226,11 +228,16 @@ export default function ResourcesPage() {
 
         {/* 01 — Product Spec Sheets */}
         <section data-testid="spec-sheets-section">
-          <div className="mb-8">
+          <SEO
+            title="Resources & Documents"
+            description="Download technical spec sheets, allergen declarations, nutritional information, and quality certifications for the full KPR Shrimp Global range."
+            path="/resources"
+          />
+          <FadeUp className="mb-8">
             <SectionLabel number="01" text="Product Specification Sheets" />
             <h2 className="font-fraunces text-2xl sm:text-3xl text-white mb-2">Individual variant spec sheets</h2>
             <p className="text-frost-500 font-inter text-sm max-w-2xl">Full technical specification for each of our 11 variants — species, process form, count sizes, glaze, pack formats, shelf life, and origin. You can also <span className="text-white">view the live spec</span> for any product on its detail page.</p>
-          </div>
+          </FadeUp>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {specSheetDocs.map(doc => (
               <div key={doc.id} className="bg-white/5 border border-white/10 rounded-xl p-5 flex flex-col gap-3 hover:bg-white/[0.08] hover:border-white/20 transition-all duration-200" data-testid={`doc-card-${doc.id}`}>
@@ -271,49 +278,55 @@ export default function ResourcesPage() {
 
         {/* 02 — Range Overview Sheets */}
         <section data-testid="range-docs-section">
-          <div className="mb-8">
+          <FadeUp className="mb-8">
             <SectionLabel number="02" text="Range Overview Sheets" />
             <h2 className="font-fraunces text-2xl sm:text-3xl text-white mb-2">Category-level overviews</h2>
             <p className="text-frost-500 font-inter text-sm max-w-2xl">Single-page overviews covering an entire product category. Suitable for buyer briefings, category reviews, and initial supplier assessment.</p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            {RANGE_DOCS.map(doc => (
-              <DocCard key={doc.id} doc={doc} requested={requested.has(doc.id)} onRequest={handleRequest} />
-            ))}
-          </div>
+          </FadeUp>
+          <FadeUp delay={0.08}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {RANGE_DOCS.map(doc => (
+                <DocCard key={doc.id} doc={doc} requested={requested.has(doc.id)} onRequest={handleRequest} />
+              ))}
+            </div>
+          </FadeUp>
         </section>
 
         {/* 03 — Compliance & Allergen */}
         <section data-testid="compliance-docs-section">
-          <div className="mb-8">
+          <FadeUp className="mb-8">
             <SectionLabel number="03" text="Compliance & Allergen" />
             <h2 className="font-fraunces text-2xl sm:text-3xl text-white mb-2">Allergen, nutritional & ingredient docs</h2>
             <p className="text-frost-500 font-inter text-sm max-w-2xl">Required documentation for retail listing, food manufacturing use, and foodservice QA teams. All documents issued to current UK food labelling regulations.</p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {COMPLIANCE_DOCS.map(doc => (
-              <DocCard key={doc.id} doc={doc} requested={requested.has(doc.id)} onRequest={handleRequest} />
-            ))}
-          </div>
+          </FadeUp>
+          <FadeUp delay={0.08}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {COMPLIANCE_DOCS.map(doc => (
+                <DocCard key={doc.id} doc={doc} requested={requested.has(doc.id)} onRequest={handleRequest} />
+              ))}
+            </div>
+          </FadeUp>
         </section>
 
         {/* 04 — Quality & Certifications */}
         <section data-testid="quality-docs-section">
-          <div className="mb-8">
+          <FadeUp className="mb-8">
             <SectionLabel number="04" text="Quality & Certifications" />
             <h2 className="font-fraunces text-2xl sm:text-3xl text-white mb-2">HACCP, certifications & traceability</h2>
             <p className="text-frost-500 font-inter text-sm max-w-2xl">Quality management documentation, current certification references, and traceability system guides. Full HACCP plan and audit reports available under NDA for qualified buyers.</p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {QUALITY_DOCS.map(doc => (
-              <DocCard key={doc.id} doc={doc} requested={requested.has(doc.id)} onRequest={handleRequest} />
-            ))}
-          </div>
+          </FadeUp>
+          <FadeUp delay={0.08}>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {QUALITY_DOCS.map(doc => (
+                <DocCard key={doc.id} doc={doc} requested={requested.has(doc.id)} onRequest={handleRequest} />
+              ))}
+            </div>
+          </FadeUp>
         </section>
 
         {/* Request full pack */}
         <section className="border-t border-white/10 pt-12" data-testid="full-pack-section">
-          <div className="max-w-2xl">
+          <FadeUp className="max-w-2xl">
             <SectionLabel number="05" text="Full Documentation Pack" />
             <h2 className="font-fraunces text-2xl sm:text-3xl text-white mb-3">Request everything in one go.</h2>
             <p className="text-frost-500 font-inter mb-8">Enter your work email and we'll send the complete documentation set — all spec sheets, allergen declarations, compliance docs, and quality certificates — within one working day.</p>
@@ -345,7 +358,7 @@ export default function ResourcesPage() {
                 </button>
               </form>
             )}
-          </div>
+          </FadeUp>
         </section>
 
       </div>

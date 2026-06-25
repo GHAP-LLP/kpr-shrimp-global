@@ -2,6 +2,8 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { getCategoryBySlug, COUNT_SIZES } from '@/data/products';
 import Breadcrumb from '@/components/Breadcrumb';
+import SEO from '@/components/SEO';
+import { FadeUp, FadeUpGrid, FadeUpItem } from '@/components/FadeUp';
 
 function SectionLabel({ number, text }) {
   return (
@@ -22,6 +24,11 @@ export default function ProductHubPage() {
       {/* Header */}
       <div className="py-16 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SEO
+            title={category.name}
+            description={`${category.name} from KPR Shrimp Global. ${category.description}`}
+            path={`/products/${categorySlug}`}
+          />
           <Breadcrumb items={[{ label: 'Products', to: '/products' }, { label: category.name }]} />
           <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neon-500 font-inter mt-6 mb-3">Product Category</p>
           <h1 className="font-fraunces text-4xl sm:text-5xl text-white mb-2" data-testid="product-hub-h1">{category.name}</h1>
@@ -33,36 +40,38 @@ export default function ProductHubPage() {
       {/* 01 Variants */}
       <section className="py-16" data-testid="product-hub-variants">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-10">
+          <FadeUp className="mb-10">
             <SectionLabel number="01" text="Available Variants" />
             <h2 className="font-fraunces text-3xl text-white">Choose your specification.</h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          </FadeUp>
+          <FadeUpGrid className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {category.variants.map(variant => (
-              <Link key={variant.id} to={`/products/${categorySlug}/${variant.slug}`}
-                className="group bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/[0.08] hover:border-white/20 hover:-translate-y-1 hover:shadow-lg transition-all duration-200"
-                data-testid={`variant-card-${variant.slug}`}>
-                <div className="mb-3">
-                  <span className="inline-block text-xs font-mono bg-neon-500/20 text-neon-500 px-2.5 py-1 rounded mb-2">{variant.name}</span>
-                  <h3 className="font-fraunces text-lg text-white">{variant.fullName}</h3>
-                </div>
-                <p className="text-sm text-frost-500 leading-relaxed mb-4 font-inter">{variant.description.substring(0, 110)}...</p>
-                <div className="space-y-1.5 mb-4">
-                  <div className="flex gap-2 text-xs font-mono">
-                    <span className="text-frost-500/60 w-20 flex-shrink-0">Sizes:</span>
-                    <span className="text-frost-500 truncate">{variant.specs.availableSizes.join(' · ')}</span>
+              <FadeUpItem key={variant.id}>
+                <Link to={`/products/${categorySlug}/${variant.slug}`}
+                  className="group bg-white/5 border border-white/10 rounded-xl p-6 hover:bg-white/[0.08] hover:border-white/20 hover:-translate-y-1 hover:shadow-lg transition-all duration-200 block h-full"
+                  data-testid={`variant-card-${variant.slug}`}>
+                  <div className="mb-3">
+                    <span className="inline-block text-xs font-mono bg-neon-500/20 text-neon-500 px-2.5 py-1 rounded mb-2">{variant.name}</span>
+                    <h3 className="font-fraunces text-lg text-white">{variant.fullName}</h3>
                   </div>
-                  <div className="flex gap-2 text-xs font-mono">
-                    <span className="text-frost-500/60 w-20 flex-shrink-0">Pack:</span>
-                    <span className="text-frost-500">{variant.specs.packFormats[0]}</span>
+                  <p className="text-sm text-frost-500 leading-relaxed mb-4 font-inter">{variant.description.substring(0, 110)}...</p>
+                  <div className="space-y-1.5 mb-4">
+                    <div className="flex gap-2 text-xs font-mono">
+                      <span className="text-frost-500/60 w-20 flex-shrink-0">Sizes:</span>
+                      <span className="text-frost-500 truncate">{variant.specs.availableSizes.join(' · ')}</span>
+                    </div>
+                    <div className="flex gap-2 text-xs font-mono">
+                      <span className="text-frost-500/60 w-20 flex-shrink-0">Pack:</span>
+                      <span className="text-frost-500">{variant.specs.packFormats[0]}</span>
+                    </div>
                   </div>
-                </div>
-                <span className="flex items-center gap-1 text-neon-500 text-sm font-medium group-hover:gap-2 transition-all font-inter">
-                  View full spec <ArrowRight size={14} />
-                </span>
-              </Link>
+                  <span className="flex items-center gap-1 text-neon-500 text-sm font-medium group-hover:gap-2 transition-all font-inter">
+                    View full spec <ArrowRight size={14} />
+                  </span>
+                </Link>
+              </FadeUpItem>
             ))}
-          </div>
+          </FadeUpGrid>
         </div>
       </section>
 

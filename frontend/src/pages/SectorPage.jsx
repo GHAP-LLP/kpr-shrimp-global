@@ -2,6 +2,8 @@ import { useParams, Link, Navigate } from 'react-router-dom';
 import { CheckCircle, FileText, ArrowRight } from 'lucide-react';
 import { getSectorBySlug, sectors } from '@/data/sectors';
 import Breadcrumb from '@/components/Breadcrumb';
+import SEO from '@/components/SEO';
+import { FadeUp, FadeUpGrid, FadeUpItem } from '@/components/FadeUp';
 
 function SectionLabel({ number, text }) {
   return (
@@ -24,6 +26,11 @@ export default function SectorPage() {
         <img src={sector.image} alt={sector.name} className="absolute inset-0 w-full h-full object-cover opacity-10" />
         <div className="absolute inset-0 bg-frost-900/80" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SEO
+            title={`${sector.name} Shrimp Supply`}
+            description={`${sector.tagline} ${sector.description}`}
+            path={`/sectors/${sectorSlug}`}
+          />
           <Breadcrumb items={[{ label: 'Sectors' }, { label: sector.name }]} />
           <div className="mt-6">
             <p className="text-xs uppercase tracking-widest text-neon-500 font-semibold mb-3 font-inter">Sector</p>
@@ -40,21 +47,25 @@ export default function SectorPage() {
           {/* Main content */}
           <div className="lg:col-span-2 space-y-8">
             <div>
-              <SectionLabel number="01" text="How We Serve You" />
-              <h2 className="font-fraunces text-2xl text-white mb-6">How KPR serves {sector.name}</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <FadeUp className="mb-6">
+                <SectionLabel number="01" text="How We Serve You" />
+                <h2 className="font-fraunces text-2xl text-white">How KPR serves {sector.name}</h2>
+              </FadeUp>
+              <FadeUpGrid className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {sector.benefits.map(benefit => (
-                  <div key={benefit.title} className="bg-white/5 border border-white/10 rounded-xl p-5" data-testid={`benefit-${benefit.title.toLowerCase().replace(/ /g, '-')}`}>
-                    <div className="flex items-start gap-3">
-                      <CheckCircle size={18} className="text-neon-500 flex-shrink-0 mt-0.5" />
-                      <div>
-                        <h3 className="font-medium text-white text-sm mb-1 font-inter">{benefit.title}</h3>
-                        <p className="text-xs text-frost-500 leading-relaxed font-inter">{benefit.description}</p>
+                  <FadeUpItem key={benefit.title}>
+                    <div className="bg-white/5 border border-white/10 rounded-xl p-5 h-full" data-testid={`benefit-${benefit.title.toLowerCase().replace(/ /g, '-')}`}>
+                      <div className="flex items-start gap-3">
+                        <CheckCircle size={18} className="text-neon-500 flex-shrink-0 mt-0.5" />
+                        <div>
+                          <h3 className="font-medium text-white text-sm mb-1 font-inter">{benefit.title}</h3>
+                          <p className="text-xs text-frost-500 leading-relaxed font-inter">{benefit.description}</p>
+                        </div>
                       </div>
                     </div>
-                  </div>
+                  </FadeUpItem>
                 ))}
-              </div>
+              </FadeUpGrid>
             </div>
 
             <div className="bg-white/5 border border-white/10 rounded-xl p-6">
