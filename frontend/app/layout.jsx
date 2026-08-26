@@ -71,11 +71,6 @@ const orgSchema = {
         { '@type': 'ContactPoint', contactType: 'sales', email: 'sales@indoaquaticltd.com' },
         { '@type': 'ContactPoint', contactType: 'customer service', email: 'samples@indoaquaticltd.com' },
       ],
-      parentOrganization: {
-        '@type': 'Organization',
-        name: 'SS Agro Products',
-        address: { '@type': 'PostalAddress', addressLocality: 'Kodavalur', addressRegion: 'Andhra Pradesh', addressCountry: 'IN' },
-      },
     },
     {
       '@type': 'WebSite',

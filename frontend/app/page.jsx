@@ -14,7 +14,7 @@ import { BRAND_IMGS } from '@/data/images';
 
 export const metadata = {
   ...buildMetadata({
-    description: 'UK wholesale frozen prawn supplier. Indo Aquatic supplies IQF raw (HOSO, HLSO, PD), cooked, and added value prawns to UK retailers, foodservice operators, food manufacturers, and distributors. Traceable Andhra Pradesh origin.',
+    description: 'UK wholesale frozen prawn supplier. Indo Aquatic supplies IQF raw (HOSO, HLSO, PD), cooked, and added value prawns to UK retailers, foodservice operators, food manufacturers, and distributors. Traceable origin, vetted global sourcing partners.',
     path: '/',
   }),
 };
@@ -30,7 +30,7 @@ function SectionLabel({ number, text }) {
 const METRICS = [
   { value: 'U/15–61/70', label: 'Count range', sub: 'Every commercial size' },
   { value: '5 days', label: 'Sample dispatch', sub: 'From confirmed request' },
-  { value: '10+ yrs', label: 'Aquaculture heritage', sub: 'SS Agro Products, est. 2014' },
+  { value: '20+ yrs', label: 'Aquaculture heritage', sub: 'Director-led family expertise' },
 ];
 
 function MetricsStrip() {
@@ -140,7 +140,7 @@ function ProductRangeSection() {
 }
 
 const PROCESS_STEPS = [
-  { step: '01', Icon: Leaf, title: 'Farmed & Processed', sub: 'Nellore, Andhra Pradesh', desc: 'Litopenaeus vannamei farmed by SS Agro Products. HACCP-controlled processing, full lot documentation generated at source.', image: BRAND_IMGS.farmAerial, imageAlt: 'Prawn aquaculture farm ponds, Andhra Pradesh' },
+  { step: '01', Icon: Leaf, title: 'Farmed & Processed', sub: 'Certified partner farms', desc: 'Litopenaeus vannamei farmed by our vetted sourcing partners. HACCP-controlled processing, full lot documentation generated at source.', image: BRAND_IMGS.farmAerial, imageAlt: 'Prawn aquaculture farm ponds, Andhra Pradesh' },
   { step: '02', Icon: Shield, title: 'QC & Documentation', sub: 'Pre-export', desc: 'Residue testing, count tolerances checked, Certificate of Analysis issued. Spec locked and documented before the product leaves the facility.', image: BRAND_IMGS.qualityControl, imageAlt: 'Food quality control inspection' },
   { step: '03', Icon: Ship, title: 'Cold-Chain Shipping', sub: 'India → UK port', desc: 'Temperature-controlled from processing to UK port. Continuous cold chain. Time-temperature records travel with every consignment.', image: BRAND_IMGS.containerShip, imageAlt: 'Container ship carrying frozen cargo' },
   { step: '04', Icon: Warehouse, title: 'UK Cold Storage', sub: 'Grimsby / Hull', desc: 'UK-held cold-chain stock. Sterling pricing, UK contracts, GMT account team. Ready for despatch within agreed lead times.', image: BRAND_IMGS.coldWarehouse, imageAlt: 'UK cold storage warehouse' },
@@ -153,7 +153,7 @@ function ProcessSection() {
         <FadeUp className="mb-14">
           <SectionLabel number="02" text="Supply Chain" />
           <h2 className="font-fraunces text-3xl sm:text-4xl text-white mb-3">Farm to UK warehouse. Transparent at every step.</h2>
-          <p className="text-frost-500 font-inter max-w-2xl">Full chain of custody from a single origin. No opaque intermediary network — you know exactly where your product comes from and how it got here.</p>
+          <p className="text-frost-500 font-inter max-w-2xl">Full chain of custody through our vetted sourcing partners. No opaque intermediary network — you know exactly where your product comes from and how it got here.</p>
         </FadeUp>
         <FadeUpGrid className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/5 rounded-xl overflow-hidden border border-white/5">
           {PROCESS_STEPS.map((s, i) => (
@@ -240,7 +240,7 @@ const WHY_POINTS = [
 
 const COMPARISON = {
   generic: ['Prawns are one of 50+ products', 'Inconsistent spec across orders', 'Multiple unknown intermediaries', 'No direct farm access'],
-  ours: ['Single-category specialist', 'Spec locked batch to batch', 'Direct parent group supply chain', 'Full lot traceability to farm'],
+  ours: ['Single-category specialist', 'Spec locked batch to batch', 'Direct sourcing partner relationships', 'Full lot traceability to farm'],
 };
 
 function WhySpecialistSection() {
@@ -305,7 +305,7 @@ function WhySpecialistSection() {
 
 const FARM_IMAGE = 'https://images.unsplash.com/photo-1611119260234-521fc340d9c4?crop=entropy&cs=srgb&fm=jpg&q=85&w=800';
 const SOURCING_FACTS = [
-  { label: 'Origin', value: 'Nellore, Andhra Pradesh, India' },
+  { label: 'Origin', value: 'India & global sourcing partners' },
   { label: 'Species', value: 'Litopenaeus vannamei (Whiteleg prawn)' },
   { label: 'Processing', value: 'HACCP-controlled, EU-approved facility' },
   { label: 'UK storage', value: 'Grimsby & Hull cold stores' },
@@ -318,8 +318,8 @@ function SourcingSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <FadeUp>
             <SectionLabel number="05" text="Sourcing" />
-            <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900 mb-6">Backed by a decade of aquaculture expertise.</h2>
-            <p className="text-frost-700 leading-relaxed mb-6 font-inter">Our sourcing is anchored by our parent group's established farming and processing operations — giving us direct supply lines, full traceability, and volume reliability most importers can't match.</p>
+            <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900 mb-6">Backed by two decades of aquaculture expertise.</h2>
+            <p className="text-frost-700 leading-relaxed mb-6 font-inter">Our sourcing is anchored by our directors' two decades of hands-on aquaculture experience and long-term partnerships with certified farming and processing operations — giving us direct supply lines, full traceability, and volume reliability most importers can't match.</p>
             <div className="space-y-3 mb-8 border border-ice-300 rounded-xl p-5 bg-ice-100">
               {SOURCING_FACTS.map(f => (
                 <div key={f.label} className="flex gap-4 items-baseline">

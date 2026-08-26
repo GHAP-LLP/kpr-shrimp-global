@@ -75,7 +75,7 @@ export default function PrivacyPolicyPage() {
         <Section title="6. Who we share data with">
           <p>We do not sell your personal data. We may share it with:</p>
           <ul className="list-disc pl-5 space-y-1">
-            <li><strong className="text-ink-900">SS Agro Products</strong> (our parent company, India) — for the purposes of fulfilling orders and supply chain coordination, subject to appropriate safeguards.</li>
+            <li><strong className="text-ink-900">Our sourcing partners</strong> (India and other origin countries) — for the purposes of fulfilling orders and supply chain coordination, subject to appropriate safeguards.</li>
             <li><strong className="text-ink-900">Service providers</strong> — such as email hosting, where processing is governed by a data processing agreement.</li>
             <li><strong className="text-ink-900">Legal or regulatory authorities</strong> — where we are required to do so by law.</li>
           </ul>

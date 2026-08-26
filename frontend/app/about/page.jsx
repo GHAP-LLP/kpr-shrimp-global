@@ -6,7 +6,7 @@ import { BRAND_IMGS } from '@/data/images';
 
 export const metadata = buildMetadata({
   title: 'About Us',
-  description: 'Indo Aquatic UK Ltd — UK-registered specialist importer and distributor of frozen prawns, backed by SS Agro Products, Nellore. Single-category focus, full traceability, sterling pricing.',
+  description: 'Indo Aquatic UK Ltd — UK-registered specialist importer and distributor of frozen prawns, backed by two decades of family aquaculture expertise. Single-category focus, full traceability, sterling pricing.',
   path: '/about',
 });
 
@@ -21,18 +21,18 @@ function SectionLabel({ number, text }) {
 const PILLARS = [
   { icon: Target, title: 'Single-category focus', desc: 'We only do prawns. That means every decision — buying, spec, logistics, QC — is made by people whose entire career is prawns. Generalist importers carry prawns alongside hundreds of other lines. We don\'t.' },
   { icon: Snowflake, title: 'Full UK cold-chain', desc: 'Cold storage at Grimsby and Hull. Nationwide frozen delivery. Sterling pricing and UK contracts — no currency conversion risk for your procurement team.' },
-  { icon: MapPin, title: 'Traceable origin', desc: 'Lot-level provenance on every shipment. Full chain of custody from farm to UK warehouse. Integrated supply lines through our parent group give us visibility that most importers simply can\'t provide.' },
+  { icon: MapPin, title: 'Traceable origin', desc: 'Lot-level provenance on every shipment. Full chain of custody from farm to UK warehouse, backed by our directors\' two decades of hands-on aquaculture expertise and long-term sourcing partnerships that most importers simply can\'t match.' },
   { icon: Users, title: 'UK-based account team', desc: 'GMT response times. A single account manager who knows your spec, your volumes, and your delivery requirements. No overseas call centres, no lost emails.' },
 ];
 
 const STATS = [
   { value: '3', label: 'Processing formats' },
   { value: '4', label: 'Sectors served' },
-  { value: '10+', label: 'Years group experience' },
+  { value: '20+', label: 'Years aquaculture expertise' },
 ];
 
 const OPERATIONS_STRIP = [
-  { img: BRAND_IMGS.farmAerial, label: 'Nellore, India', sub: 'Farming & aquaculture', alt: 'Prawn aquaculture farm ponds, Andhra Pradesh' },
+  { img: BRAND_IMGS.farmAerial, label: 'Nellore, India', sub: 'Sourcing partner facility', alt: 'Prawn aquaculture farm ponds, Andhra Pradesh' },
   { img: BRAND_IMGS.packagingLine, label: 'HACCP facility', sub: 'Processing & packaging', alt: 'Food packaging production line' },
   { img: BRAND_IMGS.coldWarehouse, label: 'Grimsby / Hull', sub: 'UK cold storage', alt: 'UK cold storage warehouse' },
 ];
@@ -91,10 +91,10 @@ export default function AboutPage() {
             <FadeUp>
               <SectionLabel number="01" text="Who We Are" />
               <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900 mb-6">A UK entity built on a decade of aquaculture expertise.</h2>
-              <p className="text-frost-700 leading-relaxed mb-5 font-inter">Indo Aquatic UK Ltd is a UK-registered specialist importer and distributor of frozen prawns. We supply retailers, foodservice operators, retail processors, and wholesale distributors across the United Kingdom. <span className="text-frost-500">(Indo Aquatic Ltd. · Company No. 17230607)</span></p>
-              <p className="text-frost-700 leading-relaxed mb-5 font-inter">The company is the UK trading arm of SS Agro Products, an aquaculture and processing operation based in Kodavalur, Nellore, Andhra Pradesh — one of India's most productive prawn-farming regions.</p>
-              <p className="text-frost-700 leading-relaxed mb-5 font-inter">Indo Aquatic was founded by Santosh Kumar Reddy Ogili, whose family has deep roots in the Nellore agricultural community. Santosh began his career in prawn farming alongside the family operation before moving into seafood processing at SS Agro Products. A core part of his vision is job creation: SS Agro Products supports hundreds of local families in Andhra Pradesh, and the expansion into the UK market is designed to grow that employment base further. He founded Indo Aquatic UK Ltd on the belief that UK buyers deserve direct access to the source — transparent pricing, traceable product, and a supplier who knows the production process from the pond up.</p>
-              <p className="text-frost-700 leading-relaxed font-inter">This structure gives UK buyers direct access to the supply chain: consistent raw material, full traceability, and the flexibility that comes from owning the production relationship rather than brokering it.</p>
+              <p className="text-frost-700 leading-relaxed mb-5 font-inter">Indo Aquatic UK Ltd is an independent, UK-registered specialist importer and distributor of frozen prawns. We supply retailers, foodservice operators, retail processors, and wholesale distributors across the United Kingdom. <span className="text-frost-500">(Indo Aquatic Ltd. · Company No. 17230607)</span></p>
+              <p className="text-frost-700 leading-relaxed mb-5 font-inter">Indo Aquatic is a family business, led by directors with over 20 years of hands-on experience in prawn aquaculture — spanning farm ownership, processing, and international export. That same family built one of the industry's leading integrated prawn operations, encompassing farms, processing plants, and a global distribution network valued at over $100 million.</p>
+              <p className="text-frost-700 leading-relaxed mb-5 font-inter">Indo Aquatic UK Ltd brings that depth of expertise directly to the UK market — launching as an independent company with the buying power, technical knowledge, and supplier relationships of an organisation many times its size, built on the belief that UK buyers deserve direct access to genuine aquaculture expertise, not just another importer.</p>
+              <p className="text-frost-700 leading-relaxed font-inter">This heritage gives UK buyers a real advantage: a team who understands prawn production from the pond up, backed by long-term relationships with some of the best certified sourcing partners in the industry.</p>
             </FadeUp>
             <FadeUp delay={0.12}>
               <div className="rounded-2xl overflow-hidden aspect-[4/3] border border-ice-300 shadow-sm">
@@ -162,10 +162,10 @@ export default function AboutPage() {
             </FadeUp>
             <FadeUp className="order-1 lg:order-2">
               <SectionLabel number="03" text="Sourcing" />
-              <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900 mb-6">Backed by SS Agro Products.</h2>
-              <p className="text-frost-700 leading-relaxed mb-5 font-inter">Our parent group operates prawn farming and processing facilities in Kodavalur, Nellore, Andhra Pradesh — a coastal region that accounts for a significant portion of India's total prawn export volume.</p>
-              <p className="text-frost-700 leading-relaxed mb-5 font-inter">This integrated structure means we don't rely on spot market purchasing. Our raw material supply is planned, the spec is controlled at farm level, and lot-level traceability is available on every shipment.</p>
-              <p className="text-frost-700 leading-relaxed mb-8 font-inter">UK buyers get the benefit of this supply chain integration — sterling pricing, UK contracts, and an account team in the same time zone.</p>
+              <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900 mb-6">Backed by two decades of aquaculture expertise.</h2>
+              <p className="text-frost-700 leading-relaxed mb-5 font-inter">We work with a carefully vetted network of sourcing partners across leading prawn-producing regions, including Kodavalur, Nellore, Andhra Pradesh — chosen for their certification standards, processing quality, and consistency.</p>
+              <p className="text-frost-700 leading-relaxed mb-5 font-inter">We don't rely on spot market purchasing. Our directors' hands-on experience in farm ownership and processing means spec, quality, and lot-level traceability are controlled at every stage — from pond to processing to UK cold store.</p>
+              <p className="text-frost-700 leading-relaxed mb-8 font-inter">UK buyers get the benefit of this expertise — sterling pricing, UK contracts, and an account team in the same time zone.</p>
               <Link href="/contact" className="inline-flex items-center gap-2 text-sm text-neon-500 hover:text-neon-600 font-medium font-inter transition-colors" data-testid="about-contact-link">
                 Get in touch <ArrowRight size={14} />
               </Link>

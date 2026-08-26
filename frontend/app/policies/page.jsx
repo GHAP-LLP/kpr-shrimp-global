@@ -165,7 +165,7 @@ export default function PoliciesPage() {
         </Section>
 
         <Section number={13} title="Supply Chain and Responsible Sourcing">
-          <p>Our prawns are sourced through our integrated supply chain in Andhra Pradesh, India. Responsible
+          <p>Our prawns are sourced through a vetted network of certified sourcing partners across leading prawn-producing regions, including Andhra Pradesh, India. Responsible
           sourcing detail — aquaculture practices, certification roadmap, and traceability — is covered on our{' '}
           <Link href="/sustainability" className="text-neon-500 hover:underline">Sustainability</Link> page.</p>
         </Section>
