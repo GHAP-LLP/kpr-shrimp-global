@@ -1,36 +1,37 @@
-import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+'use client';
+import { useState, useEffect, useRef } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import LogoMark from '@/components/LogoMark';
 
 const NAV_PRODUCTS = [
-  { name: 'All Products', to: '/products' },
-  { name: 'Frozen Raw Shrimp', to: '/products/frozen-raw-shrimp' },
-  { name: 'Cooked Shrimp', to: '/products/cooked-shrimp' },
-  { name: 'Ready-to-Cook', to: '/products/ready-to-cook' },
+  { name: 'All Products', href: '/products' },
+  { name: 'Frozen Raw Prawns', href: '/products/frozen-raw-shrimp' },
+  { name: 'Cooked Prawns', href: '/products/cooked-shrimp' },
+  { name: 'Added Value Innovation', href: '/products/ready-to-cook' },
 ];
 const NAV_SECTORS = [
-  { name: 'Foodservice & HORECA', to: '/sectors/foodservice-horeca' },
-  { name: 'Food Manufacturers', to: '/sectors/food-manufacturers' },
-  { name: 'Wholesale Distributors', to: '/sectors/wholesale-distributors' },
-  { name: 'Retail Private Label', to: '/sectors/retail-private-label' },
+  { name: 'Retail Private Label', href: '/sectors/retail-private-label' },
+  { name: 'Retail Processors', href: '/sectors/food-manufacturers' },
+  { name: 'Foodservice', href: '/sectors/foodservice-horeca' },
+  { name: 'Wholesale Distributors', href: '/sectors/wholesale-distributors' },
 ];
 const NAV_COMPANY = [
-  { name: 'About us', to: '/about' },
-  { name: 'Sustainability', to: '/sustainability' },
-  { name: 'Resources & Docs', to: '/resources' },
-  { name: 'Contact', to: '/contact' },
+  { name: 'About us', href: '/about' },
+  { name: 'Sustainability', href: '/sustainability' },
+  { name: 'Resources & Docs', href: '/resources' },
+  { name: 'Contact', href: '/contact' },
 ];
 
 const EASE = [0.22, 1, 0.36, 1];
 
-// ─── Desktop dropdown ──────────────────────────────────────────────────────────
-function Dropdown({ items, isOpen }) {
-  if (!isOpen) return null;
+function DropdownMenu({ items }) {
   return (
-    <div className="absolute top-full left-0 mt-1 w-56 bg-white border border-ice-300 rounded-lg shadow-xl py-1 z-50">
+    <div className="absolute top-full left-0 w-56 bg-white border border-ice-300 rounded-lg shadow-xl py-1 z-50">
       {items.map(item => (
-        <Link key={item.to} to={item.to} className="flex items-center px-4 py-2.5 text-sm text-ink-900 hover:bg-ice-100 hover:text-neon-500 transition-colors">
+        <Link key={item.href} href={item.href} className="flex items-center px-4 py-2.5 text-sm text-ink-900 hover:bg-ice-100 hover:text-neon-500 transition-colors">
           {item.name}
         </Link>
       ))}
@@ -38,18 +39,11 @@ function Dropdown({ items, isOpen }) {
   );
 }
 
-// ─── Mobile full-screen overlay ───────────────────────────────────────────────
 const GROUPS = [
   { label: 'Products', items: NAV_PRODUCTS },
   { label: 'Sectors', items: NAV_SECTORS },
   { label: 'Company', items: NAV_COMPANY },
 ];
-
-// All links flattened with group labels interspersed — used for stagger timing
-const ALL_ITEMS = GROUPS.flatMap(g => [
-  { type: 'label', name: g.label },
-  ...g.items.map(i => ({ type: 'link', ...i })),
-]);
 
 const overlayVariants = {
   hidden: { opacity: 0, clipPath: 'inset(0 0 100% 0)' },
@@ -78,7 +72,6 @@ const ctaVariants = {
 };
 
 function MobileMenu({ isOpen, onClose }) {
-  // Prevent body scroll while menu is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -99,15 +92,12 @@ function MobileMenu({ isOpen, onClose }) {
           exit="exit"
           data-testid="nav-mobile-menu"
         >
-          {/* Header */}
-          <div className="flex items-center justify-between h-16 px-4 sm:px-6 border-b border-white/10 flex-shrink-0">
-            <Link to="/" onClick={onClose} className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-neon-500 rounded flex items-center justify-center">
-                <span className="text-white text-xs font-bold font-mono">KG</span>
-              </div>
-              <div className="leading-none">
-                <div className="font-fraunces font-semibold text-white text-sm">KPR Shrimp Global</div>
-                <div className="text-frost-500 text-xs">Ltd</div>
+          <div className="flex items-center justify-between h-[70px] px-4 sm:px-6 border-b border-white/10 flex-shrink-0">
+            <Link href="/" onClick={onClose} className="flex items-center gap-3">
+              <LogoMark size={40} />
+              <div>
+                <div className="font-fraunces font-semibold text-white text-base leading-none">Indo Aquatic</div>
+                <div className="font-inter text-[10px] tracking-[0.2em] uppercase text-white/50 mt-0.5">UK Ltd</div>
               </div>
             </Link>
             <button
@@ -120,7 +110,6 @@ function MobileMenu({ isOpen, onClose }) {
             </button>
           </div>
 
-          {/* Scrollable link list */}
           <motion.div
             className="flex-1 overflow-y-auto px-4 sm:px-6 pt-8 pb-4"
             variants={listVariants}
@@ -136,12 +125,12 @@ function MobileMenu({ isOpen, onClose }) {
                   {group.label}
                 </motion.p>
                 {group.items.map(item => (
-                  <motion.div key={item.to} variants={linkVariants}>
+                  <motion.div key={item.href} variants={linkVariants}>
                     <Link
-                      to={item.to}
+                      href={item.href}
                       onClick={onClose}
                       className="flex items-center justify-between py-3 border-b border-white/[0.07] last:border-0 group"
-                      data-testid={`mobile-link-${item.to.replace(/\//g, '-')}`}
+                      data-testid={`mobile-link-${item.href.replace(/\//g, '-')}`}
                     >
                       <span className="font-fraunces text-2xl text-white group-hover:text-neon-500 transition-colors leading-tight">
                         {item.name}
@@ -157,7 +146,6 @@ function MobileMenu({ isOpen, onClose }) {
             ))}
           </motion.div>
 
-          {/* Bottom CTA */}
           <motion.div
             className="px-4 sm:px-6 py-5 border-t border-white/10 flex-shrink-0"
             variants={ctaVariants}
@@ -165,12 +153,12 @@ function MobileMenu({ isOpen, onClose }) {
             animate="visible"
           >
             <Link
-              to="/request-a-sample"
+              href="/request-a-sample"
               onClick={onClose}
               className="flex items-center justify-center gap-2 w-full py-4 bg-neon-500 hover:bg-neon-600 text-white font-semibold rounded-md transition-colors font-inter text-sm"
               data-testid="mobile-cta-sample"
             >
-              Request a sample <ArrowRight size={15} />
+              Request a frozen sample <ArrowRight size={15} />
             </Link>
           </motion.div>
         </motion.div>
@@ -179,64 +167,83 @@ function MobileMenu({ isOpen, onClose }) {
   );
 }
 
-// ─── Navbar ────────────────────────────────────────────────────────────────────
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [productsOpen, setProductsOpen] = useState(false);
-  const [sectorsOpen, setSectorsOpen] = useState(false);
-  const [companyOpen, setCompanyOpen] = useState(false);
-  const location = useLocation();
+  const [openGroup, setOpenGroup] = useState(null);
+  const navRef = useRef(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     setMobileOpen(false);
-    setProductsOpen(false);
-    setSectorsOpen(false);
-    setCompanyOpen(false);
-  }, [location.pathname]);
+    setOpenGroup(null);
+  }, [pathname]);
+
+  useEffect(() => {
+    function handleClickOutside(e) {
+      if (navRef.current && !navRef.current.contains(e.target)) {
+        setOpenGroup(null);
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  function toggleGroup(name) {
+    setOpenGroup(prev => (prev === name ? null : name));
+  }
 
   return (
     <>
-      <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-ice-300" data-testid="navbar">
+      <nav
+        ref={navRef}
+        className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-ice-300"
+        data-testid="navbar"
+        onMouseLeave={() => setOpenGroup(null)}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between h-[70px]">
 
-            {/* Logo */}
-            <Link to="/" className="flex items-center gap-3 flex-shrink-0" data-testid="nav-logo">
-              <div className="w-8 h-8 bg-frost-900 rounded flex items-center justify-center">
-                <span className="text-white text-xs font-bold font-mono">KG</span>
-              </div>
-              <div className="leading-none">
-                <div className="font-fraunces font-semibold text-frost-900 text-sm">KPR Shrimp Global</div>
-                <div className="text-frost-500 text-xs">Ltd</div>
+            <Link href="/" className="flex items-center gap-3 flex-shrink-0" data-testid="nav-logo">
+              <LogoMark size={42} />
+              <div>
+                <div className="font-fraunces font-semibold text-frost-900 text-base leading-none">Indo Aquatic</div>
+                <div className="font-inter text-[10px] tracking-[0.18em] uppercase text-frost-500 mt-0.5">UK Ltd</div>
               </div>
             </Link>
 
-            {/* Desktop nav */}
             <div className="hidden md:flex items-center gap-6">
-              <div className="relative" onMouseEnter={() => setProductsOpen(true)} onMouseLeave={() => setProductsOpen(false)}>
-                <button className="flex items-center gap-1 text-sm text-ink-900 hover:text-neon-500 font-medium transition-colors py-2" data-testid="nav-products-btn">
-                  Products <ChevronDown size={14} className={`transition-transform ${productsOpen ? 'rotate-180' : ''}`} />
-                </button>
-                <Dropdown items={NAV_PRODUCTS} isOpen={productsOpen} />
-              </div>
-              <div className="relative" onMouseEnter={() => setSectorsOpen(true)} onMouseLeave={() => setSectorsOpen(false)}>
-                <button className="flex items-center gap-1 text-sm text-ink-900 hover:text-neon-500 font-medium transition-colors py-2" data-testid="nav-sectors-btn">
-                  Sectors <ChevronDown size={14} className={`transition-transform ${sectorsOpen ? 'rotate-180' : ''}`} />
-                </button>
-                <Dropdown items={NAV_SECTORS} isOpen={sectorsOpen} />
-              </div>
-              <div className="relative" onMouseEnter={() => setCompanyOpen(true)} onMouseLeave={() => setCompanyOpen(false)}>
-                <button className="flex items-center gap-1 text-sm text-ink-900 hover:text-neon-500 font-medium transition-colors py-2" data-testid="nav-company-btn">
-                  Company <ChevronDown size={14} className={`transition-transform ${companyOpen ? 'rotate-180' : ''}`} />
-                </button>
-                <Dropdown items={NAV_COMPANY} isOpen={companyOpen} />
-              </div>
+              {[
+                { key: 'products', label: 'Products', items: NAV_PRODUCTS, testId: 'nav-products-btn' },
+                { key: 'sectors',  label: 'Sectors',  items: NAV_SECTORS,  testId: 'nav-sectors-btn' },
+                { key: 'company',  label: 'Company',  items: NAV_COMPANY,  testId: 'nav-company-btn' },
+              ].map(({ key, label, items, testId }) => {
+                const isOpen = openGroup === key;
+                return (
+                  <div
+                    key={key}
+                    className="group relative"
+                    onMouseEnter={() => setOpenGroup(key)}
+                  >
+                    <button
+                      onClick={() => toggleGroup(key)}
+                      className={`flex items-center gap-1 text-[15px] font-semibold transition-colors py-5 group-hover:text-neon-500 ${isOpen ? 'text-neon-500' : 'text-ink-900'}`}
+                      data-testid={testId}
+                      aria-expanded={isOpen}
+                    >
+                      {label}
+                      <ChevronDown size={14} className={`transition-transform duration-200 group-hover:rotate-180 ${isOpen ? 'rotate-180' : ''}`} />
+                    </button>
+                    <div className={`absolute top-full left-0 w-56 bg-white border border-ice-300 rounded-lg shadow-xl py-1 z-50 hidden group-hover:block ${isOpen ? '!block' : ''}`}>
+                      <DropdownMenu items={items} />
+                    </div>
+                  </div>
+                );
+              })}
             </div>
 
-            {/* Right side */}
             <div className="flex items-center gap-3">
-              <Link to="/request-a-sample" className="hidden sm:inline-flex items-center px-4 py-2 bg-neon-500 hover:bg-neon-600 text-white text-sm font-medium rounded-md transition-colors" data-testid="nav-request-sample">
-                Request a sample
+              <Link href="/request-a-sample" className="hidden sm:inline-flex items-center px-5 py-2.5 bg-neon-500 hover:bg-neon-600 text-white text-[15px] font-semibold rounded-md transition-colors" data-testid="nav-request-sample">
+                Request a frozen sample
               </Link>
               <button
                 onClick={() => setMobileOpen(true)}
@@ -252,7 +259,6 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Full-screen mobile overlay (rendered outside nav to cover entire viewport) */}
       <MobileMenu isOpen={mobileOpen} onClose={() => setMobileOpen(false)} />
     </>
   );

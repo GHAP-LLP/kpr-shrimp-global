@@ -20,7 +20,7 @@ node_modules/
 /coverage
 
 # Next.js
-/.next/
+.next/
 /out/
 next-env.d.ts
 *.tsbuildinfo
@@ -31,7 +31,9 @@ dist/
 dist
 
 # Environment files (comprehensive coverage)
-
+.env
+.env.*
+!.env.example
 *token.json*
 *credentials.json*
 
@@ -80,3 +82,10 @@ memory/test_credentials.md
 
 # Mobile development
 android-sdk/
+
+# Agent tooling
+.claude/
+.emergent/
+.local/
+.ruff_cache/frontend/node_modules/@next/swc-linux-arm64-gnu/next-swc.linux-arm64-gnu.node
+frontend/node_modules/@next/swc-linux-arm64-musl/next-swc.linux-arm64-musl.node
