@@ -163,8 +163,8 @@ export default function SustainabilityPage() {
                 </div>
                 <div className="bg-white border border-ice-300 rounded-xl p-4 shadow-sm flex flex-col justify-center">
                   <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neon-500 font-inter mb-2">Our farm & plant</p>
-                  <h3 className="font-fraunces text-base text-ink-900 mb-2">SS Agro Products</h3>
-                  <p className="text-xs text-frost-700 font-inter leading-relaxed">Kodavalur, Nellore, Andhra Pradesh, India. Farming, processing, and cold storage.</p>
+                  <h3 className="font-fraunces text-base text-ink-900 mb-2">Kodavalur, Nellore</h3>
+                  <p className="text-xs text-frost-700 font-inter leading-relaxed">Andhra Pradesh, India. Farming, processing, and cold storage.</p>
                 </div>
               </div>
             </div>

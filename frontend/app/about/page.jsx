@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, Target, MapPin, Users, Snowflake, Award, Mail } from 'lucide-react';
+import { ArrowRight, Target, MapPin, Users, Snowflake, Award } from 'lucide-react';
 import { buildMetadata } from '@/lib/metadata';
 import { FadeUp, FadeUpGrid, FadeUpItem } from '@/components/FadeUp';
 import { BRAND_IMGS } from '@/data/images';
@@ -46,12 +46,6 @@ const CERTS = [
   { name: 'FDA Registered', status: 'Held', held: true },
   { name: 'Halal Certified', status: 'Held', held: true },
   { name: 'ASC Certified', status: 'Held', held: true },
-];
-
-const TEAM = [
-  { name: 'Santosh Kumar Reddy Ogili', role: 'Director', focus: 'Commercial strategy, key accounts, and supply partnerships for the UK market.', email: 'sales@indoaquaticltd.com' },
-  { name: 'Sahithya Reddy Ogili', role: 'Director', focus: 'Operations, compliance, and logistics across the UK supply chain.', email: 'sales@indoaquaticltd.com' },
-  { name: 'Technical & QA', role: 'Documentation & Compliance', focus: 'Spec sheets, allergen declarations, HACCP documentation, and CoA requests.', email: 'samples@indoaquaticltd.com' },
 ];
 
 export default function AboutPage() {
@@ -188,34 +182,6 @@ export default function AboutPage() {
                   <Award size={20} className={`${cert.held ? 'text-neon-500' : 'text-frost-500'} mx-auto mb-3`} />
                   <p className="font-inter font-semibold text-ink-900 text-sm mb-1">{cert.name}</p>
                   <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded uppercase tracking-wider ${cert.held ? 'bg-neon-500/20 text-neon-500' : 'bg-ice-300 text-frost-700'}`}>{cert.status}</span>
-                </div>
-              </FadeUpItem>
-            ))}
-          </FadeUpGrid>
-        </div>
-      </section>
-
-      <section className="py-16 border-t border-ice-300" data-testid="about-team">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeUp className="mb-10">
-            <SectionLabel number="05" text="Our Team" />
-            <h2 className="font-fraunces text-3xl text-ink-900 mb-3">A UK team dedicated to one product.</h2>
-            <p className="text-frost-700 font-inter max-w-2xl">All commercial, technical, and logistics conversations happen with people whose entire focus is prawns. One contact, full continuity.</p>
-          </FadeUp>
-          <FadeUpGrid className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {TEAM.map(member => (
-              <FadeUpItem key={member.name}>
-                <div className="bg-white border border-ice-300 rounded-xl p-6 h-full flex flex-col shadow-sm">
-                  <div className="mb-4">
-                    <h3 className="font-fraunces text-lg text-ink-900 mb-0.5">{member.name}</h3>
-                    <p className="text-xs font-semibold text-neon-500 uppercase tracking-wider font-inter">{member.role}</p>
-                  </div>
-                  <p className="text-sm text-frost-700 leading-relaxed font-inter flex-1 mb-4">{member.focus}</p>
-                  <div className="space-y-1.5 border-t border-ice-300 pt-4">
-                    <a href={`mailto:${member.email}`} className="flex items-center gap-2 text-xs text-frost-700 hover:text-neon-500 transition-colors font-inter">
-                      <Mail size={12} className="flex-shrink-0" />{member.email}
-                    </a>
-                  </div>
                 </div>
               </FadeUpItem>
             ))}
