@@ -21,6 +21,7 @@ const NAV_SECTORS = [
 const NAV_COMPANY = [
   { name: 'About us', href: '/about' },
   { name: 'Sustainability', href: '/sustainability' },
+  { name: 'Corporate Policies', href: '/policies' },
   { name: 'Resources & Docs', href: '/resources' },
   { name: 'Contact', href: '/contact' },
 ];
