@@ -7,9 +7,30 @@ export const metadata = buildMetadata({
   path: '/policies',
 });
 
+const POLICY_INDEX = [
+  'Code of Conduct',
+  'Human Rights and Modern Slavery',
+  'Anti-bribery and Corruption',
+  'Fraud',
+  'Tax',
+  'Risk Management',
+  'Inclusion, Diversity and Equal Opportunities',
+  'Fire, Health and Safety',
+  'Food & Product Safety and Integrity',
+  'Data Protection and Privacy',
+  'Trading Standards and Consumer Protection',
+  'Laws that Protect Grocery Suppliers (GSCOP)',
+  'Supply Chain and Responsible Sourcing',
+  'Sanctions and Export Controls',
+  'Charity Partnerships and Fundraising',
+  'Climate and Energy',
+  'Food Waste',
+  'Product Packaging',
+];
+
 function Section({ number, title, children }) {
   return (
-    <section className="mb-10" data-testid={`policy-${number}`}>
+    <section id={`policy-${number}`} className="mb-10 scroll-mt-24" data-testid={`policy-${number}`}>
       <h2 className="font-fraunces text-2xl text-ink-900 mb-4">{number}. {title}</h2>
       <div className="space-y-3 text-sm text-frost-700 leading-relaxed font-inter">{children}</div>
     </section>
@@ -33,6 +54,29 @@ export default function PoliciesPage() {
       </div>
 
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+
+        <div className="mb-10 p-5 rounded-lg bg-ice-300/60 border border-ice-300 text-sm text-frost-700 font-inter">
+          <p><strong className="text-ink-900">Registered company:</strong> Indo Aquatic Ltd.<br />
+          <strong className="text-ink-900">Company number:</strong> 17230607<br />
+          <strong className="text-ink-900">Registered address:</strong> Hall Farm Burrill Lane, Brantingham, Brough, HU15 1YG, United Kingdom<br />
+          <strong className="text-ink-900">Email:</strong> <a href="mailto:info@indoaquaticltd.com" className="text-neon-500 hover:underline">info@indoaquaticltd.com</a></p>
+        </div>
+
+        <nav aria-label="Policy sections" className="mb-12 p-5 rounded-lg bg-white/60 border border-ice-300">
+          <p className="text-xs font-semibold tracking-[0.15em] uppercase text-frost-700 font-inter mb-3">On this page</p>
+          <ol className="grid sm:grid-cols-2 gap-x-6 gap-y-1.5 text-sm font-inter">
+            {POLICY_INDEX.map((title, i) => (
+              <li key={i}>
+                <a href={`#policy-${i + 1}`} className="text-frost-700 hover:text-neon-500 transition-colors">{i + 1}. {title}</a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+
+        <p className="text-xs text-frost-500 font-inter mb-10 italic">
+          These policies are maintained internally and describe our current practice; they are not a substitute
+          for legal advice. If you require a formally reviewed copy for a due-diligence process, please contact us.
+        </p>
 
         <Section number={1} title="Code of Conduct">
           <p>We conduct our business honestly, fairly, and in compliance with UK law. Every person acting on
