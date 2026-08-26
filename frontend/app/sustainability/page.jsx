@@ -25,7 +25,7 @@ const CERT_ROADMAP = [
 const COMMITMENTS = [
   { icon: Eye, title: "Lot-level traceability", desc: "Every shipment carries full provenance documentation — farm lot, processing date, cold chain record, and country of origin. Chain of custody available on request for any SKU." },
   { icon: Thermometer, title: "Unbroken cold chain", desc: "Temperature-controlled from processing facility to UK cold storage. All shipments logged with time-temperature records. No breaks between Andhra Pradesh and your warehouse." },
-  { icon: Leaf, title: "Responsible aquaculture", desc: "Our sourcing partners' farming operations hold BAP and ASC certification, subject to ongoing third-party audit. ASC is now in place across our primary supply operations, covering environmental and social responsibility standards." },
+  { icon: Leaf, title: "Responsible aquaculture", desc: "Our own farms and partner operations hold BAP and ASC certification, subject to ongoing third-party audit. ASC is now in place across our primary supply operations, covering environmental and social responsibility standards." },
   { icon: Shield, title: "Documentation on demand", desc: "Full spec sheets, nutritional data, allergen declarations, HACCP documentation, and country of origin certificates available for every product in our range." },
 ];
 
@@ -140,7 +140,7 @@ export default function SustainabilityPage() {
             <div>
               <SectionLabel number="03" text="Aquaculture Practices" />
               <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900 mb-6">Responsible aquaculture at farm level.</h2>
-              <p className="text-frost-700 leading-relaxed mb-8 font-inter">We work with certified sourcing partners, including operations in Kodavalur, Nellore, Andhra Pradesh — a region with a long history of commercial aquaculture. The practices below represent the operating standards we require of our partners, subject to ongoing third-party audit.</p>
+              <p className="text-frost-700 leading-relaxed mb-8 font-inter">We operate our own prawn farms and processing facilities in Kodavalur, Nellore, Andhra Pradesh, alongside partnerships with certified operations in other leading prawn-producing regions. The practices below represent the operating standards we hold across our own facilities and require of our partners, subject to ongoing third-party audit.</p>
               <div className="space-y-4">
                 {PRACTICES.map(p => (
                   <div key={p.title} className="flex items-start gap-3">
@@ -162,9 +162,9 @@ export default function SustainabilityPage() {
                   <img src={WORKERS_IMG} alt="Processing facility workers" className="w-full h-full object-cover" />
                 </div>
                 <div className="bg-white border border-ice-300 rounded-xl p-4 shadow-sm flex flex-col justify-center">
-                  <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neon-500 font-inter mb-2">Sourcing partner</p>
+                  <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neon-500 font-inter mb-2">Our farm & plant</p>
                   <h3 className="font-fraunces text-base text-ink-900 mb-2">SS Agro Products</h3>
-                  <p className="text-xs text-frost-700 font-inter leading-relaxed">Kodavalur, Nellore, Andhra Pradesh, India. One of our certified sourcing partners for farming and processing.</p>
+                  <p className="text-xs text-frost-700 font-inter leading-relaxed">Kodavalur, Nellore, Andhra Pradesh, India. Farming, processing, and cold storage.</p>
                 </div>
               </div>
             </div>

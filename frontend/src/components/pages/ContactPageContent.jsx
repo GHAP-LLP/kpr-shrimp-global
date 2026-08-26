@@ -63,7 +63,7 @@ export default function ContactPageContent() {
             </div>
 
             <div className="bg-white border border-ice-300 rounded-xl p-6 shadow-sm">
-              <h3 className="font-fraunces text-base text-ink-900 mb-2">Sourcing partner</h3>
+              <h3 className="font-fraunces text-base text-ink-900 mb-2">Our farm & plant</h3>
               <p className="text-xs text-frost-700 leading-relaxed font-inter">SS Agro Products<br />Kodavalur, SPSR Nellore, Andhra Pradesh 524366, India</p>
             </div>
           </div>

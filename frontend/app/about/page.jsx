@@ -21,7 +21,7 @@ function SectionLabel({ number, text }) {
 const PILLARS = [
   { icon: Target, title: 'Single-category focus', desc: 'We only do prawns. That means every decision — buying, spec, logistics, QC — is made by people whose entire career is prawns. Generalist importers carry prawns alongside hundreds of other lines. We don\'t.' },
   { icon: Snowflake, title: 'Full UK cold-chain', desc: 'Cold storage at Grimsby and Hull. Nationwide frozen delivery. Sterling pricing and UK contracts — no currency conversion risk for your procurement team.' },
-  { icon: MapPin, title: 'Traceable origin', desc: 'Lot-level provenance on every shipment. Full chain of custody from farm to UK warehouse, backed by our directors\' two decades of hands-on aquaculture expertise and long-term sourcing partnerships that most importers simply can\'t match.' },
+  { icon: MapPin, title: 'Traceable origin', desc: 'Lot-level provenance on every shipment. Full chain of custody from our own farms and processing plants — and from trusted partners worldwide — to your UK warehouse.' },
   { icon: Users, title: 'UK-based account team', desc: 'GMT response times. A single account manager who knows your spec, your volumes, and your delivery requirements. No overseas call centres, no lost emails.' },
 ];
 
@@ -32,7 +32,7 @@ const STATS = [
 ];
 
 const OPERATIONS_STRIP = [
-  { img: BRAND_IMGS.farmAerial, label: 'Nellore, India', sub: 'Sourcing partner facility', alt: 'Prawn aquaculture farm ponds, Andhra Pradesh' },
+  { img: BRAND_IMGS.farmAerial, label: 'Nellore, India', sub: 'Our farm & processing plant', alt: 'Prawn aquaculture farm ponds, Andhra Pradesh' },
   { img: BRAND_IMGS.packagingLine, label: 'HACCP facility', sub: 'Processing & packaging', alt: 'Food packaging production line' },
   { img: BRAND_IMGS.coldWarehouse, label: 'Grimsby / Hull', sub: 'UK cold storage', alt: 'UK cold storage warehouse' },
 ];
@@ -92,9 +92,9 @@ export default function AboutPage() {
               <SectionLabel number="01" text="Who We Are" />
               <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900 mb-6">A UK entity built on a decade of aquaculture expertise.</h2>
               <p className="text-frost-700 leading-relaxed mb-5 font-inter">Indo Aquatic UK Ltd is an independent, UK-registered specialist importer and distributor of frozen prawns. We supply retailers, foodservice operators, retail processors, and wholesale distributors across the United Kingdom. <span className="text-frost-500">(Indo Aquatic Ltd. · Company No. 17230607)</span></p>
-              <p className="text-frost-700 leading-relaxed mb-5 font-inter">Indo Aquatic is a family business, led by directors with over 20 years of hands-on experience in prawn aquaculture — spanning farm ownership, processing, and international export. That same family built one of the industry's leading integrated prawn operations, encompassing farms, processing plants, and a global distribution network valued at over $100 million.</p>
-              <p className="text-frost-700 leading-relaxed mb-5 font-inter">Indo Aquatic UK Ltd brings that depth of expertise directly to the UK market — launching as an independent company with the buying power, technical knowledge, and supplier relationships of an organisation many times its size, built on the belief that UK buyers deserve direct access to genuine aquaculture expertise, not just another importer.</p>
-              <p className="text-frost-700 leading-relaxed font-inter">This heritage gives UK buyers a real advantage: a team who understands prawn production from the pond up, backed by long-term relationships with some of the best certified sourcing partners in the industry.</p>
+              <p className="text-frost-700 leading-relaxed mb-5 font-inter">Indo Aquatic is a family business, built on more than 20 years of hands-on experience in prawn aquaculture. Our directors' family owns and operates its own farms and processing plants, and has grown that operation into one of the industry's leading integrated prawn businesses — spanning farming, processing, and global distribution, with a network valued at over $100 million.</p>
+              <p className="text-frost-700 leading-relaxed mb-5 font-inter">Alongside our own farms and plants, we work with a carefully selected network of trusted partners across the world's leading prawn-producing regions — giving UK buyers access to consistent supply, competitive pricing, and the flexibility that comes from genuine scale.</p>
+              <p className="text-frost-700 leading-relaxed font-inter">Indo Aquatic UK Ltd brings all of this directly to the UK market: an independent company with the production expertise, supplier relationships, and quality control of an organisation many times its size — every prawn closely inspected and processed at every step, from pond to UK plate.</p>
             </FadeUp>
             <FadeUp delay={0.12}>
               <div className="rounded-2xl overflow-hidden aspect-[4/3] border border-ice-300 shadow-sm">
@@ -162,10 +162,10 @@ export default function AboutPage() {
             </FadeUp>
             <FadeUp className="order-1 lg:order-2">
               <SectionLabel number="03" text="Sourcing" />
-              <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900 mb-6">Backed by two decades of aquaculture expertise.</h2>
-              <p className="text-frost-700 leading-relaxed mb-5 font-inter">We work with a carefully vetted network of sourcing partners across leading prawn-producing regions, including Kodavalur, Nellore, Andhra Pradesh — chosen for their certification standards, processing quality, and consistency.</p>
-              <p className="text-frost-700 leading-relaxed mb-5 font-inter">We don't rely on spot market purchasing. Our directors' hands-on experience in farm ownership and processing means spec, quality, and lot-level traceability are controlled at every stage — from pond to processing to UK cold store.</p>
-              <p className="text-frost-700 leading-relaxed mb-8 font-inter">UK buyers get the benefit of this expertise — sterling pricing, UK contracts, and an account team in the same time zone.</p>
+              <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900 mb-6">Our own farms. Our own plants. Our own standards.</h2>
+              <p className="text-frost-700 leading-relaxed mb-5 font-inter">Our directors' family owns and operates prawn farms and processing facilities in Kodavalur, Nellore, Andhra Pradesh — one of India's most productive prawn-farming regions — alongside a trusted network of partners across other leading prawn-producing regions worldwide.</p>
+              <p className="text-frost-700 leading-relaxed mb-5 font-inter">We don't rely on spot market purchasing. Every stage — farming, processing, quality control — is closely managed to our own standard, whether at our own facilities or through our vetted partners, so spec, quality, and lot-level traceability are controlled at every step.</p>
+              <p className="text-frost-700 leading-relaxed mb-8 font-inter">UK buyers get the benefit of this reach and control — sterling pricing, UK contracts, and an account team in the same time zone.</p>
               <Link href="/contact" className="inline-flex items-center gap-2 text-sm text-neon-500 hover:text-neon-600 font-medium font-inter transition-colors" data-testid="about-contact-link">
                 Get in touch <ArrowRight size={14} />
               </Link>

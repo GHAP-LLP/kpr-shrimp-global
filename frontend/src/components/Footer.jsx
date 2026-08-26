@@ -36,7 +36,7 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-frost-500/70 text-xs italic mt-2 mb-3">Premium Seafood. Global Standards.</p>
-            <p className="text-frost-500 text-sm leading-relaxed">The UK's specialist frozen prawn supplier. Backed by two decades of family aquaculture expertise and a trusted global sourcing network.</p>
+            <p className="text-frost-500 text-sm leading-relaxed">The UK's specialist frozen prawn supplier. Backed by our own farms, processing plants, and two decades of family aquaculture expertise.</p>
             <div className="mt-4 pt-4 border-t border-frost-700">
               <p className="text-frost-500 text-xs leading-relaxed">Hall Farm Burrill Lane<br />Brantingham, Brough, HU15 1YG</p>
               <a href="mailto:sales@indoaquaticltd.com" className="text-frost-500 text-xs hover:text-neon-500 transition-colors block mt-2">sales@indoaquaticltd.com</a>

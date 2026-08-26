@@ -32,7 +32,7 @@ export default function HeroSection() {
             The UK's specialist frozen prawn supplier.
           </h1>
           <p className="text-lg text-frost-500 leading-relaxed mb-10 max-w-2xl font-inter">
-            UK distributor of raw, cooked and added value prawns – sourced through our vetted network of certified partners around the world.
+            UK distributor of raw, cooked and added value prawns – supplied through our own farms, processing plants, and a trusted network of partners around the world, with every step closely controlled to deliver the highest quality prawns in the UK market.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link
