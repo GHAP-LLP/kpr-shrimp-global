@@ -18,5 +18,8 @@ Status: `todo` · `in-progress` · `done`. Grouped by category. Update as work p
 ## Frontend
 - [ ] `todo` — Confirm `frontend/.env` needs (backend base URL) once backend is live.
 
+## Legal / Compliance
+- [ ] `todo` — Consider Sustainable Seafood Coalition (SSC) membership. Competitors Lyons Seafoods and M&S are both members, committing to the SSC Responsible Sourcing Code and Environmental Labelling Code. Would need leadership sign-off before publishing any membership/pending-membership claim on the site.
+
 ## Docs
 - [x] `done` — Documentation system set up (`docs/` folder).

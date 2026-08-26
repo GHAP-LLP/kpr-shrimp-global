@@ -26,6 +26,8 @@ const POLICY_INDEX = [
   'Climate and Energy',
   'Food Waste',
   'Product Packaging',
+  'Animal Welfare (Aquaculture)',
+  'Whistleblowing and Speak Up',
 ];
 
 function Section({ number, title, children }) {
@@ -202,6 +204,24 @@ export default function PoliciesPage() {
           count/weight bands (e.g. 1kg/2kg block-frozen or IQF bags, retail-ready packs for private label). We
           look to reduce unnecessary plastic and use recyclable outer cartons where suitable for frozen
           logistics, without compromising food safety or cold-chain integrity.</p>
+        </Section>
+
+        <Section number={19} title="Animal Welfare (Aquaculture)">
+          <p>As a farmed-species specialist, animal welfare is part of how our own farms operate and what we
+          require of every partner. Our production uses closed pond systems with controlled water quality and
+          stocking density, and we do not use antibiotics in production — verifiable via third-party residue
+          testing. BAP and ASC certification, held across our primary supply operations, include welfare and
+          biosecurity criteria within their audit scope. Further detail is on our{' '}
+          <Link href="/sustainability" className="text-neon-500 hover:underline">Sustainability</Link> page.</p>
+        </Section>
+
+        <Section number={20} title="Whistleblowing and Speak Up">
+          <p>We encourage employees, suppliers, and other business contacts to raise concerns about suspected
+          misconduct, malpractice, or breaches of these policies without fear of reprisal. As a small company,
+          concerns are raised directly to a director at{' '}
+          <a href="mailto:info@indoaquaticltd.com" className="text-neon-500 hover:underline">info@indoaquaticltd.com</a>{' '}
+          rather than through a third-party hotline, and are handled confidentially and investigated
+          proportionately.</p>
         </Section>
 
         <div className="mt-12 pt-6 border-t border-ice-300">
