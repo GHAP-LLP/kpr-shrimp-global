@@ -38,12 +38,12 @@ cd backend && pip install -r requirements.txt
 ## Architecture
 
 ### Frontend
-- **CRA + CRACO** — `craco.config.js` adds the `@` → `src/` webpack alias, wraps the dev server for `@emergentbase/visual-edits` live editing, and optionally mounts a health-check plugin (disabled by default via `ENABLE_HEALTH_CHECK=false`).
+- **Next.js 15 (App Router)** — `next.config.js` adds the `@` → `src/` webpack alias and disables ESLint during builds. `yarn start` runs `next dev`.
 - **`@` alias** resolves to `src/` — use `@/components/Foo` not `../../components/Foo`.
-- **Routing** — React Router v7. All routes defined in `App.js`. Dynamic pages receive URL params:
-  - `/products/:category` → `ProductHubPage` calls `getCategoryBySlug(params.category)`
-  - `/products/:category/:variant` → `ProductVariantPage` calls `getVariantBySlug(params.category, params.variant)`
-  - `/sectors/:sector` → `SectorPage` matches `sectors.find(s => s.slug === params.sector)`
+- **Routing** — file-based routing under `frontend/app/`. Dynamic pages receive route params via the page's `params` prop:
+  - `app/products/[category]/page.jsx` calls `getCategoryBySlug(params.category)`
+  - `app/products/[category]/[variant]/page.jsx` calls `getVariantBySlug(params.category, params.variant)`
+  - `app/sectors/[sector]/page.jsx` matches `sectors.find(s => s.slug === params.sector)`
 - **Static data layer** — all product and sector content lives in `src/data/products.js` and `src/data/sectors.js`. There is no API fetch; pages read directly from these exports. Adding or editing products/sectors means editing these files.
   - `products.js` exports `productCategories` (3 categories, 11 variants), `COUNT_SIZES`, `IMG` (image URLs), `getCategoryBySlug()`, `getVariantBySlug()`.
   - `sectors.js` exports `sectors` (4 sectors) and `SECTOR_IMG`.
@@ -72,5 +72,4 @@ cd backend && pip install -r requirements.txt
 - Currently only has `/api/status` (POST/GET) as a health-check scaffold — no domain endpoints yet.
 
 ### Environment variables
-- `frontend/.env` — `REACT_APP_BACKEND_URL` (backend base URL for future API calls), `WDS_SOCKET_PORT=443`, `ENABLE_HEALTH_CHECK=false`
 - `backend/.env` — `MONGO_URL`, `DB_NAME`, `CORS_ORIGINS`

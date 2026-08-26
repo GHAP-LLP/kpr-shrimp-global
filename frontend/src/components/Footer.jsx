@@ -16,6 +16,7 @@ const sectorLinks = [
 const companyLinks = [
   { name: 'About us', href: '/about' },
   { name: 'Sustainability', href: '/sustainability' },
+  { name: 'Corporate Policies', href: '/policies' },
   { name: 'Resources & Docs', href: '/resources' },
   { name: 'Request a sample', href: '/request-a-sample' },
   { name: 'Contact', href: '/contact' },

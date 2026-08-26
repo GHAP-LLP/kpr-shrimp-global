@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, Eye, Thermometer, Leaf, Shield, CheckCircle, Clock } from 'lucide-react';
+import { ArrowRight, Eye, Thermometer, Leaf, Shield, CheckCircle, Clock, Users, Scale } from 'lucide-react';
 import { buildMetadata } from '@/lib/metadata';
 import { FadeUp, FadeUpGrid, FadeUpItem } from '@/components/FadeUp';
 import { BRAND_IMGS } from '@/data/images';
@@ -36,6 +36,14 @@ const PRACTICES = [
   { title: "Worker welfare", desc: "Operations audited for labour standards. No use of forced or child labour across processing facilities." },
   { title: "Waste minimisation", desc: "Prawn heads, shells, and trimmings directed to by-product processing where feasible. Packaging waste targets in place." },
   { title: "Energy efficiency", desc: "Cold chain infrastructure designed to minimise refrigerant use. LED and energy-efficient processing equipment." },
+];
+
+// NEEDS REVIEW: generic, defensible commitment language for Indo Aquatic UK Ltd (the importer/distributor) — confirm with a director before publishing. Do not add specific standards/memberships not actually held.
+const ETHICAL_COMMITMENTS = [
+  { icon: Scale, title: "Fair and lawful trading", desc: "Indo Aquatic conducts business in line with UK trading law and expects the same of every supplier we work with — clear contracts, fair payment terms, and no tolerance for bribery or corruption." },
+  { icon: Users, title: "No forced or child labour", desc: "We do not tolerate forced, bonded, or child labour anywhere in our supply chain, and we expect suppliers to uphold the same standard across their own operations." },
+  { icon: Shield, title: "Right to review our supply chain", desc: "We reserve the right to request evidence of labour and safety standards from any supplier, and to review or end a supplier relationship where standards are not met." },
+  { icon: Eye, title: "Open to scrutiny", desc: "We welcome questions from customers on how our supply chain operates and will respond directly rather than pointing to a certificate alone." },
 ];
 
 function SectionLabel({ number, text }) {
@@ -164,10 +172,36 @@ export default function SustainabilityPage() {
         </div>
       </section>
 
+      {/* NEEDS REVIEW: all commitments below describe Indo Aquatic UK Ltd's own trading conduct as importer/distributor — confirm accuracy with a director before publishing. Do not add named standards (ETI Base Code, SEDEX, SSC, GDST, MarinTrust, etc.) or a Modern Slavery Statement claim unless Indo Aquatic has actually adopted/signed them. */}
+      <section className="py-16 md:py-24 border-t border-ice-300" data-testid="ethical-sourcing">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <FadeUp className="mb-12">
+            <SectionLabel number="04" text="Ethical Trading" />
+            <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900 mb-3">How we expect our supply chain to operate.</h2>
+            <p className="text-frost-700 font-inter max-w-2xl">As the UK importer and distributor, Indo Aquatic is responsible for the conduct of the supply chain we sell into. These are the standards we hold ourselves and our suppliers to.</p>
+          </FadeUp>
+          <FadeUpGrid className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            {ETHICAL_COMMITMENTS.map(item => (
+              <FadeUpItem key={item.title}>
+                <div className="flex items-start gap-4" data-testid={`ethical-${item.title.split(' ')[0].toLowerCase()}`}>
+                  <div className="w-10 h-10 bg-white border border-ice-300 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
+                    <item.icon size={18} className="text-neon-500" />
+                  </div>
+                  <div>
+                    <h3 className="font-fraunces text-lg text-ink-900 mb-2">{item.title}</h3>
+                    <p className="text-sm text-frost-700 leading-relaxed font-inter">{item.desc}</p>
+                  </div>
+                </div>
+              </FadeUpItem>
+            ))}
+          </FadeUpGrid>
+        </div>
+      </section>
+
       <section className="py-16 border-t border-ice-300" data-testid="documentation">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
-            <SectionLabel number="04" text="Documentation" />
+            <SectionLabel number="05" text="Documentation" />
             <h2 className="font-fraunces text-3xl text-ink-900 mb-3">Available for every product, every order.</h2>
             <p className="text-frost-700 font-inter max-w-2xl">We don't ask buyers to request documentation weeks in advance. Everything listed below is available as standard, issued with or before shipment.</p>
           </div>
