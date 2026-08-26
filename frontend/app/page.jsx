@@ -140,9 +140,9 @@ function ProductRangeSection() {
 }
 
 const PROCESS_STEPS = [
-  { step: '01', Icon: Leaf, title: 'Farmed & Processed', sub: 'Our own farms & partner network', desc: 'Litopenaeus vannamei farmed at our own facilities and by trusted partners worldwide. HACCP-controlled processing, full lot documentation generated at source.', image: BRAND_IMGS.farmAerial, imageAlt: 'Prawn aquaculture farm ponds, Andhra Pradesh' },
-  { step: '02', Icon: Shield, title: 'QC & Documentation', sub: 'Pre-export', desc: 'Residue testing, count tolerances checked, Certificate of Analysis issued. Spec locked and documented before the product leaves the facility.', image: BRAND_IMGS.qualityControl, imageAlt: 'Food quality control inspection' },
-  { step: '03', Icon: Ship, title: 'Cold-Chain Shipping', sub: 'India → UK port', desc: 'Temperature-controlled from processing to UK port. Continuous cold chain. Time-temperature records travel with every consignment.', image: BRAND_IMGS.containerShip, imageAlt: 'Container ship carrying frozen cargo' },
+  { step: '01', Icon: Leaf, title: 'Farmed & Processed', sub: 'Our own farms & partner network', desc: 'Litopenaeus vannamei farmed and processed at our own facilities, and by trusted partners around the world. HACCP-controlled processing, full lot documentation generated at source.', image: BRAND_IMGS.farmAerial, imageAlt: 'Prawn aquaculture farm ponds, Andhra Pradesh' },
+  { step: '02', Icon: Shield, title: 'Sampled & Tested', sub: 'Verified in-house', desc: 'Samples drawn from every farm and partner are tested and finalised at our own Indo Aquatic facility. Residue testing, count tolerances checked, Certificate of Analysis issued before dispatch.', image: BRAND_IMGS.qualityControl, imageAlt: 'Food quality control inspection' },
+  { step: '03', Icon: Ship, title: 'Cold-Chain Shipping', sub: 'Global origins → UK port', desc: 'Temperature-controlled from origin — India and other partner regions worldwide — to the UK port. Continuous cold chain. Time-temperature records travel with every consignment.', image: BRAND_IMGS.containerShip, imageAlt: 'Container ship carrying frozen cargo' },
   { step: '04', Icon: Warehouse, title: 'UK Cold Storage', sub: 'Grimsby / Hull', desc: 'UK-held cold-chain stock. Sterling pricing, UK contracts, GMT account team. Ready for despatch within agreed lead times.', image: BRAND_IMGS.coldWarehouse, imageAlt: 'UK cold storage warehouse' },
 ];
 

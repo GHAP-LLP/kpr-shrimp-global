@@ -115,10 +115,11 @@ export default function PoliciesPage() {
         </Section>
 
         <Section number={6} title="Risk Management">
-          <p>As an importer of a perishable, cold-chain product from a single primary origin, our main
-          operational risks are supply chain disruption, cold chain failure, and currency exposure on
-          India–UK trade. We manage these through supplier relationship continuity, temperature-logged
-          shipping, and standard commercial hedging practices where applicable.</p>
+          <p>As an importer of a perishable, cold-chain product sourced from our own facilities and a network of
+          partners across multiple origin countries, our main operational risks are supply chain disruption,
+          cold chain failure, and currency exposure on international trade. We manage these through supplier
+          relationship continuity, temperature-logged shipping, and standard commercial hedging practices
+          where applicable.</p>
         </Section>
 
         <Section number={7} title="Inclusion, Diversity and Equal Opportunities">
@@ -184,9 +185,9 @@ export default function PoliciesPage() {
 
         <Section number={16} title="Climate and Energy">
           <p>Our largest energy footprint is cold chain — refrigeration and frozen transport from processing
-          in India to UK cold storage in Grimsby and Hull. We work with cold storage partners on efficient
-          refrigeration and aim to minimise unnecessary handling steps that create additional freeze-thaw
-          cycles or energy use.</p>
+          facilities in India and other partner regions worldwide to UK cold storage in Grimsby and Hull. We
+          work with cold storage partners on efficient refrigeration and aim to minimise unnecessary handling
+          steps that create additional freeze-thaw cycles or energy use.</p>
         </Section>
 
         <Section number={17} title="Food Waste">

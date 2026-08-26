@@ -24,7 +24,7 @@ const CERT_ROADMAP = [
 
 const COMMITMENTS = [
   { icon: Eye, title: "Lot-level traceability", desc: "Every shipment carries full provenance documentation — farm lot, processing date, cold chain record, and country of origin. Chain of custody available on request for any SKU." },
-  { icon: Thermometer, title: "Unbroken cold chain", desc: "Temperature-controlled from processing facility to UK cold storage. All shipments logged with time-temperature records. No breaks between Andhra Pradesh and your warehouse." },
+  { icon: Thermometer, title: "Unbroken cold chain", desc: "Temperature-controlled from processing facility to UK cold storage, whether the shipment originates in India or another partner region worldwide. All shipments logged with time-temperature records, with no breaks in the chain." },
   { icon: Leaf, title: "Responsible aquaculture", desc: "Our own farms and partner operations hold BAP and ASC certification, subject to ongoing third-party audit. ASC is now in place across our primary supply operations, covering environmental and social responsibility standards." },
   { icon: Shield, title: "Documentation on demand", desc: "Full spec sheets, nutritional data, allergen declarations, HACCP documentation, and country of origin certificates available for every product in our range." },
 ];
