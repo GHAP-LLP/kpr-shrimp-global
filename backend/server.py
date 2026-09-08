@@ -1,12 +1,12 @@
-from fastapi import FastAPI, APIRouter
+from fastapi import FastAPI, APIRouter, HTTPException, Request
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
 import os
 import logging
 from pathlib import Path
-from pydantic import BaseModel, Field, ConfigDict
-from typing import List
+from pydantic import BaseModel, Field, ConfigDict, EmailStr
+from typing import List, Optional
 import uuid
 from datetime import datetime, timezone
 
@@ -25,6 +25,13 @@ app = FastAPI()
 # Create a router with the /api prefix
 api_router = APIRouter(prefix="/api")
 
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
+
 
 # Define Models
 class StatusCheck(BaseModel):
@@ -37,10 +44,65 @@ class StatusCheck(BaseModel):
 class StatusCheckCreate(BaseModel):
     client_name: str
 
+
+class SampleRequestCreate(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+
+    name: str = Field(min_length=1, max_length=200)
+    company: str = Field(min_length=1, max_length=200)
+    email: EmailStr
+    phone: Optional[str] = Field(default="", max_length=50)
+    sector: str = Field(min_length=1, max_length=100)
+    products: List[str] = Field(default_factory=list)
+    volume: Optional[str] = Field(default="", max_length=100)
+    timeline: Optional[str] = Field(default="", max_length=100)
+    notes: Optional[str] = Field(default="", max_length=2000)
+    # Honeypot field: real users never fill this in; bots that auto-fill every field will.
+    website: Optional[str] = Field(default="", max_length=200)
+
+
+class SampleRequest(BaseModel):
+    model_config = ConfigDict(extra="ignore")
+
+    id: str = Field(default_factory=lambda: str(uuid.uuid4()))
+    name: str
+    company: str
+    email: EmailStr
+    phone: str = ""
+    sector: str
+    products: List[str] = Field(default_factory=list)
+    volume: str = ""
+    timeline: str = ""
+    notes: str = ""
+    status: str = "new"
+    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+
+
 # Add your routes to the router instead of directly to app
 @api_router.get("/")
 async def root():
     return {"message": "Hello World"}
+
+
+@api_router.post("/enquiries/sample-request", response_model=SampleRequest)
+async def create_sample_request(payload: SampleRequestCreate, request: Request):
+    if payload.website:
+        # Honeypot tripped — silently accept without storing to avoid tipping off bots.
+        return SampleRequest(**payload.model_dump(exclude={"website"}))
+
+    sample_request = SampleRequest(**payload.model_dump(exclude={"website"}))
+
+    doc = sample_request.model_dump()
+    doc["created_at"] = doc["created_at"].isoformat()
+    doc["source_ip"] = request.client.host if request.client else None
+
+    try:
+        await db.enquiries.insert_one(doc)
+    except Exception:
+        logger.exception("Failed to store sample request enquiry")
+        raise HTTPException(status_code=500, detail="Could not save your request. Please try again.")
+
+    return sample_request
 
 @api_router.post("/status", response_model=StatusCheck)
 async def create_status_check(input: StatusCheckCreate):
@@ -76,13 +138,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-# Configure logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-)
-logger = logging.getLogger(__name__)
 
 @app.on_event("shutdown")
 async def shutdown_db_client():

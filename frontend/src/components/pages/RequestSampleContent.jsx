@@ -1,21 +1,45 @@
 'use client';
 import { useState } from 'react';
-import { CheckCircle, Package, Phone } from 'lucide-react';
+import { CheckCircle, Package, Phone, Loader2 } from 'lucide-react';
 import Breadcrumb from '@/components/Breadcrumb';
 import { productCategories } from '@/data/products';
 
 const SECTORS = ['Retail Private Label', 'Retail Processors', 'Foodservice', 'Wholesale / Distributor', 'Other'];
 const INPUT_CLASS = "w-full px-4 py-2.5 border border-ice-300 rounded-md text-sm text-ink-900 placeholder-frost-500/60 focus:outline-none focus:ring-2 focus:ring-neon-500 focus:border-transparent bg-white font-inter";
 const SELECT_CLASS = "w-full px-4 py-2.5 border border-ice-300 rounded-md text-sm text-ink-900 focus:outline-none focus:ring-2 focus:ring-neon-500 bg-white font-inter";
+const API_URL = process.env.NEXT_PUBLIC_API_URL || '';
 
 export default function RequestSampleContent() {
   const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState({ name: '', company: '', email: '', phone: '', sector: '', products: [], volume: '', timeline: '', notes: '' });
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState('');
+  const [form, setForm] = useState({ name: '', company: '', email: '', phone: '', sector: '', products: [], volume: '', timeline: '', notes: '', website: '' });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    if (!form.sector) {
+      setError('Please select your sector.');
+      return;
+    }
+    setError('');
+    setSubmitting(true);
+    try {
+      const res = await fetch(`${API_URL}/api/enquiries/sample-request`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) {
+        throw new Error('Request failed');
+      }
+      setSubmitted(true);
+    } catch (err) {
+      setError("Sorry, we couldn't submit your request. Please try again or email us directly.");
+    } finally {
+      setSubmitting(false);
+    }
   };
+
 
   const toggleProduct = (id) => {
     setForm(prev => ({
@@ -73,6 +97,8 @@ export default function RequestSampleContent() {
 
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <form onSubmit={handleSubmit} className="space-y-6" data-testid="sample-request-form">
+          {/* Honeypot: hidden from real users, catches bots that auto-fill every field */}
+          <input type="text" name="website" value={form.website} onChange={e => setForm({ ...form, website: e.target.value })} className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
 
           <div className="bg-white border border-ice-300 rounded-xl p-6 shadow-sm">
             <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neon-500 font-inter mb-1">Step 1</p>
@@ -149,8 +175,12 @@ export default function RequestSampleContent() {
             </div>
           </div>
 
-          <button type="submit" className="w-full py-4 bg-neon-500 hover:bg-neon-600 text-white font-semibold rounded-md transition-colors text-base font-inter" data-testid="submit-sample-form">
-            Submit sample request
+          {error && (
+            <p className="text-sm text-red-600 text-center font-inter" data-testid="sample-form-error">{error}</p>
+          )}
+          <button type="submit" disabled={submitting} className="w-full py-4 bg-neon-500 hover:bg-neon-600 disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold rounded-md transition-colors text-base font-inter flex items-center justify-center gap-2" data-testid="submit-sample-form">
+            {submitting && <Loader2 size={18} className="animate-spin" />}
+            {submitting ? 'Submitting...' : 'Submit sample request'}
           </button>
           <p className="text-center text-xs text-frost-500 font-inter">We typically respond within 2 business days.</p>
         </form>
