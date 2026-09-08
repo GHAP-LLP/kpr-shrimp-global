@@ -1,6 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { Mail, Phone, MapPin, CheckCircle, Linkedin } from 'lucide-react';
+import { Mail, Phone, MapPin, CheckCircle, Linkedin, Loader2 } from 'lucide-react';
 import Breadcrumb from '@/components/Breadcrumb';
 
 const CONTACT_INFO = [
@@ -12,14 +12,33 @@ const CONTACT_INFO = [
 ];
 
 const INPUT_CLASS = "w-full px-4 py-2.5 border border-ice-300 rounded-md text-sm text-ink-900 placeholder-frost-500/60 focus:outline-none focus:ring-2 focus:ring-neon-500 focus:border-transparent bg-white font-inter";
+const API_URL = process.env.NEXT_PUBLIC_API_URL || '';
 
 export default function ContactPageContent() {
   const [submitted, setSubmitted] = useState(false);
-  const [form, setForm] = useState({ name: '', company: '', email: '', message: '' });
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState('');
+  const [form, setForm] = useState({ name: '', company: '', email: '', message: '', website: '' });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setSubmitted(true);
+    setError('');
+    setSubmitting(true);
+    try {
+      const res = await fetch(`${API_URL}/api/enquiries/contact`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) {
+        throw new Error('Request failed');
+      }
+      setSubmitted(true);
+    } catch (err) {
+      setError("Sorry, we couldn't send your message. Please try again or email us directly.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
@@ -77,6 +96,8 @@ export default function ContactPageContent() {
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="bg-white border border-ice-300 rounded-xl p-6 shadow-sm space-y-4" data-testid="contact-form">
+                {/* Honeypot: hidden from real users, catches bots that auto-fill every field */}
+                <input type="text" name="website" value={form.website} onChange={e => setForm({ ...form, website: e.target.value })} className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
                 <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neon-500 font-inter mb-1">Send us a message</p>
                 <h2 className="font-fraunces text-xl text-ink-900 mb-2">Send a message</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -97,9 +118,13 @@ export default function ContactPageContent() {
                   <label className="block text-xs font-medium text-frost-700 mb-1.5 uppercase tracking-wider font-inter">Message *</label>
                   <textarea required value={form.message} onChange={e => setForm({ ...form, message: e.target.value })} rows={6} className={`${INPUT_CLASS} resize-none`} placeholder="Tell us about your requirements..." data-testid="contact-textarea-message" />
                 </div>
-                <button type="submit" className="w-full py-3.5 bg-neon-500 hover:bg-neon-600 text-white font-semibold rounded-md transition-colors font-inter" data-testid="contact-submit">
-                  Send message
+                <button type="submit" disabled={submitting} className="w-full py-3.5 bg-neon-500 hover:bg-neon-600 disabled:opacity-60 disabled:cursor-not-allowed text-white font-semibold rounded-md transition-colors font-inter flex items-center justify-center gap-2" data-testid="contact-submit">
+                  {submitting && <Loader2 size={18} className="animate-spin" />}
+                  {submitting ? 'Sending...' : 'Send message'}
                 </button>
+                {error && (
+                  <p className="text-sm text-red-600 text-center font-inter" data-testid="contact-form-error">{error}</p>
+                )}
               </form>
             )}
           </div>
