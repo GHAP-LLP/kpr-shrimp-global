@@ -79,7 +79,7 @@ export default function TermsPage() {
           <p>For questions about these terms:<br />
           Indo Aquatic UK Ltd<br />
           Hall Farm Burrill Lane, Brantingham, Brough, HU15 1YG<br />
-          <a href="mailto:info@indoaquaticltd.com" className="text-neon-500 hover:underline">info@indoaquaticltd.com</a></p>
+          <a href="mailto:info@indoaquaticltd.com" className="text-neon-700 hover:underline">info@indoaquaticltd.com</a></p>
         </Section>
 
       </div>

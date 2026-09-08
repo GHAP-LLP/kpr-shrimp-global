@@ -1,24 +1,24 @@
 export const IMG = {
   // Category hero images
-  frozenRaw: "https://images.pexels.com/photos/14062144/pexels-photo-14062144.jpeg?auto=compress&cs=tinysrgb&w=900",
-  cooked: "https://images.unsplash.com/photo-1691201659377-978b28daa417?crop=entropy&cs=srgb&fm=jpg&q=85&w=900",
-  readyToCook: "https://images.pexels.com/photos/8953713/pexels-photo-8953713.jpeg?auto=compress&cs=tinysrgb&w=900",
+  frozenRaw: "/images/frozenRaw.jpg",
+  cooked: "/images/cooked.jpg",
+  readyToCook: "/images/readyToCook.jpg",
   // Frozen Raw variants
-  hoso: "https://images.unsplash.com/photo-1548587468-971ebe4c8c3b?crop=entropy&cs=srgb&fm=jpg&q=85&w=900",
-  hlso: "https://images.pexels.com/photos/32685291/pexels-photo-32685291.jpeg?auto=compress&cs=tinysrgb&w=900",
-  pd: "https://images.pexels.com/photos/21771250/pexels-photo-21771250.jpeg?auto=compress&cs=tinysrgb&w=900",
-  pud: "https://images.unsplash.com/photo-1565680018434-b513d5e5fd47?crop=entropy&cs=srgb&fm=jpg&q=85&w=900",
-  ezpeel: "https://images.pexels.com/photos/9222008/pexels-photo-9222008.jpeg?auto=compress&cs=tinysrgb&w=900",
+  hoso: "/images/hoso.jpg",
+  hlso: "/images/hlso.jpg",
+  pd: "/images/pd.jpg",
+  pud: "/images/pud.jpg",
+  ezpeel: "/images/ezpeel.jpg",
   // Cooked variants
-  cookedPD: "https://images.unsplash.com/photo-1691201659377-978b28daa417?crop=entropy&cs=srgb&fm=jpg&q=85&w=900",
-  cookedTailOn: "https://images.pexels.com/photos/6372957/pexels-photo-6372957.jpeg?auto=compress&cs=tinysrgb&w=900",
+  cookedPD: "/images/cooked.jpg",
+  cookedTailOn: "/images/cookedTailOn.jpg",
   // Ready-to-Cook variants
-  butterfly: "https://images.unsplash.com/photo-1750680229991-726754d4d58b?crop=entropy&cs=srgb&fm=jpg&q=85&w=900",
+  butterfly: "/images/butterfly.jpg",
   // Ready-to-Cook variants
-  tempura: "https://images.pexels.com/photos/32967532/pexels-photo-32967532.jpeg?auto=compress&cs=tinysrgb&w=900",
-  breaded: "https://images.unsplash.com/photo-1750680229991-726754d4d58b?crop=entropy&cs=srgb&fm=jpg&q=85&w=900",
-  marinated: "https://images.unsplash.com/photo-1625943553852-781c6dd46faa?crop=entropy&cs=srgb&fm=jpg&q=85&w=900",
-  skewers: "https://images.pexels.com/photos/8250276/pexels-photo-8250276.jpeg?auto=compress&cs=tinysrgb&w=900",
+  tempura: "/images/tempura.jpg",
+  breaded: "/images/butterfly.jpg",
+  marinated: "/images/marinated.jpg",
+  skewers: "/images/skewers.jpg",
 };
 
 export const COUNT_SIZES = [
@@ -34,8 +34,8 @@ export const COUNT_SIZES = [
 
 export const productCategories = [
   {
-    id: "frozen-raw-shrimp",
-    slug: "frozen-raw-shrimp",
+    id: "frozen-raw-prawns",
+    slug: "frozen-raw-prawns",
     name: "Frozen Raw Prawns",
     tagline: "Consistent spec, every count, every format.",
     description: "Our core range of IQF and block-frozen raw prawns, covering every major processing style from HOSO to fully-peeled. Consistent specification, traceable origin, and available in all count sizes from U/15 to 61/70.",
@@ -131,8 +131,8 @@ export const productCategories = [
     ],
   },
   {
-    id: "cooked-shrimp",
-    slug: "cooked-shrimp",
+    id: "cooked-prawns",
+    slug: "cooked-prawns",
     name: "Cooked Prawns",
     tagline: "Ready to serve. No cook time, no guesswork.",
     description: "Fully cooked and IQF-frozen prawns, ready to use straight from frozen or after a brief thaw. BRC-certified, traceable to source, and produced to the quality standards required by UK retail buyers. Ideal for cold seafood platters, salads, and retail value-added packs where on-site cooking isn't required.",
@@ -193,7 +193,7 @@ export const productCategories = [
         specs: {
           species: "Litopenaeus vannamei (Whiteleg prawn)",
           form: "IQF frozen, battered",
-          baseShrimp: "HLSO or PD, 31/40 or 41/50",
+          basePrawn: "HLSO or PD, 31/40 or 41/50",
           batter: "Japanese-style tempura (wheat flour, starch)",
           cookingMethod: "Deep fry (180°C, 3–4 min) · Air fry (200°C, 8–10 min)",
           packFormats: ["500 g retail bag", "1 kg retail bag", "5 kg foodservice carton"],
@@ -210,7 +210,7 @@ export const productCategories = [
         specs: {
           species: "Litopenaeus vannamei (Whiteleg prawn)",
           form: "IQF frozen, breadcrumb coated",
-          baseShrimp: "HLSO (scampi-style) or PD butterflied, 31/40 or 41/50",
+          basePrawn: "HLSO (scampi-style) or PD butterflied, 31/40 or 41/50",
           coating: "Fine or panko breadcrumbs, seasoned",
           cookingMethod: "Deep fry (175°C, 4–5 min) · Oven bake (210°C, 12 min) · Air fry (200°C, 10 min)",
           packFormats: ["500 g retail", "1 kg retail", "2.5 kg catering", "5 kg foodservice"],
@@ -227,7 +227,7 @@ export const productCategories = [
         specs: {
           species: "Litopenaeus vannamei (Whiteleg prawn)",
           form: "IQF frozen, marinated",
-          baseShrimp: "PD or EZ-peel, 26/30 or 31/40",
+          basePrawn: "PD or EZ-peel, 26/30 or 31/40",
           marinades: "Garlic butter · Lemon herb · Chilli lime · Unseasoned",
           cookingMethod: "Pan fry (2–3 min each side) · Grill (3–4 min) · Oven (200°C, 10 min)",
           packFormats: ["400 g retail portion", "1 kg retail bag", "2.5 kg catering bag"],
@@ -243,7 +243,7 @@ export const productCategories = [
         specs: {
           species: "Litopenaeus vannamei (Whiteleg prawn)",
           form: "IQF frozen, butterflied",
-          baseShrimp: "PD, butterflied, 31/40 or 41/50",
+          basePrawn: "PD, butterflied, 31/40 or 41/50",
           coating: "Plain or light batter coating",
           cookingMethod: "Deep fry (175°C, 3–4 min) · Oven bake (210°C, 10 min) · Air fry (200°C, 8 min)",
           packFormats: ["500 g retail bag", "1 kg retail bag", "5 kg foodservice carton"],
@@ -254,15 +254,15 @@ export const productCategories = [
         useCases: ["Pub and casual dining starters", "Quick-serve and fast food menus", "Retail frozen party food", "Hotel and banquet service"],
       },
       {
-        id: "shrimp-skewers", slug: "shrimp-skewers", name: "Skewers", fullName: "Prawn on Skewers",
+        id: "prawn-skewers", slug: "prawn-skewers", name: "Skewers", fullName: "Prawn on Skewers",
         description: "PD or EZ-peel prawn, threaded on bamboo skewers, IQF frozen. Ready to grill, griddle, or oven-bake directly. A high-margin, visually appealing product for restaurant menus and retail summer ranges.",
         image: IMG.skewers,
         specs: {
           species: "Litopenaeus vannamei (Whiteleg prawn)",
           form: "IQF frozen, skewered",
-          baseShrimp: "PD or EZ-peel, 26/30 or 31/40",
+          basePrawn: "PD or EZ-peel, 26/30 or 31/40",
           skewer: "Bamboo (20 cm) or metal-tip",
-          shrimpPerSkewer: "4–6 prawns per skewer (approx. 80–120 g)",
+          prawnsPerSkewer: "4–6 prawns per skewer (approx. 80–120 g)",
           cookingMethod: "Grill / griddle (5–7 min) · Oven (200°C, 12–15 min)",
           packFormats: ["4 x skewer retail pack", "10 x skewer foodservice", "20 x skewer bulk"],
           shelfLife: "18 months at -18°C",

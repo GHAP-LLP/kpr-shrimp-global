@@ -1,26 +1,11 @@
 import Link from 'next/link';
 import LogoMark from '@/components/LogoMark';
+import Year from '@/components/Year';
+import { NAV_PRODUCTS, NAV_SECTORS, NAV_COMPANY } from '@/data/nav';
 
-const productLinks = [
-  { name: 'Frozen Raw Prawns', href: '/products/frozen-raw-shrimp' },
-  { name: 'Cooked Prawns', href: '/products/cooked-shrimp' },
-  { name: 'Added Value Innovation', href: '/products/ready-to-cook' },
-  { name: 'All Products', href: '/products' },
-];
-const sectorLinks = [
-  { name: 'Retail Private Label', href: '/sectors/retail-private-label' },
-  { name: 'Retail Processors', href: '/sectors/food-manufacturers' },
-  { name: 'Foodservice', href: '/sectors/foodservice-horeca' },
-  { name: 'Wholesale Distributors', href: '/sectors/wholesale-distributors' },
-];
-const companyLinks = [
-  { name: 'About us', href: '/about' },
-  { name: 'Sustainability', href: '/sustainability' },
-  { name: 'Corporate Policies', href: '/policies' },
-  { name: 'Resources & Docs', href: '/resources' },
-  { name: 'Request a sample', href: '/request-a-sample' },
-  { name: 'Contact', href: '/contact' },
-];
+const productLinks = NAV_PRODUCTS;
+const sectorLinks = NAV_SECTORS;
+const companyLinks = NAV_COMPANY;
 
 export default function Footer() {
   return (
@@ -35,12 +20,12 @@ export default function Footer() {
                 <div className="font-inter text-[10px] tracking-[0.2em] uppercase text-white/40 mt-0.5">UK Ltd</div>
               </div>
             </div>
-            <p className="text-frost-500/70 text-xs italic mt-2 mb-3">Premium Seafood. Global Standards.</p>
+            <p className="text-frost-500 text-xs italic mt-2 mb-3">Premium Seafood. Global Standards.</p>
             <p className="text-frost-500 text-sm leading-relaxed">The UK's specialist frozen prawn supplier. Backed by our own farms, processing plants, and two decades of family aquaculture expertise.</p>
             <div className="mt-4 pt-4 border-t border-frost-700">
               <p className="text-frost-500 text-xs leading-relaxed">Hall Farm Burrill Lane<br />Brantingham, Brough, HU15 1YG</p>
               <a href="mailto:sales@indoaquaticltd.com" className="text-frost-500 text-xs hover:text-neon-500 transition-colors block mt-2">sales@indoaquaticltd.com</a>
-              <p className="text-frost-500/50 text-xs mt-2">Indo Aquatic Ltd. · Company No. 17230607</p>
+              <p className="text-frost-500 text-xs mt-2">Indo Aquatic Ltd. · Company No. 17230607</p>
             </div>
           </div>
           <div>
@@ -69,7 +54,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-12 pt-6 border-t border-frost-700 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-frost-500 text-xs">© {new Date().getFullYear()} Indo Aquatic UK Ltd. All rights reserved.</p>
+          <p className="text-frost-500 text-xs">© <Year /> Indo Aquatic UK Ltd. All rights reserved.</p>
           <div className="flex gap-6">
             <Link href="/privacy-policy" className="text-frost-500 text-xs hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="/terms-of-service" className="text-frost-500 text-xs hover:text-white transition-colors">Terms of Service</Link>

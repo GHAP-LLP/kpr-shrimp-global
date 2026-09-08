@@ -16,7 +16,8 @@ export default function LogoMark({ size = 40 }) {
       viewBox="0 0 100 100"
       width={size}
       height={size}
-      aria-label="Indo Aquatic UK Ltd"
+      aria-hidden="true"
+      focusable="false"
       style={{ display: 'block', flexShrink: 0 }}
     >
       {Array.from({ length: N }, (_, i) => {

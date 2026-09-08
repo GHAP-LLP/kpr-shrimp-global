@@ -7,6 +7,7 @@
   --frost-700: #475569;
   --frost-500: #94A3B8;
   --neon-500: #F97316;
+  --neon-700: #C2410C;
   --ice-100: #F1F5F9;
   --ice-300: #E2E8F0;
   --ink-900: #0F172A;
@@ -85,6 +86,27 @@ body {
     body {
         @apply bg-background text-foreground;
     }
+    /* Visible focus ring for keyboard users, site-wide. */
+    :focus-visible {
+        outline: 2px solid var(--neon-700);
+        outline-offset: 2px;
+    }
+}
+
+/* Skip-to-content link: visually hidden until focused. */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 100;
+    padding: 0.75rem 1.25rem;
+    background: var(--frost-900);
+    color: #fff;
+    font-weight: 600;
+    border-radius: 0 0 0.5rem 0;
+}
+.skip-link:focus {
+    left: 0;
 }
 
 @layer base {

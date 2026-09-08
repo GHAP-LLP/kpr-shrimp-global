@@ -6,7 +6,9 @@ module.exports = {
     extend: {
       colors: {
         frost: { 900: '#1E293B', 700: '#475569', 500: '#94A3B8' },
-        neon: { 500: '#F97316', 600: '#EA580C' },
+        // 500/600 pass contrast only on dark backgrounds; use 700 (4.5:1+ with
+        // white) for button fills and accent text on light backgrounds.
+        neon: { 500: '#F97316', 600: '#EA580C', 700: '#C2410C', 800: '#9A3412' },
         ice: { 100: '#F1F5F9', 300: '#E2E8F0' },
         ink: { 900: '#0F172A' },
         background: 'hsl(var(--background))',

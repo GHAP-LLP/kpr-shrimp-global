@@ -61,7 +61,7 @@ export default function PoliciesPage() {
           <p><strong className="text-ink-900">Registered company:</strong> Indo Aquatic Ltd.<br />
           <strong className="text-ink-900">Company number:</strong> 17230607<br />
           <strong className="text-ink-900">Registered address:</strong> Hall Farm Burrill Lane, Brantingham, Brough, HU15 1YG, United Kingdom<br />
-          <strong className="text-ink-900">Email:</strong> <a href="mailto:info@indoaquaticltd.com" className="text-neon-500 hover:underline">info@indoaquaticltd.com</a></p>
+          <strong className="text-ink-900">Email:</strong> <a href="mailto:info@indoaquaticltd.com" className="text-neon-700 hover:underline">info@indoaquaticltd.com</a></p>
         </div>
 
         <nav aria-label="Policy sections" className="mb-12 p-5 rounded-lg bg-white/60 border border-ice-300">
@@ -69,7 +69,7 @@ export default function PoliciesPage() {
           <ol className="grid sm:grid-cols-2 gap-x-6 gap-y-1.5 text-sm font-inter">
             {POLICY_INDEX.map((title, i) => (
               <li key={i}>
-                <a href={`#policy-${i + 1}`} className="text-frost-700 hover:text-neon-500 transition-colors">{i + 1}. {title}</a>
+                <a href={`#policy-${i + 1}`} className="text-frost-700 hover:text-neon-700 transition-colors">{i + 1}. {title}</a>
               </li>
             ))}
           </ol>
@@ -142,13 +142,13 @@ export default function PoliciesPage() {
           expected to meet UK food safety law (Food Safety Act 1990, Food Information Regulations) covering
           accurate species identification, count/size declaration, allergen labelling, and safe cold-chain
           handling. Certification detail (HACCP, BRC, BAP, and related standards) is set out on our{' '}
-          <Link href="/sustainability" className="text-neon-500 hover:underline">Sustainability</Link> page.</p>
+          <Link href="/sustainability" className="text-neon-700 hover:underline">Sustainability</Link> page.</p>
         </Section>
 
         <Section number={10} title="Data Protection and Privacy">
           <p>We comply with UK GDPR and the Data Protection Act 2018 in how we handle personal data from
           enquiries, sample requests, and business contacts. Full detail is in our{' '}
-          <Link href="/privacy-policy" className="text-neon-500 hover:underline">Privacy Policy</Link>.</p>
+          <Link href="/privacy-policy" className="text-neon-700 hover:underline">Privacy Policy</Link>.</p>
         </Section>
 
         <Section number={11} title="Trading Standards and Consumer Protection">
@@ -170,7 +170,7 @@ export default function PoliciesPage() {
         <Section number={13} title="Supply Chain and Responsible Sourcing">
           <p>Our prawns are sourced from our own farms and processing facilities in Andhra Pradesh, India, together with a vetted network of certified partners across other leading prawn-producing regions. Responsible
           sourcing detail — aquaculture practices, certification roadmap, and traceability — is covered on our{' '}
-          <Link href="/sustainability" className="text-neon-500 hover:underline">Sustainability</Link> page.</p>
+          <Link href="/sustainability" className="text-neon-700 hover:underline">Sustainability</Link> page.</p>
         </Section>
 
         <Section number={14} title="Sanctions and Export Controls">
@@ -212,14 +212,14 @@ export default function PoliciesPage() {
           stocking density, and we do not use antibiotics in production — verifiable via third-party residue
           testing. BAP and ASC certification, held across our primary supply operations, include welfare and
           biosecurity criteria within their audit scope. Further detail is on our{' '}
-          <Link href="/sustainability" className="text-neon-500 hover:underline">Sustainability</Link> page.</p>
+          <Link href="/sustainability" className="text-neon-700 hover:underline">Sustainability</Link> page.</p>
         </Section>
 
         <Section number={20} title="Whistleblowing and Speak Up">
           <p>We encourage employees, suppliers, and other business contacts to raise concerns about suspected
           misconduct, malpractice, or breaches of these policies without fear of reprisal. As a small company,
           concerns are raised directly to a director at{' '}
-          <a href="mailto:info@indoaquaticltd.com" className="text-neon-500 hover:underline">info@indoaquaticltd.com</a>{' '}
+          <a href="mailto:info@indoaquaticltd.com" className="text-neon-700 hover:underline">info@indoaquaticltd.com</a>{' '}
           rather than through a third-party hotline, and are handled confidentially and investigated
           proportionately.</p>
         </Section>
@@ -227,7 +227,7 @@ export default function PoliciesPage() {
         <div className="mt-12 pt-6 border-t border-ice-300">
           <p className="text-xs text-frost-500 font-inter">
             Questions about any of these policies, or need a copy for a supplier due-diligence process?{' '}
-            <Link href="/contact" className="text-neon-500 hover:underline">Contact us</Link>.
+            <Link href="/contact" className="text-neon-700 hover:underline">Contact us</Link>.
           </p>
         </div>
 

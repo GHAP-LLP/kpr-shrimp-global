@@ -2,7 +2,9 @@ import Link from 'next/link';
 import { ArrowRight, Eye, Thermometer, Leaf, Shield, CheckCircle, Clock, Users, Scale } from 'lucide-react';
 import { buildMetadata } from '@/lib/metadata';
 import { FadeUp, FadeUpGrid, FadeUpItem } from '@/components/FadeUp';
+import SectionLabel from '@/components/SectionLabel';
 import { BRAND_IMGS } from '@/data/images';
+import { CERTIFICATIONS } from '@/data/certifications';
 
 export const metadata = buildMetadata({
   title: 'Sustainability',
@@ -10,17 +12,11 @@ export const metadata = buildMetadata({
   path: '/sustainability',
 });
 
-const CERT_ROADMAP = [
-  { name: "HACCP", desc: "Hazard Analysis Critical Control Point system in place across all processing operations.", status: "active" },
-  { name: "BRC Global Standard", desc: "British Retail Consortium Global Standard for Food Safety — held by our processing facilities.", status: "active" },
-  { name: "BAP Certified", desc: "Best Aquaculture Practices — third-party audit of farm, hatchery, and processing standards.", status: "active" },
-  { name: "ISO 22000", desc: "International food safety management system standard. Held across processing operations.", status: "active" },
-  { name: "FSSC 22000", desc: "Food Safety System Certification — built on ISO 22000 with additional sector-specific requirements.", status: "active" },
-  { name: "FDA Registered (US)", desc: "Facilities registered with the US Food & Drug Administration for export to the US market.", status: "active" },
-  { name: "Halal Certified", desc: "Halal certification held across applicable processing lines and finished products.", status: "active" },
-  { name: "EU Approved", desc: "EU establishment approval for export to EU markets — application in progress.", status: "progress" },
-  { name: "ASC Certified", desc: "Aquaculture Stewardship Council — environmental and social responsibility standard. Held across our primary supply operations.", status: "active" },
-];
+const CERT_ROADMAP = CERTIFICATIONS.map(c => ({
+  name: c.name,
+  desc: c.desc,
+  status: c.status === 'held' ? 'active' : 'progress',
+}));
 
 const COMMITMENTS = [
   { icon: Eye, title: "Lot-level traceability", desc: "Every shipment carries full provenance documentation — farm lot, processing date, cold chain record, and country of origin. Chain of custody available on request for any SKU." },
@@ -46,14 +42,6 @@ const ETHICAL_COMMITMENTS = [
   { icon: Eye, title: "Open to scrutiny", desc: "We welcome questions from customers on how our supply chain operates and will respond directly rather than pointing to a certificate alone." },
 ];
 
-function SectionLabel({ number, text }) {
-  return (
-    <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neon-500 font-inter mb-3">
-      {number} · {text}
-    </p>
-  );
-}
-
 export default function SustainabilityPage() {
   const FARM_IMG = BRAND_IMGS.farmFacility;
   const PRACTICES_IMG = BRAND_IMGS.farmAerial;
@@ -63,7 +51,7 @@ export default function SustainabilityPage() {
     <div className="bg-ice-100 min-h-screen">
 
       <div className="bg-frost-900 relative py-20 md:py-28 overflow-hidden border-b border-white/10">
-        <img src={FARM_IMG} alt="Aquaculture facility" className="absolute inset-0 w-full h-full object-cover opacity-10" />
+        <img src={FARM_IMG} alt="" className="absolute inset-0 w-full h-full object-cover opacity-10" />
         <div className="absolute inset-0 bg-frost-900/80" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-xs font-semibold tracking-[0.25em] uppercase text-neon-500 font-inter mb-6">Responsible Sourcing</p>
@@ -71,7 +59,7 @@ export default function SustainabilityPage() {
             Supply chain integrity, from farm to UK warehouse.
           </h1>
           <p className="text-lg text-frost-500 leading-relaxed max-w-2xl font-inter">
-            Sustainability in seafood supply isn't just environmental — it's also about traceability, labour standards, documentation, and the kind of consistency that lets buyers trust what's in their product. We take all of it seriously.
+            Sustainability in seafood supply isn't just environmental — it's also about traceability, labour standards, documentation, and the kind of consistency that lets buyers trust what's in their product.
           </p>
         </div>
       </div>
@@ -81,7 +69,7 @@ export default function SustainabilityPage() {
           <FadeUp className="mb-12">
             <SectionLabel number="01" text="Certification Roadmap" />
             <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900 mb-3">Standards we hold and are actively pursuing.</h2>
-            <p className="text-frost-700 font-inter max-w-2xl">Certification is a process, not a moment. Here is exactly where we stand — and what we are working towards.</p>
+            <p className="text-frost-700 font-inter max-w-2xl">Here is exactly where we stand today — and what we are working towards. Certificate copies are available through our <Link href="/resources" className="text-neon-700 underline hover:text-neon-800">Resources</Link> page.</p>
           </FadeUp>
           <FadeUpGrid className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {CERT_ROADMAP.map(cert => (
@@ -89,14 +77,14 @@ export default function SustainabilityPage() {
                 <div className="bg-white border border-ice-300 rounded-xl p-5 h-full shadow-sm" data-testid={`cert-${cert.name.toLowerCase().replace(/ /g, '-')}`}>
                   <div className="flex items-start gap-3 mb-3">
                     {cert.status === 'active' ? (
-                      <CheckCircle size={18} className="text-neon-500 flex-shrink-0 mt-0.5" />
+                      <CheckCircle size={18} className="text-neon-700 flex-shrink-0 mt-0.5" />
                     ) : (
                       <Clock size={18} className="text-frost-500 flex-shrink-0 mt-0.5" />
                     )}
                     <div>
                       <div className="flex items-center gap-2 mb-1">
                         <h3 className="font-inter font-semibold text-ink-900 text-sm">{cert.name}</h3>
-                        <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded uppercase tracking-wider ${cert.status === 'active' ? 'bg-neon-500/20 text-neon-500' : 'bg-ice-300 text-frost-700'}`}>
+                        <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded uppercase tracking-wider ${cert.status === 'active' ? 'bg-neon-500/20 text-neon-700' : 'bg-ice-300 text-frost-700'}`}>
                           {cert.status === 'active' ? 'In place' : 'In progress'}
                         </span>
                       </div>
@@ -121,7 +109,7 @@ export default function SustainabilityPage() {
               <FadeUpItem key={item.title}>
                 <div className="flex items-start gap-4" data-testid={`commitment-${item.title.split(' ')[0].toLowerCase()}`}>
                   <div className="w-10 h-10 bg-white border border-ice-300 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
-                    <item.icon size={18} className="text-neon-500" />
+                    <item.icon size={18} className="text-neon-700" />
                   </div>
                   <div>
                     <h3 className="font-fraunces text-lg text-ink-900 mb-2">{item.title}</h3>
@@ -162,7 +150,7 @@ export default function SustainabilityPage() {
                   <img src={WORKERS_IMG} alt="Processing facility workers" className="w-full h-full object-cover" />
                 </div>
                 <div className="bg-white border border-ice-300 rounded-xl p-4 shadow-sm flex flex-col justify-center">
-                  <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neon-500 font-inter mb-2">Our farm & plant</p>
+                  <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neon-700 font-inter mb-2">Our farm & plant</p>
                   <h3 className="font-fraunces text-base text-ink-900 mb-2">Kodavalur, Nellore</h3>
                   <p className="text-xs text-frost-700 font-inter leading-relaxed">Andhra Pradesh, India. Farming, processing, and cold storage.</p>
                 </div>
@@ -185,7 +173,7 @@ export default function SustainabilityPage() {
               <FadeUpItem key={item.title}>
                 <div className="flex items-start gap-4" data-testid={`ethical-${item.title.split(' ')[0].toLowerCase()}`}>
                   <div className="w-10 h-10 bg-white border border-ice-300 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
-                    <item.icon size={18} className="text-neon-500" />
+                    <item.icon size={18} className="text-neon-700" />
                   </div>
                   <div>
                     <h3 className="font-fraunces text-lg text-ink-900 mb-2">{item.title}</h3>
@@ -226,10 +214,10 @@ export default function SustainabilityPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-neon-500">
+      <section className="py-16 bg-neon-700">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-fraunces text-3xl text-white mb-3">Request our full certification pack.</h2>
-          <p className="text-white/80 mb-8 font-inter">We'll send you the complete documentation set for any product in our range. Procurement, QA, and technical teams only — no marketing materials.</p>
+          <p className="text-white/90 mb-8 font-inter">We'll send you the complete documentation set for any product in our range. Procurement, QA, and technical teams only — no marketing materials.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-frost-900 hover:bg-ink-900 text-white font-medium rounded-md transition-colors font-inter" data-testid="sustainability-contact-btn">
               Contact us <ArrowRight size={14} />

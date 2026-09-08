@@ -1,6 +1,6 @@
 const SITE_NAME = 'Indo Aquatic';
-const BASE_URL = 'https://www.indoaquaticltd.com';
-const DEFAULT_OG = 'https://images.unsplash.com/photo-1548587468-971ebe4c8c3b?crop=entropy&cs=srgb&fm=jpg&q=85&w=1200';
+export const BASE_URL = 'https://www.indoaquaticltd.com';
+export const DEFAULT_OG = `${BASE_URL}/images/hoso.jpg`;
 
 export function buildMetadata({ title, description, path = '', image } = {}) {
   const fullTitle = title ? `${title} | ${SITE_NAME} — UK Frozen Prawn Supplier` : undefined;

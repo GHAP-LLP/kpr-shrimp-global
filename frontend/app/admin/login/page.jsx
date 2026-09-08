@@ -46,7 +46,7 @@ export default function AdminLoginPage() {
           <input required type="password" value={form.password} onChange={e => setForm({ ...form, password: e.target.value })} className={INPUT_CLASS} data-testid="admin-input-password" />
         </div>
         {error && <p className="text-sm text-red-400 font-inter" data-testid="admin-login-error">{error}</p>}
-        <button type="submit" disabled={submitting} className="w-full py-3 bg-neon-500 hover:bg-neon-600 disabled:opacity-60 text-white font-semibold rounded-md transition-colors font-inter flex items-center justify-center gap-2" data-testid="admin-login-submit">
+        <button type="submit" disabled={submitting} className="w-full py-3 bg-neon-700 hover:bg-neon-800 disabled:opacity-60 text-white font-semibold rounded-md transition-colors font-inter flex items-center justify-center gap-2" data-testid="admin-login-submit">
           {submitting && <Loader2 size={16} className="animate-spin" />}
           {submitting ? 'Signing in...' : 'Sign in'}
         </button>

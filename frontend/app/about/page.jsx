@@ -2,21 +2,15 @@ import Link from 'next/link';
 import { ArrowRight, Target, MapPin, Users, Snowflake, Award } from 'lucide-react';
 import { buildMetadata } from '@/lib/metadata';
 import { FadeUp, FadeUpGrid, FadeUpItem } from '@/components/FadeUp';
+import SectionLabel from '@/components/SectionLabel';
 import { BRAND_IMGS } from '@/data/images';
+import { CERTIFICATIONS } from '@/data/certifications';
 
 export const metadata = buildMetadata({
   title: 'About Us',
   description: 'Indo Aquatic UK Ltd — UK-registered specialist importer and distributor of frozen prawns, backed by two decades of family aquaculture expertise. Single-category focus, full traceability, sterling pricing.',
   path: '/about',
 });
-
-function SectionLabel({ number, text }) {
-  return (
-    <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neon-500 font-inter mb-3">
-      {number} · {text}
-    </p>
-  );
-}
 
 const PILLARS = [
   { icon: Target, title: 'Single-category focus', desc: 'We only do prawns. That means every decision — buying, spec, logistics, QC — is made by people whose entire career is prawns. Generalist importers carry prawns alongside hundreds of other lines. We don\'t.' },
@@ -37,23 +31,18 @@ const OPERATIONS_STRIP = [
   { img: BRAND_IMGS.coldWarehouse, label: 'Grimsby / Hull', sub: 'UK cold storage', alt: 'UK cold storage warehouse' },
 ];
 
-const CERTS = [
-  { name: 'BRC Global Standard', status: 'Held', held: true },
-  { name: 'BAP Certified', status: 'Held', held: true },
-  { name: 'HACCP', status: 'Held', held: true },
-  { name: 'ISO 22000', status: 'Held', held: true },
-  { name: 'FSSC 22000', status: 'Held', held: true },
-  { name: 'FDA Registered', status: 'Held', held: true },
-  { name: 'Halal Certified', status: 'Held', held: true },
-  { name: 'ASC Certified', status: 'Held', held: true },
-];
+const CERTS = CERTIFICATIONS.map(c => ({
+  name: c.name,
+  status: c.status === 'held' ? 'Held' : 'In progress',
+  held: c.status === 'held',
+}));
 
 export default function AboutPage() {
   return (
     <div className="bg-ice-100 min-h-screen">
 
       <div className="bg-frost-900 relative py-20 md:py-28 overflow-hidden border-b border-white/10">
-        <img src={BRAND_IMGS.processingWorkers} alt="Indo Aquatic prawn processing facility" className="absolute inset-0 w-full h-full object-cover opacity-10" />
+        <img src={BRAND_IMGS.processingWorkers} alt="" className="absolute inset-0 w-full h-full object-cover opacity-10" />
         <div className="absolute inset-0 bg-frost-900/80" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-xs font-semibold tracking-[0.25em] uppercase text-neon-500 font-inter mb-6">Indo Aquatic UK Ltd</p>
@@ -84,11 +73,11 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <FadeUp>
               <SectionLabel number="01" text="Who We Are" />
-              <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900 mb-6">A UK entity built on a decade of aquaculture expertise.</h2>
+              <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900 mb-6">A UK entity built on two decades of aquaculture expertise.</h2>
               <p className="text-frost-700 leading-relaxed mb-5 font-inter">Indo Aquatic UK Ltd is an independent, UK-registered specialist importer and distributor of frozen prawns. We supply retailers, foodservice operators, retail processors, and wholesale distributors across the United Kingdom. <span className="text-frost-500">(Indo Aquatic Ltd. · Company No. 17230607)</span></p>
-              <p className="text-frost-700 leading-relaxed mb-5 font-inter">Indo Aquatic is a family business, built on more than 20 years of hands-on experience in prawn aquaculture. Our directors' family owns and operates its own farms and processing plants, and has grown that operation into one of the industry's leading integrated prawn businesses — spanning farming, processing, and global distribution, with a network valued at over $100 million.</p>
+              <p className="text-frost-700 leading-relaxed mb-5 font-inter">Indo Aquatic is a family business, built on more than 20 years of hands-on experience in prawn aquaculture. Our directors' family owns and operates its own farms and processing plants, and has grown that operation into an integrated prawn business spanning farming, processing, and global distribution.</p>
               <p className="text-frost-700 leading-relaxed mb-5 font-inter">Alongside our own farms and plants, we work with a carefully selected network of trusted partners across the world's leading prawn-producing regions — giving UK buyers access to consistent supply, competitive pricing, and the flexibility that comes from genuine scale.</p>
-              <p className="text-frost-700 leading-relaxed font-inter">Indo Aquatic UK Ltd brings all of this directly to the UK market: an independent company with the production expertise, supplier relationships, and quality control of an organisation many times its size — every prawn closely inspected and processed at every step, from pond to UK plate.</p>
+              <p className="text-frost-700 leading-relaxed font-inter">Indo Aquatic UK Ltd brings all of this directly to the UK market: an independent company with the production expertise, supplier relationships, and quality control of an organisation many times its size — every lot inspected and documented at every step, from pond to UK plate.</p>
             </FadeUp>
             <FadeUp delay={0.12}>
               <div className="rounded-2xl overflow-hidden aspect-[4/3] border border-ice-300 shadow-sm">
@@ -125,7 +114,7 @@ export default function AboutPage() {
               <FadeUpItem key={pillar.title}>
                 <div className="flex items-start gap-4" data-testid={`pillar-${pillar.title.split(' ')[0].toLowerCase()}`}>
                   <div className="w-10 h-10 bg-white border border-ice-300 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5 shadow-sm">
-                    <pillar.icon size={18} className="text-neon-500" />
+                    <pillar.icon size={18} className="text-neon-700" />
                   </div>
                   <div>
                     <h3 className="font-fraunces text-lg text-ink-900 mb-2">{pillar.title}</h3>
@@ -160,7 +149,7 @@ export default function AboutPage() {
               <p className="text-frost-700 leading-relaxed mb-5 font-inter">Our directors' family owns and operates prawn farms and processing facilities in Kodavalur, Nellore, Andhra Pradesh — one of India's most productive prawn-farming regions — alongside a trusted network of partners across other leading prawn-producing regions worldwide.</p>
               <p className="text-frost-700 leading-relaxed mb-5 font-inter">We don't rely on spot market purchasing. Every stage — farming, processing, quality control — is closely managed to our own standard, whether at our own facilities or through our vetted partners, so spec, quality, and lot-level traceability are controlled at every step.</p>
               <p className="text-frost-700 leading-relaxed mb-8 font-inter">UK buyers get the benefit of this reach and control — sterling pricing, UK contracts, and an account team in the same time zone.</p>
-              <Link href="/contact" className="inline-flex items-center gap-2 text-sm text-neon-500 hover:text-neon-600 font-medium font-inter transition-colors" data-testid="about-contact-link">
+              <Link href="/contact" className="inline-flex items-center gap-2 text-sm text-neon-700 hover:text-neon-800 font-medium font-inter transition-colors" data-testid="about-contact-link">
                 Get in touch <ArrowRight size={14} />
               </Link>
             </FadeUp>
@@ -179,9 +168,9 @@ export default function AboutPage() {
             {CERTS.map(cert => (
               <FadeUpItem key={cert.name}>
                 <div className="bg-white border border-ice-300 rounded-xl p-4 text-center shadow-sm" data-testid={`cert-${cert.name.toLowerCase().replace(/ /g, '-')}`}>
-                  <Award size={20} className={`${cert.held ? 'text-neon-500' : 'text-frost-500'} mx-auto mb-3`} />
+                  <Award size={20} className={`${cert.held ? 'text-neon-700' : 'text-frost-500'} mx-auto mb-3`} />
                   <p className="font-inter font-semibold text-ink-900 text-sm mb-1">{cert.name}</p>
-                  <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded uppercase tracking-wider ${cert.held ? 'bg-neon-500/20 text-neon-500' : 'bg-ice-300 text-frost-700'}`}>{cert.status}</span>
+                  <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded uppercase tracking-wider ${cert.held ? 'bg-neon-500/20 text-neon-700' : 'bg-ice-300 text-frost-700'}`}>{cert.status}</span>
                 </div>
               </FadeUpItem>
             ))}
@@ -189,10 +178,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-neon-500">
+      <section className="py-16 bg-neon-700">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-fraunces text-3xl text-white mb-3">Ready to talk supply?</h2>
-          <p className="text-white/80 mb-8 font-inter">Get in touch with our UK account team to discuss volumes, specifications, and sample arrangements.</p>
+          <p className="text-white/90 mb-8 font-inter">Get in touch with our UK account team to discuss volumes, specifications, and sample arrangements.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link href="/request-a-sample" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-frost-900 hover:bg-ink-900 text-white font-medium rounded-md transition-colors font-inter" data-testid="about-request-sample">
               Request a frozen sample <ArrowRight size={14} />

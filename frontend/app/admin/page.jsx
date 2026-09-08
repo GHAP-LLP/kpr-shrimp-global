@@ -1,8 +1,16 @@
 'use client';
 import { useEffect, useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
-import { Loader2, LogOut } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Loader2, LogOut } from 'lucide-react';
 import { adminFetch } from '@/lib/adminApi';
+
+const PAGE_SIZE = 20;
+
+const TYPE_LABELS = {
+  sample_request: 'Sample request',
+  contact: 'Contact',
+  document_request: 'Document request',
+};
 
 const STATUS_COLORS = {
   new: 'bg-neon-500/20 text-neon-500 border-neon-500/30',
@@ -18,12 +26,18 @@ export default function AdminDashboardPage() {
   const [total, setTotal] = useState(0);
   const [type, setType] = useState('');
   const [status, setStatus] = useState('');
+  const [page, setPage] = useState(1);
+
+  // Reset to the first page whenever the filters change.
+  useEffect(() => { setPage(1); }, [type, status]);
 
   const load = useCallback(async () => {
     setLoading(true);
     const params = new URLSearchParams();
     if (type) params.set('type', type);
     if (status) params.set('status', status);
+    params.set('page', String(page));
+    params.set('page_size', String(PAGE_SIZE));
     const res = await adminFetch(`/admin/enquiries?${params.toString()}`);
     if (res.status === 401) {
       router.push('/admin/login');
@@ -33,7 +47,7 @@ export default function AdminDashboardPage() {
     setItems(data.items || []);
     setTotal(data.total || 0);
     setLoading(false);
-  }, [type, status, router]);
+  }, [type, status, page, router]);
 
   useEffect(() => { load(); }, [load]);
 
@@ -60,6 +74,7 @@ export default function AdminDashboardPage() {
             <option value="">All types</option>
             <option value="sample_request">Sample request</option>
             <option value="contact">Contact</option>
+            <option value="document_request">Document request</option>
           </select>
           <select value={status} onChange={e => setStatus(e.target.value)} className="px-3 py-2 text-sm bg-white/5 border border-white/10 rounded-md text-white font-inter" data-testid="filter-status">
             <option value="">All statuses</option>
@@ -90,7 +105,7 @@ export default function AdminDashboardPage() {
               <tbody>
                 {items.map(item => (
                   <tr key={item.id} className="border-t border-white/10 hover:bg-white/5 cursor-pointer" onClick={() => router.push(`/admin/enquiries/${item.id}`)} data-testid={`enquiry-row-${item.id}`}>
-                    <td className="px-4 py-3 text-frost-500">{item.type === 'sample_request' ? 'Sample request' : 'Contact'}</td>
+                    <td className="px-4 py-3 text-frost-500">{TYPE_LABELS[item.type] || item.type}</td>
                     <td className="px-4 py-3 text-white">{item.name}</td>
                     <td className="px-4 py-3 text-frost-500">{item.company || '—'}</td>
                     <td className="px-4 py-3 text-frost-500">{item.email}</td>
@@ -102,6 +117,32 @@ export default function AdminDashboardPage() {
                 ))}
               </tbody>
             </table>
+          </div>
+        )}
+
+        {!loading && total > PAGE_SIZE && (
+          <div className="flex items-center justify-between mt-6" data-testid="admin-pagination">
+            <p className="text-frost-500 text-xs font-inter">
+              Page {page} of {Math.ceil(total / PAGE_SIZE)}
+            </p>
+            <div className="flex gap-2">
+              <button
+                onClick={() => setPage(p => Math.max(1, p - 1))}
+                disabled={page <= 1}
+                className="flex items-center gap-1 px-3 py-2 text-sm bg-white/5 border border-white/10 rounded-md text-white disabled:opacity-40 disabled:cursor-not-allowed hover:bg-white/10 transition-colors font-inter"
+                data-testid="admin-prev-page"
+              >
+                <ChevronLeft size={14} /> Previous
+              </button>
+              <button
+                onClick={() => setPage(p => p + 1)}
+                disabled={page >= Math.ceil(total / PAGE_SIZE)}
+                className="flex items-center gap-1 px-3 py-2 text-sm bg-white/5 border border-white/10 rounded-md text-white disabled:opacity-40 disabled:cursor-not-allowed hover:bg-white/10 transition-colors font-inter"
+                data-testid="admin-next-page"
+              >
+                Next <ChevronRight size={14} />
+              </button>
+            </div>
           </div>
         )}
       </div>

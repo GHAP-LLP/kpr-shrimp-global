@@ -1,8 +1,8 @@
 export const SECTOR_IMG = {
-  horeca: "https://images.pexels.com/photos/17086289/pexels-photo-17086289.jpeg?auto=compress&cs=tinysrgb&w=900",
-  manufacturers: "https://images.unsplash.com/photo-1594394491044-67a665a3c925?crop=entropy&cs=srgb&fm=jpg&q=85&w=900",
-  wholesale: "https://images.unsplash.com/photo-1689942010216-dc412bb1e7a9?crop=entropy&cs=srgb&fm=jpg&q=85&w=900",
-  retail: "https://images.unsplash.com/photo-1579887829114-282b4fa31072?crop=entropy&cs=srgb&fm=jpg&q=85&w=900",
+  horeca: "/images/horeca.jpg",
+  manufacturers: "/images/manufacturers.jpg",
+  wholesale: "/images/wholesale.jpg",
+  retail: "/images/retail.jpg",
 };
 
 export const sectors = [

@@ -5,34 +5,15 @@ import { usePathname } from 'next/navigation';
 import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import LogoMark from '@/components/LogoMark';
-
-const NAV_PRODUCTS = [
-  { name: 'All Products', href: '/products' },
-  { name: 'Frozen Raw Prawns', href: '/products/frozen-raw-shrimp' },
-  { name: 'Cooked Prawns', href: '/products/cooked-shrimp' },
-  { name: 'Added Value Innovation', href: '/products/ready-to-cook' },
-];
-const NAV_SECTORS = [
-  { name: 'Retail Private Label', href: '/sectors/retail-private-label' },
-  { name: 'Retail Processors', href: '/sectors/food-manufacturers' },
-  { name: 'Foodservice', href: '/sectors/foodservice-horeca' },
-  { name: 'Wholesale Distributors', href: '/sectors/wholesale-distributors' },
-];
-const NAV_COMPANY = [
-  { name: 'About us', href: '/about' },
-  { name: 'Sustainability', href: '/sustainability' },
-  { name: 'Corporate Policies', href: '/policies' },
-  { name: 'Resources & Docs', href: '/resources' },
-  { name: 'Contact', href: '/contact' },
-];
+import { NAV_PRODUCTS, NAV_SECTORS, NAV_COMPANY } from '@/data/nav';
 
 const EASE = [0.22, 1, 0.36, 1];
 
-function DropdownMenu({ items }) {
+function DropdownMenu({ items, id }) {
   return (
-    <div className="absolute top-full left-0 w-56 bg-white border border-ice-300 rounded-lg shadow-xl py-1 z-50">
+    <div id={id} className="absolute top-full left-0 w-56 bg-white border border-ice-300 rounded-lg shadow-xl py-1 z-50">
       {items.map(item => (
-        <Link key={item.href} href={item.href} className="flex items-center px-4 py-2.5 text-sm text-ink-900 hover:bg-ice-100 hover:text-neon-500 transition-colors">
+        <Link key={item.href} href={item.href} className="flex items-center px-4 py-2.5 text-sm text-ink-900 hover:bg-ice-100 hover:text-neon-700 transition-colors">
           {item.name}
         </Link>
       ))}
@@ -73,19 +54,34 @@ const ctaVariants = {
 };
 
 function MobileMenu({ isOpen, onClose }) {
+  const closeButtonRef = useRef(null);
+
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
+      closeButtonRef.current?.focus();
     } else {
       document.body.style.overflow = '';
     }
     return () => { document.body.style.overflow = ''; };
   }, [isOpen]);
 
+  useEffect(() => {
+    if (!isOpen) return;
+    function handleKeyDown(e) {
+      if (e.key === 'Escape') onClose();
+    }
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen, onClose]);
+
   return (
     <AnimatePresence>
       {isOpen && (
         <motion.div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Site navigation"
           className="fixed inset-0 z-[60] bg-frost-900 flex flex-col"
           variants={overlayVariants}
           initial="hidden"
@@ -102,6 +98,7 @@ function MobileMenu({ isOpen, onClose }) {
               </div>
             </Link>
             <button
+              ref={closeButtonRef}
               onClick={onClose}
               className="p-2 rounded-md text-white hover:bg-white/10 transition-colors"
               aria-label="Close menu"
@@ -156,7 +153,7 @@ function MobileMenu({ isOpen, onClose }) {
             <Link
               href="/request-a-sample"
               onClick={onClose}
-              className="flex items-center justify-center gap-2 w-full py-4 bg-neon-500 hover:bg-neon-600 text-white font-semibold rounded-md transition-colors font-inter text-sm"
+              className="flex items-center justify-center gap-2 w-full py-4 bg-neon-700 hover:bg-neon-800 text-white font-semibold rounded-md transition-colors font-inter text-sm"
               data-testid="mobile-cta-sample"
             >
               Request a frozen sample <ArrowRight size={15} />
@@ -185,8 +182,15 @@ export default function Navbar() {
         setOpenGroup(null);
       }
     }
+    function handleKeyDown(e) {
+      if (e.key === 'Escape') setOpenGroup(null);
+    }
     document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleKeyDown);
+    };
   }, []);
 
   function toggleGroup(name) {
@@ -219,31 +223,32 @@ export default function Navbar() {
                 { key: 'company',  label: 'Company',  items: NAV_COMPANY,  testId: 'nav-company-btn' },
               ].map(({ key, label, items, testId }) => {
                 const isOpen = openGroup === key;
+                const menuId = `nav-menu-${key}`;
                 return (
                   <div
                     key={key}
-                    className="group relative"
+                    className="relative"
                     onMouseEnter={() => setOpenGroup(key)}
                   >
                     <button
                       onClick={() => toggleGroup(key)}
-                      className={`flex items-center gap-1 text-[15px] font-semibold transition-colors py-5 group-hover:text-neon-500 ${isOpen ? 'text-neon-500' : 'text-ink-900'}`}
+                      className={`flex items-center gap-1 text-[15px] font-semibold transition-colors py-5 hover:text-neon-700 ${isOpen ? 'text-neon-700' : 'text-ink-900'}`}
                       data-testid={testId}
                       aria-expanded={isOpen}
+                      aria-haspopup="true"
+                      aria-controls={menuId}
                     >
                       {label}
-                      <ChevronDown size={14} className={`transition-transform duration-200 group-hover:rotate-180 ${isOpen ? 'rotate-180' : ''}`} />
+                      <ChevronDown size={14} className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
                     </button>
-                    <div className={`absolute top-full left-0 w-56 bg-white border border-ice-300 rounded-lg shadow-xl py-1 z-50 hidden group-hover:block ${isOpen ? '!block' : ''}`}>
-                      <DropdownMenu items={items} />
-                    </div>
+                    {isOpen && <DropdownMenu items={items} id={menuId} />}
                   </div>
                 );
               })}
             </div>
 
             <div className="flex items-center gap-3">
-              <Link href="/request-a-sample" className="hidden sm:inline-flex items-center px-5 py-2.5 bg-neon-500 hover:bg-neon-600 text-white text-[15px] font-semibold rounded-md transition-colors" data-testid="nav-request-sample">
+              <Link href="/request-a-sample" className="hidden sm:inline-flex items-center px-5 py-2.5 bg-neon-700 hover:bg-neon-800 text-white text-[15px] font-semibold rounded-md transition-colors" data-testid="nav-request-sample">
                 Request a frozen sample
               </Link>
               <button

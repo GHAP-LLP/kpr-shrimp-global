@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { ArrowRight, Snowflake, Flame, UtensilsCrossed } from 'lucide-react';
 import { productCategories, COUNT_SIZES } from '@/data/products';
 import Breadcrumb from '@/components/Breadcrumb';
+import SectionLabel from '@/components/SectionLabel';
 import { buildMetadata } from '@/lib/metadata';
 import { FadeUp, FadeUpGrid, FadeUpItem } from '@/components/FadeUp';
 
@@ -12,18 +13,10 @@ export const metadata = buildMetadata({
 });
 
 const CATEGORY_ICONS = {
-  'frozen-raw-shrimp': Snowflake,
-  'cooked-shrimp': Flame,
+  'frozen-raw-prawns': Snowflake,
+  'cooked-prawns': Flame,
   'ready-to-cook': UtensilsCrossed,
 };
-
-function SectionLabel({ number, text }) {
-  return (
-    <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neon-500 font-inter mb-3">
-      {number} · {text}
-    </p>
-  );
-}
 
 export default function ProductsHubPage() {
   return (
@@ -51,16 +44,16 @@ export default function ProductsHubPage() {
                 <FadeUpItem key={category.id}>
                   <Link href={`/products/${category.slug}`} className="group block rounded-xl overflow-hidden border border-ice-300 bg-white hover:border-frost-500 hover:shadow-lg transition-all duration-300 h-full shadow-sm" data-testid={`category-card-${category.slug}`}>
                     <div className="relative aspect-[16/9] overflow-hidden bg-frost-900">
-                      <img src={category.image} alt={category.name} className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-95 group-hover:scale-105 transition-all duration-500" />
+                      <img src={category.image} alt="" loading="lazy" className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-95 group-hover:scale-105 transition-all duration-500" />
                       <div className="absolute inset-0 bg-gradient-to-t from-frost-900/70 via-transparent to-transparent" />
                       <div className="absolute bottom-3 left-3 flex items-center gap-2">
-                        <div className="w-7 h-7 bg-neon-500 rounded flex items-center justify-center">
+                        <div className="w-7 h-7 bg-neon-700 rounded flex items-center justify-center">
                           <Icon size={13} className="text-white" />
                         </div>
                       </div>
                     </div>
                     <div className="p-6">
-                      <h2 className="font-fraunces text-xl text-ink-900 mb-2">{category.name}</h2>
+                      <h3 className="font-fraunces text-xl text-ink-900 mb-2">{category.name}</h3>
                       <p className="text-sm text-frost-700 leading-relaxed mb-4 font-inter">{category.description}</p>
                       <ul className="space-y-1.5 mb-5">
                         {category.highlights.map(h => (
@@ -70,7 +63,7 @@ export default function ProductsHubPage() {
                           </li>
                         ))}
                       </ul>
-                      <div className="flex items-center gap-1 text-neon-500 text-sm font-medium font-inter group-hover:gap-2 transition-all">
+                      <div className="flex items-center gap-1 text-neon-700 text-sm font-medium font-inter group-hover:gap-2 transition-all">
                         View range <ArrowRight size={14} />
                       </div>
                     </div>
@@ -114,10 +107,10 @@ export default function ProductsHubPage() {
         </div>
       </section>
 
-      <section className="py-16 bg-neon-500">
+      <section className="py-16 bg-neon-700">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-fraunces text-3xl text-white mb-3">Get a sample on your bench.</h2>
-          <p className="text-white/80 mb-8 font-inter">Tell us your sector and the spec you're benchmarking. We'll ship samples within 5 working days.</p>
+          <p className="text-white/90 mb-8 font-inter">Tell us your sector and the spec you're benchmarking. We'll ship samples within 5 working days of confirmation.</p>
           <Link href="/request-a-sample" className="inline-flex items-center gap-2 px-8 py-3.5 bg-frost-900 hover:bg-ink-900 text-white font-medium rounded-md transition-colors font-inter">
             Request a frozen sample <ArrowRight size={14} />
           </Link>

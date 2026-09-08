@@ -1,9 +1,12 @@
 'use client';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import Link from 'next/link';
-import { FileText, ArrowRight, CheckCircle, Download, Shield, Leaf, Package, ClipboardList } from 'lucide-react';
+import { usePathname } from 'next/navigation';
+import { FileText, ArrowRight, CheckCircle, Download, Shield, Loader2, Package, ClipboardList, X } from 'lucide-react';
 import { productCategories } from '@/data/products';
-import { FadeUp, FadeUpGrid, FadeUpItem } from '@/components/FadeUp';
+import Breadcrumb from '@/components/Breadcrumb';
+import { FadeUp } from '@/components/FadeUp';
+import { postEnquiry } from '@/lib/api';
 
 const COMPLIANCE_DOCS = [
   { id: 'allergen-all', name: 'Allergen Declaration — Full Range', type: 'Compliance', desc: 'Allergen status for all 12 variants. Covers the 14 major EU/UK allergens. Issued per lot on request.', icon: Shield },
@@ -16,7 +19,7 @@ const COMPLIANCE_DOCS = [
 
 const QUALITY_DOCS = [
   { id: 'haccp-summary', name: 'HACCP Process Summary', type: 'Quality', desc: 'High-level HACCP documentation covering critical control points across farming, processing, and cold chain. Full HACCP plan available under NDA.', icon: Shield },
-  { id: 'eu-approval', name: 'EU Approval Documentation', type: 'Quality', desc: 'Processing facility EU approval reference. Confirms compliance with Regulation (EC) No 853/2004 hygiene requirements.', icon: Shield },
+  { id: 'eu-approval', name: 'EU Approval Documentation', type: 'Quality', desc: 'Processing facility approval status under Regulation (EC) No 853/2004. Approval is in progress — current status documentation issued on request.', icon: Shield },
   { id: 'fsa-registration', name: 'FSA Registration Certificate', type: 'Quality', desc: 'UK Food Standards Agency registration for import and distribution operations.', icon: Shield },
   { id: 'cold-chain-protocol', name: 'Cold Chain Temperature Protocol', type: 'Quality', desc: 'Standard operating procedure for temperature monitoring from processing to UK delivery. Continuous temperature log provided per shipment.', icon: ClipboardList },
   { id: 'traceability-guide', name: 'Lot-Level Traceability Guide', type: 'Quality', desc: 'Explains our traceability system from farm lot to UK shipment. Each lot reference links back to harvest date, pond, and processing batch.', icon: FileText },
@@ -31,7 +34,7 @@ const RANGE_DOCS = [
 ];
 
 const TYPE_COLOURS = {
-  'Spec Sheet': 'bg-neon-500/20 text-neon-500',
+  'Spec Sheet': 'bg-neon-500/20 text-neon-700',
   'Product Range': 'bg-blue-500/20 text-blue-600',
   'Compliance': 'bg-yellow-500/20 text-yellow-700',
   'Quality': 'bg-emerald-500/20 text-emerald-700',
@@ -39,60 +42,86 @@ const TYPE_COLOURS = {
 
 function SectionLabel({ number, text }) {
   return (
-    <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neon-500 font-inter mb-3">
+    <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neon-700 font-inter mb-3">
       {number} · {text}
     </p>
   );
 }
 
-function DocCard({ doc, requested, onRequest }) {
+function DocCard({ doc, selected, onToggle, extraLink }) {
   const Icon = doc.icon || FileText;
   return (
     <div className="bg-white border border-ice-300 rounded-xl p-5 flex flex-col gap-3 hover:bg-ice-100 hover:border-frost-500 transition-all duration-200 shadow-sm" data-testid={`doc-card-${doc.id}`}>
-      <div className="flex items-start justify-between gap-3">
-        <div className="flex items-start gap-3 flex-1 min-w-0">
-          <div className="w-9 h-9 bg-ice-100 border border-ice-300 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-            <Icon size={16} className="text-neon-500" />
-          </div>
-          <div className="min-w-0">
-            <span className={`inline-block text-[10px] font-mono px-1.5 py-0.5 rounded uppercase tracking-wider mb-1.5 ${TYPE_COLOURS[doc.type] || 'bg-ice-300 text-frost-700'}`}>
-              {doc.type}
-            </span>
-            <h3 className="font-inter font-semibold text-ink-900 text-sm leading-snug">{doc.name}</h3>
-          </div>
+      <div className="flex items-start gap-3">
+        <div className="w-9 h-9 bg-ice-100 border border-ice-300 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
+          <Icon size={16} className="text-neon-700" />
+        </div>
+        <div className="min-w-0">
+          <span className={`inline-block text-[10px] font-mono px-1.5 py-0.5 rounded uppercase tracking-wider mb-1.5 ${TYPE_COLOURS[doc.type] || 'bg-ice-300 text-frost-700'}`}>
+            {doc.type}
+          </span>
+          <h3 className="font-inter font-semibold text-ink-900 text-sm leading-snug">{doc.name}</h3>
         </div>
       </div>
       <p className="text-xs text-frost-700 leading-relaxed font-inter pl-12">{doc.desc}</p>
-      <div className="pl-12">
-        {requested ? (
-          <span className="inline-flex items-center gap-1.5 text-xs text-emerald-700 font-inter font-medium" data-testid={`requested-${doc.id}`}>
-            <CheckCircle size={13} /> Requested — we'll be in touch
-          </span>
+      <div className="pl-12 flex items-center gap-4">
+        {selected ? (
+          <button
+            onClick={() => onToggle(doc)}
+            className="inline-flex items-center gap-1.5 text-xs text-emerald-700 hover:text-red-600 font-inter font-medium transition-colors"
+            data-testid={`selected-${doc.id}`}
+          >
+            <CheckCircle size={13} /> Added to request — remove
+          </button>
         ) : (
           <button
-            onClick={() => onRequest(doc.id)}
-            className="inline-flex items-center gap-1.5 text-xs text-neon-500 hover:text-neon-600 font-inter font-medium transition-colors"
+            onClick={() => onToggle(doc)}
+            className="inline-flex items-center gap-1.5 text-xs text-neon-700 hover:text-neon-800 font-inter font-medium transition-colors"
             data-testid={`request-btn-${doc.id}`}
           >
-            <Download size={13} /> Request document
+            <Download size={13} /> Add to request
           </button>
         )}
+        {extraLink}
       </div>
     </div>
   );
 }
 
 export default function ResourcesContent() {
-  const [requested, setRequested] = useState(new Set());
-  const [emailForm, setEmailForm] = useState({ email: '', submitted: false });
+  const pathname = usePathname();
+  const formSectionRef = useRef(null);
+  const [selected, setSelected] = useState([]); // [{id, name}]
+  const [form, setForm] = useState({ name: '', company: '', email: '', consent: false, website: '' });
+  const [submitting, setSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState('');
 
-  const handleRequest = (id) => {
-    setRequested(prev => new Set([...prev, id]));
+  const toggleDoc = (doc) => {
+    setSubmitted(false);
+    setSelected(prev =>
+      prev.some(d => d.id === doc.id) ? prev.filter(d => d.id !== doc.id) : [...prev, { id: doc.id, name: doc.name }]
+    );
   };
 
-  const handlePackRequest = (e) => {
+  const isSelected = (id) => selected.some(d => d.id === id);
+
+  const scrollToForm = () => formSectionRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setEmailForm(prev => ({ ...prev, submitted: true }));
+    setError('');
+    setSubmitting(true);
+    try {
+      const documents = selected.length > 0 ? selected.map(d => d.name) : ['Full documentation pack'];
+      await postEnquiry('/api/enquiries/document-request', { ...form, documents, source_page: pathname });
+      setSubmitted(true);
+      setSelected([]);
+    } catch (err) {
+      setError(err.message || "Sorry, we couldn't send your document request. Please try again or email us directly at sales@indoaquaticltd.com.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const specSheetDocs = productCategories.flatMap(cat =>
@@ -111,10 +140,11 @@ export default function ResourcesContent() {
 
       <div className="bg-frost-900 py-16 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neon-500 font-inter mb-3">Indo Aquatic</p>
+          <Breadcrumb items={[{ label: 'Resources & Documents' }]} />
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neon-500 font-inter mt-6 mb-3">Indo Aquatic</p>
           <h1 className="font-fraunces text-4xl sm:text-5xl text-white mb-3" data-testid="resources-h1">Resources & Documents</h1>
           <p className="text-frost-500 max-w-2xl font-inter text-lg">Technical specification sheets, compliance documents, allergen declarations, and quality certifications for the full Indo Aquatic range.</p>
-          <p className="text-frost-500/60 font-inter text-sm mt-3">Click <span className="text-neon-500">Request document</span> on any item and we'll send it to you within one working day. Or request the full pack below.</p>
+          <p className="text-frost-500 font-inter text-sm mt-3">Add the documents you need to your request, complete your details below, and we'll send them within 2 business days.</p>
         </div>
       </div>
 
@@ -128,38 +158,17 @@ export default function ResourcesContent() {
           </FadeUp>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {specSheetDocs.map(doc => (
-              <div key={doc.id} className="bg-white border border-ice-300 rounded-xl p-5 flex flex-col gap-3 hover:bg-ice-100 hover:border-frost-500 transition-all duration-200 shadow-sm" data-testid={`doc-card-${doc.id}`}>
-                <div className="flex items-start gap-3">
-                  <div className="w-9 h-9 bg-ice-100 border border-ice-300 rounded-lg flex items-center justify-center flex-shrink-0 mt-0.5">
-                    <FileText size={16} className="text-neon-500" />
-                  </div>
-                  <div className="min-w-0">
-                    <span className={`inline-block text-[10px] font-mono px-1.5 py-0.5 rounded uppercase tracking-wider mb-1.5 ${TYPE_COLOURS['Spec Sheet']}`}>
-                      Spec Sheet
-                    </span>
-                    <h3 className="font-inter font-semibold text-ink-900 text-sm leading-snug">{doc.name}</h3>
-                  </div>
-                </div>
-                <p className="text-xs text-frost-700 leading-relaxed font-inter pl-12">{doc.desc}</p>
-                <div className="pl-12 flex items-center gap-4">
-                  {requested.has(doc.id) ? (
-                    <span className="inline-flex items-center gap-1.5 text-xs text-emerald-700 font-inter font-medium" data-testid={`requested-${doc.id}`}>
-                      <CheckCircle size={13} /> Requested
-                    </span>
-                  ) : (
-                    <button
-                      onClick={() => handleRequest(doc.id)}
-                      className="inline-flex items-center gap-1.5 text-xs text-neon-500 hover:text-neon-600 font-inter font-medium transition-colors"
-                      data-testid={`request-btn-${doc.id}`}
-                    >
-                      <Download size={13} /> Request
-                    </button>
-                  )}
+              <DocCard
+                key={doc.id}
+                doc={doc}
+                selected={isSelected(doc.id)}
+                onToggle={toggleDoc}
+                extraLink={
                   <Link href={doc.href} className="inline-flex items-center gap-1 text-xs text-frost-700 hover:text-ink-900 transition-colors font-inter">
                     View live spec <ArrowRight size={11} />
                   </Link>
-                </div>
-              </div>
+                }
+              />
             ))}
           </div>
         </section>
@@ -173,7 +182,7 @@ export default function ResourcesContent() {
           <FadeUp delay={0.08}>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {RANGE_DOCS.map(doc => (
-                <DocCard key={doc.id} doc={doc} requested={requested.has(doc.id)} onRequest={handleRequest} />
+                <DocCard key={doc.id} doc={doc} selected={isSelected(doc.id)} onToggle={toggleDoc} />
               ))}
             </div>
           </FadeUp>
@@ -188,7 +197,7 @@ export default function ResourcesContent() {
           <FadeUp delay={0.08}>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {COMPLIANCE_DOCS.map(doc => (
-                <DocCard key={doc.id} doc={doc} requested={requested.has(doc.id)} onRequest={handleRequest} />
+                <DocCard key={doc.id} doc={doc} selected={isSelected(doc.id)} onToggle={toggleDoc} />
               ))}
             </div>
           </FadeUp>
@@ -203,43 +212,88 @@ export default function ResourcesContent() {
           <FadeUp delay={0.08}>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {QUALITY_DOCS.map(doc => (
-                <DocCard key={doc.id} doc={doc} requested={requested.has(doc.id)} onRequest={handleRequest} />
+                <DocCard key={doc.id} doc={doc} selected={isSelected(doc.id)} onToggle={toggleDoc} />
               ))}
             </div>
           </FadeUp>
         </section>
 
-        <section className="border-t border-ice-300 pt-12" data-testid="full-pack-section">
+        <section ref={formSectionRef} className="border-t border-ice-300 pt-12 scroll-mt-24" data-testid="full-pack-section">
           <FadeUp className="max-w-2xl">
-            <SectionLabel number="05" text="Full Documentation Pack" />
-            <h2 className="font-fraunces text-2xl sm:text-3xl text-ink-900 mb-3">Request everything in one go.</h2>
-            <p className="text-frost-700 font-inter mb-8">Enter your work email and we'll send the complete documentation set — all spec sheets, allergen declarations, compliance docs, and quality certificates — within one working day.</p>
-            {emailForm.submitted ? (
+            <SectionLabel number="05" text="Complete Your Request" />
+            <h2 className="font-fraunces text-2xl sm:text-3xl text-ink-900 mb-3">
+              {selected.length > 0 ? `Request ${selected.length} selected document${selected.length > 1 ? 's' : ''}.` : 'Request the full documentation pack.'}
+            </h2>
+            <p className="text-frost-700 font-inter mb-6">
+              {selected.length > 0
+                ? "Complete your details and we'll send the selected documents within 2 business days."
+                : "No documents selected yet — submit below and we'll send the complete documentation set (all spec sheets, allergen declarations, compliance docs, and quality certificates) within 2 business days."}
+            </p>
+
+            {selected.length > 0 && (
+              <ul className="flex flex-wrap gap-2 mb-6" data-testid="selected-doc-list">
+                {selected.map(d => (
+                  <li key={d.id}>
+                    <button
+                      onClick={() => toggleDoc(d)}
+                      className="inline-flex items-center gap-1.5 text-xs bg-white border border-ice-300 hover:border-red-400 text-frost-700 rounded-full px-3 py-1.5 font-inter transition-colors"
+                      aria-label={`Remove ${d.name} from request`}
+                    >
+                      {d.name} <X size={11} />
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            )}
+
+            {submitted ? (
               <div className="flex items-center gap-3 bg-white border border-ice-300 rounded-xl px-5 py-4 shadow-sm" data-testid="pack-request-success">
-                <CheckCircle size={20} className="text-neon-500 flex-shrink-0" />
+                <CheckCircle size={20} className="text-neon-700 flex-shrink-0" />
                 <div>
-                  <p className="text-ink-900 font-inter font-medium text-sm">Pack requested</p>
-                  <p className="text-frost-700 text-xs font-inter">We'll send the full documentation set to {emailForm.email} within one working day.</p>
+                  <p className="text-ink-900 font-inter font-medium text-sm">Request received</p>
+                  <p className="text-frost-700 text-xs font-inter">We'll send the requested documents to {form.email} within 2 business days.</p>
                 </div>
               </div>
             ) : (
-              <form onSubmit={handlePackRequest} className="flex flex-col sm:flex-row gap-3" data-testid="pack-request-form">
-                <input
-                  required
-                  type="email"
-                  value={emailForm.email}
-                  onChange={e => setEmailForm(prev => ({ ...prev, email: e.target.value }))}
-                  placeholder="your@company.com"
-                  className="flex-1 px-4 py-3 border border-ice-300 rounded-md text-sm text-ink-900 placeholder-frost-500/60 focus:outline-none focus:ring-2 focus:ring-neon-500 bg-white font-inter"
-                  data-testid="pack-email-input"
-                />
+              <form onSubmit={handleSubmit} className="space-y-4" data-testid="pack-request-form">
+                {/* Honeypot: hidden from real users, catches bots that auto-fill every field */}
+                <input type="text" name="website" value={form.website} onChange={e => setForm({ ...form, website: e.target.value })} className="hidden" tabIndex={-1} autoComplete="off" aria-hidden="true" />
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <div>
+                    <label htmlFor="pack-name" className="block text-xs font-medium text-frost-700 mb-1.5 uppercase tracking-wider font-inter">Name *</label>
+                    <input id="pack-name" required autoComplete="name" value={form.name} onChange={e => setForm({ ...form, name: e.target.value })} placeholder="Your name" className="w-full px-4 py-3 border border-ice-300 rounded-md text-sm text-ink-900 placeholder-frost-500/60 focus:outline-none focus:ring-2 focus:ring-neon-500 focus:border-transparent bg-white font-inter" data-testid="pack-name-input" />
+                  </div>
+                  <div>
+                    <label htmlFor="pack-company" className="block text-xs font-medium text-frost-700 mb-1.5 uppercase tracking-wider font-inter">Company *</label>
+                    <input id="pack-company" required autoComplete="organization" value={form.company} onChange={e => setForm({ ...form, company: e.target.value })} placeholder="Company name" className="w-full px-4 py-3 border border-ice-300 rounded-md text-sm text-ink-900 placeholder-frost-500/60 focus:outline-none focus:ring-2 focus:ring-neon-500 focus:border-transparent bg-white font-inter" data-testid="pack-company-input" />
+                  </div>
+                </div>
+                <div>
+                  <label htmlFor="pack-email" className="block text-xs font-medium text-frost-700 mb-1.5 uppercase tracking-wider font-inter">Work email *</label>
+                  <input id="pack-email" required type="email" autoComplete="email" value={form.email} onChange={e => setForm({ ...form, email: e.target.value })} placeholder="your@company.com" className="w-full px-4 py-3 border border-ice-300 rounded-md text-sm text-ink-900 placeholder-frost-500/60 focus:outline-none focus:ring-2 focus:ring-neon-500 focus:border-transparent bg-white font-inter" data-testid="pack-email-input" />
+                </div>
+                <label className="flex items-start gap-2.5 cursor-pointer">
+                  <input type="checkbox" required checked={form.consent} onChange={e => setForm({ ...form, consent: e.target.checked })} className="w-4 h-4 mt-0.5 cursor-pointer accent-[#C2410C]" data-testid="pack-check-consent" />
+                  <span className="text-xs text-frost-700 leading-relaxed font-inter">
+                    I agree to Indo Aquatic UK Ltd storing my details to fulfil this document request, as described in the{' '}
+                    <Link href="/privacy-policy" className="text-neon-700 underline hover:text-neon-800">Privacy Policy</Link>. *
+                  </span>
+                </label>
                 <button
                   type="submit"
-                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-neon-500 hover:bg-neon-600 text-white font-medium rounded-md transition-colors font-inter whitespace-nowrap"
+                  disabled={submitting}
+                  aria-busy={submitting}
+                  className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-neon-700 hover:bg-neon-800 disabled:opacity-60 disabled:cursor-not-allowed text-white font-medium rounded-md transition-colors font-inter whitespace-nowrap"
                   data-testid="pack-submit-btn"
                 >
-                  Send full pack <ArrowRight size={14} />
+                  {submitting && <Loader2 size={16} className="animate-spin" />}
+                  {submitting ? 'Sending...' : selected.length > 0 ? 'Send document request' : 'Send full pack'} {!submitting && <ArrowRight size={14} />}
                 </button>
+                <div role="alert" aria-live="assertive">
+                  {error && (
+                    <p className="text-sm text-red-600 font-inter" data-testid="pack-request-error">{error}</p>
+                  )}
+                </div>
               </form>
             )}
           </FadeUp>
@@ -247,10 +301,22 @@ export default function ResourcesContent() {
 
       </div>
 
-      <section className="mt-16 py-16 bg-neon-500">
+      {selected.length > 0 && !submitted && (
+        <div className="sticky bottom-4 z-40 flex justify-center px-4">
+          <button
+            onClick={scrollToForm}
+            className="inline-flex items-center gap-2 px-5 py-3 bg-frost-900 hover:bg-ink-900 text-white text-sm font-semibold rounded-full shadow-xl transition-colors font-inter"
+            data-testid="selected-docs-pill"
+          >
+            {selected.length} document{selected.length > 1 ? 's' : ''} selected — complete request <ArrowRight size={14} />
+          </button>
+        </div>
+      )}
+
+      <section className="mt-16 py-16 bg-neon-700">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-fraunces text-3xl text-white mb-3">Need something specific?</h2>
-          <p className="text-white/80 mb-8 font-inter">If you need a document that isn't listed here — a bespoke CoA, audit report, or lot-specific traceability record — get in touch with our team directly.</p>
+          <p className="text-white/90 mb-8 font-inter">If you need a document that isn't listed here — a bespoke CoA, audit report, or lot-specific traceability record — get in touch with our team directly.</p>
           <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-3.5 bg-frost-900 hover:bg-ink-900 text-white font-medium rounded-md transition-colors font-inter" data-testid="resources-contact-btn">
             Contact us <ArrowRight size={14} />
           </Link>

@@ -73,7 +73,7 @@ export default function CookiePolicyPage() {
             <li>Set your browser to notify you when a cookie is being set</li>
           </ul>
           <p>Please note that disabling essential cookies may affect the functionality of this website. Blocking all cookies will not prevent you from viewing the site content but may affect form submission features.</p>
-          <p>For guidance on managing cookies in your browser, visit <a href="https://www.allaboutcookies.org" className="text-neon-500 hover:underline" target="_blank" rel="noopener noreferrer">allaboutcookies.org</a>.</p>
+          <p>For guidance on managing cookies in your browser, visit <a href="https://www.allaboutcookies.org" className="text-neon-700 hover:underline" target="_blank" rel="noopener noreferrer">allaboutcookies.org</a>.</p>
         </Section>
 
         <Section title="5. Changes to this policy">
@@ -84,7 +84,7 @@ export default function CookiePolicyPage() {
           <p>If you have any questions about our use of cookies:<br />
           Indo Aquatic UK Ltd<br />
           Hall Farm Burrill Lane, Brantingham, Brough, HU15 1YG<br />
-          <a href="mailto:info@indoaquaticltd.com" className="text-neon-500 hover:underline">info@indoaquaticltd.com</a></p>
+          <a href="mailto:info@indoaquaticltd.com" className="text-neon-700 hover:underline">info@indoaquaticltd.com</a></p>
         </Section>
 
       </div>

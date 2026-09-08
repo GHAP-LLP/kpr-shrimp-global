@@ -1,6 +1,7 @@
 import { Fraunces, Inter, JetBrains_Mono } from 'next/font/google';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { DEFAULT_OG } from '@/lib/metadata';
 import '@/index.css';
 
 const fraunces = Fraunces({
@@ -21,8 +22,6 @@ const jetbrainsMono = JetBrains_Mono({
   display: 'swap',
   weight: ['400', '500'],
 });
-
-const DEFAULT_OG = 'https://images.unsplash.com/photo-1548587468-971ebe4c8c3b?crop=entropy&cs=srgb&fm=jpg&q=85&w=1200';
 
 export const metadata = {
   metadataBase: new URL('https://www.indoaquaticltd.com'),
@@ -87,9 +86,10 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${fraunces.variable} ${inter.variable} ${jetbrainsMono.variable}`}>
       <body>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }} />
+        <a href="#main-content" className="skip-link">Skip to main content</a>
         <div className="min-h-screen flex flex-col bg-ice-100">
           <Navbar />
-          <main className="flex-1">{children}</main>
+          <main id="main-content" className="flex-1">{children}</main>
           <Footer />
         </div>
       </body>

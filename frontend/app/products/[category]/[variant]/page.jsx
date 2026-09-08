@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { ArrowRight } from 'lucide-react';
 import { productCategories, getCategoryBySlug, getVariantBySlug } from '@/data/products';
 import Breadcrumb from '@/components/Breadcrumb';
+import SectionLabel from '@/components/SectionLabel';
 import { buildMetadata } from '@/lib/metadata';
 import { FadeUp } from '@/components/FadeUp';
 
@@ -18,18 +19,10 @@ export async function generateMetadata({ params }) {
   if (!variant) return {};
   return buildMetadata({
     title: variant.fullName,
-    description: `${variant.fullName} frozen prawn from Indo Aquatic. ${variant.description.split('.')[0]}.`,
+    description: `${variant.fullName} (${variant.name}) frozen prawns for UK trade buyers — full specification, count sizes, glaze options, pack formats, and typical use cases. Samples available from Indo Aquatic.`,
     path: `/products/${categorySlug}/${variantSlug}`,
     image: variant.image,
   });
-}
-
-function SectionLabel({ number, text }) {
-  return (
-    <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neon-500 font-inter mb-3">
-      {number} · {text}
-    </p>
-  );
 }
 
 function SpecTable({ specs }) {
@@ -115,7 +108,7 @@ export default async function ProductVariantPage({ params }) {
 
           <div className="lg:col-span-2 space-y-8">
             <div className="bg-white border border-ice-300 rounded-xl overflow-hidden shadow-sm">
-              <img src={variant.image} alt={variant.fullName} className="w-full aspect-video object-cover" />
+              <img src={variant.image} alt={`${variant.fullName} frozen prawns`} className="w-full aspect-video object-cover" />
               <div className="p-6">
                 <SectionLabel number="01" text="About This Product" />
                 <h2 className="font-fraunces text-xl text-ink-900 mb-3">About this product</h2>
@@ -144,9 +137,9 @@ export default async function ProductVariantPage({ params }) {
           </div>
 
           <div className="space-y-4">
-            <div className="bg-neon-500 rounded-xl p-6">
-              <h3 className="font-fraunces text-lg text-white mb-3">Request a frozen sample</h3>
-              <p className="text-white/80 text-sm mb-4 font-inter">Assess this product's specification and quality before committing to volume.</p>
+            <div className="bg-neon-700 rounded-xl p-6">
+              <h3 className="font-fraunces text-lg text-white mb-3">Try it on your bench</h3>
+              <p className="text-white/90 text-sm mb-4 font-inter">Assess this product's specification and quality before committing to volume.</p>
               <Link href="/request-a-sample" className="block w-full text-center py-3 bg-frost-900 hover:bg-ink-900 text-white font-medium rounded-md transition-colors text-sm font-inter" data-testid="sidebar-request-sample">
                 Request a frozen sample
               </Link>
@@ -157,7 +150,7 @@ export default async function ProductVariantPage({ params }) {
               <ul className="space-y-1">
                 {category.variants.filter(v => v.id !== variant.id).map(v => (
                   <li key={v.id}>
-                    <Link href={`/products/${categorySlug}/${v.slug}`} className="flex items-center gap-2 text-sm text-frost-700 hover:text-neon-500 transition-colors py-1.5 border-b border-ice-300 last:border-0 font-inter">
+                    <Link href={`/products/${categorySlug}/${v.slug}`} className="flex items-center gap-2 text-sm text-frost-700 hover:text-neon-700 transition-colors py-1.5 border-b border-ice-300 last:border-0 font-inter">
                       <ArrowRight size={12} className="flex-shrink-0" />
                       {v.fullName}
                     </Link>
