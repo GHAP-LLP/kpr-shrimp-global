@@ -136,7 +136,7 @@ function WiderRangeBanner() {
           <div className="max-w-2xl">
             <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neon-500 font-inter mb-3">Beyond Shrimp</p>
             <h2 className="font-fraunces text-2xl sm:text-3xl text-white mb-3">Frozen shellfish, whole fish & fillets — the wider range.</h2>
-            <p className="text-frost-500 font-inter leading-relaxed">Supplied through the same vetted partner network as our core shrimp range, to the same specification, documentation, and cold-chain standards. Sourced to your requirement, confirmed per enquiry.</p>
+            <p className="text-frost-500 font-inter leading-relaxed">Delivered through our world-class global distribution network, to the same specification, documentation, and cold-chain standards as our core shrimp range. Supplied to your requirement, confirmed per enquiry.</p>
           </div>
           <Link href="/products/wider-seafood-range" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-neon-700 hover:bg-neon-800 text-white font-semibold rounded-md transition-colors font-inter whitespace-nowrap flex-shrink-0" data-testid="wider-range-banner-cta">
           Explore the wider range <ArrowRight size={15} />

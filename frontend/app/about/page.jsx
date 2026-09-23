@@ -50,7 +50,7 @@ export default function AboutPage() {
             The UK's specialist shrimp supplier.
           </h1>
           <p className="text-lg text-frost-500 leading-relaxed max-w-2xl font-inter">
-            Shrimp is our specialism — every format, every count, every processing style — supplied alongside a carefully sourced wider range of frozen seafood, with the specification consistency that comes from deep category focus.
+            Shrimp is our specialism — every format, every count, every processing style — supplied alongside a wider range of premium frozen seafood, with the specification consistency that comes from deep category focus.
           </p>
         </div>
       </div>

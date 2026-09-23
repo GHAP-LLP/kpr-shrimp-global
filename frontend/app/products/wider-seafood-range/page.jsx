@@ -8,7 +8,7 @@ import { FadeUp, FadeUpGrid, FadeUpItem } from '@/components/FadeUp';
 
 export const metadata = buildMetadata({
   title: 'Wider Seafood Range',
-  description: 'Frozen shellfish, whole fish, and fillets for UK trade buyers — supplied through the same vetted partner network, specification discipline, and cold-chain standards as our core shrimp range. Sourced to your requirement.',
+  description: 'Frozen shellfish, whole fish, and fillets for UK trade buyers — delivered through our world-class global distribution network with the same specification discipline, documentation, and cold-chain standards as our core shrimp range.',
   path: '/products/wider-seafood-range',
 });
 
@@ -16,7 +16,7 @@ const RANGE_ICONS = { shellfish: Shell, 'whole-fish': Fish, 'fish-fillets': Laye
 
 const HOW_IT_WORKS = [
   { icon: MessageSquare, step: '01', title: 'Tell us the requirement', desc: 'Species, format, size grading, volumes, and delivery needs — as specific or as open as your brief allows.' },
-  { icon: Search, step: '02', title: 'We source and spec it', desc: 'We match the requirement through our vetted partner network, lock the specification, and confirm pricing, documentation, and lead time.' },
+  { icon: Search, step: '02', title: 'We spec and confirm it', desc: 'We match the requirement through our global distribution network, lock the specification, and confirm pricing, documentation, and lead time.' },
   { icon: Truck, step: '03', title: 'Documented UK supply', desc: 'Cold-chain shipped and delivered with the same documentation as our shrimp range — spec sheet, origin, temperature records, and lot traceability.' },
 ];
 
@@ -38,8 +38,8 @@ export default function WiderSeafoodRangePage() {
           <Breadcrumb items={[{ label: 'Products', href: '/products' }, { label: 'Wider Seafood Range' }]} />
           <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neon-500 font-inter mt-6 mb-3">Beyond Shrimp</p>
           <h1 className="font-fraunces text-4xl sm:text-5xl text-white mb-3" data-testid="wider-range-h1">Wider Seafood Range</h1>
-          <p className="text-xl text-neon-500 font-medium mb-3 font-inter">Sourced to your requirement. Held to our standards.</p>
-          <p className="text-frost-500 max-w-2xl font-inter">Alongside our core shrimp range, we supply frozen shellfish, whole fish, and fillets through the same vetted partner network — with the same specification discipline, documentation, and unbroken cold chain. The range is shaped by what your operation needs, not a fixed catalogue.</p>
+          <p className="text-xl text-neon-500 font-medium mb-3 font-inter">Supplied to your requirement. Held to our standards.</p>
+          <p className="text-frost-500 max-w-2xl font-inter">Alongside our core shrimp range, we supply frozen shellfish, whole fish, and fillets through our world-class global distribution network — with the same specification discipline, documentation, and unbroken cold chain. The range is shaped by what your operation needs, not a fixed catalogue.</p>
         </div>
       </div>
 
@@ -74,7 +74,7 @@ export default function WiderSeafoodRangePage() {
             })}
           </FadeUpGrid>
           <FadeUp className="mt-6">
-            <p className="text-xs text-frost-700 font-inter">Species availability, specifications, and pricing are confirmed per enquiry — sourcing across this range is flexible by design.</p>
+            <p className="text-xs text-frost-700 font-inter">Species availability, specifications, and pricing are confirmed per enquiry — this range is flexible by design.</p>
           </FadeUp>
         </div>
       </section>
@@ -84,7 +84,7 @@ export default function WiderSeafoodRangePage() {
           <FadeUp className="mb-12">
             <SectionLabel number="02" text="How It Works" dark />
             <h2 className="font-fraunces text-3xl text-white mb-3">One conversation, not a catalogue.</h2>
-            <p className="text-frost-500 font-inter max-w-2xl">This range works the way our shrimp supply does — anchored by our own operations and extended through long-term partnerships with certified operations in leading producing regions.</p>
+            <p className="text-frost-500 font-inter max-w-2xl">This range works the way our shrimp supply does — backed by a global distribution network built to the highest quality standards, spanning the world's leading producing regions.</p>
           </FadeUp>
           <FadeUpGrid className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             {HOW_IT_WORKS.map(({ icon: Icon, step, title, desc }) => (
@@ -110,7 +110,7 @@ export default function WiderSeafoodRangePage() {
           <div className="mb-8">
             <SectionLabel number="03" text="Same Standards" />
             <h2 className="font-fraunces text-3xl text-ink-900 mb-3">Documented like everything else we ship.</h2>
-            <p className="text-frost-700 font-inter max-w-2xl">Whether it's our own-farm shrimp or partner-sourced fish, every consignment carries the paperwork UK retail and foodservice buyers need.</p>
+            <p className="text-frost-700 font-inter max-w-2xl">Across the entire range, every consignment carries the paperwork UK retail and foodservice buyers need.</p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
             {STANDARDS.map(doc => (
