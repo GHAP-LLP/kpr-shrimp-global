@@ -129,8 +129,11 @@ function ProductRangeSection() {
 function WiderRangeBanner() {
   return (
     <section className="relative bg-frost-900 overflow-hidden" data-testid="wider-range-banner">
-      <img src="/images/wholesale.jpg" alt="" loading="lazy" className="absolute inset-0 w-full h-full object-cover opacity-20" />
-      <div className="absolute inset-0 bg-gradient-to-r from-frost-900 via-frost-900/85 to-frost-900/50" />
+      <div className="absolute inset-y-0 right-0 w-full md:w-[55%]">
+        <img src="/images/wholesale.jpg" alt="" loading="lazy" className="absolute inset-0 w-full h-full object-cover opacity-60 md:opacity-90" />
+        <div className="absolute inset-0 bg-gradient-to-r from-frost-900 via-frost-900/60 to-frost-900/10" />
+      </div>
+      <div className="absolute inset-0 bg-gradient-to-r from-frost-900 via-frost-900/90 to-transparent" />
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-16">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="max-w-2xl">
