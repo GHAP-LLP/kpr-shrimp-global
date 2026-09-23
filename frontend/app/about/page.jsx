@@ -27,8 +27,8 @@ const STATS = [
 
 const OPERATIONS_STRIP = [
   { img: BRAND_IMGS.farmAerial, label: 'Nellore, India', sub: 'Our farm & processing plant', alt: 'Shrimp aquaculture farm ponds, Andhra Pradesh' },
-  { img: BRAND_IMGS.processingWorkers, label: 'HACCP facility', sub: 'Processing & packaging', alt: 'Seafood processing line' },
-  { img: BRAND_IMGS.coldWarehouse, label: 'Grimsby / Hull', sub: 'UK cold storage', alt: 'UK cold storage warehouse' },
+  { img: BRAND_IMGS.qualityControl, label: 'HACCP facility', sub: 'Processing & packaging', alt: 'Laboratory food safety testing' },
+  { img: BRAND_IMGS.coldChainDelivery, label: 'Grimsby / Hull', sub: 'UK cold storage', alt: 'Cold-chain loading bay' },
 ];
 
 const CERTS = CERTIFICATIONS.map(c => ({
@@ -136,7 +136,7 @@ export default function AboutPage() {
                   <img src="/images/frozenRaw.jpg" alt="IQF glazed frozen raw shrimp" className="w-full h-full object-cover" />
                 </div>
                 <div className="rounded-xl overflow-hidden aspect-[4/3] border border-ice-300 shadow-sm">
-                  <img src={BRAND_IMGS.qualityControl} alt="Laboratory quality testing" className="w-full h-full object-cover" />
+                  <img src="/images/hlso.jpg" alt="Raw headless shell-on shrimp" className="w-full h-full object-cover" />
                 </div>
                 <div className="rounded-xl overflow-hidden aspect-[4/3] border border-ice-300 shadow-sm">
                   <img src={BRAND_IMGS.containerShip} alt="Container ship carrying frozen cargo" className="w-full h-full object-cover" />
