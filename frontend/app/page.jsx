@@ -126,17 +126,22 @@ function ProductRangeSection() {
   );
 }
 
-function WiderRangeStrip() {
+function WiderRangeBanner() {
   return (
-    <section className="bg-white border-y border-ice-300" data-testid="wider-range-strip">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div>
-          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neon-700 font-inter mb-1.5">Beyond shrimp</p>
-          <p className="text-sm text-frost-700 font-inter max-w-2xl">We also supply frozen shellfish, whole fish, and fillets — through the same vetted partner network and to the same specification, documentation, and cold-chain standards.</p>
+    <section className="relative bg-frost-900 overflow-hidden" data-testid="wider-range-banner">
+      <img src="/images/wholesale.jpg" alt="" loading="lazy" className="absolute inset-0 w-full h-full object-cover opacity-20" />
+      <div className="absolute inset-0 bg-gradient-to-r from-frost-900 via-frost-900/85 to-frost-900/50" />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-16">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+          <div className="max-w-2xl">
+            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neon-500 font-inter mb-3">Beyond Shrimp</p>
+            <h2 className="font-fraunces text-2xl sm:text-3xl text-white mb-3">Frozen shellfish, whole fish & fillets — the wider range.</h2>
+            <p className="text-frost-500 font-inter leading-relaxed">Supplied through the same vetted partner network as our core shrimp range, to the same specification, documentation, and cold-chain standards. Sourced to your requirement, confirmed per enquiry.</p>
+          </div>
+          <Link href="/products/wider-seafood-range" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-neon-700 hover:bg-neon-800 text-white font-semibold rounded-md transition-colors font-inter whitespace-nowrap flex-shrink-0" data-testid="wider-range-banner-cta">
+          Explore the wider range <ArrowRight size={15} />
+          </Link>
         </div>
-        <Link href="/products#wider-range" className="inline-flex items-center gap-2 text-sm text-neon-700 hover:text-neon-800 font-semibold font-inter whitespace-nowrap">
-          Explore the wider range <ArrowRight size={14} />
-        </Link>
       </div>
     </section>
   );
@@ -396,7 +401,7 @@ export default function HomePage() {
       <MetricsStrip />
       <CertificationStrip />
       <ProductRangeSection />
-      <WiderRangeStrip />
+      <WiderRangeBanner />
       <ProcessSection />
       <SectorsSection />
       <WhySpecialistSection />

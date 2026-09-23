@@ -4,6 +4,7 @@ export const NAV_PRODUCTS = [
   { name: 'Frozen Raw Shrimp', href: '/products/frozen-raw-shrimp' },
   { name: 'Cooked Shrimp', href: '/products/cooked-shrimp' },
   { name: 'Added Value Innovation', href: '/products/ready-to-cook' },
+  { name: 'Wider Seafood Range', href: '/products/wider-seafood-range' },
 ];
 
 export const NAV_SECTORS = [

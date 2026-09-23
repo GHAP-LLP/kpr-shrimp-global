@@ -99,8 +99,8 @@ export default function ProductsHubPage() {
             })}
           </FadeUpGrid>
           <FadeUp className="flex flex-col sm:flex-row sm:items-center gap-4">
-            <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-neon-700 hover:bg-neon-800 text-white text-sm font-semibold rounded-md transition-colors font-inter w-fit" data-testid="wider-range-enquire">
-              Enquire about the wider range <ArrowRight size={14} />
+            <Link href="/products/wider-seafood-range" className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-neon-700 hover:bg-neon-800 text-white text-sm font-semibold rounded-md transition-colors font-inter w-fit" data-testid="wider-range-enquire">
+              Explore the wider range <ArrowRight size={14} />
             </Link>
             <p className="text-xs text-frost-700 font-inter">Availability, species, and specifications confirmed per enquiry.</p>
           </FadeUp>

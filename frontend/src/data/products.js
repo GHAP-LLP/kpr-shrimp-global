@@ -29,9 +29,24 @@ export const IMG = {
 // describe the categories without publishing claims that can go stale.
 // No detail pages: enquiries route through /contact and /request-a-sample.
 export const WIDER_RANGE = [
-  { id: 'shellfish', name: 'Frozen Shellfish', desc: 'Whole and prepared shellfish formats, frozen at source and specified to your requirement.' },
-  { id: 'whole-fish', name: 'Whole Fish', desc: 'Whole round and dressed frozen fish across popular commercial species, graded to size.' },
-  { id: 'fish-fillets', name: 'Fish Fillets & Portions', desc: 'Fillets, loins, and fixed-weight portions — IQF or interleaved, retail or foodservice spec.' },
+  {
+    id: 'shellfish',
+    name: 'Frozen Shellfish',
+    desc: 'Whole and prepared shellfish formats, frozen at source and specified to your requirement.',
+    formats: ['Whole and half-shell formats', 'Picked and prepared meat', 'IQF or block frozen', 'Retail and foodservice pack sizes'],
+  },
+  {
+    id: 'whole-fish',
+    name: 'Whole Fish',
+    desc: 'Whole round and dressed frozen fish across popular commercial species, graded to size.',
+    formats: ['Whole round', 'Gutted, gilled and scaled', 'Size-graded to specification', 'Bulk and carton packing'],
+  },
+  {
+    id: 'fish-fillets',
+    name: 'Fish Fillets & Portions',
+    desc: 'Fillets, loins, and fixed-weight portions — IQF or interleaved, retail or foodservice spec.',
+    formats: ['Skin-on or skinless fillets', 'Loins and fixed-weight portions', 'IQF or interleaved', 'Retail-ready or catering packs'],
+  },
 ];
 
 export const COUNT_SIZES = [
