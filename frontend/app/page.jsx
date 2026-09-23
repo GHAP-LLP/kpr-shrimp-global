@@ -126,30 +126,6 @@ function ProductRangeSection() {
   );
 }
 
-function WiderRangeBanner() {
-  return (
-    <section className="relative bg-frost-900 overflow-hidden" data-testid="wider-range-banner">
-      <div className="absolute inset-y-0 right-0 w-full md:w-[55%]">
-        <img src="/images/wholesale.jpg" alt="" loading="lazy" className="absolute inset-0 w-full h-full object-cover opacity-60 md:opacity-90" />
-        <div className="absolute inset-0 bg-gradient-to-r from-frost-900 via-frost-900/60 to-frost-900/10" />
-      </div>
-      <div className="absolute inset-0 bg-gradient-to-r from-frost-900 via-frost-900/90 to-transparent" />
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-16">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
-          <div className="max-w-2xl">
-            <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neon-500 font-inter mb-3">Beyond Shrimp</p>
-            <h2 className="font-fraunces text-2xl sm:text-3xl text-white mb-3">Frozen shellfish, whole fish & fillets — the wider range.</h2>
-            <p className="text-frost-500 font-inter leading-relaxed">Delivered through our world-class global distribution network, to the same specification, documentation, and cold-chain standards as our core shrimp range. Supplied to your requirement, confirmed per enquiry.</p>
-          </div>
-          <Link href="/products/wider-seafood-range" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-neon-700 hover:bg-neon-800 text-white font-semibold rounded-md transition-colors font-inter whitespace-nowrap flex-shrink-0" data-testid="wider-range-banner-cta">
-          Explore the wider range <ArrowRight size={15} />
-          </Link>
-        </div>
-      </div>
-    </section>
-  );
-}
-
 const PROCESS_STEPS = [
   { step: '01', Icon: Leaf, title: 'Farmed & Processed', sub: 'Our own farms & partner network', desc: 'Litopenaeus vannamei farmed and processed at our own facilities, and by trusted partners around the world. HACCP-controlled processing, full lot documentation generated at source.', image: BRAND_IMGS.farmAerial, imageAlt: 'Shrimp aquaculture farm ponds, Andhra Pradesh' },
   { step: '02', Icon: Shield, title: 'Sampled & Tested', sub: 'Verified in-house', desc: 'Samples drawn from every farm and partner are tested and finalised at our own Indo Aquatic facility. Residue testing, count tolerances checked, Certificate of Analysis issued before dispatch.', image: BRAND_IMGS.qualityControl, imageAlt: 'Food quality control inspection' },
@@ -404,7 +380,6 @@ export default function HomePage() {
       <MetricsStrip />
       <CertificationStrip />
       <ProductRangeSection />
-      <WiderRangeBanner />
       <ProcessSection />
       <SectorsSection />
       <WhySpecialistSection />
