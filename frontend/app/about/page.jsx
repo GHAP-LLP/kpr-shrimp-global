@@ -81,7 +81,7 @@ export default function AboutPage() {
             </FadeUp>
             <FadeUp delay={0.12}>
               <div className="rounded-2xl overflow-hidden aspect-[4/3] border border-ice-300 shadow-sm">
-                <img src={BRAND_IMGS.farmAerial} alt="Shrimp aquaculture farm ponds, Nellore, Andhra Pradesh" className="w-full h-full object-cover" />
+                <img src={BRAND_IMGS.farmFacility} alt="Shrimp farm ponds with bird netting, Andhra Pradesh" className="w-full h-full object-cover" />
               </div>
             </FadeUp>
           </div>
@@ -133,13 +133,13 @@ export default function AboutPage() {
             <FadeUp delay={0.12} className="order-2 lg:order-1">
               <div className="grid grid-cols-2 gap-3">
                 <div className="rounded-xl overflow-hidden aspect-[4/3] border border-ice-300 shadow-sm col-span-2">
-                  <img src={BRAND_IMGS.processingWorkers} alt="Seafood processing facility workers" className="w-full h-full object-cover" />
+                  <img src="/images/frozenRaw.jpg" alt="IQF glazed frozen raw shrimp" className="w-full h-full object-cover" />
                 </div>
                 <div className="rounded-xl overflow-hidden aspect-[4/3] border border-ice-300 shadow-sm">
-                  <img src={BRAND_IMGS.qualityControl} alt="Food quality control inspection" className="w-full h-full object-cover" />
+                  <img src={BRAND_IMGS.qualityControl} alt="Laboratory quality testing" className="w-full h-full object-cover" />
                 </div>
                 <div className="rounded-xl overflow-hidden aspect-[4/3] border border-ice-300 shadow-sm">
-                  <img src={BRAND_IMGS.coldWarehouse} alt="Cold storage warehouse" className="w-full h-full object-cover" />
+                  <img src={BRAND_IMGS.containerShip} alt="Container ship carrying frozen cargo" className="w-full h-full object-cover" />
                 </div>
               </div>
             </FadeUp>
