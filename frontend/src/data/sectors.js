@@ -1,8 +1,10 @@
 export const SECTOR_IMG = {
   horeca: "/images/horeca.jpg",
-  manufacturers: "/images/manufacturers.jpg",
+  // Industrial packing hall — closest match in the library for manufacturing scale.
+  manufacturers: "/images/packagingLine.jpg",
   wholesale: "/images/wholesale.jpg",
-  retail: "/images/retail.jpg",
+  // Supermarket chilled/frozen aisle — retail context.
+  retail: "/images/coldWarehouse.jpg",
 };
 
 export const sectors = [

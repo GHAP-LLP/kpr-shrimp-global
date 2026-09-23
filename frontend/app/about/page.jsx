@@ -27,7 +27,7 @@ const STATS = [
 
 const OPERATIONS_STRIP = [
   { img: BRAND_IMGS.farmAerial, label: 'Nellore, India', sub: 'Our farm & processing plant', alt: 'Shrimp aquaculture farm ponds, Andhra Pradesh' },
-  { img: BRAND_IMGS.packagingLine, label: 'HACCP facility', sub: 'Processing & packaging', alt: 'Food packaging production line' },
+  { img: BRAND_IMGS.processingWorkers, label: 'HACCP facility', sub: 'Processing & packaging', alt: 'Seafood processing line' },
   { img: BRAND_IMGS.coldWarehouse, label: 'Grimsby / Hull', sub: 'UK cold storage', alt: 'UK cold storage warehouse' },
 ];
 

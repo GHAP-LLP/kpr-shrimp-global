@@ -11,7 +11,7 @@ export const IMG = {
   ezpeel: "/images/ezpeel.jpg",
   // Cooked variants
   cookedPD: "/images/cooked.jpg",
-  cookedTailOn: "/images/cookedTailOn.jpg",
+  cookedTailOn: "/images/cooked.jpg",
   // Added Value variants — scorpion/noodleWrapped/popcorn/breadedButterfly/torpedo
   // are real product photography supplied by the team; the rest are stock
   // placeholders until real shots arrive.

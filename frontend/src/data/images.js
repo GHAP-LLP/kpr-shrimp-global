@@ -34,7 +34,7 @@ export const BRAND_IMGS = {
   containerShip: "/images/containerShip.jpg",
 
   // Replace with: UK cold store interior — palletised frozen product on racks, Grimsby / Hull
-  coldWarehouse: "/images/coldWarehouse.jpg",
+  coldWarehouse: "/images/coldStore.jpg",
 
   // Replace with: Refrigerated truck at loading dock, Grimsby / Hull
   coldChainDelivery: "/images/coldChainDelivery.jpg",
