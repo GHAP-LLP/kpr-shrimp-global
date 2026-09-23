@@ -21,7 +21,7 @@ const SLIDES = [
   },
   {
     id: 'wider-range',
-    image: '/images/wholesale.jpg',
+    image: '/images/widerRange.jpg',
     eyebrow: 'Beyond Shrimp',
     tagline: 'One supplier. The whole freezer.',
     title: 'Frozen shellfish, whole fish & fillets.',
