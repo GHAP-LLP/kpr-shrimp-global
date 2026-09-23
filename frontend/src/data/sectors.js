@@ -11,7 +11,7 @@ export const sectors = [
     slug: "retail-private-label",
     name: "Retail Private Label",
     tagline: "Your brand. Our specification.",
-    description: "Supermarkets and retail buyers seeking own-brand frozen prawns require a supplier that can match specification to packaging design, provide consistent product quality, and handle all compliance documentation. Indo Aquatic offers private label supply for retail own-brand ranges.",
+    description: "Supermarkets and retail buyers seeking own-brand frozen shrimp require a supplier that can match specification to packaging design, provide consistent product quality, and handle all compliance documentation. Indo Aquatic offers private label supply for retail own-brand ranges.",
     image: SECTOR_IMG.retail,
     benefits: [
       { title: "Custom packaging design", description: "Retail-ready packs with your brand. Nutritional labelling, barcodes, and format specifications to your brief." },
@@ -32,7 +32,7 @@ export const sectors = [
     slug: "food-manufacturers",
     name: "Retail Processors",
     tagline: "Consistent input. Reliable output.",
-    description: "Retail processors and food manufacturers need prawns that meet precise specification tolerances, deliver consistent yield per batch, and arrive with full traceability documentation. Indo Aquatic supplies IQF block and bulk packs for large-scale production, with technical support for NPD.",
+    description: "Retail processors and food manufacturers need shrimp that meet precise specification tolerances, deliver consistent yield per batch, and arrive with full traceability documentation. Indo Aquatic supplies IQF block and bulk packs for large-scale production, with technical support for NPD.",
     image: SECTOR_IMG.manufacturers,
     benefits: [
       { title: "Specification consistency", description: "Count tolerances held batch-to-batch. Certificate of Analysis available for every lot." },
@@ -53,7 +53,7 @@ export const sectors = [
     slug: "foodservice-horeca",
     name: "Foodservice",
     tagline: "From kitchen to plate. Consistent spec, every delivery.",
-    description: "Hotels, restaurants, pubs, chains, and caterers need prawns they can rely on — same count, same yield, same colour, every time. Indo Aquatic supplies the full range of formats and pack sizes suited to professional kitchens, from single-site restaurants to national pub chains.",
+    description: "Hotels, restaurants, pubs, chains, and caterers need shrimp they can rely on — same count, same yield, same colour, every time. Indo Aquatic supplies the full range of formats and pack sizes suited to professional kitchens, from single-site restaurants to national pub chains.",
     image: SECTOR_IMG.horeca,
     benefits: [
       { title: "Consistent specification", description: "Same count, same yield, same quality across every order — no surprises when prep begins." },
@@ -74,7 +74,7 @@ export const sectors = [
     slug: "wholesale-distributors",
     name: "Wholesale Distributors",
     tagline: "Volume supply. Reliable specification. Competitive pricing.",
-    description: "Wholesale distributors and cash-and-carry operators need frozen prawns that sell through — the right pack sizes, the right counts, and a consistent product their customers will reorder. Indo Aquatic offers competitive pricing on palletised bulk supply with full documentation.",
+    description: "Wholesale distributors and cash-and-carry operators need frozen shrimp that sell through — the right pack sizes, the right counts, and a consistent product their customers will reorder. Indo Aquatic offers competitive pricing on palletised bulk supply with full documentation.",
     image: SECTOR_IMG.wholesale,
     benefits: [
       { title: "Palletised bulk orders", description: "Full pallet and half pallet supply. Multiple SKUs per delivery possible." },

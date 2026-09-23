@@ -23,13 +23,19 @@ const nextConfig = {
     ];
   },
   async redirects() {
-    // Legacy "shrimp" slugs — the site standardised on "prawn" vocabulary.
     return [
-      { source: '/products/frozen-raw-shrimp', destination: '/products/frozen-raw-prawns', permanent: true },
-      { source: '/products/frozen-raw-shrimp/:variant', destination: '/products/frozen-raw-prawns/:variant', permanent: true },
-      { source: '/products/cooked-shrimp', destination: '/products/cooked-prawns', permanent: true },
-      { source: '/products/cooked-shrimp/:variant', destination: '/products/cooked-prawns/:variant', permanent: true },
-      { source: '/products/ready-to-cook/shrimp-skewers', destination: '/products/ready-to-cook/prawn-skewers', permanent: true },
+      // Interim "prawn" slugs — the site standardised on "shrimp" vocabulary.
+      { source: '/products/frozen-raw-prawns', destination: '/products/frozen-raw-shrimp', permanent: true },
+      { source: '/products/frozen-raw-prawns/:variant', destination: '/products/frozen-raw-shrimp/:variant', permanent: true },
+      { source: '/products/cooked-prawns', destination: '/products/cooked-shrimp', permanent: true },
+      { source: '/products/cooked-prawns/:variant', destination: '/products/cooked-shrimp/:variant', permanent: true },
+      // Retired added-value variants, replaced by the real catalogue.
+      { source: '/products/ready-to-cook/tempura-battered', destination: '/products/ready-to-cook/tempura', permanent: true },
+      { source: '/products/ready-to-cook/butterfly', destination: '/products/ready-to-cook/breaded-butterfly', permanent: true },
+      { source: '/products/ready-to-cook/breaded', destination: '/products/ready-to-cook/breaded-torpedo', permanent: true },
+      { source: '/products/ready-to-cook/marinated', destination: '/products/ready-to-cook', permanent: true },
+      { source: '/products/ready-to-cook/shrimp-skewers', destination: '/products/ready-to-cook', permanent: true },
+      { source: '/products/ready-to-cook/prawn-skewers', destination: '/products/ready-to-cook', permanent: true },
     ];
   },
 };

@@ -3,7 +3,7 @@ import { buildMetadata } from '@/lib/metadata';
 
 export const metadata = buildMetadata({
   title: 'Corporate Policies',
-  description: "Indo Aquatic UK Ltd's corporate policies — conduct, ethics, safety, sourcing, and legal compliance for a UK frozen prawn importer and distributor.",
+  description: "Indo Aquatic UK Ltd's corporate policies — conduct, ethics, safety, sourcing, and legal compliance for a UK frozen shrimp importer and distributor.",
   path: '/policies',
 });
 
@@ -48,7 +48,7 @@ export default function PoliciesPage() {
           <h1 className="font-fraunces text-4xl sm:text-5xl text-white mb-3">Corporate Policies</h1>
           <p className="text-frost-500 font-inter max-w-2xl">
             The commitments detailed below apply to Indo Aquatic UK Ltd's own conduct as a UK-registered
-            importer and distributor of frozen prawns. They reflect UK law as it applies to a business of
+            importer and distributor of frozen shrimp. They reflect UK law as it applies to a business of
             our size and sector — not every obligation that applies to a large listed retailer applies to
             us, and we've noted where that's the case. Last updated: 26 August 2026.
           </p>
@@ -138,7 +138,7 @@ export default function PoliciesPage() {
         </Section>
 
         <Section number={9} title="Food & Product Safety and Integrity">
-          <p>Food safety is central to what we do — we deal exclusively in frozen prawns, and every shipment is
+          <p>Food safety is central to what we do — we deal exclusively in frozen shrimp, and every shipment is
           expected to meet UK food safety law (Food Safety Act 1990, Food Information Regulations) covering
           accurate species identification, count/size declaration, allergen labelling, and safe cold-chain
           handling. Certification detail (HACCP, BRC, BAP, and related standards) is set out on our{' '}
@@ -155,7 +155,7 @@ export default function PoliciesPage() {
           <p>We sell exclusively to trade buyers (retail, foodservice, processors, wholesale) rather than
           consumers, so consumer protection law applies primarily to how our customers label and sell the
           product onward. On our side, we ensure product descriptions, count/size claims, and species naming
-          for the prawns we supply are accurate and not misleading, in line with the Business Protection from
+          for the shrimp we supply are accurate and not misleading, in line with the Business Protection from
           Misleading Marketing Regulations 2008.</p>
         </Section>
 
@@ -168,7 +168,7 @@ export default function PoliciesPage() {
         </Section>
 
         <Section number={13} title="Supply Chain and Responsible Sourcing">
-          <p>Our prawns are sourced from our own farms and processing facilities in Andhra Pradesh, India, together with a vetted network of certified partners across other leading prawn-producing regions. Responsible
+          <p>Our shrimp are sourced from our own farms and processing facilities in Andhra Pradesh, India, together with a vetted network of certified partners across other leading shrimp-producing regions. Responsible
           sourcing detail — aquaculture practices, certification roadmap, and traceability — is covered on our{' '}
           <Link href="/sustainability" className="text-neon-700 hover:underline">Sustainability</Link> page.</p>
         </Section>
@@ -176,7 +176,7 @@ export default function PoliciesPage() {
         <Section number={14} title="Sanctions and Export Controls">
           <p>We screen counterparties against UK sanctions lists maintained by the Office of Financial
           Sanctions Implementation (OFSI) and do not knowingly trade with sanctioned individuals, entities, or
-          jurisdictions. As an importer of frozen prawns into the UK, our goods are not subject to strategic
+          jurisdictions. As an importer of frozen shrimp into the UK, our goods are not subject to strategic
           export control licensing, but we comply with all applicable customs and import declarations.</p>
         </Section>
 
@@ -195,12 +195,12 @@ export default function PoliciesPage() {
         <Section number={17} title="Food Waste">
           <p>As a frozen product with a long shelf life, our proposition is designed to reduce food waste
           compared with fresh alternatives — buyers can hold stock without the spoilage pressure of chilled
-          seafood. Prawn shell and head by-product at the processing stage is directed to further use where
+          seafood. Shrimp shell and head by-product at the processing stage is directed to further use where
           feasible rather than disposed of as waste.</p>
         </Section>
 
         <Section number={18} title="Product Packaging">
-          <p>Our packaging is specific to frozen prawns — food-grade, freezer-rated packaging sized to
+          <p>Our packaging is specific to frozen shrimp — food-grade, freezer-rated packaging sized to
           count/weight bands (e.g. 1kg/2kg block-frozen or IQF bags, retail-ready packs for private label). We
           look to reduce unnecessary plastic and use recyclable outer cartons where suitable for frozen
           logistics, without compromising food safety or cold-chain integrity.</p>

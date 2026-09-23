@@ -19,7 +19,7 @@ export async function generateMetadata({ params }) {
   if (!variant) return {};
   return buildMetadata({
     title: variant.fullName,
-    description: `${variant.fullName} (${variant.name}) frozen prawns for UK trade buyers — full specification, count sizes, glaze options, pack formats, and typical use cases. Samples available from Indo Aquatic.`,
+    description: `${variant.fullName} (${variant.name}) frozen shrimp for UK trade buyers — full specification, count sizes, glaze options, pack formats, and typical use cases. Samples available from Indo Aquatic.`,
     path: `/products/${categorySlug}/${variantSlug}`,
     image: variant.image,
   });
@@ -108,7 +108,7 @@ export default async function ProductVariantPage({ params }) {
 
           <div className="lg:col-span-2 space-y-8">
             <div className="bg-white border border-ice-300 rounded-xl overflow-hidden shadow-sm">
-              <img src={variant.image} alt={`${variant.fullName} frozen prawns`} className="w-full aspect-video object-cover" />
+              <img src={variant.image} alt={`${variant.fullName} frozen shrimp`} className="w-full aspect-video object-cover" />
               <div className="p-6">
                 <SectionLabel number="01" text="About This Product" />
                 <h2 className="font-fraunces text-xl text-ink-900 mb-3">About this product</h2>

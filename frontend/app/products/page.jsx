@@ -13,8 +13,8 @@ export const metadata = buildMetadata({
 });
 
 const CATEGORY_ICONS = {
-  'frozen-raw-prawns': Snowflake,
-  'cooked-prawns': Flame,
+  'frozen-raw-shrimp': Snowflake,
+  'cooked-shrimp': Flame,
   'ready-to-cook': UtensilsCrossed,
 };
 
@@ -27,7 +27,7 @@ export default function ProductsHubPage() {
           <Breadcrumb items={[{ label: 'Products' }]} />
           <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neon-500 font-inter mt-6 mb-3">Indo Aquatic</p>
           <h1 className="font-fraunces text-4xl sm:text-5xl text-white mb-3" data-testid="products-hub-h1">Products</h1>
-          <p className="text-frost-500 text-lg max-w-2xl font-inter">The complete range of frozen and added value prawns. Consistent specification across all formats, supplied from a single-category specialist.</p>
+          <p className="text-frost-500 text-lg max-w-2xl font-inter">The complete range of frozen and added value shrimp. Consistent specification across all formats, supplied from a single-category specialist.</p>
         </div>
       </div>
 
@@ -80,7 +80,7 @@ export default function ProductsHubPage() {
           <div className="mb-8">
             <SectionLabel number="02" text="Sizing Reference" />
             <h2 className="font-fraunces text-3xl text-ink-900 mb-2">Count size reference</h2>
-            <p className="text-frost-700 font-inter">Prawn count = number of prawns per pound (lb). Smaller count number = larger prawn. Available across our frozen raw range.</p>
+            <p className="text-frost-700 font-inter">Shrimp count = number of shrimp per pound (lb). Smaller count number = larger shrimp. Available across our frozen raw range.</p>
           </div>
           <div className="overflow-x-auto rounded-xl border border-ice-300 shadow-sm">
             <table className="w-full font-mono text-sm" data-testid="sizing-table">

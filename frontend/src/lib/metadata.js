@@ -3,10 +3,10 @@ export const BASE_URL = 'https://www.indoaquaticltd.com';
 export const DEFAULT_OG = `${BASE_URL}/images/hoso.jpg`;
 
 export function buildMetadata({ title, description, path = '', image } = {}) {
-  const fullTitle = title ? `${title} | ${SITE_NAME} — UK Frozen Prawn Supplier` : undefined;
+  const fullTitle = title ? `${title} | ${SITE_NAME} — UK Frozen Shrimp Supplier` : undefined;
   const url = `${BASE_URL}${path}`;
   const ogImage = image || DEFAULT_OG;
-  const imgAlt = `${title || SITE_NAME} — Indo Aquatic UK frozen prawn`;
+  const imgAlt = `${title || SITE_NAME} — Indo Aquatic UK frozen shrimp`;
 
   return {
     ...(fullTitle && { title: fullTitle }),

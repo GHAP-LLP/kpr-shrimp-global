@@ -30,7 +30,7 @@ const PRACTICES = [
   { title: "Feed provenance", desc: "Feed ingredients tracked to certified mills. No use of prohibited species or unapproved additives." },
   { title: "Water management", desc: "Closed pond systems with controlled water exchange. Effluent treatment before discharge." },
   { title: "Worker welfare", desc: "Operations audited for labour standards. No use of forced or child labour across processing facilities." },
-  { title: "Waste minimisation", desc: "Prawn heads, shells, and trimmings directed to by-product processing where feasible. Packaging waste targets in place." },
+  { title: "Waste minimisation", desc: "Shrimp heads, shells, and trimmings directed to by-product processing where feasible. Packaging waste targets in place." },
   { title: "Energy efficiency", desc: "Cold chain infrastructure designed to minimise refrigerant use. LED and energy-efficient processing equipment." },
 ];
 
@@ -128,7 +128,7 @@ export default function SustainabilityPage() {
             <div>
               <SectionLabel number="03" text="Aquaculture Practices" />
               <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900 mb-6">Responsible aquaculture at farm level.</h2>
-              <p className="text-frost-700 leading-relaxed mb-8 font-inter">We operate our own prawn farms and processing facilities in Kodavalur, Nellore, Andhra Pradesh, alongside partnerships with certified operations in other leading prawn-producing regions. The practices below represent the operating standards we hold across our own facilities and require of our partners, subject to ongoing third-party audit.</p>
+              <p className="text-frost-700 leading-relaxed mb-8 font-inter">We operate our own shrimp farms and processing facilities in Kodavalur, Nellore, Andhra Pradesh, alongside partnerships with certified operations in other leading shrimp-producing regions. The practices below represent the operating standards we hold across our own facilities and require of our partners, subject to ongoing third-party audit.</p>
               <div className="space-y-4">
                 {PRACTICES.map(p => (
                   <div key={p.title} className="flex items-start gap-3">
@@ -144,7 +144,7 @@ export default function SustainabilityPage() {
             <div className="space-y-4">
               <div className="grid grid-cols-2 gap-3">
                 <div className="rounded-xl overflow-hidden aspect-[4/3] border border-ice-300 col-span-2">
-                  <img src={PRACTICES_IMG} alt="Prawn aquaculture farm ponds, Nellore" className="w-full h-full object-cover" />
+                  <img src={PRACTICES_IMG} alt="Shrimp aquaculture farm ponds, Nellore" className="w-full h-full object-cover" />
                 </div>
                 <div className="rounded-xl overflow-hidden aspect-[4/3] border border-ice-300">
                   <img src={WORKERS_IMG} alt="Processing facility workers" className="w-full h-full object-cover" />

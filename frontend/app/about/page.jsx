@@ -8,12 +8,12 @@ import { CERTIFICATIONS } from '@/data/certifications';
 
 export const metadata = buildMetadata({
   title: 'About Us',
-  description: 'Indo Aquatic UK Ltd — UK-registered specialist importer and distributor of frozen prawns, backed by two decades of family aquaculture expertise. Single-category focus, full traceability, sterling pricing.',
+  description: 'Indo Aquatic UK Ltd — UK-registered specialist importer and distributor of frozen shrimp, backed by two decades of family aquaculture expertise. Single-category focus, full traceability, sterling pricing.',
   path: '/about',
 });
 
 const PILLARS = [
-  { icon: Target, title: 'Single-category focus', desc: 'We only do prawns. That means every decision — buying, spec, logistics, QC — is made by people whose entire career is prawns. Generalist importers carry prawns alongside hundreds of other lines. We don\'t.' },
+  { icon: Target, title: 'Single-category focus', desc: 'We only do shrimp. That means every decision — buying, spec, logistics, QC — is made by people whose entire career is shrimp. Generalist importers carry shrimp alongside hundreds of other lines. We don\'t.' },
   { icon: Snowflake, title: 'Full UK cold-chain', desc: 'Cold storage at Grimsby and Hull. Nationwide frozen delivery. Sterling pricing and UK contracts — no currency conversion risk for your procurement team.' },
   { icon: MapPin, title: 'Traceable origin', desc: 'Lot-level provenance on every shipment. Full chain of custody from our own farms and processing plants — and from trusted partners worldwide — to your UK warehouse.' },
   { icon: Users, title: 'UK-based account team', desc: 'GMT response times. A single account manager who knows your spec, your volumes, and your delivery requirements. No overseas call centres, no lost emails.' },
@@ -26,7 +26,7 @@ const STATS = [
 ];
 
 const OPERATIONS_STRIP = [
-  { img: BRAND_IMGS.farmAerial, label: 'Nellore, India', sub: 'Our farm & processing plant', alt: 'Prawn aquaculture farm ponds, Andhra Pradesh' },
+  { img: BRAND_IMGS.farmAerial, label: 'Nellore, India', sub: 'Our farm & processing plant', alt: 'Shrimp aquaculture farm ponds, Andhra Pradesh' },
   { img: BRAND_IMGS.packagingLine, label: 'HACCP facility', sub: 'Processing & packaging', alt: 'Food packaging production line' },
   { img: BRAND_IMGS.coldWarehouse, label: 'Grimsby / Hull', sub: 'UK cold storage', alt: 'UK cold storage warehouse' },
 ];
@@ -47,10 +47,10 @@ export default function AboutPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-xs font-semibold tracking-[0.25em] uppercase text-neon-500 font-inter mb-6">Indo Aquatic UK Ltd</p>
           <h1 className="font-fraunces text-5xl sm:text-6xl lg:text-7xl text-white font-normal leading-[1.05] mb-6 max-w-4xl" data-testid="about-h1">
-            The UK's specialist prawn supplier.
+            The UK's specialist shrimp supplier.
           </h1>
           <p className="text-lg text-frost-500 leading-relaxed max-w-2xl font-inter">
-            We don't supply everything. We supply prawns — every format, every count, every processing style — with the specification consistency that comes from doing one thing and doing it well.
+            We don't supply everything. We supply shrimp — every format, every count, every processing style — with the specification consistency that comes from doing one thing and doing it well.
           </p>
         </div>
       </div>
@@ -74,14 +74,14 @@ export default function AboutPage() {
             <FadeUp>
               <SectionLabel number="01" text="Who We Are" />
               <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900 mb-6">A UK entity built on two decades of aquaculture expertise.</h2>
-              <p className="text-frost-700 leading-relaxed mb-5 font-inter">Indo Aquatic UK Ltd is an independent, UK-registered specialist importer and distributor of frozen prawns. We supply retailers, foodservice operators, retail processors, and wholesale distributors across the United Kingdom. <span className="text-frost-500">(Indo Aquatic Ltd. · Company No. 17230607)</span></p>
-              <p className="text-frost-700 leading-relaxed mb-5 font-inter">Indo Aquatic is a family business, built on more than 20 years of hands-on experience in prawn aquaculture. Our directors' family owns and operates its own farms and processing plants, and has grown that operation into an integrated prawn business spanning farming, processing, and global distribution.</p>
-              <p className="text-frost-700 leading-relaxed mb-5 font-inter">Alongside our own farms and plants, we work with a carefully selected network of trusted partners across the world's leading prawn-producing regions — giving UK buyers access to consistent supply, competitive pricing, and the flexibility that comes from genuine scale.</p>
+              <p className="text-frost-700 leading-relaxed mb-5 font-inter">Indo Aquatic UK Ltd is an independent, UK-registered specialist importer and distributor of frozen shrimp. We supply retailers, foodservice operators, retail processors, and wholesale distributors across the United Kingdom. <span className="text-frost-500">(Indo Aquatic Ltd. · Company No. 17230607)</span></p>
+              <p className="text-frost-700 leading-relaxed mb-5 font-inter">Indo Aquatic is a family business, built on more than 20 years of hands-on experience in shrimp aquaculture. Our directors' family owns and operates its own farms and processing plants, and has grown that operation into an integrated shrimp business spanning farming, processing, and global distribution.</p>
+              <p className="text-frost-700 leading-relaxed mb-5 font-inter">Alongside our own farms and plants, we work with a carefully selected network of trusted partners across the world's leading shrimp-producing regions — giving UK buyers access to consistent supply, competitive pricing, and the flexibility that comes from genuine scale.</p>
               <p className="text-frost-700 leading-relaxed font-inter">Indo Aquatic UK Ltd brings all of this directly to the UK market: an independent company with the production expertise, supplier relationships, and quality control of an organisation many times its size — every lot inspected and documented at every step, from pond to UK plate.</p>
             </FadeUp>
             <FadeUp delay={0.12}>
               <div className="rounded-2xl overflow-hidden aspect-[4/3] border border-ice-300 shadow-sm">
-                <img src={BRAND_IMGS.farmAerial} alt="Prawn aquaculture farm ponds, Nellore, Andhra Pradesh" className="w-full h-full object-cover" />
+                <img src={BRAND_IMGS.farmAerial} alt="Shrimp aquaculture farm ponds, Nellore, Andhra Pradesh" className="w-full h-full object-cover" />
               </div>
             </FadeUp>
           </div>
@@ -146,7 +146,7 @@ export default function AboutPage() {
             <FadeUp className="order-1 lg:order-2">
               <SectionLabel number="03" text="Sourcing" />
               <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900 mb-6">Our own farms. Our own plants. Our own standards.</h2>
-              <p className="text-frost-700 leading-relaxed mb-5 font-inter">Our directors' family owns and operates prawn farms and processing facilities in Kodavalur, Nellore, Andhra Pradesh — one of India's most productive prawn-farming regions — alongside a trusted network of partners across other leading prawn-producing regions worldwide.</p>
+              <p className="text-frost-700 leading-relaxed mb-5 font-inter">Our directors' family owns and operates shrimp farms and processing facilities in Kodavalur, Nellore, Andhra Pradesh — one of India's most productive shrimp-farming regions — alongside a trusted network of partners across other leading shrimp-producing regions worldwide.</p>
               <p className="text-frost-700 leading-relaxed mb-5 font-inter">We don't rely on spot market purchasing. Every stage — farming, processing, quality control — is closely managed to our own standard, whether at our own facilities or through our vetted partners, so spec, quality, and lot-level traceability are controlled at every step.</p>
               <p className="text-frost-700 leading-relaxed mb-8 font-inter">UK buyers get the benefit of this reach and control — sterling pricing, UK contracts, and an account team in the same time zone.</p>
               <Link href="/contact" className="inline-flex items-center gap-2 text-sm text-neon-700 hover:text-neon-800 font-medium font-inter transition-colors" data-testid="about-contact-link">

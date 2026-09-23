@@ -13,7 +13,7 @@ export const BRAND_IMGS = {
   packagingLine: "/images/packagingLine.jpg",
 
   // ── Quality Control & Compliance ──────────────────────────────────────────
-  // Replace with: QC inspector checking prawn count/grade at processing facility
+  // Replace with: QC inspector checking shrimp count/grade at processing facility
   qualityControl: "/images/qualityControl.jpg",
 
   // Replace with: Lab bench, residue test equipment, or Certificate of Analysis document

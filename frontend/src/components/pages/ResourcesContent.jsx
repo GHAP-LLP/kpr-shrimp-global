@@ -9,11 +9,11 @@ import { FadeUp } from '@/components/FadeUp';
 import { postEnquiry } from '@/lib/api';
 
 const COMPLIANCE_DOCS = [
-  { id: 'allergen-all', name: 'Allergen Declaration — Full Range', type: 'Compliance', desc: 'Allergen status for all 12 variants. Covers the 14 major EU/UK allergens. Issued per lot on request.', icon: Shield },
-  { id: 'nutritional-frozen-raw', name: 'Nutritional Information — Frozen Raw', type: 'Compliance', desc: 'Per-100g nutritional values for all Frozen Raw Prawn variants. Energy, protein, fat, carbohydrate breakdown.', icon: ClipboardList },
-  { id: 'nutritional-cooked', name: 'Nutritional Information — Cooked Prawns', type: 'Compliance', desc: 'Per-100g nutritional values for IQF Cooked PD and IQF Cooked Tail-on.', icon: ClipboardList },
-  { id: 'nutritional-rtc', name: 'Nutritional Information — Added Value', type: 'Compliance', desc: 'Nutritional breakdown for Tempura, Breaded, Marinated, and Skewers. Includes batter and marinade contributions.', icon: ClipboardList },
-  { id: 'ingredient-rtc', name: 'Ingredient Declarations — Added Value Range', type: 'Compliance', desc: 'Full ingredient lists for all value-added products. Includes sub-ingredient breakdown for coatings and marinades.', icon: FileText },
+  { id: 'allergen-all', name: 'Allergen Declaration — Full Range', type: 'Compliance', desc: 'Allergen status for all 15 variants. Covers the 14 major EU/UK allergens. Issued per lot on request.', icon: Shield },
+  { id: 'nutritional-frozen-raw', name: 'Nutritional Information — Frozen Raw', type: 'Compliance', desc: 'Per-100g nutritional values for all Frozen Raw Shrimp variants. Energy, protein, fat, carbohydrate breakdown.', icon: ClipboardList },
+  { id: 'nutritional-cooked', name: 'Nutritional Information — Cooked Shrimp', type: 'Compliance', desc: 'Per-100g nutritional values for IQF Cooked PD and IQF Cooked Tail-on.', icon: ClipboardList },
+  { id: 'nutritional-rtc', name: 'Nutritional Information — Added Value', type: 'Compliance', desc: 'Nutritional breakdown for the full coated range — breaded, tempura, popcorn, noodle-wrapped, spring roll and coconut formats. Includes coating contributions.', icon: ClipboardList },
+  { id: 'ingredient-rtc', name: 'Ingredient Declarations — Added Value Range', type: 'Compliance', desc: 'Full ingredient lists for all value-added products. Includes sub-ingredient breakdown for coatings and batters.', icon: FileText },
   { id: 'coo-certificate', name: 'Country of Origin Certificate', type: 'Compliance', desc: 'Certificate of origin: India (Andhra Pradesh). Issued per shipment lot. Available as template on request.', icon: FileText },
 ];
 
@@ -27,9 +27,9 @@ const QUALITY_DOCS = [
 ];
 
 const RANGE_DOCS = [
-  { id: 'range-frozen-raw', name: 'Frozen Raw Prawns — Range Overview', type: 'Product Range', desc: 'Overview of all 5 Frozen Raw variants (HOSO, HLSO, PD, PUD, EZ-peel) with count sizes, pack formats, and key spec highlights on a single sheet.', icon: FileText },
-  { id: 'range-cooked', name: 'Cooked Prawns — Range Overview', type: 'Product Range', desc: 'Overview of IQF Cooked PD and IQF Cooked Tail-on with application recommendations and pack format options.', icon: FileText },
-  { id: 'range-rtc', name: 'Added Value Innovation — Range Overview', type: 'Product Range', desc: 'Overview of Tempura, Breaded, Butterfly, Marinated, and Skewer formats. Includes cooking instructions, portion weights, and available retail vs foodservice packs.', icon: FileText },
+  { id: 'range-frozen-raw', name: 'Frozen Raw Shrimp — Range Overview', type: 'Product Range', desc: 'Overview of all 5 Frozen Raw variants (HOSO, HLSO, PD, PUD, EZ-peel) with count sizes, pack formats, and key spec highlights on a single sheet.', icon: FileText },
+  { id: 'range-cooked', name: 'Cooked Shrimp — Range Overview', type: 'Product Range', desc: 'Overview of IQF Cooked PD and IQF Cooked Tail-on with application recommendations and pack format options.', icon: FileText },
+  { id: 'range-rtc', name: 'Added Value Innovation — Range Overview', type: 'Product Range', desc: 'Overview of all 8 coated formats — Scorpion, Noodle-Wrapped, Popcorn, Butterfly, Spring Roll, Torpedo, Tempura, and Coconut. Includes counts, piece weights, coating ratios, and cooking instructions.', icon: FileText },
   { id: 'count-size-guide', name: 'Count Size Reference Guide', type: 'Product Range', desc: 'Full count size chart from U/15 (Super Colossal) to 61/70 (Small) with pieces-per-kg, nomenclature, and typical application guide.', icon: FileText },
 ];
 
@@ -154,7 +154,7 @@ export default function ResourcesContent() {
           <FadeUp className="mb-8">
             <SectionLabel number="01" text="Product Specification Sheets" />
             <h2 className="font-fraunces text-2xl sm:text-3xl text-ink-900 mb-2">Individual variant spec sheets</h2>
-            <p className="text-frost-700 font-inter text-sm max-w-2xl">Full technical specification for each of our 12 variants — species, process form, count sizes, glaze, pack formats, shelf life, and origin. You can also <span className="text-ink-900">view the live spec</span> for any product on its detail page.</p>
+            <p className="text-frost-700 font-inter text-sm max-w-2xl">Full technical specification for each of our 15 variants — species, process form, count sizes, coating ratios, piece weights, shelf life, and origin. You can also <span className="text-ink-900">view the live spec</span> for any product on its detail page.</p>
           </FadeUp>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {specSheetDocs.map(doc => (

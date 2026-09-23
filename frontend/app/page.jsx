@@ -16,7 +16,7 @@ import { heldCertifications } from '@/data/certifications';
 
 export const metadata = {
   ...buildMetadata({
-    description: 'UK wholesale frozen prawn supplier. Indo Aquatic supplies IQF raw (HOSO, HLSO, PD), cooked, and added value prawns to UK retailers, foodservice operators, food manufacturers, and distributors. Traceable origin, vetted global sourcing partners.',
+    description: 'UK wholesale frozen shrimp supplier. Indo Aquatic supplies IQF raw (HOSO, HLSO, PD), cooked, and added value shrimp to UK retailers, foodservice operators, food manufacturers, and distributors. Traceable origin, vetted global sourcing partners.',
     path: '/',
   }),
 };
@@ -78,9 +78,9 @@ function CertificationStrip() {
 }
 
 const PRODUCT_CARDS = [
-  { icon: Snowflake, name: 'Frozen Raw Prawns', href: '/products/frozen-raw-prawns', image: IMG.frozenRaw, desc: 'HOSO, HLSO, PD, PUD, EZ-peel. Every count from U/15 to 61/70.', badge: 'Core range' },
-  { icon: Flame, name: 'Cooked Prawns', href: '/products/cooked-prawns', image: IMG.cooked, desc: 'Fully cooked peeled and tail-on. Salad-ready, retail-ready. BRC-certified, no cook loss.' },
-  { icon: UtensilsCrossed, name: 'Added Value Innovation', href: '/products/ready-to-cook', image: IMG.readyToCook, desc: 'Tempura, breaded, butterfly, marinated, skewers. Cooks direct from frozen.' },
+  { icon: Snowflake, name: 'Frozen Raw Shrimp', href: '/products/frozen-raw-shrimp', image: IMG.frozenRaw, desc: 'HOSO, HLSO, PD, PUD, EZ-peel. Every count from U/15 to 61/70.', badge: 'Core range' },
+  { icon: Flame, name: 'Cooked Shrimp', href: '/products/cooked-shrimp', image: IMG.cooked, desc: 'Fully cooked peeled and tail-on. Salad-ready, retail-ready. BRC-certified, no cook loss.' },
+  { icon: UtensilsCrossed, name: 'Added Value Innovation', href: '/products/ready-to-cook', image: IMG.readyToCook, desc: 'Breaded, tempura, popcorn, noodle-wrapped, coconut and more. Par-fried, cooks direct from frozen.' },
 ];
 
 function ProductRangeSection() {
@@ -127,7 +127,7 @@ function ProductRangeSection() {
 }
 
 const PROCESS_STEPS = [
-  { step: '01', Icon: Leaf, title: 'Farmed & Processed', sub: 'Our own farms & partner network', desc: 'Litopenaeus vannamei farmed and processed at our own facilities, and by trusted partners around the world. HACCP-controlled processing, full lot documentation generated at source.', image: BRAND_IMGS.farmAerial, imageAlt: 'Prawn aquaculture farm ponds, Andhra Pradesh' },
+  { step: '01', Icon: Leaf, title: 'Farmed & Processed', sub: 'Our own farms & partner network', desc: 'Litopenaeus vannamei farmed and processed at our own facilities, and by trusted partners around the world. HACCP-controlled processing, full lot documentation generated at source.', image: BRAND_IMGS.farmAerial, imageAlt: 'Shrimp aquaculture farm ponds, Andhra Pradesh' },
   { step: '02', Icon: Shield, title: 'Sampled & Tested', sub: 'Verified in-house', desc: 'Samples drawn from every farm and partner are tested and finalised at our own Indo Aquatic facility. Residue testing, count tolerances checked, Certificate of Analysis issued before dispatch.', image: BRAND_IMGS.qualityControl, imageAlt: 'Food quality control inspection' },
   { step: '03', Icon: Ship, title: 'Cold-Chain Shipping', sub: 'Global origins → UK port', desc: 'Temperature-controlled from origin — India and other partner regions worldwide — to the UK port. Continuous cold chain. Time-temperature records travel with every consignment.', image: BRAND_IMGS.containerShip, imageAlt: 'Container ship carrying frozen cargo' },
   { step: '04', Icon: Warehouse, title: 'UK Cold Storage', sub: 'Grimsby / Hull', desc: 'UK-held cold-chain stock. Sterling pricing, UK contracts, GMT account team. Ready for despatch within agreed lead times.', image: BRAND_IMGS.coldWarehouse, imageAlt: 'UK cold storage warehouse' },
@@ -231,7 +231,7 @@ const WHY_POINTS = [
 ];
 
 const COMPARISON = {
-  generic: ['Prawns are one of 50+ products', 'Inconsistent spec across orders', 'Multiple unknown intermediaries', 'No direct farm access'],
+  generic: ['Shrimp are one of 50+ products', 'Inconsistent spec across orders', 'Multiple unknown intermediaries', 'No direct farm access'],
   ours: ['Single-category specialist', 'Spec locked batch to batch', 'Our own farms + global partner network', 'Full lot traceability to farm'],
 };
 
@@ -241,7 +241,7 @@ function WhySpecialistSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeUp className="mb-10">
           <SectionLabel number="04" text="Why Specialist Matters" />
-          <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900">Generalists carry prawns. We only do prawns.</h2>
+          <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900">Generalists carry shrimp. We only do shrimp.</h2>
         </FadeUp>
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
           <div className="lg:col-span-3">
@@ -311,7 +311,7 @@ function SourcingSection() {
           <FadeUp>
             <SectionLabel number="05" text="Sourcing" />
             <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900 mb-6">Backed by two decades of aquaculture expertise.</h2>
-            <p className="text-frost-700 leading-relaxed mb-6 font-inter">Our sourcing is anchored by our own farms and processing plants, together with long-term partnerships with certified operations across leading prawn-producing regions — giving us direct control, full traceability, and volume reliability most importers can't match.</p>
+            <p className="text-frost-700 leading-relaxed mb-6 font-inter">Our sourcing is anchored by our own farms and processing plants, together with long-term partnerships with certified operations across leading shrimp-producing regions — giving us direct control, full traceability, and volume reliability most importers can't match.</p>
             <div className="space-y-3 mb-8 border border-ice-300 rounded-xl p-5 bg-ice-100">
               {SOURCING_FACTS.map(f => (
                 <div key={f.label} className="flex gap-4 items-baseline">
@@ -326,7 +326,7 @@ function SourcingSection() {
           </FadeUp>
           <FadeUp delay={0.12}>
             <div className="rounded-2xl overflow-hidden aspect-[4/3] border border-ice-300 shadow-sm">
-              <img src={FARM_IMAGE} alt="Prawn aquaculture facility, Andhra Pradesh, India" loading="lazy" className="w-full h-full object-cover" />
+              <img src={FARM_IMAGE} alt="Shrimp aquaculture facility, Andhra Pradesh, India" loading="lazy" className="w-full h-full object-cover" />
             </div>
           </FadeUp>
         </div>
@@ -363,11 +363,11 @@ function LeadCaptureSection() {
 const homeSchema = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
-  name: 'Indo Aquatic Frozen Prawn Range',
-  description: 'Frozen prawn range across raw, cooked, and added value formats',
+  name: 'Indo Aquatic Frozen Shrimp Range',
+  description: 'Frozen shrimp range across raw, cooked, and added value formats',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Frozen Raw Prawns', url: 'https://www.indoaquaticltd.com/products/frozen-raw-prawns' },
-    { '@type': 'ListItem', position: 2, name: 'IQF Cooked Prawns', url: 'https://www.indoaquaticltd.com/products/cooked-prawns' },
+    { '@type': 'ListItem', position: 1, name: 'Frozen Raw Shrimp', url: 'https://www.indoaquaticltd.com/products/frozen-raw-shrimp' },
+    { '@type': 'ListItem', position: 2, name: 'IQF Cooked Shrimp', url: 'https://www.indoaquaticltd.com/products/cooked-shrimp' },
     { '@type': 'ListItem', position: 3, name: 'Added Value Innovation', url: 'https://www.indoaquaticltd.com/products/ready-to-cook' },
   ],
 };

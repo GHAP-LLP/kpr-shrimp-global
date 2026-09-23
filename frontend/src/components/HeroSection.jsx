@@ -30,10 +30,10 @@ export default function HeroSection() {
           </p>
           <p className="text-base text-white/70 font-inter italic mb-5">Premium Seafood. Global Standards.</p>
           <h1 className="font-fraunces text-5xl sm:text-6xl lg:text-7xl text-white font-normal leading-[1.05] mb-6" data-testid="hero-h1">
-            The UK's specialist frozen prawn supplier.
+            The UK's specialist frozen shrimp supplier.
           </h1>
           <p className="text-lg text-frost-500 leading-relaxed mb-10 max-w-2xl font-inter">
-            Raw, cooked, and added value prawns — supplied through our own farms, processing plants, and a trusted worldwide partner network. Every step controlled, documented, and traceable to the pond.
+            Raw, cooked, and added value shrimp — supplied through our own farms, processing plants, and a trusted worldwide partner network. Every step controlled, documented, and traceable to the pond.
           </p>
           <div className="flex flex-wrap gap-4">
             <Link

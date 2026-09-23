@@ -95,16 +95,23 @@ export default async function ProductHubPage({ params }) {
                         <span className="text-frost-500 w-20 flex-shrink-0">Sizes:</span>
                         <span className="text-frost-700 truncate">{variant.specs.availableSizes.join(' · ')}</span>
                       </div>
-                    ) : variant.specs.basePrawn ? (
+                    ) : variant.specs.baseShrimp ? (
                       <div className="flex gap-2 text-xs font-mono">
                         <span className="text-frost-500 w-20 flex-shrink-0">Base:</span>
-                        <span className="text-frost-700 truncate">{variant.specs.basePrawn}</span>
+                        <span className="text-frost-700 truncate">{variant.specs.baseShrimp}</span>
                       </div>
                     ) : null}
-                    <div className="flex gap-2 text-xs font-mono">
-                      <span className="text-frost-500 w-20 flex-shrink-0">Pack:</span>
-                      <span className="text-frost-700">{variant.specs.packFormats[0]}</span>
-                    </div>
+                    {variant.specs.packFormats ? (
+                      <div className="flex gap-2 text-xs font-mono">
+                        <span className="text-frost-500 w-20 flex-shrink-0">Pack:</span>
+                        <span className="text-frost-700">{variant.specs.packFormats[0]}</span>
+                      </div>
+                    ) : variant.specs.pieceWeight ? (
+                      <div className="flex gap-2 text-xs font-mono">
+                        <span className="text-frost-500 w-20 flex-shrink-0">Piece:</span>
+                        <span className="text-frost-700">{variant.specs.pieceWeight}</span>
+                      </div>
+                    ) : null}
                   </div>
                   <span className="flex items-center gap-1 text-neon-700 text-sm font-medium group-hover:gap-2 transition-all font-inter">
                     View full spec <ArrowRight size={14} />
@@ -116,13 +123,13 @@ export default async function ProductHubPage({ params }) {
         </div>
       </section>
 
-      {category.slug === 'frozen-raw-prawns' && (
+      {category.slug === 'frozen-raw-shrimp' && (
         <section className="py-16 border-t border-ice-300" data-testid="size-guide">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="mb-8">
               <SectionLabel number="02" text="Count Size Guide" />
               <h2 className="font-fraunces text-3xl text-ink-900 mb-2">Count size guide</h2>
-              <p className="text-frost-700 font-inter">All frozen raw prawns are available in the following count sizes, subject to variant.</p>
+              <p className="text-frost-700 font-inter">All frozen raw shrimp are available in the following count sizes, subject to variant.</p>
             </div>
             <div className="overflow-x-auto rounded-xl border border-ice-300 shadow-sm">
               <table className="w-full font-mono text-sm" data-testid="count-size-table">

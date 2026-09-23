@@ -1,8 +1,8 @@
 // Single source of truth for site navigation — used by Navbar and Footer.
 export const NAV_PRODUCTS = [
   { name: 'All Products', href: '/products' },
-  { name: 'Frozen Raw Prawns', href: '/products/frozen-raw-prawns' },
-  { name: 'Cooked Prawns', href: '/products/cooked-prawns' },
+  { name: 'Frozen Raw Shrimp', href: '/products/frozen-raw-shrimp' },
+  { name: 'Cooked Shrimp', href: '/products/cooked-shrimp' },
   { name: 'Added Value Innovation', href: '/products/ready-to-cook' },
 ];
 

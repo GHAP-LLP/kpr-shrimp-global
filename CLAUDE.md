@@ -4,9 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Indo Aquatic (repo: kpr-shrimp-global) — a B2B marketing website for a UK-based frozen prawn importer/distributor. Frontend deploys to Vercel, backend (FastAPI + MongoDB Atlas) to Render (`render.yaml`, service `kpr-shrimp-backend`). The contact, sample-request, and document-request forms all POST to the backend, which stores enquiries in Mongo and emails the team via Resend. An admin dashboard lives at `/admin` (JWT cookie auth).
+Indo Aquatic (repo: kpr-shrimp-global) — a B2B marketing website for a UK-based frozen shrimp importer/distributor. Frontend deploys to Vercel, backend (FastAPI + MongoDB Atlas) to Render (`render.yaml`, service `kpr-shrimp-backend`). The contact, sample-request, and document-request forms all POST to the backend, which stores enquiries in Mongo and emails the team via Resend. An admin dashboard lives at `/admin` (JWT cookie auth).
 
-**Vocabulary rule: the site says "prawn", never "shrimp"** — in copy, URLs, slugs, and spec keys. Legacy `*-shrimp` slugs 301-redirect to the prawn slugs in `next.config.js`.
+**Vocabulary rule: the site says "shrimp", never "prawn"** (business decision, Sep 2026) — in copy, URLs, slugs, and spec keys. Use "shrimp" for both singular and plural, never "shrimps". Interim `*-prawns` slugs 301-redirect to the shrimp slugs in `next.config.js`.
 
 ## Commands
 
@@ -40,11 +40,11 @@ cd backend && pip install -r requirements.txt
 ## Architecture
 
 ### Frontend
-- **Next.js 15 (App Router)** — `next.config.js` adds the `@` → `src/` webpack alias, disables ESLint during builds, **rewrites `/api/*` to the Render backend** (so forms work same-origin with no CORS and no env var required; `NEXT_PUBLIC_API_URL` overrides), and **301-redirects legacy shrimp slugs**.
+- **Next.js 15 (App Router)** — `next.config.js` adds the `@` → `src/` webpack alias, disables ESLint during builds, **rewrites `/api/*` to the Render backend** (so forms work same-origin with no CORS and no env var required; `NEXT_PUBLIC_API_URL` overrides), and **301-redirects the interim prawn slugs and retired variant slugs**.
 - **`@` alias** resolves to `src/` — use `@/components/Foo` not `../../components/Foo`.
 - **Routing** — file-based under `frontend/app/`. Dynamic pages: `app/products/[category]`, `app/products/[category]/[variant]`, `app/sectors/[sector]`; hub pages exist at `/products` and `/sectors`. `app/sitemap.js` and `app/robots.js` are generated from the data files — never hand-edit a sitemap. `app/admin/layout.jsx` sets `robots: noindex`.
 - **Static data layer** — content lives in `src/data/`:
-  - `products.js` — `productCategories` (3 categories, 12 variants; slugs `frozen-raw-prawns`, `cooked-prawns`, `ready-to-cook`), `COUNT_SIZES`, `IMG`, `getCategoryBySlug()`, `getVariantBySlug()`.
+  - `products.js` — `productCategories` (3 categories, 15 variants; slugs `frozen-raw-shrimp`, `cooked-shrimp`, `ready-to-cook`), `COUNT_SIZES`, `IMG`, `getCategoryBySlug()`, `getVariantBySlug()`. The ready-to-cook category holds the real 8-SKU value-added catalogue (counts, piece weights, coating %, par-fried) supplied by the team in Sep 2026 — five of those SKUs have real product photos in `public/images/` (scorpion, noodleWrapped, popcorn, breadedButterfly, torpedo).
   - `sectors.js` — `sectors` (4) and `SECTOR_IMG`.
   - `nav.js` — single source for Navbar + Footer links.
   - `certifications.js` — single source for certification names/status, rendered on the homepage strip, About grid, and Sustainability roadmap. Update status here only.
