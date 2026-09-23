@@ -24,6 +24,16 @@ export const IMG = {
   tempura: "/images/tempura.jpg",
 };
 
+// Wider seafood range — deliberately top-level only. These lines are supplied
+// through the partner network and the specific species/specs are fluid, so we
+// describe the categories without publishing claims that can go stale.
+// No detail pages: enquiries route through /contact and /request-a-sample.
+export const WIDER_RANGE = [
+  { id: 'shellfish', name: 'Frozen Shellfish', desc: 'Whole and prepared shellfish formats, frozen at source and specified to your requirement.' },
+  { id: 'whole-fish', name: 'Whole Fish', desc: 'Whole round and dressed frozen fish across popular commercial species, graded to size.' },
+  { id: 'fish-fillets', name: 'Fish Fillets & Portions', desc: 'Fillets, loins, and fixed-weight portions — IQF or interleaved, retail or foodservice spec.' },
+];
+
 export const COUNT_SIZES = [
   { count: "U/15", name: "Super Colossal", perKg: "≤15", typicalUse: "Premium restaurant presentations" },
   { count: "16/20", name: "Colossal", perKg: "16–20", typicalUse: "Fine dining, hotel buffets" },

@@ -16,6 +16,7 @@ const CONTACT_INFO = [
 const ENQUIRY_TYPES = [
   'Sales & pricing',
   'Sample request',
+  'Wider seafood range (shellfish / fish)',
   'Technical & QA',
   'Documentation & certification',
   'Other',

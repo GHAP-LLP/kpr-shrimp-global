@@ -126,6 +126,22 @@ function ProductRangeSection() {
   );
 }
 
+function WiderRangeStrip() {
+  return (
+    <section className="bg-white border-y border-ice-300" data-testid="wider-range-strip">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neon-700 font-inter mb-1.5">Beyond shrimp</p>
+          <p className="text-sm text-frost-700 font-inter max-w-2xl">We also supply frozen shellfish, whole fish, and fillets — through the same vetted partner network and to the same specification, documentation, and cold-chain standards.</p>
+        </div>
+        <Link href="/products#wider-range" className="inline-flex items-center gap-2 text-sm text-neon-700 hover:text-neon-800 font-semibold font-inter whitespace-nowrap">
+          Explore the wider range <ArrowRight size={14} />
+        </Link>
+      </div>
+    </section>
+  );
+}
+
 const PROCESS_STEPS = [
   { step: '01', Icon: Leaf, title: 'Farmed & Processed', sub: 'Our own farms & partner network', desc: 'Litopenaeus vannamei farmed and processed at our own facilities, and by trusted partners around the world. HACCP-controlled processing, full lot documentation generated at source.', image: BRAND_IMGS.farmAerial, imageAlt: 'Shrimp aquaculture farm ponds, Andhra Pradesh' },
   { step: '02', Icon: Shield, title: 'Sampled & Tested', sub: 'Verified in-house', desc: 'Samples drawn from every farm and partner are tested and finalised at our own Indo Aquatic facility. Residue testing, count tolerances checked, Certificate of Analysis issued before dispatch.', image: BRAND_IMGS.qualityControl, imageAlt: 'Food quality control inspection' },
@@ -231,8 +247,8 @@ const WHY_POINTS = [
 ];
 
 const COMPARISON = {
-  generic: ['Shrimp are one of 50+ products', 'Inconsistent spec across orders', 'Multiple unknown intermediaries', 'No direct farm access'],
-  ours: ['Single-category specialist', 'Spec locked batch to batch', 'Our own farms + global partner network', 'Full lot traceability to farm'],
+  generic: ['Shrimp is one of 50+ commodity lines', 'Inconsistent spec across orders', 'Multiple unknown intermediaries', 'No direct farm access'],
+  ours: ['Shrimp-first specialist', 'Spec locked batch to batch', 'Our own farms + global partner network', 'Full lot traceability to farm'],
 };
 
 function WhySpecialistSection() {
@@ -241,7 +257,7 @@ function WhySpecialistSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeUp className="mb-10">
           <SectionLabel number="04" text="Why Specialist Matters" />
-          <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900">Generalists carry shrimp. We only do shrimp.</h2>
+          <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900">Generalists carry shrimp. We're built on it.</h2>
         </FadeUp>
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
           <div className="lg:col-span-3">
@@ -380,6 +396,7 @@ export default function HomePage() {
       <MetricsStrip />
       <CertificationStrip />
       <ProductRangeSection />
+      <WiderRangeStrip />
       <ProcessSection />
       <SectorsSection />
       <WhySpecialistSection />

@@ -56,7 +56,7 @@ const orgSchema = {
       name: 'Indo Aquatic UK Ltd',
       legalName: 'Indo Aquatic UK Ltd',
       url: 'https://www.indoaquaticltd.com',
-      description: 'UK specialist importer and distributor of premium frozen shrimp. Raw, cooked, and added value formats.',
+      description: 'UK specialist importer and distributor of premium frozen shrimp — raw, cooked, and added value formats — plus a wider frozen seafood range of shellfish, whole fish, and fillets.',
       foundingDate: '2026',
       address: {
         '@type': 'PostalAddress',

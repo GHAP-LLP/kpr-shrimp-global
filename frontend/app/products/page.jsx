@@ -1,6 +1,6 @@
 import Link from 'next/link';
-import { ArrowRight, Snowflake, Flame, UtensilsCrossed } from 'lucide-react';
-import { productCategories, COUNT_SIZES } from '@/data/products';
+import { ArrowRight, Snowflake, Flame, UtensilsCrossed, Shell, Fish, Layers } from 'lucide-react';
+import { productCategories, COUNT_SIZES, WIDER_RANGE } from '@/data/products';
 import Breadcrumb from '@/components/Breadcrumb';
 import SectionLabel from '@/components/SectionLabel';
 import { buildMetadata } from '@/lib/metadata';
@@ -8,7 +8,7 @@ import { FadeUp, FadeUpGrid, FadeUpItem } from '@/components/FadeUp';
 
 export const metadata = buildMetadata({
   title: 'Products',
-  description: "Browse Indo Aquatic's full range: HOSO, HLSO, PD, IQF cooked, tempura, breaded, butterfly and more. All count sizes from U/15 to 61/70. UK specialist importer.",
+  description: "Browse Indo Aquatic's full range: HOSO, HLSO, PD, IQF cooked, tempura, breaded, popcorn and more. All count sizes from U/15 to 61/70. Plus a wider frozen seafood range — shellfish, whole fish, and fillets — on enquiry.",
   path: '/products',
 });
 
@@ -27,7 +27,7 @@ export default function ProductsHubPage() {
           <Breadcrumb items={[{ label: 'Products' }]} />
           <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neon-500 font-inter mt-6 mb-3">Indo Aquatic</p>
           <h1 className="font-fraunces text-4xl sm:text-5xl text-white mb-3" data-testid="products-hub-h1">Products</h1>
-          <p className="text-frost-500 text-lg max-w-2xl font-inter">The complete range of frozen and added value shrimp. Consistent specification across all formats, supplied from a single-category specialist.</p>
+          <p className="text-frost-500 text-lg max-w-2xl font-inter">The complete range of frozen and added value shrimp, plus a wider frozen seafood range supplied through the same partner network. Consistent specification across every format.</p>
         </div>
       </div>
 
@@ -75,10 +75,42 @@ export default function ProductsHubPage() {
         </div>
       </section>
 
+      <section id="wider-range" className="py-16 border-t border-ice-300 scroll-mt-24" data-testid="wider-range-section">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <FadeUp className="mb-10">
+            <SectionLabel number="02" text="Wider Seafood Range" />
+            <h2 className="font-fraunces text-3xl text-ink-900 mb-3">Beyond shrimp.</h2>
+            <p className="text-frost-700 font-inter max-w-2xl">Alongside our core shrimp range, we supply frozen seafood through the same vetted partner network — held to the same specification, documentation, and cold-chain standards. The range is shaped by customer requirement rather than a fixed catalogue, so tell us what your operation needs.</p>
+          </FadeUp>
+          <FadeUpGrid className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-8">
+            {WIDER_RANGE.map((item, i) => {
+              const Icon = [Shell, Fish, Layers][i] || Fish;
+              return (
+                <FadeUpItem key={item.id}>
+                  <div className="bg-white border border-ice-300 rounded-xl p-6 h-full shadow-sm" data-testid={`wider-range-${item.id}`}>
+                    <div className="w-10 h-10 bg-ice-100 border border-ice-300 rounded-lg flex items-center justify-center mb-4">
+                      <Icon size={18} className="text-neon-700" />
+                    </div>
+                    <h3 className="font-fraunces text-lg text-ink-900 mb-2">{item.name}</h3>
+                    <p className="text-sm text-frost-700 leading-relaxed font-inter">{item.desc}</p>
+                  </div>
+                </FadeUpItem>
+              );
+            })}
+          </FadeUpGrid>
+          <FadeUp className="flex flex-col sm:flex-row sm:items-center gap-4">
+            <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-neon-700 hover:bg-neon-800 text-white text-sm font-semibold rounded-md transition-colors font-inter w-fit" data-testid="wider-range-enquire">
+              Enquire about the wider range <ArrowRight size={14} />
+            </Link>
+            <p className="text-xs text-frost-700 font-inter">Availability, species, and specifications confirmed per enquiry.</p>
+          </FadeUp>
+        </div>
+      </section>
+
       <section className="py-16 border-t border-ice-300" data-testid="sizing-reference">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8">
-            <SectionLabel number="02" text="Sizing Reference" />
+            <SectionLabel number="03" text="Sizing Reference" />
             <h2 className="font-fraunces text-3xl text-ink-900 mb-2">Count size reference</h2>
             <p className="text-frost-700 font-inter">Shrimp count = number of shrimp per pound (lb). Smaller count number = larger shrimp. Available across our frozen raw range.</p>
           </div>

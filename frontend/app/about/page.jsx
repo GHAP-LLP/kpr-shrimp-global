@@ -13,7 +13,7 @@ export const metadata = buildMetadata({
 });
 
 const PILLARS = [
-  { icon: Target, title: 'Single-category focus', desc: 'We only do shrimp. That means every decision — buying, spec, logistics, QC — is made by people whose entire career is shrimp. Generalist importers carry shrimp alongside hundreds of other lines. We don\'t.' },
+  { icon: Target, title: 'Shrimp-first specialism', desc: 'Shrimp is our core category. Every decision — buying, spec, logistics, QC — is made by people whose careers are built on shrimp, and the same discipline extends to the wider frozen seafood we supply alongside it.' },
   { icon: Snowflake, title: 'Full UK cold-chain', desc: 'Cold storage at Grimsby and Hull. Nationwide frozen delivery. Sterling pricing and UK contracts — no currency conversion risk for your procurement team.' },
   { icon: MapPin, title: 'Traceable origin', desc: 'Lot-level provenance on every shipment. Full chain of custody from our own farms and processing plants — and from trusted partners worldwide — to your UK warehouse.' },
   { icon: Users, title: 'UK-based account team', desc: 'GMT response times. A single account manager who knows your spec, your volumes, and your delivery requirements. No overseas call centres, no lost emails.' },
@@ -50,7 +50,7 @@ export default function AboutPage() {
             The UK's specialist shrimp supplier.
           </h1>
           <p className="text-lg text-frost-500 leading-relaxed max-w-2xl font-inter">
-            We don't supply everything. We supply shrimp — every format, every count, every processing style — with the specification consistency that comes from doing one thing and doing it well.
+            Shrimp is our specialism — every format, every count, every processing style — supplied alongside a carefully sourced wider range of frozen seafood, with the specification consistency that comes from deep category focus.
           </p>
         </div>
       </div>

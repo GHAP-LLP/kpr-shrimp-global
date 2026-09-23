@@ -161,6 +161,13 @@ export default function RequestSampleContent() {
                 </div>
               </div>
             ))}
+            <div className="pt-4 mt-2 border-t border-ice-300">
+              <p className="text-xs uppercase tracking-wider text-neon-700 font-semibold mb-2 font-inter">Wider Seafood Range</p>
+              <label className="flex items-center gap-2.5 cursor-pointer">
+                <input type="checkbox" checked={form.products.includes('wider-seafood-range')} onChange={() => toggleProduct('wider-seafood-range')} className="w-4 h-4 cursor-pointer accent-[#C2410C]" data-testid="product-check-wider-seafood-range" />
+                <span className="text-sm text-frost-700 font-inter">Shellfish, whole fish, or fillets <span className="text-xs text-frost-500 font-mono">(tell us more in notes)</span></span>
+              </label>
+            </div>
           </div>
 
           <div className="bg-white border border-ice-300 rounded-xl p-6 shadow-sm">
