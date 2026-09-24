@@ -90,3 +90,4 @@ cd backend && pip install -r requirements.txt
 - Certification claims render from `src/data/certifications.js`; EU approval is marked "in progress" — do not state it as held.
 - Two sections in `app/sustainability/page.jsx` carry `NEEDS REVIEW` comments awaiting director sign-off — do not extend those claims.
 - No public phone number is published (the previous one was a fictitious Ofcom drama number); contact is email-only until a real number is supplied.
+- **Never name the parent/group company (SS Agro Products) or publish the Indian plant's postal address** anywhere public-facing (business decision, Sep 2026). Region-level provenance ("Kodavalur, Nellore, Andhra Pradesh") is currently allowed on About/Sustainability; the wider seafood range mentions no sourcing at all.

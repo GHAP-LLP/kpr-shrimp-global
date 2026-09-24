@@ -20,7 +20,7 @@ export const BRAND_IMGS = {
   labInspection: "/images/labInspection.jpg",
 
   // ── Farm & Aquaculture ─────────────────────────────────────────────────────
-  // Replace with: Aerial or wide shot of SS Agro Products farm ponds, Nellore
+  // Replace with: Aerial or wide shot of the group's own farm ponds, Nellore
   farmAerial: "/images/farmAerial.jpg",
 
   // Replace with: Harvest in progress — nets, workers, pond activity
