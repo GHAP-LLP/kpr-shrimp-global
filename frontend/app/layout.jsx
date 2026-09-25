@@ -26,7 +26,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata = {
-  metadataBase: new URL('https://www.indoaquaticltd.com'),
+  metadataBase: new URL('https://iaquatic.com'),
   title: {
     default: 'Leading Seafood Supplier in the UK & EU | Indo Aquatic',
     template: '%s | Indo Aquatic — Seafood Supplier UK & EU',
@@ -54,10 +54,10 @@ const orgSchema = {
   '@graph': [
     {
       '@type': 'Organization',
-      '@id': 'https://www.indoaquaticltd.com/#organization',
+      '@id': 'https://iaquatic.com/#organization',
       name: 'Indo Aquatic UK Ltd',
       legalName: 'Indo Aquatic UK Ltd',
-      url: 'https://www.indoaquaticltd.com',
+      url: 'https://iaquatic.com',
       description: 'Leading frozen seafood supplier to the UK & EU. Specialist shrimp — raw, cooked, and added value — plus shellfish, whole fish, and fillets.',
       foundingDate: '2026',
       address: {
@@ -69,16 +69,16 @@ const orgSchema = {
         addressCountry: 'GB',
       },
       contactPoint: [
-        { '@type': 'ContactPoint', contactType: 'sales', email: 'sales@indoaquaticltd.com' },
-        { '@type': 'ContactPoint', contactType: 'customer service', email: 'samples@indoaquaticltd.com' },
+        { '@type': 'ContactPoint', contactType: 'sales', email: 'sales@iaquatic.com' },
+        { '@type': 'ContactPoint', contactType: 'customer service', email: 'samples@iaquatic.com' },
       ],
     },
     {
       '@type': 'WebSite',
-      '@id': 'https://www.indoaquaticltd.com/#website',
-      url: 'https://www.indoaquaticltd.com',
+      '@id': 'https://iaquatic.com/#website',
+      url: 'https://iaquatic.com',
       name: 'Indo Aquatic',
-      publisher: { '@id': 'https://www.indoaquaticltd.com/#organization' },
+      publisher: { '@id': 'https://iaquatic.com/#organization' },
     },
   ],
 };

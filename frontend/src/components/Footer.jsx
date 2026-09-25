@@ -24,7 +24,7 @@ export default function Footer() {
             <p className="text-frost-500 text-sm leading-relaxed">A leading seafood supplier to the UK &amp; EU. Backed by our own farms, processing plants, and two decades of family aquaculture expertise.</p>
             <div className="mt-4 pt-4 border-t border-frost-700">
               <p className="text-frost-500 text-xs leading-relaxed">Hall Farm Burrill Lane<br />Brantingham, Brough, HU15 1YG</p>
-              <a href="mailto:sales@indoaquaticltd.com" className="text-frost-500 text-xs hover:text-neon-500 transition-colors block mt-2">sales@indoaquaticltd.com</a>
+              <a href="mailto:sales@iaquatic.com" className="text-frost-500 text-xs hover:text-neon-500 transition-colors block mt-2">sales@iaquatic.com</a>
               <p className="text-frost-500 text-xs mt-2">Indo Aquatic Ltd. · Company No. 17230607</p>
             </div>
           </div>

@@ -33,7 +33,7 @@ export default function PrivacyPolicyPage() {
           <p><strong className="text-ink-900">Registered company:</strong> Indo Aquatic Ltd.<br />
           <strong className="text-ink-900">Company number:</strong> 17230607<br />
           <strong className="text-ink-900">Registered address:</strong> Hall Farm Burrill Lane, Brantingham, Brough, HU15 1YG, United Kingdom<br />
-          <strong className="text-ink-900">Email:</strong> <a href="mailto:info@indoaquaticltd.com" className="text-neon-700 hover:underline">info@indoaquaticltd.com</a></p>
+          <strong className="text-ink-900">Email:</strong> <a href="mailto:info@iaquatic.com" className="text-neon-700 hover:underline">info@iaquatic.com</a></p>
         </Section>
 
         <Section title="2. What data we collect">
@@ -91,7 +91,7 @@ export default function PrivacyPolicyPage() {
             <li>Request portability of your data</li>
             <li>Withdraw consent where processing is based on consent</li>
           </ul>
-          <p>To exercise any of these rights, contact us at <a href="mailto:info@indoaquaticltd.com" className="text-neon-700 hover:underline">info@indoaquaticltd.com</a>. We will respond within one calendar month.</p>
+          <p>To exercise any of these rights, contact us at <a href="mailto:info@iaquatic.com" className="text-neon-700 hover:underline">info@iaquatic.com</a>. We will respond within one calendar month.</p>
         </Section>
 
         <Section title="8. Complaints">
@@ -110,7 +110,7 @@ export default function PrivacyPolicyPage() {
           <p>For any data protection queries, contact:<br />
           Indo Aquatic UK Ltd<br />
           Hall Farm Burrill Lane, Brantingham, Brough, HU15 1YG<br />
-          <a href="mailto:info@indoaquaticltd.com" className="text-neon-700 hover:underline">info@indoaquaticltd.com</a></p>
+          <a href="mailto:info@iaquatic.com" className="text-neon-700 hover:underline">info@iaquatic.com</a></p>
         </Section>
 
       </div>

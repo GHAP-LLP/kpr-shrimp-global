@@ -40,7 +40,7 @@ export default async function ProductHubPage({ params }) {
       '@context': 'https://schema.org',
       '@type': 'BreadcrumbList',
       itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Products', item: 'https://www.indoaquaticltd.com/products' },
+        { '@type': 'ListItem', position: 1, name: 'Products', item: 'https://iaquatic.com/products' },
         { '@type': 'ListItem', position: 2, name: category.name },
       ],
     },
@@ -53,7 +53,7 @@ export default async function ProductHubPage({ params }) {
         '@type': 'ListItem',
         position: i + 1,
         name: v.fullName,
-        url: `https://www.indoaquaticltd.com/products/${categorySlug}/${v.slug}`,
+        url: `https://iaquatic.com/products/${categorySlug}/${v.slug}`,
       })),
     },
   ];

@@ -7,8 +7,8 @@ import Breadcrumb from '@/components/Breadcrumb';
 import { postEnquiry } from '@/lib/api';
 
 const CONTACT_INFO = [
-  { icon: Mail, label: 'Sales enquiries', value: 'sales@indoaquaticltd.com', href: 'mailto:sales@indoaquaticltd.com' },
-  { icon: Mail, label: 'Sample requests', value: 'samples@indoaquaticltd.com', href: 'mailto:samples@indoaquaticltd.com' },
+  { icon: Mail, label: 'Sales enquiries', value: 'sales@iaquatic.com', href: 'mailto:sales@iaquatic.com' },
+  { icon: Mail, label: 'Sample requests', value: 'samples@iaquatic.com', href: 'mailto:samples@iaquatic.com' },
   { icon: MapPin, label: 'Registered office', value: 'Hall Farm Burrill Lane, Brantingham, Brough, HU15 1YG', href: null },
   { icon: Linkedin, label: 'LinkedIn', value: 'Indo Aquatic UK Ltd', href: 'https://www.linkedin.com/company/indo-aquatic-limited/' },
 ];
@@ -41,7 +41,7 @@ export default function ContactPageContent() {
       await postEnquiry('/api/enquiries/contact', { ...form, source_page: pathname });
       setSubmitted(true);
     } catch (err) {
-      setError(err.message || "Sorry, we couldn't send your message. Please try again or email us directly at sales@indoaquaticltd.com.");
+      setError(err.message || "Sorry, we couldn't send your message. Please try again or email us directly at sales@iaquatic.com.");
     } finally {
       setSubmitting(false);
     }

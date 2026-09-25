@@ -1,5 +1,5 @@
 const SITE_NAME = 'Indo Aquatic';
-export const BASE_URL = 'https://www.indoaquaticltd.com';
+export const BASE_URL = 'https://iaquatic.com';
 export const DEFAULT_OG = `${BASE_URL}/images/hoso.jpg`;
 
 export function buildMetadata({ title, description, path = '', image } = {}) {

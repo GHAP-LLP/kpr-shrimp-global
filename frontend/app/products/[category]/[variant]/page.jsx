@@ -43,7 +43,7 @@ export default async function ProductVariantPage({ params }) {
       '@type': 'Offer',
       availability: 'https://schema.org/InStock',
       priceCurrency: 'GBP',
-      seller: { '@type': 'Organization', '@id': 'https://www.indoaquaticltd.com/#organization', name: 'Indo Aquatic UK Ltd' },
+      seller: { '@type': 'Organization', '@id': 'https://iaquatic.com/#organization', name: 'Indo Aquatic UK Ltd' },
     },
   };
 
@@ -51,8 +51,8 @@ export default async function ProductVariantPage({ params }) {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Products', item: 'https://www.indoaquaticltd.com/products' },
-      { '@type': 'ListItem', position: 2, name: category.name, item: `https://www.indoaquaticltd.com/products/${categorySlug}` },
+      { '@type': 'ListItem', position: 1, name: 'Products', item: 'https://iaquatic.com/products' },
+      { '@type': 'ListItem', position: 2, name: category.name, item: `https://iaquatic.com/products/${categorySlug}` },
       { '@type': 'ListItem', position: 3, name: variant.fullName },
     ],
   };

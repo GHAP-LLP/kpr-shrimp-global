@@ -61,7 +61,7 @@ export default function PoliciesPage() {
           <p><strong className="text-ink-900">Registered company:</strong> Indo Aquatic Ltd.<br />
           <strong className="text-ink-900">Company number:</strong> 17230607<br />
           <strong className="text-ink-900">Registered address:</strong> Hall Farm Burrill Lane, Brantingham, Brough, HU15 1YG, United Kingdom<br />
-          <strong className="text-ink-900">Email:</strong> <a href="mailto:info@indoaquaticltd.com" className="text-neon-700 hover:underline">info@indoaquaticltd.com</a></p>
+          <strong className="text-ink-900">Email:</strong> <a href="mailto:info@iaquatic.com" className="text-neon-700 hover:underline">info@iaquatic.com</a></p>
         </div>
 
         <nav aria-label="Policy sections" className="mb-12 p-5 rounded-lg bg-white/60 border border-ice-300">
@@ -219,7 +219,7 @@ export default function PoliciesPage() {
           <p>We encourage employees, suppliers, and other business contacts to raise concerns about suspected
           misconduct, malpractice, or breaches of these policies without fear of reprisal. As a small company,
           concerns are raised directly to a director at{' '}
-          <a href="mailto:info@indoaquaticltd.com" className="text-neon-700 hover:underline">info@indoaquaticltd.com</a>{' '}
+          <a href="mailto:info@iaquatic.com" className="text-neon-700 hover:underline">info@iaquatic.com</a>{' '}
           rather than through a third-party hotline, and are handled confidentially and investigated
           proportionately.</p>
         </Section>

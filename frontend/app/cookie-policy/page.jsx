@@ -84,7 +84,7 @@ export default function CookiePolicyPage() {
           <p>If you have any questions about our use of cookies:<br />
           Indo Aquatic UK Ltd<br />
           Hall Farm Burrill Lane, Brantingham, Brough, HU15 1YG<br />
-          <a href="mailto:info@indoaquaticltd.com" className="text-neon-700 hover:underline">info@indoaquaticltd.com</a></p>
+          <a href="mailto:info@iaquatic.com" className="text-neon-700 hover:underline">info@iaquatic.com</a></p>
         </Section>
 
       </div>

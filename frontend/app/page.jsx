@@ -290,10 +290,10 @@ const homeSchema = {
   name: 'Indo Aquatic Frozen Seafood Range',
   description: 'Frozen shrimp range across raw, cooked, and added value formats, plus a wider frozen seafood range',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Frozen Raw Shrimp', url: 'https://www.indoaquaticltd.com/products/frozen-raw-shrimp' },
-    { '@type': 'ListItem', position: 2, name: 'IQF Cooked Shrimp', url: 'https://www.indoaquaticltd.com/products/cooked-shrimp' },
-    { '@type': 'ListItem', position: 3, name: 'Added Value Innovation', url: 'https://www.indoaquaticltd.com/products/ready-to-cook' },
-    { '@type': 'ListItem', position: 4, name: 'Wider Seafood Range', url: 'https://www.indoaquaticltd.com/products/wider-seafood-range' },
+    { '@type': 'ListItem', position: 1, name: 'Frozen Raw Shrimp', url: 'https://iaquatic.com/products/frozen-raw-shrimp' },
+    { '@type': 'ListItem', position: 2, name: 'IQF Cooked Shrimp', url: 'https://iaquatic.com/products/cooked-shrimp' },
+    { '@type': 'ListItem', position: 3, name: 'Added Value Innovation', url: 'https://iaquatic.com/products/ready-to-cook' },
+    { '@type': 'ListItem', position: 4, name: 'Wider Seafood Range', url: 'https://iaquatic.com/products/wider-seafood-range' },
   ],
 };
 

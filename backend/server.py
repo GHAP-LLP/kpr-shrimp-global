@@ -62,8 +62,9 @@ ADMIN_NOTIFICATION_EMAIL = os.environ.get('ADMIN_NOTIFICATION_EMAIL', 'omar@iaqu
 # origins rather than "*" — a wildcard combined with allow_credentials would let
 # any site make credentialed requests to the admin API.
 DEFAULT_CORS_ORIGINS = (
-    "https://www.indoaquaticltd.com,"
-    "https://indoaquaticltd.com,"
+    "https://iaquatic.com,"
+    "https://www.iaquatic.com,"
+    "https://frontend-mu-nine-84.vercel.app,"
     "http://localhost:3000"
 )
 
