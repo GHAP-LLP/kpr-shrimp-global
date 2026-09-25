@@ -33,15 +33,8 @@ function SustainabilitySection() {
           {CERTIFICATIONS.map(cert => (
             <FadeUpItem key={cert.id}>
               <div className="bg-ice-100 border border-ice-300 rounded-xl p-4 text-center h-full flex flex-col items-center justify-center" data-testid={`home-cert-${cert.id}`}>
-                {cert.status === 'held' ? (
-                  <Award size={26} className="text-neon-700 mb-2" />
-                ) : (
-                  <Clock size={26} className="text-frost-500 mb-2" />
-                )}
-                <p className="font-inter font-semibold text-ink-900 text-sm leading-snug mb-1">{cert.name}</p>
-                <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded uppercase tracking-wider ${cert.status === 'held' ? 'bg-neon-500/20 text-neon-700' : 'bg-ice-300 text-frost-700'}`}>
-                  {cert.status === 'held' ? 'Certified' : 'In progress'}
-                </span>
+                <img src={cert.logo} alt={`${cert.name} seal`} loading="lazy" width="88" height="88" className="w-22 h-22 mb-3" style={{ width: 88, height: 88 }} />
+                <p className="font-inter font-semibold text-ink-900 text-sm leading-snug">{cert.name}</p>
               </div>
             </FadeUpItem>
           ))}

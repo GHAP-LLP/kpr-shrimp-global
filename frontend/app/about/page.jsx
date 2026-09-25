@@ -33,6 +33,7 @@ const OPERATIONS_STRIP = [
 
 const CERTS = CERTIFICATIONS.map(c => ({
   name: c.name,
+  logo: c.logo,
   status: c.status === 'held' ? 'Held' : 'In progress',
   held: c.status === 'held',
 }));
@@ -168,9 +169,8 @@ export default function AboutPage() {
             {CERTS.map(cert => (
               <FadeUpItem key={cert.name}>
                 <div className="bg-white border border-ice-300 rounded-xl p-4 text-center shadow-sm" data-testid={`cert-${cert.name.toLowerCase().replace(/ /g, '-')}`}>
-                  <Award size={20} className={`${cert.held ? 'text-neon-700' : 'text-frost-500'} mx-auto mb-3`} />
-                  <p className="font-inter font-semibold text-ink-900 text-sm mb-1">{cert.name}</p>
-                  <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded uppercase tracking-wider ${cert.held ? 'bg-neon-500/20 text-neon-700' : 'bg-ice-300 text-frost-700'}`}>{cert.status}</span>
+                  <img src={cert.logo} alt={`${cert.name} seal`} loading="lazy" width="72" height="72" className="mx-auto mb-3" style={{ width: 72, height: 72 }} />
+                  <p className="font-inter font-semibold text-ink-900 text-sm">{cert.name}</p>
                 </div>
               </FadeUpItem>
             ))}
