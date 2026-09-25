@@ -11,7 +11,7 @@ const EASE = [0.22, 1, 0.36, 1];
 
 const MOBILE_GROUPS = [
   { label: 'Products', items: NAV_PRODUCTS },
-  { label: 'Explore', items: [...NAV_LINKS, { name: 'Contact', href: '/contact' }] },
+  { label: 'Explore', items: [{ name: 'Home', href: '/' }, ...NAV_LINKS, { name: 'Contact', href: '/contact' }] },
 ];
 
 const overlayVariants = {
@@ -200,6 +200,13 @@ export default function Navbar() {
             </Link>
 
             <div className="hidden md:flex items-center gap-6">
+              <Link
+                href="/"
+                className="text-[15px] font-semibold text-ink-900 hover:text-neon-700 transition-colors py-5"
+                data-testid="nav-link-home"
+              >
+                Home
+              </Link>
               <div className="relative" onMouseEnter={() => setProductsOpen(true)}>
                 <button
                   onClick={() => setProductsOpen(prev => !prev)}

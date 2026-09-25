@@ -161,7 +161,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeUp className="mb-10">
             <SectionLabel number="04" text="Certifications" />
-            <h2 className="font-fraunces text-3xl text-ink-900 mb-3">Standards we hold and work towards.</h2>
+            <h2 className="font-fraunces text-3xl text-ink-900 mb-3">The standards we hold.</h2>
             <p className="text-frost-700 font-inter max-w-2xl">Our supply chain is built to meet the documentation and certification requirements of UK retail and foodservice buyers.</p>
           </FadeUp>
           <FadeUpGrid className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">

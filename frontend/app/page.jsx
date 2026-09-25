@@ -84,7 +84,7 @@ function WhoWeAreSection() {
 
 /* 03 · Products We Serve */
 const PRODUCT_CARDS = [
-  { icon: Snowflake, name: 'Frozen Raw Shrimp', href: '/products/frozen-raw-shrimp', image: IMG.frozenRaw, desc: 'HOSO, HLSO, PD, PUD, EZ-peel. Every count from U/15 to 61/70.', badge: 'Core range' },
+  { icon: Snowflake, name: 'Frozen Raw Shrimp', href: '/products/frozen-raw-shrimp', image: IMG.frozenRaw, desc: 'HOSO, HLSO, PD, PUD, EZ-peel — every major processing style, IQF or block frozen.', badge: 'Core range' },
   { icon: Flame, name: 'Cooked Shrimp', href: '/products/cooked-shrimp', image: IMG.cooked, desc: 'Fully cooked peeled and tail-on. Salad-ready, retail-ready. BRC-certified, no cook loss.' },
   { icon: UtensilsCrossed, name: 'Added Value Innovation', href: '/products/ready-to-cook', image: IMG.readyToCook, desc: 'Breaded, tempura, popcorn, noodle-wrapped, coconut and more. Par-fried, cooks direct from frozen.' },
 ];
@@ -133,6 +133,31 @@ function ProductsSection() {
             Wider seafood range <ArrowRight size={14} />
           </Link>
         </FadeUp>
+      </div>
+    </section>
+  );
+}
+
+/* Contact fold */
+function ContactSection() {
+  return (
+    <section className="py-16 md:py-20 bg-neon-700" data-testid="home-contact-section">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
+          <div className="max-w-2xl">
+            <p className="text-white/80 text-xs font-semibold uppercase tracking-widest font-inter mb-3">Get In Touch</p>
+            <h2 className="font-fraunces text-3xl sm:text-4xl text-white mb-3">Ready to talk supply?</h2>
+            <p className="text-white/90 font-inter leading-relaxed">Tell us your sector, the products you buy, and your volumes — our team will come back with specification, pricing, and lead times.</p>
+          </div>
+          <div className="flex flex-col gap-3 flex-shrink-0">
+            <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-frost-900 hover:bg-ink-900 text-white font-semibold rounded-md transition-colors font-inter" data-testid="home-contact-fold-cta">
+              Contact us <ArrowRight size={15} />
+            </Link>
+            <a href="https://wa.me/447846239357" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-3.5 border border-white/40 text-white hover:bg-white/10 font-semibold rounded-md transition-colors font-inter">
+              Chat on WhatsApp
+            </a>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -256,10 +281,7 @@ function ProcessSection() {
             </FadeUpItem>
           ))}
         </FadeUpGrid>
-        <FadeUp className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-          <Link href="/contact" className="inline-flex items-center gap-2 px-7 py-3.5 bg-neon-700 hover:bg-neon-800 text-white font-medium rounded-md transition-colors font-inter" data-testid="home-contact-cta">
-            Contact us <ArrowRight size={15} />
-          </Link>
+        <FadeUp className="mt-8 flex justify-center">
           <Link href="/sustainability" className="inline-flex items-center gap-2 text-sm text-frost-500 hover:text-white font-inter transition-colors">
             Full sustainability &amp; traceability statement <ArrowRight size={13} />
           </Link>
@@ -290,6 +312,7 @@ export default function HomePage() {
       <SustainabilitySection />
       <WhoWeAreSection />
       <ProductsSection />
+      <ContactSection />
       <WhySection />
       <ProcessSection />
     </>

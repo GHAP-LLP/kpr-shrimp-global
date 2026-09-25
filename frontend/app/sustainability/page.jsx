@@ -68,8 +68,8 @@ export default function SustainabilityPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeUp className="mb-12">
             <SectionLabel number="01" text="Certification Roadmap" />
-            <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900 mb-3">Standards we hold and are actively pursuing.</h2>
-            <p className="text-frost-700 font-inter max-w-2xl">Here is exactly where we stand today — and what we are working towards. Certificate copies are available on request through our <Link href="/contact" className="text-neon-700 underline hover:text-neon-800">contact form</Link>.</p>
+            <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900 mb-3">The standards we hold.</h2>
+            <p className="text-frost-700 font-inter max-w-2xl">Independently audited, across farming and processing. Certificate copies are available on request through our <Link href="/contact" className="text-neon-700 underline hover:text-neon-800">contact form</Link>.</p>
           </FadeUp>
           <FadeUpGrid className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {CERT_ROADMAP.map(cert => (

@@ -54,10 +54,14 @@ export default function WiderSeafoodRangePage() {
               const Icon = RANGE_ICONS[item.id] || Fish;
               return (
                 <FadeUpItem key={item.id}>
-                  <div className="bg-white border border-ice-300 rounded-xl p-6 h-full shadow-sm" data-testid={`wider-card-${item.id}`}>
-                    <div className="w-11 h-11 bg-ice-100 border border-ice-300 rounded-lg flex items-center justify-center mb-4">
-                      <Icon size={20} className="text-neon-700" />
+                  <div className="bg-white border border-ice-300 rounded-xl overflow-hidden h-full shadow-sm" data-testid={`wider-card-${item.id}`}>
+                    <div className="relative aspect-[16/10] overflow-hidden bg-frost-900">
+                      <img src={item.image} alt={item.name} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+                      <div className="absolute bottom-3 left-3 w-9 h-9 bg-white/90 backdrop-blur-sm border border-ice-300 rounded-lg flex items-center justify-center">
+                        <Icon size={17} className="text-neon-700" />
+                      </div>
                     </div>
+                    <div className="p-6">
                     <h3 className="font-fraunces text-xl text-ink-900 mb-2">{item.name}</h3>
                     <p className="text-sm text-frost-700 leading-relaxed font-inter mb-4">{item.desc}</p>
                     <ul className="space-y-1.5">
@@ -68,6 +72,7 @@ export default function WiderSeafoodRangePage() {
                         </li>
                       ))}
                     </ul>
+                    </div>
                   </div>
                 </FadeUpItem>
               );

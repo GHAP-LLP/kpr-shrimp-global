@@ -8,7 +8,7 @@ import { FadeUp, FadeUpGrid, FadeUpItem } from '@/components/FadeUp';
 
 export const metadata = buildMetadata({
   title: 'Products',
-  description: "Browse Indo Aquatic's full range: HOSO, HLSO, PD, IQF cooked, tempura, breaded, popcorn and more. All count sizes from U/15 to 61/70. Plus a wider frozen seafood range — shellfish, whole fish, and fillets — on enquiry.",
+  description: "Browse Indo Aquatic's full range: HOSO, HLSO, PD, IQF cooked, tempura, breaded, popcorn and more. Plus a wider frozen seafood range — shellfish, whole fish, and fillets — on enquiry.",
   path: '/products',
 });
 

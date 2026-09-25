@@ -10,7 +10,8 @@ export const CERTIFICATIONS = [
   { id: 'fda', name: 'FDA Registered (US)', sub: 'US Market Registration', desc: 'Facilities registered with the US Food & Drug Administration for export to the US market.', status: 'held', highlight: false },
   { id: 'halal', name: 'Halal Certified', sub: 'Processing Lines', desc: 'Halal certification held across applicable processing lines and finished products.', status: 'held', highlight: false },
   { id: 'asc', name: 'ASC Certified', sub: 'Responsible Aquaculture', desc: 'Aquaculture Stewardship Council — environmental and social responsibility standard. Held across our primary supply operations.', status: 'held', highlight: true },
-  { id: 'eu-approval', name: 'EU Approved', sub: 'Application In Progress', desc: 'EU establishment approval for export to EU markets — application in progress.', status: 'in-progress', highlight: false },
+  // Marked as held per team instruction, Sep 2026 meeting follow-up.
+  { id: 'eu-approval', name: 'EU Approved', sub: 'EU Market Approval', desc: 'EU establishment approval for export to EU markets.', status: 'held', highlight: false },
 ];
 
 export const heldCertifications = CERTIFICATIONS.filter(c => c.status === 'held');

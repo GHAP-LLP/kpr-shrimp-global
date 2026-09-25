@@ -32,18 +32,21 @@ export const WIDER_RANGE = [
   {
     id: 'shellfish',
     name: 'Frozen Shellfish',
+    image: '/images/shellfish.jpg',
     desc: 'Whole and prepared shellfish formats, frozen at source and specified to your requirement.',
     formats: ['Whole and half-shell formats', 'Picked and prepared meat', 'IQF or block frozen', 'Retail and foodservice pack sizes'],
   },
   {
     id: 'whole-fish',
     name: 'Whole Fish',
+    image: '/images/widerRange.jpg',
     desc: 'Whole round and dressed frozen fish across popular commercial species, graded to size.',
     formats: ['Whole round', 'Gutted, gilled and scaled', 'Size-graded to specification', 'Bulk and carton packing'],
   },
   {
     id: 'fish-fillets',
     name: 'Fish Fillets & Portions',
+    image: '/images/fishFillets.jpg',
     desc: 'Fillets, loins, and fixed-weight portions — IQF or interleaved, retail or foodservice spec.',
     formats: ['Skin-on or skinless fillets', 'Loins and fixed-weight portions', 'IQF or interleaved', 'Retail-ready or catering packs'],
   },
@@ -66,10 +69,10 @@ export const productCategories = [
     slug: "frozen-raw-shrimp",
     name: "Frozen Raw Shrimp",
     tagline: "Consistent spec, every count, every format.",
-    description: "Our core range of IQF and block-frozen raw shrimp, covering every major processing style from HOSO to fully-peeled. Consistent specification, traceable origin, and available in all count sizes from U/15 to 61/70.",
+    description: "Our core range of IQF and block-frozen raw shrimp, covering every major processing style from HOSO to fully-peeled. Consistent specification and traceable origin, sized to your requirement.",
     image: IMG.frozenRaw,
     variantCount: 5,
-    highlights: ["5 processing styles", "IQF or block frozen", "U/15 to 61/70 count range", "Custom glaze options"],
+    highlights: ["5 processing styles", "IQF or block frozen", "Traceable origin", "Custom glaze options"],
     variants: [
       {
         id: "hoso", slug: "hoso", name: "HOSO", fullName: "Head-On Shell-On",

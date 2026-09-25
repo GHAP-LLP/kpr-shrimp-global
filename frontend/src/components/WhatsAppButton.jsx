@@ -1,7 +1,6 @@
 // Floating WhatsApp chat button, shown on every page (rendered in the root
-// layout). NUMBER is the interim contact — confirm/replace with the business
-// WhatsApp number the team designates.
-const NUMBER = '971561818930';
+// layout). Omar's UK number, confirmed by the team Sep 2026.
+const NUMBER = '447846239357';
 
 export default function WhatsAppButton() {
   return (

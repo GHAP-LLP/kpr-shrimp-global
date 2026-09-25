@@ -9,7 +9,7 @@ const companyLinks = NAV_COMPANY;
 
 export default function Footer() {
   return (
-    <footer className="bg-frost-900 text-white" data-testid="footer">
+    <footer className="bg-frost-900 text-white border-t border-white/15" data-testid="footer">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
           <div className="lg:col-span-1">
