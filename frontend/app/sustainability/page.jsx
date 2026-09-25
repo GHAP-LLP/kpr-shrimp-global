@@ -69,7 +69,7 @@ export default function SustainabilityPage() {
           <FadeUp className="mb-12">
             <SectionLabel number="01" text="Certification Roadmap" />
             <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900 mb-3">Standards we hold and are actively pursuing.</h2>
-            <p className="text-frost-700 font-inter max-w-2xl">Here is exactly where we stand today — and what we are working towards. Certificate copies are available through our <Link href="/resources" className="text-neon-700 underline hover:text-neon-800">Resources</Link> page.</p>
+            <p className="text-frost-700 font-inter max-w-2xl">Here is exactly where we stand today — and what we are working towards. Certificate copies are available on request through our <Link href="/contact" className="text-neon-700 underline hover:text-neon-800">contact form</Link>.</p>
           </FadeUp>
           <FadeUpGrid className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {CERT_ROADMAP.map(cert => (
@@ -222,8 +222,8 @@ export default function SustainabilityPage() {
             <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-frost-900 hover:bg-ink-900 text-white font-medium rounded-md transition-colors font-inter" data-testid="sustainability-contact-btn">
               Contact us <ArrowRight size={14} />
             </Link>
-            <Link href="/request-a-sample" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-white/40 text-white hover:bg-white/10 font-medium rounded-md transition-colors font-inter">
-              Request a frozen sample
+            <Link href="/about" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-white/40 text-white hover:bg-white/10 font-medium rounded-md transition-colors font-inter">
+              About Indo Aquatic
             </Link>
           </div>
         </div>

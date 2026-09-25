@@ -27,7 +27,7 @@ export const IMG = {
 // Wider seafood range — deliberately top-level only. These lines are supplied
 // through the partner network and the specific species/specs are fluid, so we
 // describe the categories without publishing claims that can go stale.
-// No detail pages: enquiries route through /contact and /request-a-sample.
+// No detail pages: enquiries route through /contact.
 export const WIDER_RANGE = [
   {
     id: 'shellfish',

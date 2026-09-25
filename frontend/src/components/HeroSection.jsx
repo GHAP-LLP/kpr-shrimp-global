@@ -10,24 +10,24 @@ const ROTATE_MS = 8000;
 
 const SLIDES = [
   {
-    id: 'shrimp',
-    image: IMG.frozenRaw,
+    id: 'seafood',
+    image: '/images/widerRange.jpg',
     eyebrow: 'Indo Aquatic UK Ltd',
     tagline: 'Premium Seafood. Global Standards.',
-    title: "The UK's specialist frozen shrimp supplier.",
-    body: 'Raw, cooked, and added value shrimp — supplied through our own farms, processing plants, and a trusted worldwide partner network. Every step controlled, documented, and traceable to the pond.',
-    primary: { href: '/request-a-sample', label: 'Request a frozen sample' },
-    secondary: { href: '/products', label: 'View product range' },
+    title: 'The leading seafood supplier in the UK & EU.',
+    body: 'Frozen shrimp is our specialism — raw, cooked, and value-added — supplied alongside shellfish, whole fish, and fillets through our own farms and a world-class global distribution network.',
+    primary: { href: '/contact', label: 'Contact us' },
+    secondary: { href: '/products', label: 'View our range' },
   },
   {
-    id: 'wider-range',
-    image: '/images/widerRange.jpg',
-    eyebrow: 'Beyond Shrimp',
+    id: 'shrimp',
+    image: IMG.frozenRaw,
+    eyebrow: 'Core Range',
     tagline: 'One supplier. The whole freezer.',
-    title: 'Frozen shellfish, whole fish & fillets.',
-    body: 'Our wider seafood range — delivered through a world-class global distribution network, to the same specification, documentation, and cold-chain standards as our core shrimp range.',
-    primary: { href: '/products/wider-seafood-range', label: 'Explore the wider range' },
-    secondary: { href: '/contact', label: 'Talk to our team' },
+    title: 'Frozen shrimp, every format.',
+    body: 'HOSO to fully peeled, IQF cooked, and an eight-strong coated range — par-fried, consistent piece weights, and ready to cook straight from frozen. Specification locked batch to batch.',
+    primary: { href: '/products', label: 'Explore the range' },
+    secondary: { href: '/contact', label: 'Contact us' },
   },
 ];
 

@@ -1,96 +1,102 @@
 import Link from 'next/link';
 import {
   ArrowRight, Snowflake, Flame, UtensilsCrossed,
-  ShoppingBag, ChefHat, Truck, Factory,
   Target, MapPin, Users, CheckCircle, X,
-  Leaf, Ship, Warehouse, Shield,
+  Leaf, Ship, Warehouse, Shield, Award, Clock,
 } from 'lucide-react';
 import { buildMetadata } from '@/lib/metadata';
 import { FadeUp, FadeUpGrid, FadeUpItem } from '@/components/FadeUp';
 import HeroSection from '@/components/HeroSection';
 import SectionLabel from '@/components/SectionLabel';
 import { IMG } from '@/data/products';
-import { SECTOR_IMG } from '@/data/sectors';
 import { BRAND_IMGS } from '@/data/images';
-import { heldCertifications } from '@/data/certifications';
+import { CERTIFICATIONS } from '@/data/certifications';
 
 export const metadata = {
   ...buildMetadata({
-    description: 'UK wholesale frozen shrimp supplier. Indo Aquatic supplies IQF raw (HOSO, HLSO, PD), cooked, and added value shrimp to UK retailers, foodservice operators, food manufacturers, and distributors. Traceable origin, vetted global sourcing partners.',
+    description: 'Indo Aquatic is a leading frozen seafood supplier to the UK & EU. Specialist shrimp — raw, cooked, and value-added — plus shellfish, whole fish, and fillets. Own farms, certified processing, full traceability.',
     path: '/',
   }),
 };
 
-const METRICS = [
-  { value: 'U/15–61/70', label: 'Count range', sub: 'Every commercial size' },
-  { value: '5 days', label: 'Sample dispatch', sub: 'From confirmed request' },
-  { value: '20+ yrs', label: 'Aquaculture heritage', sub: 'Director-led family expertise' },
-];
-
-function MetricsStrip() {
+/* 01 · Sustainability & Certifications */
+function SustainabilitySection() {
   return (
-    <section className="bg-white border-b border-ice-300" data-testid="metrics-strip">
+    <section className="py-16 md:py-24 bg-white border-b border-ice-300" data-testid="sustainability-section">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-3 divide-y lg:divide-y-0 lg:divide-x divide-ice-300">
-          {METRICS.map((m) => (
-            <div key={m.label} className="px-4 sm:px-6 py-5">
-              <p className="font-fraunces text-2xl sm:text-3xl text-ink-900">{m.value}</p>
-              <p className="text-sm font-semibold text-ink-900 font-inter mt-0.5">{m.label}</p>
-              <p className="text-xs text-frost-500 font-inter">{m.sub}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
-const CERTS = heldCertifications;
-
-function CertificationStrip() {
-  return (
-    <section className="bg-ice-100 border-b border-ice-300 py-5" data-testid="cert-strip">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col sm:flex-row sm:items-center gap-4">
-          <p className="text-[11px] font-semibold tracking-[0.18em] uppercase text-frost-500 font-inter whitespace-nowrap flex-shrink-0">
-            Audited &amp; certified
-          </p>
-          <div className="flex flex-wrap gap-2">
-            {CERTS.map(cert => (
-              <div
-                key={cert.name}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded border text-xs font-inter ${
-                  cert.highlight
-                    ? 'bg-white border-neon-500/40 shadow-sm'
-                    : 'bg-white border-ice-300'
-                }`}
-              >
-                <CheckCircle size={12} className={cert.highlight ? 'text-neon-700' : 'text-frost-500'} />
-                <span className={`font-semibold ${cert.highlight ? 'text-ink-900' : 'text-frost-700'}`}>{cert.name}</span>
-                <span className="text-frost-500 hidden sm:inline">· {cert.sub}</span>
+        <FadeUp className="mb-10">
+          <SectionLabel number="01" text="Sustainability & Certifications" />
+          <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900 mb-3">Responsibly farmed. Independently certified.</h2>
+          <p className="text-frost-700 font-inter max-w-2xl">Antibiotic-free production, audited labour standards, and an unbroken cold chain — verified by the certifications UK and EU buyers ask for first.</p>
+        </FadeUp>
+        <FadeUpGrid className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+          {CERTIFICATIONS.map(cert => (
+            <FadeUpItem key={cert.id}>
+              <div className="bg-ice-100 border border-ice-300 rounded-xl p-4 text-center h-full flex flex-col items-center justify-center" data-testid={`home-cert-${cert.id}`}>
+                {cert.status === 'held' ? (
+                  <Award size={26} className="text-neon-700 mb-2" />
+                ) : (
+                  <Clock size={26} className="text-frost-500 mb-2" />
+                )}
+                <p className="font-inter font-semibold text-ink-900 text-sm leading-snug mb-1">{cert.name}</p>
+                <span className={`text-[10px] font-mono px-1.5 py-0.5 rounded uppercase tracking-wider ${cert.status === 'held' ? 'bg-neon-500/20 text-neon-700' : 'bg-ice-300 text-frost-700'}`}>
+                  {cert.status === 'held' ? 'Certified' : 'In progress'}
+                </span>
               </div>
-            ))}
-          </div>
+            </FadeUpItem>
+          ))}
+        </FadeUpGrid>
+        <FadeUp className="mt-8">
+          <Link href="/sustainability" className="inline-flex items-center gap-2 text-sm text-neon-700 hover:text-neon-800 font-medium font-inter transition-colors" data-testid="home-sustainability-link">
+            Our full sustainability &amp; traceability statement <ArrowRight size={14} />
+          </Link>
+        </FadeUp>
+      </div>
+    </section>
+  );
+}
+
+/* 02 · Who We Are */
+function WhoWeAreSection() {
+  return (
+    <section className="py-16 md:py-24 bg-ice-100" data-testid="who-we-are-section">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <FadeUp>
+            <SectionLabel number="02" text="Who We Are" />
+            <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900 mb-6">A family aquaculture business, supplying the UK &amp; EU.</h2>
+            <p className="text-frost-700 leading-relaxed mb-5 font-inter">Indo Aquatic UK Ltd is an independent, UK-registered seafood importer and distributor, built on more than two decades of hands-on shrimp aquaculture. Our directors' family owns and operates farms and processing plants, grown into an integrated business spanning farming, processing, and global distribution.</p>
+            <p className="text-frost-700 leading-relaxed mb-8 font-inter">That reach comes to UK and EU buyers directly: sterling pricing, local contracts, an account team in your time zone — and every lot inspected and documented from pond to plate.</p>
+            <Link href="/about" className="inline-flex items-center gap-2 text-sm text-neon-700 hover:text-neon-800 font-medium font-inter transition-colors" data-testid="home-about-link">
+              More about us <ArrowRight size={14} />
+            </Link>
+          </FadeUp>
+          <FadeUp delay={0.12}>
+            <div className="rounded-2xl overflow-hidden aspect-[4/3] border border-ice-300 shadow-sm">
+              <img src={BRAND_IMGS.farmFacility} alt="Shrimp farm ponds with bird netting, Andhra Pradesh" loading="lazy" className="w-full h-full object-cover" />
+            </div>
+          </FadeUp>
         </div>
       </div>
     </section>
   );
 }
 
+/* 03 · Products We Serve */
 const PRODUCT_CARDS = [
   { icon: Snowflake, name: 'Frozen Raw Shrimp', href: '/products/frozen-raw-shrimp', image: IMG.frozenRaw, desc: 'HOSO, HLSO, PD, PUD, EZ-peel. Every count from U/15 to 61/70.', badge: 'Core range' },
   { icon: Flame, name: 'Cooked Shrimp', href: '/products/cooked-shrimp', image: IMG.cooked, desc: 'Fully cooked peeled and tail-on. Salad-ready, retail-ready. BRC-certified, no cook loss.' },
   { icon: UtensilsCrossed, name: 'Added Value Innovation', href: '/products/ready-to-cook', image: IMG.readyToCook, desc: 'Breaded, tempura, popcorn, noodle-wrapped, coconut and more. Par-fried, cooks direct from frozen.' },
 ];
 
-function ProductRangeSection() {
+function ProductsSection() {
   return (
-    <section className="py-16 md:py-24 bg-ice-100" data-testid="product-range-section">
+    <section className="py-16 md:py-24 bg-white" data-testid="product-range-section">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeUp className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
           <div>
-            <SectionLabel number="01" text="Product Range" />
-            <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900">Three formats. One specialist.</h2>
+            <SectionLabel number="03" text="Products We Serve" />
+            <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900">Shrimp first. Seafood wide.</h2>
           </div>
           <Link href="/products" className="flex items-center gap-2 text-sm text-frost-700 hover:text-neon-700 font-medium transition-colors whitespace-nowrap font-inter">
             Full range <ArrowRight size={14} />
@@ -121,58 +127,10 @@ function ProductRangeSection() {
             </FadeUpItem>
           ))}
         </FadeUpGrid>
-      </div>
-    </section>
-  );
-}
-
-const PROCESS_STEPS = [
-  { step: '01', Icon: Leaf, title: 'Farmed & Processed', sub: 'Our own farms & partner network', desc: 'Litopenaeus vannamei farmed and processed at our own facilities, and by trusted partners around the world. HACCP-controlled processing, full lot documentation generated at source.', image: BRAND_IMGS.farmAerial, imageAlt: 'Shrimp aquaculture farm ponds, Andhra Pradesh' },
-  { step: '02', Icon: Shield, title: 'Sampled & Tested', sub: 'Verified in-house', desc: 'Samples drawn from every farm and partner are tested and finalised at our own Indo Aquatic facility. Residue testing, count tolerances checked, Certificate of Analysis issued before dispatch.', image: BRAND_IMGS.qualityControl, imageAlt: 'Food quality control inspection' },
-  { step: '03', Icon: Ship, title: 'Cold-Chain Shipping', sub: 'Global origins → UK port', desc: 'Temperature-controlled from origin — India and other partner regions worldwide — to the UK port. Continuous cold chain. Time-temperature records travel with every consignment.', image: BRAND_IMGS.containerShip, imageAlt: 'Container ship carrying frozen cargo' },
-  { step: '04', Icon: Warehouse, title: 'UK Cold Storage', sub: 'Grimsby / Hull', desc: 'UK-held cold-chain stock. Sterling pricing, UK contracts, GMT account team. Ready for despatch within agreed lead times.', image: BRAND_IMGS.coldWarehouse, imageAlt: 'UK cold storage warehouse' },
-];
-
-function ProcessSection() {
-  return (
-    <section className="py-16 md:py-24 bg-frost-900" data-testid="process-section">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <FadeUp className="mb-14">
-          <SectionLabel number="02" text="Supply Chain" dark />
-          <h2 className="font-fraunces text-3xl sm:text-4xl text-white mb-3">Farm to UK warehouse. Transparent at every step.</h2>
-          <p className="text-frost-500 font-inter max-w-2xl">Full chain of custody across our own farms, processing plants, and trusted partners worldwide. No opaque intermediary network — you know exactly where your product comes from and how it got here.</p>
-        </FadeUp>
-        <FadeUpGrid className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/5 rounded-xl overflow-hidden border border-white/5">
-          {PROCESS_STEPS.map((s, i) => (
-            <FadeUpItem key={s.step}>
-              <div className="bg-frost-900 h-full flex flex-col relative" data-testid={`process-step-${s.step}`}>
-                <div className="relative h-40 flex-shrink-0 overflow-hidden">
-                  <img src={s.image} alt={s.imageAlt} loading="lazy" className="absolute inset-0 w-full h-full object-cover opacity-55" />
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-frost-900/30 to-frost-900" />
-                  <div className="absolute top-3 left-3 flex items-center gap-2">
-                    <div className="w-8 h-8 bg-neon-500/20 border border-neon-500/40 rounded-lg flex items-center justify-center backdrop-blur-sm">
-                      <s.Icon size={14} className="text-neon-500" />
-                    </div>
-                    <span className="font-mono text-[10px] text-white/70 font-semibold tracking-[0.2em] bg-frost-900/50 px-1.5 py-0.5 rounded">{s.step}</span>
-                  </div>
-                </div>
-                <div className="px-5 pb-6 pt-3 flex-1">
-                  <h3 className="font-fraunces text-base text-white mb-0.5">{s.title}</h3>
-                  <p className="text-[10px] text-neon-500 font-inter font-semibold uppercase tracking-widest mb-3">{s.sub}</p>
-                  <p className="text-sm text-frost-500 leading-relaxed font-inter">{s.desc}</p>
-                </div>
-                {i < PROCESS_STEPS.length - 1 && (
-                  <div className="hidden lg:flex absolute top-[5rem] right-0 translate-x-1/2 z-10 items-center justify-center w-5 h-5 bg-frost-900 rounded-full border border-white/10">
-                    <ArrowRight size={10} className="text-neon-500/50" />
-                  </div>
-                )}
-              </div>
-            </FadeUpItem>
-          ))}
-        </FadeUpGrid>
-        <FadeUp className="mt-8 flex justify-center">
-          <Link href="/sustainability" className="inline-flex items-center gap-2 text-sm text-frost-500 hover:text-white font-inter transition-colors">
-            Full sustainability & traceability statement <ArrowRight size={13} />
+        <FadeUp className="mt-8 flex flex-col sm:flex-row sm:items-center gap-3 bg-ice-100 border border-ice-300 rounded-xl px-5 py-4">
+          <p className="text-sm text-frost-700 font-inter flex-1">Beyond shrimp: frozen shellfish, whole fish, and fillets — delivered through our world-class global distribution network.</p>
+          <Link href="/products/wider-seafood-range" className="inline-flex items-center gap-2 text-sm text-neon-700 hover:text-neon-800 font-semibold font-inter whitespace-nowrap">
+            Wider seafood range <ArrowRight size={14} />
           </Link>
         </FadeUp>
       </div>
@@ -180,68 +138,26 @@ function ProcessSection() {
   );
 }
 
-const SECTOR_CARDS = [
-  { icon: ShoppingBag, name: 'Retail', desc: 'Private label and branded packs. UK food labelling compliance.', href: '/sectors/retail-private-label', image: SECTOR_IMG.retail },
-  { icon: Factory, name: 'Retail Processors', desc: 'Bulk ingredient supply. Block frozen and IQF at scale.', href: '/sectors/food-manufacturers', image: SECTOR_IMG.manufacturers },
-  { icon: ChefHat, name: 'Foodservice', desc: 'Hotels, restaurants, chains, and caterers. Every format, every pack size.', href: '/sectors/foodservice-horeca', image: SECTOR_IMG.horeca },
-  { icon: Truck, name: 'Wholesale', desc: 'Frozen distributors and importers. Palletised bulk supply.', href: '/sectors/wholesale-distributors', image: SECTOR_IMG.wholesale },
-];
-
-function SectorsSection() {
-  return (
-    <section className="py-16 md:py-24 bg-white" data-testid="sectors-section">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <FadeUp className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
-          <div>
-            <SectionLabel number="03" text="Who We Serve" />
-            <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900">Built for serious UK buyers.</h2>
-          </div>
-          <Link href="/sectors" className="flex items-center gap-2 text-sm text-frost-700 hover:text-neon-700 font-medium transition-colors whitespace-nowrap font-inter">
-            All sectors <ArrowRight size={14} />
-          </Link>
-        </FadeUp>
-        <FadeUpGrid className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-          {SECTOR_CARDS.map(card => (
-            <FadeUpItem key={card.name}>
-              <Link href={card.href} className="group relative rounded-xl overflow-hidden border border-ice-300 h-56 flex flex-col justify-end hover:border-neon-500/40 hover:shadow-md transition-all duration-300" data-testid={`sector-card-${card.name.toLowerCase()}`}>
-                <img src={card.image} alt="" loading="lazy" className="absolute inset-0 w-full h-full object-cover opacity-25 group-hover:opacity-40 transition-opacity duration-300" />
-                <div className="absolute inset-0 bg-gradient-to-t from-frost-900 via-frost-900/70 to-frost-900/20" />
-                <div className="relative z-10 p-4">
-                  <div className="flex items-center gap-2 mb-1.5">
-                    <card.icon size={15} className="text-neon-500 flex-shrink-0" />
-                    <h3 className="font-fraunces text-base text-white">{card.name}</h3>
-                  </div>
-                  <p className="text-xs text-frost-500 leading-snug font-inter">{card.desc}</p>
-                  <div className="flex items-center gap-1 text-neon-500 text-xs font-medium mt-2 opacity-0 group-hover:opacity-100 transition-opacity font-inter">Learn more <ArrowRight size={11} /></div>
-                </div>
-              </Link>
-            </FadeUpItem>
-          ))}
-        </FadeUpGrid>
-      </div>
-    </section>
-  );
-}
-
+/* 04 · Why Indo Aquatic */
 const WHY_POINTS = [
-  { icon: Target, title: 'Spec consistency, batch to batch', desc: 'Tight count tolerances, glaze, and uniformity across every order.' },
-  { icon: Snowflake, title: 'UK cold-chain partners', desc: 'Cold storage at Grimsby and Hull, nationwide frozen delivery.' },
-  { icon: MapPin, title: 'Traceability to farm', desc: 'Lot-level provenance on every shipment. Full chain of custody.' },
-  { icon: Users, title: 'UK-based account team', desc: 'Sterling pricing, UK contracts, GMT response.' },
+  { icon: Target, title: 'Spec consistency, batch to batch', desc: 'Tight count tolerances, glaze, and uniformity across every order, every product line.' },
+  { icon: Snowflake, title: 'UK & EU cold-chain delivery', desc: 'Cold storage at Grimsby and Hull, unbroken cold chain from origin to your depot.' },
+  { icon: MapPin, title: 'Traceability to source', desc: 'Lot-level provenance on every shipment. Full chain of custody.' },
+  { icon: Users, title: 'Dedicated account team', desc: 'Sterling pricing, local contracts, one account manager who knows your spec.' },
 ];
 
 const COMPARISON = {
-  generic: ['Shrimp is one of 50+ commodity lines', 'Inconsistent spec across orders', 'Multiple unknown intermediaries', 'No direct farm access'],
-  ours: ['Shrimp-first specialist', 'Spec locked batch to batch', 'Our own farms + global partner network', 'Full lot traceability to farm'],
+  generic: ['Seafood as one of 50+ commodity lines', 'Inconsistent spec across orders', 'Multiple unknown intermediaries', 'No direct farm access'],
+  ours: ['Seafood-first specialist', 'Spec locked batch to batch', 'Own farms + global distribution network', 'Full lot traceability'],
 };
 
-function WhySpecialistSection() {
+function WhySection() {
   return (
     <section className="py-16 md:py-24 bg-ice-100" data-testid="why-specialist-section">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeUp className="mb-10">
-          <SectionLabel number="04" text="Why Specialist Matters" />
-          <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900">Generalists carry shrimp. We're built on it.</h2>
+          <SectionLabel number="04" text="Why Indo Aquatic" />
+          <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900">Specialist depth. Full-range supply.</h2>
         </FadeUp>
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
           <div className="lg:col-span-3">
@@ -265,7 +181,7 @@ function WhySpecialistSection() {
             <div className="bg-white border border-ice-300 rounded-xl overflow-hidden shadow-sm h-full">
               <div className="grid grid-cols-2 divide-x divide-ice-300 h-full">
                 <div className="p-5">
-                  <p className="text-[10px] font-semibold uppercase tracking-widest text-frost-500 font-inter mb-5">Generic importer</p>
+                  <p className="text-[10px] font-semibold uppercase tracking-widest text-frost-500 font-inter mb-5">Commodity trader</p>
                   <ul className="space-y-4">
                     {COMPARISON.generic.map(g => (
                       <li key={g} className="flex items-start gap-2">
@@ -295,66 +211,59 @@ function WhySpecialistSection() {
   );
 }
 
-const FARM_IMAGE = BRAND_IMGS.farmFacility;
-const SOURCING_FACTS = [
-  { label: 'Origin', value: 'Own farms in India + global partners' },
-  { label: 'Species', value: 'Litopenaeus vannamei (Whiteleg) · Penaeus monodon (Black Tiger)' },
-  { label: 'Processing', value: 'HACCP-controlled facility · EU approval in progress' },
-  { label: 'UK storage', value: 'Grimsby & Hull cold stores' },
+/* 05 · Supply Chain */
+const PROCESS_STEPS = [
+  { step: '01', Icon: Leaf, title: 'Farmed & Processed', sub: 'Our own farms & partner network', desc: 'Litopenaeus vannamei farmed and processed at our own facilities, and by trusted partners around the world. HACCP-controlled processing, full lot documentation generated at source.', image: BRAND_IMGS.farmAerial, imageAlt: 'Shrimp aquaculture farm ponds, Andhra Pradesh' },
+  { step: '02', Icon: Shield, title: 'Sampled & Tested', sub: 'Verified in-house', desc: 'Samples drawn from every farm and partner are tested and finalised at our own Indo Aquatic facility. Residue testing, count tolerances checked, Certificate of Analysis issued before dispatch.', image: BRAND_IMGS.qualityControl, imageAlt: 'Food quality control inspection' },
+  { step: '03', Icon: Ship, title: 'Cold-Chain Shipping', sub: 'Global origins → UK & EU', desc: 'Temperature-controlled from origin to port. Continuous cold chain. Time-temperature records travel with every consignment.', image: BRAND_IMGS.containerShip, imageAlt: 'Container ship carrying frozen cargo' },
+  { step: '04', Icon: Warehouse, title: 'UK Cold Storage', sub: 'Grimsby / Hull', desc: 'UK-held cold-chain stock. Sterling pricing, UK contracts, GMT account team. Ready for despatch within agreed lead times.', image: BRAND_IMGS.coldWarehouse, imageAlt: 'UK cold storage' },
 ];
 
-function SourcingSection() {
+function ProcessSection() {
   return (
-    <section className="py-16 md:py-24 bg-white" data-testid="sourcing-section">
+    <section className="py-16 md:py-24 bg-frost-900" data-testid="process-section">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <FadeUp>
-            <SectionLabel number="05" text="Sourcing" />
-            <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900 mb-6">Backed by two decades of aquaculture expertise.</h2>
-            <p className="text-frost-700 leading-relaxed mb-6 font-inter">Our sourcing is anchored by our own farms and processing plants, together with long-term partnerships with certified operations across leading shrimp-producing regions — giving us direct control, full traceability, and volume reliability most importers can't match.</p>
-            <div className="space-y-3 mb-8 border border-ice-300 rounded-xl p-5 bg-ice-100">
-              {SOURCING_FACTS.map(f => (
-                <div key={f.label} className="flex gap-4 items-baseline">
-                  <span className="text-xs font-mono uppercase tracking-wider text-frost-500 w-24 flex-shrink-0">{f.label}</span>
-                  <span className="text-sm text-ink-900 font-inter font-medium">{f.value}</span>
+        <FadeUp className="mb-14">
+          <SectionLabel number="05" text="Supply Chain" dark />
+          <h2 className="font-fraunces text-3xl sm:text-4xl text-white mb-3">Farm to warehouse. Transparent at every step.</h2>
+          <p className="text-frost-500 font-inter max-w-2xl">Full chain of custody across our own farms, processing plants, and global distribution network — you know exactly where your product comes from and how it got here.</p>
+        </FadeUp>
+        <FadeUpGrid className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/5 rounded-xl overflow-hidden border border-white/5">
+          {PROCESS_STEPS.map((s, i) => (
+            <FadeUpItem key={s.step}>
+              <div className="bg-frost-900 h-full flex flex-col relative" data-testid={`process-step-${s.step}`}>
+                <div className="relative h-40 flex-shrink-0 overflow-hidden">
+                  <img src={s.image} alt={s.imageAlt} loading="lazy" className="absolute inset-0 w-full h-full object-cover opacity-55" />
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-frost-900/30 to-frost-900" />
+                  <div className="absolute top-3 left-3 flex items-center gap-2">
+                    <div className="w-8 h-8 bg-neon-500/20 border border-neon-500/40 rounded-lg flex items-center justify-center backdrop-blur-sm">
+                      <s.Icon size={14} className="text-neon-500" />
+                    </div>
+                    <span className="font-mono text-[10px] text-white/70 font-semibold tracking-[0.2em] bg-frost-900/50 px-1.5 py-0.5 rounded">{s.step}</span>
+                  </div>
                 </div>
-              ))}
-            </div>
-            <Link href="/about" className="inline-flex items-center gap-2 text-sm text-neon-700 hover:text-neon-800 font-medium font-inter transition-colors" data-testid="sourcing-link">
-              Read our story <ArrowRight size={14} />
-            </Link>
-          </FadeUp>
-          <FadeUp delay={0.12}>
-            <div className="rounded-2xl overflow-hidden aspect-[4/3] border border-ice-300 shadow-sm">
-              <img src={FARM_IMAGE} alt="Shrimp aquaculture facility, Andhra Pradesh, India" loading="lazy" className="w-full h-full object-cover" />
-            </div>
-          </FadeUp>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function LeadCaptureSection() {
-  return (
-    <section className="py-16 md:py-20 bg-neon-700" data-testid="lead-capture-section">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 items-center">
-          <div className="sm:col-span-2">
-            <p className="text-white/80 text-xs font-semibold uppercase tracking-widest font-inter mb-3">Ready to evaluate?</p>
-            <h2 className="font-fraunces text-3xl sm:text-4xl text-white mb-3">Get a sample on your bench.</h2>
-            <p className="text-white/90 font-inter leading-relaxed">Tell us your sector, volume, and the spec you're benchmarking. We'll ship samples within 5 working days of confirmation. No commitment required.</p>
-          </div>
-          <div className="flex flex-col gap-3">
-            <Link href="/request-a-sample" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-frost-900 hover:bg-ink-900 text-white font-medium rounded-md transition-colors font-inter" data-testid="lead-request-btn">
-              Request a frozen sample <ArrowRight size={15} />
-            </Link>
-            <Link href="/contact" className="inline-flex items-center justify-center px-7 py-3.5 border border-white/40 text-white hover:bg-white/10 font-medium rounded-md transition-colors font-inter" data-testid="lead-contact-btn">
-              Speak to us
-            </Link>
-            <p className="text-white/80 text-xs text-center font-inter">Trade buyers and procurement teams only</p>
-          </div>
-        </div>
+                <div className="px-5 pb-6 pt-3 flex-1">
+                  <h3 className="font-fraunces text-base text-white mb-0.5">{s.title}</h3>
+                  <p className="text-[10px] text-neon-500 font-inter font-semibold uppercase tracking-widest mb-3">{s.sub}</p>
+                  <p className="text-sm text-frost-500 leading-relaxed font-inter">{s.desc}</p>
+                </div>
+                {i < PROCESS_STEPS.length - 1 && (
+                  <div className="hidden lg:flex absolute top-[5rem] right-0 translate-x-1/2 z-10 items-center justify-center w-5 h-5 bg-frost-900 rounded-full border border-white/10">
+                    <ArrowRight size={10} className="text-neon-500/50" />
+                  </div>
+                )}
+              </div>
+            </FadeUpItem>
+          ))}
+        </FadeUpGrid>
+        <FadeUp className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Link href="/contact" className="inline-flex items-center gap-2 px-7 py-3.5 bg-neon-700 hover:bg-neon-800 text-white font-medium rounded-md transition-colors font-inter" data-testid="home-contact-cta">
+            Contact us <ArrowRight size={15} />
+          </Link>
+          <Link href="/sustainability" className="inline-flex items-center gap-2 text-sm text-frost-500 hover:text-white font-inter transition-colors">
+            Full sustainability &amp; traceability statement <ArrowRight size={13} />
+          </Link>
+        </FadeUp>
       </div>
     </section>
   );
@@ -363,12 +272,13 @@ function LeadCaptureSection() {
 const homeSchema = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
-  name: 'Indo Aquatic Frozen Shrimp Range',
-  description: 'Frozen shrimp range across raw, cooked, and added value formats',
+  name: 'Indo Aquatic Frozen Seafood Range',
+  description: 'Frozen shrimp range across raw, cooked, and added value formats, plus a wider frozen seafood range',
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Frozen Raw Shrimp', url: 'https://www.indoaquaticltd.com/products/frozen-raw-shrimp' },
     { '@type': 'ListItem', position: 2, name: 'IQF Cooked Shrimp', url: 'https://www.indoaquaticltd.com/products/cooked-shrimp' },
     { '@type': 'ListItem', position: 3, name: 'Added Value Innovation', url: 'https://www.indoaquaticltd.com/products/ready-to-cook' },
+    { '@type': 'ListItem', position: 4, name: 'Wider Seafood Range', url: 'https://www.indoaquaticltd.com/products/wider-seafood-range' },
   ],
 };
 
@@ -377,14 +287,11 @@ export default function HomePage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homeSchema) }} />
       <HeroSection />
-      <MetricsStrip />
-      <CertificationStrip />
-      <ProductRangeSection />
+      <SustainabilitySection />
+      <WhoWeAreSection />
+      <ProductsSection />
+      <WhySection />
       <ProcessSection />
-      <SectorsSection />
-      <WhySpecialistSection />
-      <SourcingSection />
-      <LeadCaptureSection />
     </>
   );
 }

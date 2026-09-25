@@ -1,6 +1,7 @@
 import { Fraunces, Inter, JetBrains_Mono } from 'next/font/google';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import WhatsAppButton from '@/components/WhatsAppButton';
 import { DEFAULT_OG } from '@/lib/metadata';
 import '@/index.css';
 
@@ -26,23 +27,23 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata = {
   metadataBase: new URL('https://www.indoaquaticltd.com'),
   title: {
-    default: 'UK Frozen Shrimp Supplier — IQF, Cooked & Added Value | Indo Aquatic',
-    template: '%s | Indo Aquatic — UK Frozen Shrimp Supplier',
+    default: 'Leading Seafood Supplier in the UK & EU | Indo Aquatic',
+    template: '%s | Indo Aquatic — Seafood Supplier UK & EU',
   },
-  description: 'UK wholesale frozen shrimp supplier. Indo Aquatic supplies IQF raw (HOSO, HLSO, PD), cooked, and added value shrimp to UK retailers, foodservice operators, retail processors, and distributors. Traceable Andhra Pradesh origin. Samples within 5 days.',
+  description: 'Indo Aquatic is a leading frozen seafood supplier to the UK & EU. Specialist shrimp — IQF raw, cooked, and added value — plus shellfish, whole fish, and fillets. Own farms, certified processing, full traceability.',
   robots: { index: true, follow: true },
   openGraph: {
     siteName: 'Indo Aquatic',
     type: 'website',
-    title: 'UK Frozen Shrimp Supplier | Indo Aquatic — IQF, Cooked & Added Value',
-    description: 'UK specialist importer of premium frozen shrimp. HOSO, HLSO, PD, IQF Cooked, Tempura, Breaded, Butterfly. Traceable Indian origin, consistent spec, UK account team.',
-    images: [{ url: DEFAULT_OG, width: 1200, height: 630, alt: 'Premium IQF frozen shrimp — Indo Aquatic UK supplier' }],
+    title: 'Leading Seafood Supplier in the UK & EU | Indo Aquatic',
+    description: 'Specialist frozen shrimp — raw, cooked, and added value — plus shellfish, whole fish, and fillets. Own farms, certified processing, consistent spec, UK & EU delivery.',
+    images: [{ url: DEFAULT_OG, width: 1200, height: 630, alt: 'Premium frozen seafood — Indo Aquatic, UK & EU supplier' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'UK Frozen Shrimp Supplier | Indo Aquatic — IQF, Cooked & Added Value',
-    description: 'UK specialist importer of premium frozen shrimp. HOSO, HLSO, PD, IQF Cooked, Tempura, Breaded, Butterfly.',
-    images: [{ url: DEFAULT_OG, alt: 'Premium IQF frozen shrimp — Indo Aquatic UK supplier' }],
+    title: 'Leading Seafood Supplier in the UK & EU | Indo Aquatic',
+    description: 'Specialist frozen shrimp — raw, cooked, and added value — plus shellfish, whole fish, and fillets.',
+    images: [{ url: DEFAULT_OG, alt: 'Premium frozen seafood — Indo Aquatic, UK & EU supplier' }],
   },
   other: { 'theme-color': '#F97316' },
 };
@@ -56,7 +57,7 @@ const orgSchema = {
       name: 'Indo Aquatic UK Ltd',
       legalName: 'Indo Aquatic UK Ltd',
       url: 'https://www.indoaquaticltd.com',
-      description: 'UK specialist importer and distributor of premium frozen shrimp — raw, cooked, and added value formats — plus a wider frozen seafood range of shellfish, whole fish, and fillets.',
+      description: 'Leading frozen seafood supplier to the UK & EU. Specialist shrimp — raw, cooked, and added value — plus shellfish, whole fish, and fillets.',
       foundingDate: '2026',
       address: {
         '@type': 'PostalAddress',
@@ -92,6 +93,7 @@ export default function RootLayout({ children }) {
           <main id="main-content" className="flex-1">{children}</main>
           <Footer />
         </div>
+        <WhatsAppButton />
       </body>
     </html>
   );

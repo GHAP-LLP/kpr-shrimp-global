@@ -8,7 +8,7 @@ export default function sitemap() {
   const now = new Date();
   const staticPaths = [
     '', '/products', '/products/wider-seafood-range', '/sectors', '/about', '/sustainability', '/policies',
-    '/resources', '/contact', '/request-a-sample',
+    '/contact',
     '/privacy-policy', '/terms-of-service', '/cookie-policy',
   ];
 

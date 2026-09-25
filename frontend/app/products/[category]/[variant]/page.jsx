@@ -19,37 +19,10 @@ export async function generateMetadata({ params }) {
   if (!variant) return {};
   return buildMetadata({
     title: variant.fullName,
-    description: `${variant.fullName} (${variant.name}) frozen shrimp for UK trade buyers — full specification, count sizes, glaze options, pack formats, and typical use cases. Samples available from Indo Aquatic.`,
+    description: `${variant.fullName} (${variant.name}) frozen shrimp for UK & EU trade buyers from Indo Aquatic — a leading seafood supplier. Specification and pricing on enquiry.`,
     path: `/products/${categorySlug}/${variantSlug}`,
     image: variant.image,
   });
-}
-
-function SpecTable({ specs }) {
-  const rows = Object.entries(specs).map(([key, value]) => ({
-    label: key.replace(/([A-Z])/g, ' $1').replace(/^./, s => s.toUpperCase()),
-    value: Array.isArray(value) ? value.join(' · ') : value,
-  }));
-  return (
-    <div className="overflow-x-auto rounded-xl border border-ice-300 shadow-sm" data-testid="spec-table">
-      <table className="w-full font-mono text-sm">
-        <thead>
-          <tr className="bg-ice-300 border-b border-ice-300">
-            <th className="text-left py-3 px-4 text-xs uppercase tracking-wider w-1/3 text-frost-700">Specification</th>
-            <th className="text-left py-3 px-4 text-xs uppercase tracking-wider text-frost-700">Value</th>
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((row, i) => (
-            <tr key={row.label} className={`border-t border-ice-300/50 hover:bg-ice-100 transition-colors ${i % 2 === 0 ? 'bg-white' : 'bg-ice-100/50'}`}>
-              <td className="py-3 px-4 text-frost-700">{row.label}</td>
-              <td className="py-3 px-4 text-ink-900 font-medium">{row.value}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
 }
 
 export default async function ProductVariantPage({ params }) {
@@ -116,14 +89,8 @@ export default async function ProductVariantPage({ params }) {
               </div>
             </div>
 
-            <div data-testid="spec-table-section">
-              <SectionLabel number="02" text="Product Specification" />
-              <h2 className="font-fraunces text-xl text-ink-900 mb-4">Product specification</h2>
-              <SpecTable specs={variant.specs} />
-            </div>
-
             <div className="bg-white border border-ice-300 rounded-xl p-6 shadow-sm">
-              <SectionLabel number="03" text="Use Cases" />
+              <SectionLabel number="02" text="Use Cases" />
               <h2 className="font-fraunces text-xl text-ink-900 mb-4">Typical use cases</h2>
               <ul className="space-y-3">
                 {variant.useCases.map(use => (
@@ -138,10 +105,10 @@ export default async function ProductVariantPage({ params }) {
 
           <div className="space-y-4">
             <div className="bg-neon-700 rounded-xl p-6">
-              <h3 className="font-fraunces text-lg text-white mb-3">Try it on your bench</h3>
-              <p className="text-white/90 text-sm mb-4 font-inter">Assess this product's specification and quality before committing to volume.</p>
-              <Link href="/request-a-sample" className="block w-full text-center py-3 bg-frost-900 hover:bg-ink-900 text-white font-medium rounded-md transition-colors text-sm font-inter" data-testid="sidebar-request-sample">
-                Request a frozen sample
+              <h3 className="font-fraunces text-lg text-white mb-3">Interested in this product?</h3>
+              <p className="text-white/90 text-sm mb-4 font-inter">Tell us your sector and volumes — we'll come back with specification, availability, and pricing.</p>
+              <Link href="/contact" className="block w-full text-center py-3 bg-frost-900 hover:bg-ink-900 text-white font-medium rounded-md transition-colors text-sm font-inter" data-testid="sidebar-contact-us">
+                Contact us
               </Link>
             </div>
 

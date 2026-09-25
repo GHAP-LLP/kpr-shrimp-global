@@ -1,4 +1,7 @@
 // Single source of truth for site navigation — used by Navbar and Footer.
+// Per the Sep 2026 meeting: header shows Products (dropdown), Sectors (plain
+// link), About Us, Sustainability, and a Contact Us button. Corporate Policies
+// lives in the footer legal row only; Resources and Request Sample are gone.
 export const NAV_PRODUCTS = [
   { name: 'All Products', href: '/products' },
   { name: 'Frozen Raw Shrimp', href: '/products/frozen-raw-shrimp' },
@@ -15,11 +18,16 @@ export const NAV_SECTORS = [
   { name: 'Wholesale Distributors', href: '/sectors/wholesale-distributors' },
 ];
 
+// Top-level header links after the Products dropdown.
+export const NAV_LINKS = [
+  { name: 'Sectors', href: '/sectors' },
+  { name: 'About Us', href: '/about' },
+  { name: 'Sustainability', href: '/sustainability' },
+];
+
+// Footer company column.
 export const NAV_COMPANY = [
   { name: 'About us', href: '/about' },
   { name: 'Sustainability', href: '/sustainability' },
-  { name: 'Corporate Policies', href: '/policies' },
-  { name: 'Resources & Docs', href: '/resources' },
-  { name: 'Request a sample', href: '/request-a-sample' },
   { name: 'Contact', href: '/contact' },
 ];

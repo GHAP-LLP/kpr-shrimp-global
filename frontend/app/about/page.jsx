@@ -47,7 +47,7 @@ export default function AboutPage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-xs font-semibold tracking-[0.25em] uppercase text-neon-500 font-inter mb-6">Indo Aquatic UK Ltd</p>
           <h1 className="font-fraunces text-5xl sm:text-6xl lg:text-7xl text-white font-normal leading-[1.05] mb-6 max-w-4xl" data-testid="about-h1">
-            The UK's specialist shrimp supplier.
+            A leading seafood supplier to the UK &amp; EU.
           </h1>
           <p className="text-lg text-frost-500 leading-relaxed max-w-2xl font-inter">
             Shrimp is our specialism — every format, every count, every processing style — supplied alongside a wider range of premium frozen seafood, with the specification consistency that comes from deep category focus.
@@ -183,8 +183,8 @@ export default function AboutPage() {
           <h2 className="font-fraunces text-3xl text-white mb-3">Ready to talk supply?</h2>
           <p className="text-white/90 mb-8 font-inter">Get in touch with our UK account team to discuss volumes, specifications, and sample arrangements.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Link href="/request-a-sample" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-frost-900 hover:bg-ink-900 text-white font-medium rounded-md transition-colors font-inter" data-testid="about-request-sample">
-              Request a frozen sample <ArrowRight size={14} />
+            <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-frost-900 hover:bg-ink-900 text-white font-medium rounded-md transition-colors font-inter" data-testid="about-contact-cta">
+              Contact us <ArrowRight size={14} />
             </Link>
             <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-white/40 text-white hover:bg-white/10 font-medium rounded-md transition-colors font-inter">
               Contact us

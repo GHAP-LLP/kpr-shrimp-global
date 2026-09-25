@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowRight } from 'lucide-react';
-import { productCategories, getCategoryBySlug, COUNT_SIZES } from '@/data/products';
+import { productCategories, getCategoryBySlug } from '@/data/products';
 import Breadcrumb from '@/components/Breadcrumb';
 import SectionLabel from '@/components/SectionLabel';
 import { buildMetadata } from '@/lib/metadata';
@@ -82,40 +82,19 @@ export default async function ProductHubPage({ params }) {
             {category.variants.map(variant => (
               <FadeUpItem key={variant.id}>
                 <Link href={`/products/${categorySlug}/${variant.slug}`}
-                  className="group bg-white border border-ice-300 rounded-xl p-6 hover:bg-ice-100 hover:border-frost-500 hover:-translate-y-1 hover:shadow-md transition-all duration-200 block h-full shadow-sm"
+                  className="group bg-white border border-ice-300 rounded-xl overflow-hidden hover:border-frost-500 hover:-translate-y-1 hover:shadow-md transition-all duration-200 block h-full shadow-sm"
                   data-testid={`variant-card-${variant.slug}`}>
-                  <div className="mb-3">
-                    <span className="inline-block text-xs font-mono bg-neon-500/20 text-neon-700 px-2.5 py-1 rounded mb-2">{variant.name}</span>
-                    <h3 className="font-fraunces text-lg text-ink-900">{variant.fullName}</h3>
+                  <div className="relative aspect-[16/10] overflow-hidden bg-frost-900">
+                    <img src={variant.image} alt={`${variant.fullName} frozen shrimp`} loading="lazy" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <span className="absolute top-3 left-3 text-xs font-mono bg-frost-900/80 text-white px-2.5 py-1 rounded backdrop-blur-sm">{variant.name}</span>
                   </div>
-                  <p className="text-sm text-frost-700 leading-relaxed mb-4 font-inter">{excerpt(variant.description)}</p>
-                  <div className="space-y-1.5 mb-4">
-                    {variant.specs.availableSizes ? (
-                      <div className="flex gap-2 text-xs font-mono">
-                        <span className="text-frost-500 w-20 flex-shrink-0">Sizes:</span>
-                        <span className="text-frost-700 truncate">{variant.specs.availableSizes.join(' · ')}</span>
-                      </div>
-                    ) : variant.specs.baseShrimp ? (
-                      <div className="flex gap-2 text-xs font-mono">
-                        <span className="text-frost-500 w-20 flex-shrink-0">Base:</span>
-                        <span className="text-frost-700 truncate">{variant.specs.baseShrimp}</span>
-                      </div>
-                    ) : null}
-                    {variant.specs.packFormats ? (
-                      <div className="flex gap-2 text-xs font-mono">
-                        <span className="text-frost-500 w-20 flex-shrink-0">Pack:</span>
-                        <span className="text-frost-700">{variant.specs.packFormats[0]}</span>
-                      </div>
-                    ) : variant.specs.pieceWeight ? (
-                      <div className="flex gap-2 text-xs font-mono">
-                        <span className="text-frost-500 w-20 flex-shrink-0">Piece:</span>
-                        <span className="text-frost-700">{variant.specs.pieceWeight}</span>
-                      </div>
-                    ) : null}
+                  <div className="p-6">
+                    <h3 className="font-fraunces text-lg text-ink-900 mb-2">{variant.fullName}</h3>
+                    <p className="text-sm text-frost-700 leading-relaxed mb-4 font-inter">{excerpt(variant.description)}</p>
+                    <span className="flex items-center gap-1 text-neon-700 text-sm font-medium group-hover:gap-2 transition-all font-inter">
+                      View product <ArrowRight size={14} />
+                    </span>
                   </div>
-                  <span className="flex items-center gap-1 text-neon-700 text-sm font-medium group-hover:gap-2 transition-all font-inter">
-                    View full spec <ArrowRight size={14} />
-                  </span>
                 </Link>
               </FadeUpItem>
             ))}
@@ -123,49 +102,15 @@ export default async function ProductHubPage({ params }) {
         </div>
       </section>
 
-      {category.slug === 'frozen-raw-shrimp' && (
-        <section className="py-16 border-t border-ice-300" data-testid="size-guide">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="mb-8">
-              <SectionLabel number="02" text="Count Size Guide" />
-              <h2 className="font-fraunces text-3xl text-ink-900 mb-2">Count size guide</h2>
-              <p className="text-frost-700 font-inter">All frozen raw shrimp are available in the following count sizes, subject to variant.</p>
-            </div>
-            <div className="overflow-x-auto rounded-xl border border-ice-300 shadow-sm">
-              <table className="w-full font-mono text-sm" data-testid="count-size-table">
-                <thead>
-                  <tr className="bg-ice-300 border-b border-ice-300">
-                    <th className="text-left py-3 px-4 text-xs uppercase tracking-wider font-semibold text-frost-700">Count</th>
-                    <th className="text-left py-3 px-4 text-xs uppercase tracking-wider font-semibold text-frost-700">Name</th>
-                    <th className="text-left py-3 px-4 text-xs uppercase tracking-wider font-semibold text-frost-700">Per kg</th>
-                    <th className="text-left py-3 px-4 text-xs uppercase tracking-wider text-frost-700 hidden sm:table-cell">Typical use</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {COUNT_SIZES.map((row, i) => (
-                    <tr key={row.count} className={`border-t border-ice-300/50 hover:bg-ice-100 transition-colors ${i % 2 === 0 ? 'bg-white' : 'bg-ice-100/50'}`}>
-                      <td className="py-3 px-4 text-ink-900 font-semibold">{row.count}</td>
-                      <td className="py-3 px-4 text-ink-900">{row.name}</td>
-                      <td className="py-3 px-4 text-frost-700">{row.perKg}</td>
-                      <td className="py-3 px-4 text-frost-700 hidden sm:table-cell">{row.typicalUse}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </section>
-      )}
-
       <section className="py-16 bg-neon-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
             <div>
-              <h3 className="font-fraunces text-2xl text-white mb-2">Try it before you commit</h3>
-              <p className="text-white/90 font-inter">Assess specification and quality fit before committing to volume.</p>
+              <h3 className="font-fraunces text-2xl text-white mb-2">Interested in this range?</h3>
+              <p className="text-white/90 font-inter">Tell us your sector and volumes — we'll come back with availability and pricing.</p>
             </div>
-            <Link href="/request-a-sample" className="flex-shrink-0 inline-flex items-center gap-2 px-7 py-3.5 bg-frost-900 hover:bg-ink-900 text-white font-medium rounded-md transition-colors font-inter" data-testid="hub-request-sample">
-              Request a frozen sample <ArrowRight size={14} />
+            <Link href="/contact" className="flex-shrink-0 inline-flex items-center gap-2 px-7 py-3.5 bg-frost-900 hover:bg-ink-900 text-white font-medium rounded-md transition-colors font-inter" data-testid="hub-contact-us">
+              Contact us <ArrowRight size={14} />
             </Link>
           </div>
         </div>

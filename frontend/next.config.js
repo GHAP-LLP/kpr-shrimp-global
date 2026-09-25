@@ -36,6 +36,9 @@ const nextConfig = {
       { source: '/products/ready-to-cook/marinated', destination: '/products/ready-to-cook', permanent: true },
       { source: '/products/ready-to-cook/shrimp-skewers', destination: '/products/ready-to-cook', permanent: true },
       { source: '/products/ready-to-cook/prawn-skewers', destination: '/products/ready-to-cook', permanent: true },
+      // Pages retired at the Sep 2026 meeting — all enquiries route via contact.
+      { source: '/request-a-sample', destination: '/contact', permanent: true },
+      { source: '/resources', destination: '/contact', permanent: true },
     ];
   },
 };

@@ -55,7 +55,8 @@ SESSION_TTL_HOURS = 24
 # Email notifications (optional — skipped if not configured)
 RESEND_API_KEY = os.environ.get('RESEND_API_KEY', '')
 RESEND_FROM_EMAIL = os.environ.get('RESEND_FROM_EMAIL', '')
-ADMIN_NOTIFICATION_EMAIL = os.environ.get('ADMIN_NOTIFICATION_EMAIL', '')
+# Default recipient set at the Sep 2026 meeting; override via env if it changes.
+ADMIN_NOTIFICATION_EMAIL = os.environ.get('ADMIN_NOTIFICATION_EMAIL', 'omar@iaquatic.com')
 
 # If CORS_ORIGINS is not set in the environment, fall back to the known site
 # origins rather than "*" — a wildcard combined with allow_credentials would let

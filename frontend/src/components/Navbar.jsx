@@ -5,26 +5,13 @@ import { usePathname } from 'next/navigation';
 import { Menu, X, ChevronDown, ArrowRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import LogoMark from '@/components/LogoMark';
-import { NAV_PRODUCTS, NAV_SECTORS, NAV_COMPANY } from '@/data/nav';
+import { NAV_PRODUCTS, NAV_LINKS } from '@/data/nav';
 
 const EASE = [0.22, 1, 0.36, 1];
 
-function DropdownMenu({ items, id }) {
-  return (
-    <div id={id} className="absolute top-full left-0 w-56 bg-white border border-ice-300 rounded-lg shadow-xl py-1 z-50">
-      {items.map(item => (
-        <Link key={item.href} href={item.href} className="flex items-center px-4 py-2.5 text-sm text-ink-900 hover:bg-ice-100 hover:text-neon-700 transition-colors">
-          {item.name}
-        </Link>
-      ))}
-    </div>
-  );
-}
-
-const GROUPS = [
+const MOBILE_GROUPS = [
   { label: 'Products', items: NAV_PRODUCTS },
-  { label: 'Sectors', items: NAV_SECTORS },
-  { label: 'Company', items: NAV_COMPANY },
+  { label: 'Explore', items: [...NAV_LINKS, { name: 'Contact', href: '/contact' }] },
 ];
 
 const overlayVariants = {
@@ -114,7 +101,7 @@ function MobileMenu({ isOpen, onClose }) {
             initial="hidden"
             animate="visible"
           >
-            {GROUPS.map((group, gi) => (
+            {MOBILE_GROUPS.map((group, gi) => (
               <div key={group.label} className={gi > 0 ? 'mt-8' : ''}>
                 <motion.p
                   variants={labelVariants}
@@ -151,12 +138,12 @@ function MobileMenu({ isOpen, onClose }) {
             animate="visible"
           >
             <Link
-              href="/request-a-sample"
+              href="/contact"
               onClick={onClose}
               className="flex items-center justify-center gap-2 w-full py-4 bg-neon-700 hover:bg-neon-800 text-white font-semibold rounded-md transition-colors font-inter text-sm"
-              data-testid="mobile-cta-sample"
+              data-testid="mobile-cta-contact"
             >
-              Request a frozen sample <ArrowRight size={15} />
+              Contact us <ArrowRight size={15} />
             </Link>
           </motion.div>
         </motion.div>
@@ -167,23 +154,23 @@ function MobileMenu({ isOpen, onClose }) {
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [openGroup, setOpenGroup] = useState(null);
+  const [productsOpen, setProductsOpen] = useState(false);
   const navRef = useRef(null);
   const pathname = usePathname();
 
   useEffect(() => {
     setMobileOpen(false);
-    setOpenGroup(null);
+    setProductsOpen(false);
   }, [pathname]);
 
   useEffect(() => {
     function handleClickOutside(e) {
       if (navRef.current && !navRef.current.contains(e.target)) {
-        setOpenGroup(null);
+        setProductsOpen(false);
       }
     }
     function handleKeyDown(e) {
-      if (e.key === 'Escape') setOpenGroup(null);
+      if (e.key === 'Escape') setProductsOpen(false);
     }
     document.addEventListener('mousedown', handleClickOutside);
     document.addEventListener('keydown', handleKeyDown);
@@ -193,17 +180,13 @@ export default function Navbar() {
     };
   }, []);
 
-  function toggleGroup(name) {
-    setOpenGroup(prev => (prev === name ? null : name));
-  }
-
   return (
     <>
       <nav
         ref={navRef}
         className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-ice-300"
         data-testid="navbar"
-        onMouseLeave={() => setOpenGroup(null)}
+        onMouseLeave={() => setProductsOpen(false)}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-[70px]">
@@ -217,39 +200,44 @@ export default function Navbar() {
             </Link>
 
             <div className="hidden md:flex items-center gap-6">
-              {[
-                { key: 'products', label: 'Products', items: NAV_PRODUCTS, testId: 'nav-products-btn' },
-                { key: 'sectors',  label: 'Sectors',  items: NAV_SECTORS,  testId: 'nav-sectors-btn' },
-                { key: 'company',  label: 'Company',  items: NAV_COMPANY,  testId: 'nav-company-btn' },
-              ].map(({ key, label, items, testId }) => {
-                const isOpen = openGroup === key;
-                const menuId = `nav-menu-${key}`;
-                return (
-                  <div
-                    key={key}
-                    className="relative"
-                    onMouseEnter={() => setOpenGroup(key)}
-                  >
-                    <button
-                      onClick={() => toggleGroup(key)}
-                      className={`flex items-center gap-1 text-[15px] font-semibold transition-colors py-5 hover:text-neon-700 ${isOpen ? 'text-neon-700' : 'text-ink-900'}`}
-                      data-testid={testId}
-                      aria-expanded={isOpen}
-                      aria-haspopup="true"
-                      aria-controls={menuId}
-                    >
-                      {label}
-                      <ChevronDown size={14} className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
-                    </button>
-                    {isOpen && <DropdownMenu items={items} id={menuId} />}
+              <div className="relative" onMouseEnter={() => setProductsOpen(true)}>
+                <button
+                  onClick={() => setProductsOpen(prev => !prev)}
+                  className={`flex items-center gap-1 text-[15px] font-semibold transition-colors py-5 hover:text-neon-700 ${productsOpen ? 'text-neon-700' : 'text-ink-900'}`}
+                  data-testid="nav-products-btn"
+                  aria-expanded={productsOpen}
+                  aria-haspopup="true"
+                  aria-controls="nav-menu-products"
+                >
+                  Products
+                  <ChevronDown size={14} className={`transition-transform duration-200 ${productsOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {productsOpen && (
+                  <div id="nav-menu-products" className="absolute top-full left-0 w-56 bg-white border border-ice-300 rounded-lg shadow-xl py-1 z-50">
+                    {NAV_PRODUCTS.map(item => (
+                      <Link key={item.href} href={item.href} className="flex items-center px-4 py-2.5 text-sm text-ink-900 hover:bg-ice-100 hover:text-neon-700 transition-colors">
+                        {item.name}
+                      </Link>
+                    ))}
                   </div>
-                );
-              })}
+                )}
+              </div>
+
+              {NAV_LINKS.map(link => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-[15px] font-semibold text-ink-900 hover:text-neon-700 transition-colors py-5"
+                  data-testid={`nav-link-${link.name.toLowerCase().replace(/ /g, '-')}`}
+                >
+                  {link.name}
+                </Link>
+              ))}
             </div>
 
             <div className="flex items-center gap-3">
-              <Link href="/request-a-sample" className="hidden sm:inline-flex items-center px-5 py-2.5 bg-neon-700 hover:bg-neon-800 text-white text-[15px] font-semibold rounded-md transition-colors" data-testid="nav-request-sample">
-                Request a frozen sample
+              <Link href="/contact" className="hidden sm:inline-flex items-center px-5 py-2.5 bg-neon-700 hover:bg-neon-800 text-white text-[15px] font-semibold rounded-md transition-colors" data-testid="nav-contact-us">
+                Contact us
               </Link>
               <button
                 onClick={() => setMobileOpen(true)}

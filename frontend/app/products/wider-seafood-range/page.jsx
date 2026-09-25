@@ -131,8 +131,8 @@ export default function WiderSeafoodRangePage() {
             <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-frost-900 hover:bg-ink-900 text-white font-medium rounded-md transition-colors font-inter" data-testid="wider-range-contact">
               Enquire about the range <ArrowRight size={14} />
             </Link>
-            <Link href="/request-a-sample" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-white/40 text-white hover:bg-white/10 font-medium rounded-md transition-colors font-inter">
-              Request a frozen sample
+            <Link href="/products" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-white/40 text-white hover:bg-white/10 font-medium rounded-md transition-colors font-inter">
+              View our full range
             </Link>
           </div>
         </div>

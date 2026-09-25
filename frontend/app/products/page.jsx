@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { ArrowRight, Snowflake, Flame, UtensilsCrossed, Shell, Fish, Layers } from 'lucide-react';
-import { productCategories, COUNT_SIZES, WIDER_RANGE } from '@/data/products';
+import { productCategories, WIDER_RANGE } from '@/data/products';
 import Breadcrumb from '@/components/Breadcrumb';
 import SectionLabel from '@/components/SectionLabel';
 import { buildMetadata } from '@/lib/metadata';
@@ -107,44 +107,12 @@ export default function ProductsHubPage() {
         </div>
       </section>
 
-      <section className="py-16 border-t border-ice-300" data-testid="sizing-reference">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mb-8">
-            <SectionLabel number="03" text="Sizing Reference" />
-            <h2 className="font-fraunces text-3xl text-ink-900 mb-2">Count size reference</h2>
-            <p className="text-frost-700 font-inter">Shrimp count = number of shrimp per pound (lb). Smaller count number = larger shrimp. Available across our frozen raw range.</p>
-          </div>
-          <div className="overflow-x-auto rounded-xl border border-ice-300 shadow-sm">
-            <table className="w-full font-mono text-sm" data-testid="sizing-table">
-              <thead>
-                <tr className="bg-ice-300 border-b border-ice-300">
-                  <th className="text-left py-3 px-4 text-xs uppercase tracking-wider font-semibold text-frost-700">Count</th>
-                  <th className="text-left py-3 px-4 text-xs uppercase tracking-wider font-semibold text-frost-700">Name</th>
-                  <th className="text-left py-3 px-4 text-xs uppercase tracking-wider font-semibold text-frost-700">Per kg</th>
-                  <th className="text-left py-3 px-4 text-xs uppercase tracking-wider font-semibold text-frost-700 hidden sm:table-cell">Typical use</th>
-                </tr>
-              </thead>
-              <tbody>
-                {COUNT_SIZES.map((row, i) => (
-                  <tr key={row.count} className={`border-t border-ice-300/50 hover:bg-ice-100 transition-colors ${i % 2 === 0 ? 'bg-white' : 'bg-ice-100/50'}`}>
-                    <td className="py-3 px-4 text-ink-900 font-semibold">{row.count}</td>
-                    <td className="py-3 px-4 text-ink-900">{row.name}</td>
-                    <td className="py-3 px-4 text-frost-700">{row.perKg}</td>
-                    <td className="py-3 px-4 text-frost-700 hidden sm:table-cell">{row.typicalUse}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
       <section className="py-16 bg-neon-700">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-fraunces text-3xl text-white mb-3">Get a sample on your bench.</h2>
-          <p className="text-white/90 mb-8 font-inter">Tell us your sector and the spec you're benchmarking. We'll ship samples within 5 working days of confirmation.</p>
-          <Link href="/request-a-sample" className="inline-flex items-center gap-2 px-8 py-3.5 bg-frost-900 hover:bg-ink-900 text-white font-medium rounded-md transition-colors font-inter">
-            Request a frozen sample <ArrowRight size={14} />
+          <h2 className="font-fraunces text-3xl text-white mb-3">Tell us what your operation needs.</h2>
+          <p className="text-white/90 mb-8 font-inter">Sector, formats, and volumes — we'll come back with specification, pricing, and lead time.</p>
+          <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-3.5 bg-frost-900 hover:bg-ink-900 text-white font-medium rounded-md transition-colors font-inter">
+            Contact us <ArrowRight size={14} />
           </Link>
         </div>
       </section>

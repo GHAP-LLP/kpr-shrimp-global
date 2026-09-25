@@ -8,6 +8,8 @@ Indo Aquatic (repo: kpr-shrimp-global) — a B2B marketing website for a UK-base
 
 **Vocabulary rule: the site says "shrimp", never "prawn"** (business decision, Sep 2026) — in copy, URLs, slugs, and spec keys. Use "shrimp" for both singular and plural, never "shrimps". Interim `*-prawns` slugs 301-redirect to the shrimp slugs in `next.config.js`.
 
+**Positioning (Sep 2026 meeting): "leading seafood supplier in the UK & EU"** — not "UK's shrimp specialist" and not "best" (unsubstantiated superlative). Shrimp stays the core range within a seafood-wide identity. Further meeting decisions baked into the site: no product spec tables or sizes/packs on product pages, no count-size guide, no Resources or Request-a-Sample pages (301 → /contact), "Contact us" is the only CTA site-wide, sectors has no nav dropdown, a floating WhatsApp button (`src/components/WhatsAppButton.jsx` — number pending confirmation) renders on every page, and enquiry emails default to omar@iaquatic.com (`ADMIN_NOTIFICATION_EMAIL`).
+
 ## Commands
 
 ### Frontend

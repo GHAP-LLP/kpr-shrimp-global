@@ -111,8 +111,8 @@ export default async function SectorPage({ params }) {
             <div className="bg-neon-700 rounded-xl p-6">
               <h3 className="font-fraunces text-lg text-white mb-3">Sample the right formats</h3>
               <p className="text-white/90 text-sm mb-4 font-inter">Discuss supply requirements and sample the relevant product formats for your operation.</p>
-              <Link href="/request-a-sample" className="block w-full text-center py-3 bg-frost-900 hover:bg-ink-900 text-white font-medium rounded-md transition-colors text-sm mb-3 font-inter" data-testid="sector-request-sample">
-                Request a frozen sample
+              <Link href="/contact" className="block w-full text-center py-3 bg-frost-900 hover:bg-ink-900 text-white font-medium rounded-md transition-colors text-sm mb-3 font-inter" data-testid="sector-contact-us">
+                Contact us
               </Link>
               <Link href="/contact" className="block w-full text-center py-3 border border-white/30 text-white hover:bg-white/10 font-medium rounded-md transition-colors text-sm font-inter">
                 Contact us
