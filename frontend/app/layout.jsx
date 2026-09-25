@@ -2,6 +2,7 @@ import { Fraunces, Inter, JetBrains_Mono } from 'next/font/google';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import ScrollTopButton from '@/components/ScrollTopButton';
 import { DEFAULT_OG } from '@/lib/metadata';
 import '@/index.css';
 
@@ -94,6 +95,7 @@ export default function RootLayout({ children }) {
           <Footer />
         </div>
         <WhatsAppButton />
+        <ScrollTopButton />
       </body>
     </html>
   );
