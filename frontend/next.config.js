@@ -61,13 +61,13 @@ const nextConfig = {
         permanent: true,
       },
       // Retired cooked variant (specific rules must precede the generic ones).
-      { source: '/products/cooked-shrimp/iqf-cooked-hlso', destination: '/products/cooked-shrimp', permanent: true },
-      { source: '/products/cooked-prawns/iqf-cooked-hlso', destination: '/products/cooked-shrimp', permanent: true },
-      // Interim "prawn" slugs — the site standardised on "shrimp" vocabulary.
-      { source: '/products/frozen-raw-prawns', destination: '/products/frozen-raw-shrimp', permanent: true },
-      { source: '/products/frozen-raw-prawns/:variant', destination: '/products/frozen-raw-shrimp/:variant', permanent: true },
-      { source: '/products/cooked-prawns', destination: '/products/cooked-shrimp', permanent: true },
-      { source: '/products/cooked-prawns/:variant', destination: '/products/cooked-shrimp/:variant', permanent: true },
+      { source: '/products/cooked-shrimp/iqf-cooked-hlso', destination: '/products/cooked-prawns', permanent: true },
+      { source: '/products/cooked-prawns/iqf-cooked-hlso', destination: '/products/cooked-prawns', permanent: true },
+      // Interim "shrimp" slugs — the site standardised on "prawn" vocabulary (Sep 2026).
+      { source: '/products/frozen-raw-shrimp', destination: '/products/frozen-raw-prawns', permanent: true },
+      { source: '/products/frozen-raw-shrimp/:variant', destination: '/products/frozen-raw-prawns/:variant', permanent: true },
+      { source: '/products/cooked-shrimp', destination: '/products/cooked-prawns', permanent: true },
+      { source: '/products/cooked-shrimp/:variant', destination: '/products/cooked-prawns/:variant', permanent: true },
       // Retired added-value variants, replaced by the real catalogue.
       { source: '/products/ready-to-cook/tempura-battered', destination: '/products/ready-to-cook/tempura', permanent: true },
       { source: '/products/ready-to-cook/butterfly', destination: '/products/ready-to-cook/breaded-butterfly', permanent: true },

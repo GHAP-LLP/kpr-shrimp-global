@@ -14,7 +14,7 @@ import { CERTIFICATIONS } from '@/data/certifications';
 
 export const metadata = {
   ...buildMetadata({
-    description: 'Frozen shrimp (king prawns), shellfish, whole fish, and fillets for UK & EU trade buyers. IQF raw, cooked, and value-added ranges from our own farms, with certified processing and full traceability.',
+    description: 'Frozen king prawns, shellfish, whole fish, and fillets for UK & EU trade buyers. IQF raw, cooked, and value-added ranges from our own farms, with certified processing and full traceability.',
     path: '/',
   }),
 };
@@ -58,7 +58,7 @@ function WhoWeAreSection() {
           <FadeUp>
             <SectionLabel number="02" text="Who We Are" />
             <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900 mb-6">A family aquaculture business, supplying the UK &amp; EU.</h2>
-            <p className="text-frost-700 leading-relaxed mb-5 font-inter">Indo Aquatic Ltd is an independent, UK-registered seafood importer and distributor, built on more than two decades of hands-on shrimp aquaculture. Our directors' family owns and operates farms and processing plants, grown into an integrated business spanning farming, processing, and global distribution.</p>
+            <p className="text-frost-700 leading-relaxed mb-5 font-inter">Indo Aquatic Ltd is an independent, UK-registered seafood importer and distributor, built on more than two decades of hands-on prawn aquaculture. Our directors' family owns and operates farms and processing plants, grown into an integrated business spanning farming, processing, and global distribution.</p>
             <p className="text-frost-700 leading-relaxed mb-8 font-inter">That reach comes to UK and EU buyers directly: sterling or euro pricing, delivery across the UK & EU, and every lot inspected and documented from pond to plate.</p>
             <Link href="/about" className="inline-flex items-center gap-2 text-sm text-neon-700 hover:text-neon-800 font-medium font-inter transition-colors" data-testid="home-about-link">
               More about us <ArrowRight size={14} />
@@ -66,7 +66,7 @@ function WhoWeAreSection() {
           </FadeUp>
           <FadeUp delay={0.12}>
             <div className="rounded-2xl overflow-hidden aspect-[4/3] border border-ice-300 shadow-sm">
-              <img src={BRAND_IMGS.farmFacility} alt="Shrimp farm ponds with bird netting, Andhra Pradesh" loading="lazy" className="w-full h-full object-cover" />
+              <img src={BRAND_IMGS.farmFacility} alt="Prawn farm ponds with bird netting, Andhra Pradesh" loading="lazy" className="w-full h-full object-cover" />
             </div>
           </FadeUp>
         </div>
@@ -77,8 +77,8 @@ function WhoWeAreSection() {
 
 /* 03 · Products We Serve */
 const PRODUCT_CARDS = [
-  { icon: Snowflake, name: 'Frozen Raw Shrimp', href: '/products/frozen-raw-shrimp', image: IMG.frozenRaw, desc: 'HOSO, HLSO, PD, PUD, EZ-peel — every major processing style, IQF or block frozen.', badge: 'Core range' },
-  { icon: Flame, name: 'Cooked Shrimp', href: '/products/cooked-shrimp', image: IMG.cooked, desc: 'Fully cooked peeled and tail-on. Salad-ready, retail-ready. BRC-certified, no cook loss.' },
+  { icon: Snowflake, name: 'Frozen Raw Prawns', href: '/products/frozen-raw-prawns', image: IMG.frozenRaw, desc: 'HOSO, HLSO, PD, PUD, EZ-peel — every major processing style, IQF or block frozen.', badge: 'Core range' },
+  { icon: Flame, name: 'Cooked Prawns', href: '/products/cooked-prawns', image: IMG.cooked, desc: 'Fully cooked peeled and tail-on. Salad-ready, retail-ready. BRC-certified, no cook loss.' },
   { icon: UtensilsCrossed, name: 'Added Value Innovation', href: '/products/ready-to-cook', image: IMG.readyToCook, desc: 'Breaded, tempura, popcorn, noodle-wrapped, coconut and more. Par-fried, cooks direct from frozen.' },
 ];
 
@@ -89,7 +89,7 @@ function ProductsSection() {
         <FadeUp className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
           <div>
             <SectionLabel number="03" text="Products We Serve" />
-            <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900">Shrimp first. Seafood wide.</h2>
+            <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900">Prawns first. Seafood wide.</h2>
           </div>
           <Link href="/products" className="flex items-center gap-2 text-sm text-frost-700 hover:text-neon-700 font-medium transition-colors whitespace-nowrap font-inter">
             Full range <ArrowRight size={14} />
@@ -121,7 +121,7 @@ function ProductsSection() {
           ))}
         </FadeUpGrid>
         <FadeUp className="mt-8 flex flex-col sm:flex-row sm:items-center gap-3 bg-ice-100 border border-ice-300 rounded-xl px-5 py-4">
-          <p className="text-sm text-frost-700 font-inter flex-1">Beyond shrimp: frozen shellfish, whole fish, and fillets — delivered through our global distribution network.</p>
+          <p className="text-sm text-frost-700 font-inter flex-1">Beyond prawns: frozen shellfish, whole fish, and fillets — delivered through our global distribution network.</p>
           <Link href="/products/wider-seafood-range" className="inline-flex items-center gap-2 text-sm text-neon-700 hover:text-neon-800 font-semibold font-inter whitespace-nowrap">
             Wider seafood range <ArrowRight size={14} />
           </Link>
@@ -231,7 +231,7 @@ function WhySection() {
 
 /* 05 · Supply Chain */
 const PROCESS_STEPS = [
-  { step: '01', Icon: Leaf, title: 'Farmed & Processed', sub: 'Our own farms & partner network', desc: 'Litopenaeus vannamei farmed and processed at our own facilities, and by trusted partners around the world. HACCP-controlled processing, full lot documentation generated at source.', image: BRAND_IMGS.farmAerial, imageAlt: 'Shrimp aquaculture farm ponds, Andhra Pradesh' },
+  { step: '01', Icon: Leaf, title: 'Farmed & Processed', sub: 'Our own farms & partner network', desc: 'Litopenaeus vannamei farmed and processed at our own facilities, and by trusted partners around the world. HACCP-controlled processing, full lot documentation generated at source.', image: BRAND_IMGS.farmAerial, imageAlt: 'Prawn aquaculture farm ponds, Andhra Pradesh' },
   { step: '02', Icon: Shield, title: 'Sampled & Tested', sub: 'Verified in-house', desc: 'Samples drawn from every farm and partner are tested and finalised at our own Indo Aquatic facility. Residue testing, count tolerances checked, Certificate of Analysis issued before dispatch.', image: BRAND_IMGS.qualityControl, imageAlt: 'Food quality control inspection' },
   { step: '03', Icon: Ship, title: 'Cold-Chain Shipping', sub: 'Global origins → UK & EU', desc: 'Temperature-controlled from origin to port. Continuous cold chain. Time-temperature records travel with every consignment.', image: BRAND_IMGS.containerShip, imageAlt: 'Container ship carrying frozen cargo' },
   { step: '04', Icon: Warehouse, title: 'UK Cold Storage', sub: 'Grimsby / Hull', desc: 'UK-held cold-chain stock. Sterling pricing, UK contracts, UK-based account team. Ready for despatch across the UK & EU within agreed lead times.', image: BRAND_IMGS.coldWarehouse, imageAlt: 'UK cold storage' },
@@ -283,10 +283,10 @@ const homeSchema = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
   name: 'Indo Aquatic Frozen Seafood Range',
-  description: 'Frozen shrimp range across raw, cooked, and added value formats, plus a wider frozen seafood range',
+  description: 'Frozen prawn range across raw, cooked, and added value formats, plus a wider frozen seafood range',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Frozen Raw Shrimp', url: 'https://iaquatic.com/products/frozen-raw-shrimp' },
-    { '@type': 'ListItem', position: 2, name: 'Cooked Shrimp', url: 'https://iaquatic.com/products/cooked-shrimp' },
+    { '@type': 'ListItem', position: 1, name: 'Frozen Raw Prawns', url: 'https://iaquatic.com/products/frozen-raw-prawns' },
+    { '@type': 'ListItem', position: 2, name: 'Cooked Prawns', url: 'https://iaquatic.com/products/cooked-prawns' },
     { '@type': 'ListItem', position: 3, name: 'Added Value Innovation', url: 'https://iaquatic.com/products/ready-to-cook' },
     { '@type': 'ListItem', position: 4, name: 'Wider Seafood Range', url: 'https://iaquatic.com/products/wider-seafood-range' },
   ],

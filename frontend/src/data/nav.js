@@ -4,8 +4,8 @@
 // lives in the footer legal row only; Resources and Request Sample are gone.
 export const NAV_PRODUCTS = [
   { name: 'All Products', href: '/products' },
-  { name: 'Frozen Raw Shrimp', href: '/products/frozen-raw-shrimp' },
-  { name: 'Cooked Shrimp', href: '/products/cooked-shrimp' },
+  { name: 'Frozen Raw Prawns', href: '/products/frozen-raw-prawns' },
+  { name: 'Cooked Prawns', href: '/products/cooked-prawns' },
   { name: 'Added Value Innovation', href: '/products/ready-to-cook' },
   { name: 'Wider Seafood Range', href: '/products/wider-seafood-range' },
 ];

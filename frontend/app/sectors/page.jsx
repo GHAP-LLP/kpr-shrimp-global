@@ -8,7 +8,7 @@ import { FadeUp, FadeUpGrid, FadeUpItem } from '@/components/FadeUp';
 
 export const metadata = buildMetadata({
   title: 'Sectors',
-  description: 'Frozen shrimp (prawn) and seafood supply for retail private label, retail processors, foodservice, and wholesale distributors. Sector-matched formats, pack sizes, and documentation from Indo Aquatic.',
+  description: 'Frozen prawns (prawn) and seafood supply for retail private label, retail processors, foodservice, and wholesale distributors. Sector-matched formats, pack sizes, and documentation from Indo Aquatic.',
   path: '/sectors',
 });
 

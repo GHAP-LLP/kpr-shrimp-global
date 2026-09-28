@@ -13,8 +13,8 @@ export const metadata = buildMetadata({
 });
 
 const CATEGORY_ICONS = {
-  'frozen-raw-shrimp': Snowflake,
-  'cooked-shrimp': Flame,
+  'frozen-raw-prawns': Snowflake,
+  'cooked-prawns': Flame,
   'ready-to-cook': UtensilsCrossed,
 };
 
@@ -27,7 +27,7 @@ export default function ProductsHubPage() {
           <Breadcrumb items={[{ label: 'Products' }]} />
           <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neon-500 font-inter mt-6 mb-3">Indo Aquatic</p>
           <h1 className="font-fraunces text-4xl sm:text-5xl text-white mb-3" data-testid="products-hub-h1">Products</h1>
-          <p className="text-frost-500 text-lg max-w-2xl font-inter">The complete range of frozen and added value shrimp — known to the UK trade as prawns — plus a wider frozen seafood range delivered through our global distribution network. Consistent specification across every format.</p>
+          <p className="text-frost-500 text-lg max-w-2xl font-inter">The complete range of frozen and added value prawns — known to the UK trade as prawns — plus a wider frozen seafood range delivered through our global distribution network. Consistent specification across every format.</p>
         </div>
       </div>
 
@@ -35,7 +35,7 @@ export default function ProductsHubPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeUp className="mb-10">
             <SectionLabel number="01" text="Product Categories" />
-            <h2 className="font-fraunces text-3xl text-ink-900">Three shrimp ranges. One seafood partner.</h2>
+            <h2 className="font-fraunces text-3xl text-ink-900">Three prawn ranges. One seafood partner.</h2>
           </FadeUp>
           <FadeUpGrid className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {productCategories.map(category => {
@@ -79,8 +79,8 @@ export default function ProductsHubPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeUp className="mb-10">
             <SectionLabel number="02" text="Wider Seafood Range" />
-            <h2 className="font-fraunces text-3xl text-ink-900 mb-3">Beyond shrimp.</h2>
-            <p className="text-frost-700 font-inter max-w-2xl">Alongside our core shrimp range, we supply frozen seafood through our global distribution network — held to the same specification, documentation, and cold-chain standards. The range is shaped by customer requirement rather than a fixed catalogue, so tell us what your operation needs.</p>
+            <h2 className="font-fraunces text-3xl text-ink-900 mb-3">Beyond prawns.</h2>
+            <p className="text-frost-700 font-inter max-w-2xl">Alongside our core prawn range, we supply frozen seafood through our global distribution network — held to the same specification, documentation, and cold-chain standards. The range is shaped by customer requirement rather than a fixed catalogue, so tell us what your operation needs.</p>
           </FadeUp>
           <FadeUpGrid className="grid grid-cols-1 sm:grid-cols-3 gap-5 mb-8">
             {WIDER_RANGE.map((item, i) => {

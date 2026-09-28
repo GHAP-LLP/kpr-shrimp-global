@@ -9,7 +9,7 @@ export const BRAND_IMGS = {
 
 
   // ── Quality Control & Compliance ──────────────────────────────────────────
-  // Replace with: QC inspector checking shrimp count/grade at processing facility
+  // Replace with: QC inspector checking prawn count/grade at processing facility
   qualityControl: "/images/qualityControl.jpg",
 
 

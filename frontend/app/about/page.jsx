@@ -8,12 +8,12 @@ import { CERTIFICATIONS } from '@/data/certifications';
 
 export const metadata = buildMetadata({
   title: 'About Us',
-  description: 'Indo Aquatic Ltd — independent UK importer and distributor of frozen shrimp (prawns) and wider frozen seafood, backed by two decades of family aquaculture expertise. Full traceability, UK & EU supply.',
+  description: 'Indo Aquatic Ltd — independent UK importer and distributor of frozen prawns and wider frozen seafood, backed by two decades of family aquaculture expertise. Full traceability, UK & EU supply.',
   path: '/about',
 });
 
 const PILLARS = [
-  { icon: Target, title: 'Shrimp-first specialism', desc: 'Shrimp is our core category. Every decision — buying, spec, logistics, QC — is made by people whose careers are built on shrimp, and the same discipline extends to the wider frozen seafood we supply alongside it.' },
+  { icon: Target, title: 'Prawn-first specialism', desc: 'Prawns are our core category. Every decision — buying, spec, logistics, QC — is made by people whose careers are built on prawns, and the same discipline extends to the wider frozen seafood we supply alongside it.' },
   { icon: Snowflake, title: 'Full UK cold-chain', desc: 'Cold storage at Grimsby and Hull. Frozen delivery across the UK & EU. Sterling or euro pricing with local contracts.' },
   { icon: MapPin, title: 'Traceable origin', desc: 'Lot-level provenance on every shipment. Full chain of custody from our own farms and processing plants — and from trusted partners worldwide — to your UK warehouse.' },
   { icon: Users, title: 'UK-based account team', desc: 'UK business hours, rapid response. A single account manager who knows your spec, your volumes, and your delivery requirements. No overseas call centres, no lost emails.' },
@@ -26,7 +26,7 @@ const STATS = [
 ];
 
 const OPERATIONS_STRIP = [
-  { img: BRAND_IMGS.farmAerial, label: 'Nellore, India', sub: 'Our farm & processing plant', alt: 'Shrimp aquaculture farm ponds, Andhra Pradesh' },
+  { img: BRAND_IMGS.farmAerial, label: 'Nellore, India', sub: 'Our farm & processing plant', alt: 'Prawn aquaculture farm ponds, Andhra Pradesh' },
   { img: BRAND_IMGS.qualityControl, label: 'HACCP facility', sub: 'Processing & packaging', alt: 'Laboratory food safety testing' },
   { img: BRAND_IMGS.coldChainDelivery, label: 'Grimsby / Hull', sub: 'UK cold storage', alt: 'Cold-chain loading bay' },
 ];
@@ -51,7 +51,7 @@ export default function AboutPage() {
             A leading seafood supplier to the UK &amp; EU.
           </h1>
           <p className="text-lg text-frost-500 leading-relaxed max-w-2xl font-inter">
-            Shrimp is our specialism — every format, every processing style — supplied alongside a wider range of premium frozen seafood, with the specification consistency that comes from deep category focus.
+            Prawns are our specialism — every format, every processing style — supplied alongside a wider range of premium frozen seafood, with the specification consistency that comes from deep category focus.
           </p>
         </div>
       </div>
@@ -75,14 +75,14 @@ export default function AboutPage() {
             <FadeUp>
               <SectionLabel number="01" text="Who We Are" />
               <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900 mb-6">A UK entity built on two decades of aquaculture expertise.</h2>
-              <p className="text-frost-700 leading-relaxed mb-5 font-inter">Indo Aquatic Ltd is an independent, UK-registered importer and distributor of frozen shrimp — prawns, to the UK trade — and wider frozen seafood. We supply retailers, foodservice operators, retail processors, and wholesale distributors across the UK & EU. <span className="text-frost-700">(Indo Aquatic Ltd. · Company No. 17230607)</span></p>
-              <p className="text-frost-700 leading-relaxed mb-5 font-inter">Indo Aquatic is a family business, built on more than 20 years of hands-on experience in shrimp aquaculture. Our directors' family owns and operates its own farms and processing plants, and has grown that operation into an integrated shrimp business spanning farming, processing, and global distribution.</p>
-              <p className="text-frost-700 leading-relaxed mb-5 font-inter">Alongside our own farms and plants, we work with a carefully selected network of trusted partners across the world's leading shrimp-producing regions — giving UK buyers access to consistent supply, competitive pricing, and the flexibility that comes from genuine scale.</p>
+              <p className="text-frost-700 leading-relaxed mb-5 font-inter">Indo Aquatic Ltd is an independent, UK-registered importer and distributor of frozen prawns and wider frozen seafood. We supply retailers, foodservice operators, retail processors, and wholesale distributors across the UK & EU. <span className="text-frost-700">(Indo Aquatic Ltd. · Company No. 17230607)</span></p>
+              <p className="text-frost-700 leading-relaxed mb-5 font-inter">Indo Aquatic is a family business, built on more than 20 years of hands-on experience in prawn aquaculture. Our directors' family owns and operates its own farms and processing plants, and has grown that operation into an integrated prawn business spanning farming, processing, and global distribution.</p>
+              <p className="text-frost-700 leading-relaxed mb-5 font-inter">Alongside our own farms and plants, we work with a carefully selected network of trusted partners across the world's leading prawn-producing regions — giving UK buyers access to consistent supply, competitive pricing, and the flexibility that comes from genuine scale.</p>
               <p className="text-frost-700 leading-relaxed font-inter">Indo Aquatic Ltd brings all of this directly to the UK market: an independent company with the production expertise, supplier relationships, and quality control of an organisation many times its size — every lot inspected and documented at every step, from pond to UK plate.</p>
             </FadeUp>
             <FadeUp delay={0.12}>
               <div className="rounded-2xl overflow-hidden aspect-[4/3] border border-ice-300 shadow-sm">
-                <img src={BRAND_IMGS.farmFacility} alt="Shrimp farm ponds with bird netting, Andhra Pradesh" loading="lazy" className="w-full h-full object-cover" />
+                <img src={BRAND_IMGS.farmFacility} alt="Prawn farm ponds with bird netting, Andhra Pradesh" loading="lazy" className="w-full h-full object-cover" />
               </div>
             </FadeUp>
           </div>
@@ -134,10 +134,10 @@ export default function AboutPage() {
             <FadeUp delay={0.12} className="order-2 lg:order-1">
               <div className="grid grid-cols-2 gap-3">
                 <div className="rounded-xl overflow-hidden aspect-[4/3] border border-ice-300 shadow-sm col-span-2">
-                  <img src="/images/frozenRaw.jpg" alt="IQF glazed frozen raw shrimp" loading="lazy" className="w-full h-full object-cover" />
+                  <img src="/images/frozenRaw.jpg" alt="IQF glazed frozen raw prawns" loading="lazy" className="w-full h-full object-cover" />
                 </div>
                 <div className="rounded-xl overflow-hidden aspect-[4/3] border border-ice-300 shadow-sm">
-                  <img src="/images/hlso.jpg" alt="Raw headless shell-on shrimp" loading="lazy" className="w-full h-full object-cover" />
+                  <img src="/images/hlso.jpg" alt="Raw headless shell-on prawns" loading="lazy" className="w-full h-full object-cover" />
                 </div>
                 <div className="rounded-xl overflow-hidden aspect-[4/3] border border-ice-300 shadow-sm">
                   <img src={BRAND_IMGS.containerShip} alt="Container ship carrying frozen cargo" loading="lazy" className="w-full h-full object-cover" />
@@ -147,7 +147,7 @@ export default function AboutPage() {
             <FadeUp className="order-1 lg:order-2">
               <SectionLabel number="03" text="Sourcing" />
               <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900 mb-6">Our own farms. Our own plants. Our own standards.</h2>
-              <p className="text-frost-700 leading-relaxed mb-5 font-inter">Our directors' family owns and operates shrimp farms and processing facilities in Kodavalur, Nellore, Andhra Pradesh — one of India's most productive shrimp-farming regions — alongside a trusted network of partners across other leading shrimp-producing regions worldwide.</p>
+              <p className="text-frost-700 leading-relaxed mb-5 font-inter">Our directors' family owns and operates prawn farms and processing facilities in Kodavalur, Nellore, Andhra Pradesh — one of India's most productive prawn-farming regions — alongside a trusted network of partners across other leading prawn-producing regions worldwide.</p>
               <p className="text-frost-700 leading-relaxed mb-5 font-inter">We don't rely on spot market purchasing. Every stage — farming, processing, quality control — is closely managed to our own standard, whether at our own facilities or through our vetted partners, so spec, quality, and lot-level traceability are controlled at every step.</p>
               <p className="text-frost-700 leading-relaxed mb-8 font-inter">UK buyers get the benefit of this reach and control — sterling pricing, UK contracts, and an account team in the same time zone.</p>
               <Link href="/contact" className="inline-flex items-center gap-2 text-sm text-neon-700 hover:text-neon-800 font-medium font-inter transition-colors" data-testid="about-contact-link">

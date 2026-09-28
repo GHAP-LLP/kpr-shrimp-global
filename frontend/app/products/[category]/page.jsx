@@ -85,7 +85,7 @@ export default async function ProductHubPage({ params }) {
                   className="group bg-white border border-ice-300 rounded-xl overflow-hidden hover:border-frost-500 hover:-translate-y-1 hover:shadow-md transition-all duration-200 block h-full shadow-sm"
                   data-testid={`variant-card-${variant.slug}`}>
                   <div className="relative aspect-[16/10] overflow-hidden bg-frost-900">
-                    <img src={variant.image} alt={`${variant.fullName} frozen shrimp`} loading="lazy" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                    <img src={variant.image} alt={`${variant.fullName} frozen prawns`} loading="lazy" className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                     <span className="absolute top-3 left-3 text-xs font-mono bg-frost-900/80 text-white px-2.5 py-1 rounded backdrop-blur-sm">{variant.name}</span>
                   </div>
                   <div className="p-6">

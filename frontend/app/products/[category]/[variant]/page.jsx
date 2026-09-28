@@ -19,7 +19,7 @@ export async function generateMetadata({ params }) {
   if (!variant) return {};
   return buildMetadata({
     title: variant.fullName,
-    description: `${variant.fullName}${variant.fullName.includes(variant.name) ? '' : ` (${variant.name})`} frozen shrimp for UK & EU trade buyers from Indo Aquatic. Specification and pricing on enquiry.`,
+    description: `${variant.fullName}${variant.fullName.includes(variant.name) ? '' : ` (${variant.name})`} frozen prawns for UK & EU trade buyers from Indo Aquatic. Specification and pricing on enquiry.`,
     path: `/products/${categorySlug}/${variantSlug}`,
     image: variant.image,
   });
