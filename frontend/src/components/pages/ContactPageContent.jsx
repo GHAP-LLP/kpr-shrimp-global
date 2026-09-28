@@ -8,14 +8,12 @@ import { postEnquiry } from '@/lib/api';
 
 const CONTACT_INFO = [
   { icon: Mail, label: 'Sales enquiries', value: 'sales@iaquatic.com', href: 'mailto:sales@iaquatic.com' },
-  { icon: Mail, label: 'Sample requests', value: 'samples@iaquatic.com', href: 'mailto:samples@iaquatic.com' },
   { icon: MapPin, label: 'Registered office', value: 'Hall Farm Burrill Lane, Brantingham, Brough, HU15 1YG', href: null },
-  { icon: Linkedin, label: 'LinkedIn', value: 'Indo Aquatic UK Ltd', href: 'https://www.linkedin.com/company/indo-aquatic-limited/' },
+  { icon: Linkedin, label: 'LinkedIn', value: 'Indo Aquatic Ltd', href: 'https://www.linkedin.com/company/indo-aquatic-limited/' },
 ];
 
 const ENQUIRY_TYPES = [
   'Sales & pricing',
-  'Sample request',
   'Wider seafood range (shellfish / fish)',
   'Technical & QA',
   'Documentation & certification',
@@ -61,7 +59,7 @@ export default function ContactPageContent() {
           <Breadcrumb items={[{ label: 'Contact' }]} />
           <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neon-500 font-inter mt-6 mb-3">Indo Aquatic</p>
           <h1 className="font-fraunces text-4xl text-white mb-3" data-testid="contact-h1">Contact us</h1>
-          <p className="text-frost-500 max-w-xl font-inter">Get in touch to discuss supply requirements, request samples, or find out more about our products.</p>
+          <p className="text-frost-500 max-w-xl font-inter">Get in touch to discuss supply requirements or find out more about our products.</p>
         </div>
       </div>
 
@@ -90,7 +88,7 @@ export default function ContactPageContent() {
 
             <div className="bg-white border border-ice-300 rounded-xl p-6 shadow-sm">
               <h3 className="font-fraunces text-base text-ink-900 mb-2">Response times</h3>
-              <p className="text-xs text-frost-700 leading-relaxed font-inter">Sales &amp; samples: within 2 business days.<br />Technical &amp; QA queries: within 3 business days.<br />Office hours: Mon–Fri, 09:00–17:30 UK time.</p>
+              <p className="text-xs text-frost-700 leading-relaxed font-inter">Sales enquiries: within 2 business days.<br />Technical &amp; QA queries: within 3 business days.<br />Office hours: Mon–Fri, 09:00–17:30 UK time.</p>
             </div>
 
           </div>
@@ -146,7 +144,7 @@ export default function ContactPageContent() {
                 <label className="flex items-start gap-2.5 cursor-pointer">
                   <input type="checkbox" required checked={form.consent} onChange={e => setForm({ ...form, consent: e.target.checked })} className="w-4 h-4 mt-0.5 cursor-pointer accent-[#C2410C]" data-testid="contact-check-consent" />
                   <span className="text-xs text-frost-700 leading-relaxed font-inter">
-                    I agree to Indo Aquatic UK Ltd storing my details to respond to this enquiry, as described in the{' '}
+                    I agree to Indo Aquatic Ltd storing my details to respond to this enquiry, as described in the{' '}
                     <Link href="/privacy-policy" className="text-neon-700 underline hover:text-neon-800">Privacy Policy</Link>. *
                   </span>
                 </label>

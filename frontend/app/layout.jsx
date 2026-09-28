@@ -30,22 +30,22 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata = {
   metadataBase: new URL('https://iaquatic.com'),
   title: {
-    default: 'Leading Seafood Supplier in the UK & EU | Indo Aquatic',
+    default: 'Frozen Shrimp & Prawn Supplier UK & EU | Indo Aquatic',
     template: '%s | Indo Aquatic',
   },
-  description: 'Indo Aquatic is a leading frozen seafood supplier to the UK & EU. Specialist shrimp — IQF raw, cooked, and added value — plus shellfish, whole fish, and fillets. Own farms, certified processing, full traceability.',
+  description: 'Frozen shrimp (prawns) — IQF raw, cooked, and added value — plus shellfish, whole fish, and fillets, supplied to UK & EU trade buyers. Own farms, certified processing, full traceability.',
   robots: { index: true, follow: true },
   openGraph: {
     siteName: 'Indo Aquatic',
     type: 'website',
-    title: 'Leading Seafood Supplier in the UK & EU | Indo Aquatic',
-    description: 'Specialist frozen shrimp — raw, cooked, and added value — plus shellfish, whole fish, and fillets. Own farms, certified processing, consistent spec, UK & EU delivery.',
+    title: 'Frozen Shrimp & Prawn Supplier UK & EU | Indo Aquatic',
+    description: 'Frozen shrimp (prawns) — raw, cooked, and added value — plus shellfish, whole fish, and fillets. Own farms, certified processing, UK & EU delivery.',
     images: [{ url: DEFAULT_OG, width: 1200, height: 630, alt: 'Premium frozen seafood — Indo Aquatic, UK & EU supplier' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Leading Seafood Supplier in the UK & EU | Indo Aquatic',
-    description: 'Specialist frozen shrimp — raw, cooked, and added value — plus shellfish, whole fish, and fillets.',
+    title: 'Frozen Shrimp & Prawn Supplier UK & EU | Indo Aquatic',
+    description: 'Frozen shrimp (prawns) — raw, cooked, and added value — plus shellfish, whole fish, and fillets.',
     images: [{ url: DEFAULT_OG, alt: 'Premium frozen seafood — Indo Aquatic, UK & EU supplier' }],
   },
   other: { 'theme-color': '#F97316' },
@@ -57,10 +57,10 @@ const orgSchema = {
     {
       '@type': 'Organization',
       '@id': 'https://iaquatic.com/#organization',
-      name: 'Indo Aquatic UK Ltd',
-      legalName: 'Indo Aquatic UK Ltd',
+      name: 'Indo Aquatic Ltd',
+      legalName: 'Indo Aquatic Ltd',
       url: 'https://iaquatic.com',
-      description: 'Leading frozen seafood supplier to the UK & EU. Specialist shrimp — raw, cooked, and added value — plus shellfish, whole fish, and fillets.',
+      description: 'Frozen seafood supplier to the UK & EU. Specialist shrimp (prawns) — raw, cooked, and added value — plus shellfish, whole fish, and fillets.',
       foundingDate: '2026',
       address: {
         '@type': 'PostalAddress',
@@ -72,7 +72,6 @@ const orgSchema = {
       },
       contactPoint: [
         { '@type': 'ContactPoint', contactType: 'sales', email: 'sales@iaquatic.com' },
-        { '@type': 'ContactPoint', contactType: 'customer service', email: 'samples@iaquatic.com' },
       ],
     },
     {

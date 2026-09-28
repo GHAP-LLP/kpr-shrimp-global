@@ -2,7 +2,7 @@ import { buildMetadata } from '@/lib/metadata';
 
 export const metadata = buildMetadata({
   title: 'Terms of Service',
-  description: 'Terms of Service for the Indo Aquatic UK Ltd website. Information-only B2B marketing site governed by English law.',
+  description: 'Terms of Service for the Indo Aquatic Ltd website. Information-only B2B marketing site governed by English law.',
   path: '/terms-of-service',
 });
 
@@ -29,7 +29,7 @@ export default function TermsPage() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
 
         <Section title="1. About this website">
-          <p>This website is operated by Indo Aquatic UK Ltd (Indo Aquatic Ltd., Company No. 17230607), registered at Hall Farm Burrill Lane, Brantingham, Brough, HU15 1YG, United Kingdom ("Indo Aquatic", "we", "us").</p>
+          <p>This website is operated by Indo Aquatic Ltd (Company No. 17230607), registered at Hall Farm Burrill Lane, Brantingham, Brough, HU15 1YG, United Kingdom ("Indo Aquatic", "we", "us").</p>
           <p>This is a business-to-business (B2B) information and marketing website. It is intended for trade buyers, procurement professionals, and business contacts. It is not a consumer-facing retail website and does not accept consumer orders.</p>
         </Section>
 
@@ -45,16 +45,16 @@ export default function TermsPage() {
 
         <Section title="3. Information accuracy">
           <p>We make reasonable efforts to ensure that product specifications, pricing indications, and other information on this website are accurate and up to date. However, all information is provided for indicative purposes only.</p>
-          <p>Product specifications, availability, pricing, and minimum order quantities are subject to change. Confirmed specifications are those set out in a written quotation or order confirmation issued by Indo Aquatic UK Ltd.</p>
+          <p>Product specifications, availability, pricing, and minimum order quantities are subject to change. Confirmed specifications are those set out in a written quotation or order confirmation issued by Indo Aquatic Ltd.</p>
           <p>Nothing on this website constitutes a legally binding offer to supply products at any stated price or specification.</p>
         </Section>
 
         <Section title="4. No consumer sales">
-          <p>This website does not facilitate consumer purchases. All enquiries, sample requests, and orders are handled through direct commercial communication with our sales team and are subject to separate commercial terms agreed between the parties.</p>
+          <p>This website does not facilitate consumer purchases. All enquiries and orders are handled through direct commercial communication with our sales team and are subject to separate commercial terms agreed between the parties.</p>
         </Section>
 
         <Section title="5. Intellectual property">
-          <p>All content on this website — including text, images, graphics, and the Indo Aquatic logo — is the property of Indo Aquatic UK Ltd or its licensors and is protected by copyright and other intellectual property laws.</p>
+          <p>All content on this website — including text, images, graphics, and the Indo Aquatic logo — is the property of Indo Aquatic Ltd or its licensors and is protected by copyright and other intellectual property laws.</p>
           <p>You may view and print pages of this website for personal, non-commercial reference purposes. You may not reproduce, distribute, or create derivative works from this content without our prior written permission.</p>
         </Section>
 
@@ -63,7 +63,7 @@ export default function TermsPage() {
         </Section>
 
         <Section title="7. Limitation of liability">
-          <p>To the maximum extent permitted by law, Indo Aquatic UK Ltd excludes all liability for loss or damage (including indirect or consequential loss) arising out of or in connection with the use of, or inability to use, this website or its content.</p>
+          <p>To the maximum extent permitted by law, Indo Aquatic Ltd excludes all liability for loss or damage (including indirect or consequential loss) arising out of or in connection with the use of, or inability to use, this website or its content.</p>
           <p>Nothing in these terms excludes or limits liability for death or personal injury caused by negligence, fraud, or any other liability that cannot lawfully be excluded.</p>
         </Section>
 
@@ -77,7 +77,7 @@ export default function TermsPage() {
 
         <Section title="10. Contact">
           <p>For questions about these terms:<br />
-          Indo Aquatic UK Ltd<br />
+          Indo Aquatic Ltd<br />
           Hall Farm Burrill Lane, Brantingham, Brough, HU15 1YG<br />
           <a href="mailto:info@iaquatic.com" className="text-neon-700 hover:underline">info@iaquatic.com</a></p>
         </Section>

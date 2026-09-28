@@ -59,7 +59,7 @@ export const productCategories = [
     slug: "frozen-raw-shrimp",
     name: "Frozen Raw Shrimp",
     tagline: "Consistent spec, every count, every format.",
-    description: "Our core range of IQF and block-frozen raw shrimp, covering every major processing style from HOSO to fully-peeled. Consistent specification and traceable origin, sized to your requirement.",
+    description: "Our core range of IQF and block-frozen raw shrimp — king prawns to the UK trade — covering every major processing style from HOSO to fully-peeled. Consistent specification and traceable origin, sized to your requirement.",
     image: IMG.frozenRaw,
     highlights: ["5 processing styles", "IQF or block frozen", "Traceable origin", "Custom glaze options"],
     variants: [
@@ -155,7 +155,7 @@ export const productCategories = [
     slug: "cooked-shrimp",
     name: "Cooked Shrimp",
     tagline: "Ready to serve. No cook time, no guesswork.",
-    description: "Fully cooked and IQF-frozen shrimp, ready to use straight from frozen or after a brief thaw. BRC-certified, traceable to source, and produced to the quality standards required by UK retail buyers. Ideal for cold seafood platters, salads, and retail value-added packs where on-site cooking isn't required.",
+    description: "Fully cooked and IQF-frozen shrimp (prawns), ready to use straight from frozen or after a brief thaw. BRC-certified, traceable to source, and produced to the quality standards required by UK retail buyers. Ideal for cold seafood platters, salads, and retail value-added packs where on-site cooking isn't required.",
     image: IMG.cooked,
     highlights: ["Fully cooked IQF", "Pre-portioned and ready to serve", "No cook loss", "Cold chain maintained from processing"],
     variants: [

@@ -3,7 +3,7 @@ import { buildMetadata } from '@/lib/metadata';
 
 export const metadata = buildMetadata({
   title: 'Corporate Policies',
-  description: "Indo Aquatic UK Ltd's corporate policies — conduct, ethics, safety, sourcing, and legal compliance for a UK frozen shrimp importer and distributor.",
+  description: "Indo Aquatic Ltd's corporate policies — conduct, ethics, safety, sourcing, and legal compliance for a UK frozen seafood importer and distributor.",
   path: '/policies',
 });
 
@@ -47,7 +47,7 @@ export default function PoliciesPage() {
           <p className="text-xs font-semibold tracking-[0.25em] uppercase text-neon-500 font-inter mb-4">Governance</p>
           <h1 className="font-fraunces text-4xl sm:text-5xl text-white mb-3">Corporate Policies</h1>
           <p className="text-frost-500 font-inter max-w-2xl">
-            The commitments detailed below apply to Indo Aquatic UK Ltd's own conduct as a UK-registered
+            The commitments detailed below apply to Indo Aquatic Ltd's own conduct as a UK-registered
             importer and distributor of frozen shrimp. They reflect UK law as it applies to a business of
             our size and sector — not every obligation that applies to a large listed retailer applies to
             us, and we've noted where that's the case. Last updated: 26 August 2026.
@@ -111,7 +111,7 @@ export default function PoliciesPage() {
         </Section>
 
         <Section number={5} title="Tax">
-          <p>Indo Aquatic UK Ltd complies with all applicable UK tax obligations, including Corporation Tax,
+          <p>Indo Aquatic Ltd complies with all applicable UK tax obligations, including Corporation Tax,
           VAT, PAYE, and import duties on goods brought into the UK. We do not engage in artificial tax
           avoidance arrangements.</p>
         </Section>
@@ -138,7 +138,7 @@ export default function PoliciesPage() {
         </Section>
 
         <Section number={9} title="Food & Product Safety and Integrity">
-          <p>Food safety is central to what we do — we deal exclusively in frozen shrimp, and every shipment is
+          <p>Food safety is central to what we do — our core trade is frozen shrimp (prawns) alongside a wider frozen seafood range, and every shipment is
           expected to meet UK food safety law (Food Safety Act 1990, Food Information Regulations) covering
           accurate species identification, count/size declaration, allergen labelling, and safe cold-chain
           handling. Certification detail (HACCP, BRC, BAP, and related standards) is set out on our{' '}
@@ -147,7 +147,7 @@ export default function PoliciesPage() {
 
         <Section number={10} title="Data Protection and Privacy">
           <p>We comply with UK GDPR and the Data Protection Act 2018 in how we handle personal data from
-          enquiries, sample requests, and business contacts. Full detail is in our{' '}
+          enquiries and business contacts. Full detail is in our{' '}
           <Link href="/privacy-policy" className="text-neon-700 hover:underline">Privacy Policy</Link>.</p>
         </Section>
 
@@ -176,7 +176,7 @@ export default function PoliciesPage() {
         <Section number={14} title="Sanctions and Export Controls">
           <p>We screen counterparties against UK sanctions lists maintained by the Office of Financial
           Sanctions Implementation (OFSI) and do not knowingly trade with sanctioned individuals, entities, or
-          jurisdictions. As an importer of frozen shrimp into the UK, our goods are not subject to strategic
+          jurisdictions. As an importer of frozen seafood into the UK, our goods are not subject to strategic
           export control licensing, but we comply with all applicable customs and import declarations.</p>
         </Section>
 
@@ -200,16 +200,16 @@ export default function PoliciesPage() {
         </Section>
 
         <Section number={18} title="Product Packaging">
-          <p>Our packaging is specific to frozen shrimp — food-grade, freezer-rated packaging sized to
+          <p>Our packaging is specific to frozen seafood — food-grade, freezer-rated packaging sized to
           count/weight bands (e.g. 1kg/2kg block-frozen or IQF bags, retail-ready packs for private label). We
           look to reduce unnecessary plastic and use recyclable outer cartons where suitable for frozen
           logistics, without compromising food safety or cold-chain integrity.</p>
         </Section>
 
         <Section number={19} title="Animal Welfare (Aquaculture)">
-          <p>As a farmed-species specialist, animal welfare is part of how our own farms operate and what we
-          require of every partner. Our production uses closed pond systems with controlled water quality and
-          stocking density, and we do not use antibiotics in production — verifiable via third-party residue
+          <p>Animal welfare is part of how our own farms operate and what we require of every aquaculture partner.
+          Our farmed shrimp production uses closed pond systems with controlled water quality and
+          stocking density, and we do not use antibiotics in farmed production — verifiable via third-party residue
           testing. BAP and ASC certification, held across our primary supply operations, include welfare and
           biosecurity criteria within their audit scope. Further detail is on our{' '}
           <Link href="/sustainability" className="text-neon-700 hover:underline">Sustainability</Link> page.</p>

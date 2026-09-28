@@ -8,7 +8,7 @@ import { FadeUp, FadeUpGrid, FadeUpItem } from '@/components/FadeUp';
 
 export const metadata = buildMetadata({
   title: 'Sectors',
-  description: 'Frozen shrimp supply for UK retail private label, retail processors, foodservice, and wholesale distributors. Sector-matched formats, pack sizes, and documentation from Indo Aquatic.',
+  description: 'Frozen shrimp (prawn) and seafood supply for retail private label, retail processors, foodservice, and wholesale distributors. Sector-matched formats, pack sizes, and documentation from Indo Aquatic.',
   path: '/sectors',
 });
 
@@ -21,7 +21,7 @@ export default function SectorsHubPage() {
           <Breadcrumb items={[{ label: 'Sectors' }]} />
           <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neon-500 font-inter mt-6 mb-3">Indo Aquatic</p>
           <h1 className="font-fraunces text-4xl sm:text-5xl text-white mb-3" data-testid="sectors-hub-h1">Sectors we serve</h1>
-          <p className="text-frost-500 text-lg max-w-2xl font-inter">Different buyers need different formats, pack sizes, and paperwork. We supply four UK trade sectors, each with sector-matched specification and documentation.</p>
+          <p className="text-frost-500 text-lg max-w-2xl font-inter">Different buyers need different formats, pack sizes, and paperwork. We supply four trade sectors across the UK & EU, each with sector-matched specification and documentation.</p>
         </div>
       </div>
 

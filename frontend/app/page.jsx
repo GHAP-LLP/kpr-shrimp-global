@@ -14,7 +14,7 @@ import { CERTIFICATIONS } from '@/data/certifications';
 
 export const metadata = {
   ...buildMetadata({
-    description: 'Indo Aquatic is a leading frozen seafood supplier to the UK & EU. Specialist shrimp — raw, cooked, and value-added — plus shellfish, whole fish, and fillets. Own farms, certified processing, full traceability.',
+    description: 'Frozen shrimp (king prawns), shellfish, whole fish, and fillets for UK & EU trade buyers. IQF raw, cooked, and value-added ranges from our own farms, with certified processing and full traceability.',
     path: '/',
   }),
 };
@@ -58,8 +58,8 @@ function WhoWeAreSection() {
           <FadeUp>
             <SectionLabel number="02" text="Who We Are" />
             <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900 mb-6">A family aquaculture business, supplying the UK &amp; EU.</h2>
-            <p className="text-frost-700 leading-relaxed mb-5 font-inter">Indo Aquatic UK Ltd is an independent, UK-registered seafood importer and distributor, built on more than two decades of hands-on shrimp aquaculture. Our directors' family owns and operates farms and processing plants, grown into an integrated business spanning farming, processing, and global distribution.</p>
-            <p className="text-frost-700 leading-relaxed mb-8 font-inter">That reach comes to UK and EU buyers directly: sterling pricing, local contracts, an account team in your time zone — and every lot inspected and documented from pond to plate.</p>
+            <p className="text-frost-700 leading-relaxed mb-5 font-inter">Indo Aquatic Ltd is an independent, UK-registered seafood importer and distributor, built on more than two decades of hands-on shrimp aquaculture. Our directors' family owns and operates farms and processing plants, grown into an integrated business spanning farming, processing, and global distribution.</p>
+            <p className="text-frost-700 leading-relaxed mb-8 font-inter">That reach comes to UK and EU buyers directly: sterling or euro pricing, delivery across the UK & EU, and every lot inspected and documented from pond to plate.</p>
             <Link href="/about" className="inline-flex items-center gap-2 text-sm text-neon-700 hover:text-neon-800 font-medium font-inter transition-colors" data-testid="home-about-link">
               More about us <ArrowRight size={14} />
             </Link>
@@ -121,7 +121,7 @@ function ProductsSection() {
           ))}
         </FadeUpGrid>
         <FadeUp className="mt-8 flex flex-col sm:flex-row sm:items-center gap-3 bg-ice-100 border border-ice-300 rounded-xl px-5 py-4">
-          <p className="text-sm text-frost-700 font-inter flex-1">Beyond shrimp: frozen shellfish, whole fish, and fillets — delivered through our world-class global distribution network.</p>
+          <p className="text-sm text-frost-700 font-inter flex-1">Beyond shrimp: frozen shellfish, whole fish, and fillets — delivered through our global distribution network.</p>
           <Link href="/products/wider-seafood-range" className="inline-flex items-center gap-2 text-sm text-neon-700 hover:text-neon-800 font-semibold font-inter whitespace-nowrap">
             Wider seafood range <ArrowRight size={14} />
           </Link>
@@ -234,7 +234,7 @@ const PROCESS_STEPS = [
   { step: '01', Icon: Leaf, title: 'Farmed & Processed', sub: 'Our own farms & partner network', desc: 'Litopenaeus vannamei farmed and processed at our own facilities, and by trusted partners around the world. HACCP-controlled processing, full lot documentation generated at source.', image: BRAND_IMGS.farmAerial, imageAlt: 'Shrimp aquaculture farm ponds, Andhra Pradesh' },
   { step: '02', Icon: Shield, title: 'Sampled & Tested', sub: 'Verified in-house', desc: 'Samples drawn from every farm and partner are tested and finalised at our own Indo Aquatic facility. Residue testing, count tolerances checked, Certificate of Analysis issued before dispatch.', image: BRAND_IMGS.qualityControl, imageAlt: 'Food quality control inspection' },
   { step: '03', Icon: Ship, title: 'Cold-Chain Shipping', sub: 'Global origins → UK & EU', desc: 'Temperature-controlled from origin to port. Continuous cold chain. Time-temperature records travel with every consignment.', image: BRAND_IMGS.containerShip, imageAlt: 'Container ship carrying frozen cargo' },
-  { step: '04', Icon: Warehouse, title: 'UK Cold Storage', sub: 'Grimsby / Hull', desc: 'UK-held cold-chain stock. Sterling pricing, UK contracts, UK-based account team. Ready for despatch within agreed lead times.', image: BRAND_IMGS.coldWarehouse, imageAlt: 'UK cold storage' },
+  { step: '04', Icon: Warehouse, title: 'UK Cold Storage', sub: 'Grimsby / Hull', desc: 'UK-held cold-chain stock. Sterling pricing, UK contracts, UK-based account team. Ready for despatch across the UK & EU within agreed lead times.', image: BRAND_IMGS.coldWarehouse, imageAlt: 'UK cold storage' },
 ];
 
 function ProcessSection() {

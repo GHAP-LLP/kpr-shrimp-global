@@ -17,7 +17,7 @@ export default function Footer() {
               <LogoMark size={40} />
               <div>
                 <div className="font-fraunces text-white text-base leading-none">Indo Aquatic</div>
-                <div className="font-inter text-[10px] tracking-[0.2em] uppercase text-white/40 mt-0.5">UK Ltd</div>
+                <div className="font-inter text-[10px] tracking-[0.2em] uppercase text-white/40 mt-0.5">UK &amp; EU</div>
               </div>
             </div>
             <p className="text-frost-500 text-xs italic mt-2 mb-3">Premium Seafood. Global Standards.</p>
@@ -54,7 +54,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-12 pt-6 border-t border-frost-700 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <p className="text-frost-500 text-xs">© <Year /> Indo Aquatic UK Ltd. All rights reserved.</p>
+          <p className="text-frost-500 text-xs">© <Year /> Indo Aquatic Ltd. All rights reserved.</p>
           <div className="flex flex-wrap gap-6">
             <Link href="/privacy-policy" className="text-frost-500 text-xs hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="/terms-of-service" className="text-frost-500 text-xs hover:text-white transition-colors">Terms of Service</Link>

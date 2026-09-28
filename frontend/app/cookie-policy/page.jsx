@@ -2,7 +2,7 @@ import { buildMetadata } from '@/lib/metadata';
 
 export const metadata = buildMetadata({
   title: 'Cookie Policy',
-  description: 'Cookie Policy for Indo Aquatic UK Ltd. We use only essential session cookies — no analytics, no advertising trackers.',
+  description: 'Cookie Policy for Indo Aquatic Ltd. We use only essential session cookies — no analytics, no advertising trackers.',
   path: '/cookie-policy',
 });
 
@@ -82,7 +82,7 @@ export default function CookiePolicyPage() {
 
         <Section title="6. Contact us">
           <p>If you have any questions about our use of cookies:<br />
-          Indo Aquatic UK Ltd<br />
+          Indo Aquatic Ltd<br />
           Hall Farm Burrill Lane, Brantingham, Brough, HU15 1YG<br />
           <a href="mailto:info@iaquatic.com" className="text-neon-700 hover:underline">info@iaquatic.com</a></p>
         </Section>

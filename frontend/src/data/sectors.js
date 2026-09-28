@@ -13,7 +13,7 @@ export const sectors = [
     slug: "retail-private-label",
     name: "Retail Private Label",
     tagline: "Your brand. Our specification.",
-    description: "Supermarkets and retail buyers seeking own-brand frozen shrimp require a supplier that can match specification to packaging design, provide consistent product quality, and handle all compliance documentation. Indo Aquatic offers private label supply for retail own-brand ranges.",
+    description: "Supermarkets and retail buyers seeking own-brand frozen shrimp (prawns) require a supplier that can match specification to packaging design, provide consistent product quality, and handle all compliance documentation. Indo Aquatic offers private label supply for retail own-brand ranges.",
     image: SECTOR_IMG.retail,
     benefits: [
       { title: "Custom packaging design", description: "Retail-ready packs with your brand. Nutritional labelling, barcodes, and format specifications to your brief." },
@@ -81,7 +81,7 @@ export const sectors = [
     benefits: [
       { title: "Palletised bulk orders", description: "Full pallet and half pallet supply. Multiple SKUs per delivery possible." },
       { title: "Cash-and-carry formats", description: "Consumer-facing packaging available for direct display and sale." },
-      { title: "Competitive UK pricing", description: "Sterling-denominated pricing. No currency exposure. Fixed-term pricing available." },
+      { title: "Competitive UK pricing", description: "Sterling or euro pricing. Fixed-term pricing available." },
       { title: "Reliable restocking", description: "Managed inventory cycles with advance notice of availability." },
     ],
     packFormats: [

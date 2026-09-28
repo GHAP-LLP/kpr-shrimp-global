@@ -8,13 +8,13 @@ import { CERTIFICATIONS } from '@/data/certifications';
 
 export const metadata = buildMetadata({
   title: 'About Us',
-  description: 'Indo Aquatic UK Ltd — UK-registered specialist importer and distributor of frozen shrimp, backed by two decades of family aquaculture expertise. Single-category focus, full traceability, sterling pricing.',
+  description: 'Indo Aquatic Ltd — independent UK importer and distributor of frozen shrimp (prawns) and wider frozen seafood, backed by two decades of family aquaculture expertise. Full traceability, UK & EU supply.',
   path: '/about',
 });
 
 const PILLARS = [
   { icon: Target, title: 'Shrimp-first specialism', desc: 'Shrimp is our core category. Every decision — buying, spec, logistics, QC — is made by people whose careers are built on shrimp, and the same discipline extends to the wider frozen seafood we supply alongside it.' },
-  { icon: Snowflake, title: 'Full UK cold-chain', desc: 'Cold storage at Grimsby and Hull. Nationwide frozen delivery. Sterling pricing and UK contracts — no currency conversion risk for your procurement team.' },
+  { icon: Snowflake, title: 'Full UK cold-chain', desc: 'Cold storage at Grimsby and Hull. Frozen delivery across the UK & EU. Sterling or euro pricing with local contracts.' },
   { icon: MapPin, title: 'Traceable origin', desc: 'Lot-level provenance on every shipment. Full chain of custody from our own farms and processing plants — and from trusted partners worldwide — to your UK warehouse.' },
   { icon: Users, title: 'UK-based account team', desc: 'UK business hours, rapid response. A single account manager who knows your spec, your volumes, and your delivery requirements. No overseas call centres, no lost emails.' },
 ];
@@ -46,7 +46,7 @@ export default function AboutPage() {
         <img src={BRAND_IMGS.processingWorkers} alt="" loading="lazy" className="absolute inset-0 w-full h-full object-cover opacity-10" />
         <div className="absolute inset-0 bg-frost-900/80" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-xs font-semibold tracking-[0.25em] uppercase text-neon-500 font-inter mb-6">Indo Aquatic UK Ltd</p>
+          <p className="text-xs font-semibold tracking-[0.25em] uppercase text-neon-500 font-inter mb-6">Indo Aquatic Ltd</p>
           <h1 className="font-fraunces text-5xl sm:text-6xl lg:text-7xl text-white font-normal leading-[1.05] mb-6 max-w-4xl" data-testid="about-h1">
             A leading seafood supplier to the UK &amp; EU.
           </h1>
@@ -75,10 +75,10 @@ export default function AboutPage() {
             <FadeUp>
               <SectionLabel number="01" text="Who We Are" />
               <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900 mb-6">A UK entity built on two decades of aquaculture expertise.</h2>
-              <p className="text-frost-700 leading-relaxed mb-5 font-inter">Indo Aquatic UK Ltd is an independent, UK-registered specialist importer and distributor of frozen shrimp. We supply retailers, foodservice operators, retail processors, and wholesale distributors across the United Kingdom. <span className="text-frost-700">(Indo Aquatic Ltd. · Company No. 17230607)</span></p>
+              <p className="text-frost-700 leading-relaxed mb-5 font-inter">Indo Aquatic Ltd is an independent, UK-registered importer and distributor of frozen shrimp — prawns, to the UK trade — and wider frozen seafood. We supply retailers, foodservice operators, retail processors, and wholesale distributors across the UK & EU. <span className="text-frost-700">(Indo Aquatic Ltd. · Company No. 17230607)</span></p>
               <p className="text-frost-700 leading-relaxed mb-5 font-inter">Indo Aquatic is a family business, built on more than 20 years of hands-on experience in shrimp aquaculture. Our directors' family owns and operates its own farms and processing plants, and has grown that operation into an integrated shrimp business spanning farming, processing, and global distribution.</p>
               <p className="text-frost-700 leading-relaxed mb-5 font-inter">Alongside our own farms and plants, we work with a carefully selected network of trusted partners across the world's leading shrimp-producing regions — giving UK buyers access to consistent supply, competitive pricing, and the flexibility that comes from genuine scale.</p>
-              <p className="text-frost-700 leading-relaxed font-inter">Indo Aquatic UK Ltd brings all of this directly to the UK market: an independent company with the production expertise, supplier relationships, and quality control of an organisation many times its size — every lot inspected and documented at every step, from pond to UK plate.</p>
+              <p className="text-frost-700 leading-relaxed font-inter">Indo Aquatic Ltd brings all of this directly to the UK market: an independent company with the production expertise, supplier relationships, and quality control of an organisation many times its size — every lot inspected and documented at every step, from pond to UK plate.</p>
             </FadeUp>
             <FadeUp delay={0.12}>
               <div className="rounded-2xl overflow-hidden aspect-[4/3] border border-ice-300 shadow-sm">
@@ -108,7 +108,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeUp className="mb-12">
             <SectionLabel number="02" text="The Indo Aquatic Difference" />
-            <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900 max-w-2xl">Why single-category focus produces better outcomes for buyers.</h2>
+            <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900 max-w-2xl">Why specialist depth produces better outcomes for buyers.</h2>
           </FadeUp>
           <FadeUpGrid className="grid grid-cols-1 sm:grid-cols-2 gap-8">
             {PILLARS.map(pillar => (

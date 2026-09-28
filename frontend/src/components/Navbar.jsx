@@ -81,7 +81,7 @@ function MobileMenu({ isOpen, onClose }) {
               <LogoMark size={40} />
               <div>
                 <div className="font-fraunces font-semibold text-white text-base leading-none">Indo Aquatic</div>
-                <div className="font-inter text-[10px] tracking-[0.2em] uppercase text-white/50 mt-0.5">UK Ltd</div>
+                <div className="font-inter text-[10px] tracking-[0.2em] uppercase text-white/50 mt-0.5">UK &amp; EU</div>
               </div>
             </Link>
             <button
@@ -195,7 +195,7 @@ export default function Navbar() {
               <LogoMark size={42} />
               <div>
                 <div className="font-fraunces font-semibold text-frost-900 text-base leading-none">Indo Aquatic</div>
-                <div className="font-inter text-[10px] tracking-[0.18em] uppercase text-frost-500 mt-0.5">UK Ltd</div>
+                <div className="font-inter text-[10px] tracking-[0.18em] uppercase text-frost-500 mt-0.5">UK &amp; EU</div>
               </div>
             </Link>
 

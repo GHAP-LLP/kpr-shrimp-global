@@ -34,7 +34,7 @@ const PRACTICES = [
   { title: "Energy efficiency", desc: "Cold chain infrastructure designed to minimise refrigerant use. LED and energy-efficient processing equipment." },
 ];
 
-// NEEDS REVIEW: generic, defensible commitment language for Indo Aquatic UK Ltd (the importer/distributor) — confirm with a director before publishing. Do not add specific standards/memberships not actually held.
+// NEEDS REVIEW: generic, defensible commitment language for Indo Aquatic Ltd (the importer/distributor) — confirm with a director before publishing. Do not add specific standards/memberships not actually held.
 const ETHICAL_COMMITMENTS = [
   { icon: Scale, title: "Fair and lawful trading", desc: "Indo Aquatic conducts business in line with UK trading law and expects the same of every supplier we work with — clear contracts, fair payment terms, and no tolerance for bribery or corruption." },
   { icon: Users, title: "No forced or child labour", desc: "We do not tolerate forced, bonded, or child labour anywhere in our supply chain, and we expect suppliers to uphold the same standard across their own operations." },
@@ -67,7 +67,7 @@ export default function SustainabilityPage() {
       <section className="py-16 md:py-24" data-testid="cert-roadmap">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeUp className="mb-12">
-            <SectionLabel number="01" text="Certification Roadmap" />
+            <SectionLabel number="01" text="Certifications" />
             <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900 mb-3">The standards we hold.</h2>
             <p className="text-frost-700 font-inter max-w-2xl">Independently audited, across farming and processing. Certificate copies are available on request through our <Link href="/contact" className="text-neon-700 underline hover:text-neon-800">contact form</Link>.</p>
           </FadeUp>
@@ -160,7 +160,7 @@ export default function SustainabilityPage() {
         </div>
       </section>
 
-      {/* NEEDS REVIEW: all commitments below describe Indo Aquatic UK Ltd's own trading conduct as importer/distributor — confirm accuracy with a director before publishing. Do not add named standards (ETI Base Code, SEDEX, SSC, GDST, MarinTrust, etc.) or a Modern Slavery Statement claim unless Indo Aquatic has actually adopted/signed them. */}
+      {/* NEEDS REVIEW: all commitments below describe Indo Aquatic Ltd's own trading conduct as importer/distributor — confirm accuracy with a director before publishing. Do not add named standards (ETI Base Code, SEDEX, SSC, GDST, MarinTrust, etc.) or a Modern Slavery Statement claim unless Indo Aquatic has actually adopted/signed them. */}
       <section className="py-16 md:py-24 border-t border-ice-300" data-testid="ethical-sourcing">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeUp className="mb-12">

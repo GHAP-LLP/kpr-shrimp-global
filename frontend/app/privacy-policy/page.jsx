@@ -2,7 +2,7 @@ import { buildMetadata } from '@/lib/metadata';
 
 export const metadata = buildMetadata({
   title: 'Privacy Policy',
-  description: 'Privacy Policy for Indo Aquatic UK Ltd — how we collect, use, and protect your personal data in accordance with UK GDPR.',
+  description: 'Privacy Policy for Indo Aquatic Ltd — how we collect, use, and protect your personal data in accordance with UK GDPR.',
   path: '/privacy-policy',
 });
 
@@ -29,7 +29,7 @@ export default function PrivacyPolicyPage() {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
 
         <Section title="1. Who we are">
-          <p>Indo Aquatic UK Ltd ("we", "us", "our") is the data controller for personal data collected through this website and in connection with our business activities.</p>
+          <p>Indo Aquatic Ltd ("we", "us", "our") is the data controller for personal data collected through this website and in connection with our business activities.</p>
           <p><strong className="text-ink-900">Registered company:</strong> Indo Aquatic Ltd.<br />
           <strong className="text-ink-900">Company number:</strong> 17230607<br />
           <strong className="text-ink-900">Registered address:</strong> Hall Farm Burrill Lane, Brantingham, Brough, HU15 1YG, United Kingdom<br />
@@ -37,13 +37,11 @@ export default function PrivacyPolicyPage() {
         </Section>
 
         <Section title="2. What data we collect">
-          <p>When you submit a contact form, sample request, or document request on this website, we may collect:</p>
+          <p>When you submit an enquiry through our contact form, we may collect:</p>
           <ul className="list-disc pl-5 space-y-1">
-            <li>Name and job title</li>
-            <li>Company name and sector</li>
+            <li>Name and company</li>
             <li>Email address and telephone number</li>
-            <li>Product interests, purchase volumes, and timeline</li>
-            <li>Message content</li>
+            <li>Enquiry type and message content</li>
           </ul>
           <p>We do not collect payment information through this website. We do not use analytics cookies or tracking pixels.</p>
         </Section>
@@ -51,7 +49,7 @@ export default function PrivacyPolicyPage() {
         <Section title="3. How we use your data">
           <p>We use the personal data you provide to:</p>
           <ul className="list-disc pl-5 space-y-1">
-            <li>Respond to your enquiry or sample request</li>
+            <li>Respond to your enquiry</li>
             <li>Send you requested documentation (spec sheets, certifications)</li>
             <li>Follow up on business discussions you have initiated</li>
             <li>Maintain records of our business relationships</li>
@@ -108,7 +106,7 @@ export default function PrivacyPolicyPage() {
 
         <Section title="11. Contact us">
           <p>For any data protection queries, contact:<br />
-          Indo Aquatic UK Ltd<br />
+          Indo Aquatic Ltd<br />
           Hall Farm Burrill Lane, Brantingham, Brough, HU15 1YG<br />
           <a href="mailto:info@iaquatic.com" className="text-neon-700 hover:underline">info@iaquatic.com</a></p>
         </Section>

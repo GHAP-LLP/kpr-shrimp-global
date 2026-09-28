@@ -16,7 +16,7 @@ export async function generateMetadata({ params }) {
   const sector = getSectorBySlug(sectorSlug);
   if (!sector) return {};
   return buildMetadata({
-    title: `${sector.name} Shrimp Supply`,
+    title: `${sector.name} Seafood Supply`,
     description: `${sector.tagline} ${sector.description}`,
     path: `/sectors/${sectorSlug}`,
   });
