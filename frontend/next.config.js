@@ -22,8 +22,47 @@ const nextConfig = {
       },
     ];
   },
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          { key: 'X-Frame-Options', value: 'DENY' },
+          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+          { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
+        ],
+      },
+      {
+        // Self-hosted images are content-addressed by filename in practice —
+        // cache them hard instead of revalidating on every view.
+        source: '/images/:path*',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+      },
+      {
+        source: '/admin/:path*',
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
+      },
+    ];
+  },
   async redirects() {
     return [
+      // Canonical host: redirect www and the Vercel preview host to the apex.
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'www.iaquatic.com' }],
+        destination: 'https://iaquatic.com/:path*',
+        permanent: true,
+      },
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'frontend-mu-nine-84.vercel.app' }],
+        destination: 'https://iaquatic.com/:path*',
+        permanent: true,
+      },
+      // Retired cooked variant (specific rules must precede the generic ones).
+      { source: '/products/cooked-shrimp/iqf-cooked-hlso', destination: '/products/cooked-shrimp', permanent: true },
+      { source: '/products/cooked-prawns/iqf-cooked-hlso', destination: '/products/cooked-shrimp', permanent: true },
       // Interim "prawn" slugs — the site standardised on "shrimp" vocabulary.
       { source: '/products/frozen-raw-prawns', destination: '/products/frozen-raw-shrimp', permanent: true },
       { source: '/products/frozen-raw-prawns/:variant', destination: '/products/frozen-raw-shrimp/:variant', permanent: true },

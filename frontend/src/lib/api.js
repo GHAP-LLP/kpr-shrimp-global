@@ -33,7 +33,7 @@ export async function postEnquiry(path, payload) {
       throw new EnquiryError('Too many submissions in a short time. Please wait a minute and try again.');
     }
     if (!res.ok) {
-      throw new EnquiryError('Request failed');
+      throw new EnquiryError('Something went wrong on our side. Please try again, or email us directly at sales@iaquatic.com.');
     }
     return res.json();
   } catch (err) {

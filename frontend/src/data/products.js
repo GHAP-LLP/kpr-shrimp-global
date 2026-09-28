@@ -52,16 +52,6 @@ export const WIDER_RANGE = [
   },
 ];
 
-export const COUNT_SIZES = [
-  { count: "U/15", name: "Super Colossal", perKg: "≤15", typicalUse: "Premium restaurant presentations" },
-  { count: "16/20", name: "Colossal", perKg: "16–20", typicalUse: "Fine dining, hotel buffets" },
-  { count: "21/25", name: "Extra Jumbo", perKg: "21–25", typicalUse: "Restaurants, catering" },
-  { count: "26/30", name: "Jumbo", perKg: "26–30", typicalUse: "Foodservice, popular sizes" },
-  { count: "31/40", name: "Extra Large", perKg: "31–40", typicalUse: "Most versatile, retail & foodservice" },
-  { count: "41/50", name: "Large", perKg: "41–50", typicalUse: "Food manufacturing, catering packs" },
-  { count: "51/60", name: "Medium", perKg: "51–60", typicalUse: "Processing ingredient, value segments" },
-  { count: "61/70", name: "Small", perKg: "61–70", typicalUse: "Bulk processing, ingredient use" },
-];
 
 export const productCategories = [
   {
@@ -71,7 +61,6 @@ export const productCategories = [
     tagline: "Consistent spec, every count, every format.",
     description: "Our core range of IQF and block-frozen raw shrimp, covering every major processing style from HOSO to fully-peeled. Consistent specification and traceable origin, sized to your requirement.",
     image: IMG.frozenRaw,
-    variantCount: 5,
     highlights: ["5 processing styles", "IQF or block frozen", "Traceable origin", "Custom glaze options"],
     variants: [
       {
@@ -168,7 +157,6 @@ export const productCategories = [
     tagline: "Ready to serve. No cook time, no guesswork.",
     description: "Fully cooked and IQF-frozen shrimp, ready to use straight from frozen or after a brief thaw. BRC-certified, traceable to source, and produced to the quality standards required by UK retail buyers. Ideal for cold seafood platters, salads, and retail value-added packs where on-site cooking isn't required.",
     image: IMG.cooked,
-    variantCount: 2,
     highlights: ["Fully cooked IQF", "Pre-portioned and ready to serve", "No cook loss", "Cold chain maintained from processing"],
     variants: [
       {
@@ -214,7 +202,6 @@ export const productCategories = [
     tagline: "Coated, kitchen-ready, cooks straight from frozen.",
     description: "Our coated and value-added shrimp range: breaded, tempura, popcorn, noodle-wrapped, spring roll crusted, and coconut formats. All par-fried for colour and coating stability, IQF frozen, and ready to cook directly from frozen in minutes. Developed for foodservice operators who need speed and consistency, and retail buyers seeking consumer-ready products.",
     image: IMG.readyToCook,
-    variantCount: 8,
     highlights: ["8 coated formats", "Par-fried — cooks direct from frozen", "Consistent piece weights", "Retail and foodservice packs"],
     variants: [
       {
@@ -314,7 +301,7 @@ export const productCategories = [
         useCases: ["Bento and set menus", "Quick-serve and fast casual", "Retail frozen starter products", "Contract and institutional catering"],
       },
       {
-        id: "tempura", slug: "tempura", name: "Tempura", fullName: "Tempura Shrimp (WHT IQF)",
+        id: "tempura", slug: "tempura", name: "Tempura", fullName: "Tempura Shrimp",
         description: "Whole tail-on whiteleg shrimp in a light, crispy Japanese-style tempura batter. Par-fried for coating stability and IQF frozen — cooks from frozen in 3–4 minutes with a delicate crunch, suitable for quick-serve and premium foodservice menus alike.",
         image: IMG.tempura,
         specs: {

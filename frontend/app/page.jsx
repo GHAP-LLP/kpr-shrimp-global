@@ -2,7 +2,7 @@ import Link from 'next/link';
 import {
   ArrowRight, Snowflake, Flame, UtensilsCrossed,
   Target, MapPin, Users, CheckCircle, X,
-  Leaf, Ship, Warehouse, Shield, Award, Clock,
+  Leaf, Ship, Warehouse, Shield,
 } from 'lucide-react';
 import { buildMetadata } from '@/lib/metadata';
 import { FadeUp, FadeUpGrid, FadeUpItem } from '@/components/FadeUp';
@@ -203,8 +203,8 @@ function WhySection() {
                   <ul className="space-y-4">
                     {COMPARISON.generic.map(g => (
                       <li key={g} className="flex items-start gap-2">
-                        <X size={13} className="text-frost-500/50 flex-shrink-0 mt-0.5" />
-                        <span className="text-xs text-frost-500 font-inter leading-snug">{g}</span>
+                        <X size={13} className="text-frost-700/60 flex-shrink-0 mt-0.5" />
+                        <span className="text-xs text-frost-700 font-inter leading-snug">{g}</span>
                       </li>
                     ))}
                   </ul>
@@ -234,7 +234,7 @@ const PROCESS_STEPS = [
   { step: '01', Icon: Leaf, title: 'Farmed & Processed', sub: 'Our own farms & partner network', desc: 'Litopenaeus vannamei farmed and processed at our own facilities, and by trusted partners around the world. HACCP-controlled processing, full lot documentation generated at source.', image: BRAND_IMGS.farmAerial, imageAlt: 'Shrimp aquaculture farm ponds, Andhra Pradesh' },
   { step: '02', Icon: Shield, title: 'Sampled & Tested', sub: 'Verified in-house', desc: 'Samples drawn from every farm and partner are tested and finalised at our own Indo Aquatic facility. Residue testing, count tolerances checked, Certificate of Analysis issued before dispatch.', image: BRAND_IMGS.qualityControl, imageAlt: 'Food quality control inspection' },
   { step: '03', Icon: Ship, title: 'Cold-Chain Shipping', sub: 'Global origins → UK & EU', desc: 'Temperature-controlled from origin to port. Continuous cold chain. Time-temperature records travel with every consignment.', image: BRAND_IMGS.containerShip, imageAlt: 'Container ship carrying frozen cargo' },
-  { step: '04', Icon: Warehouse, title: 'UK Cold Storage', sub: 'Grimsby / Hull', desc: 'UK-held cold-chain stock. Sterling pricing, UK contracts, GMT account team. Ready for despatch within agreed lead times.', image: BRAND_IMGS.coldWarehouse, imageAlt: 'UK cold storage' },
+  { step: '04', Icon: Warehouse, title: 'UK Cold Storage', sub: 'Grimsby / Hull', desc: 'UK-held cold-chain stock. Sterling pricing, UK contracts, UK-based account team. Ready for despatch within agreed lead times.', image: BRAND_IMGS.coldWarehouse, imageAlt: 'UK cold storage' },
 ];
 
 function ProcessSection() {
@@ -274,11 +274,6 @@ function ProcessSection() {
             </FadeUpItem>
           ))}
         </FadeUpGrid>
-        <FadeUp className="mt-8 flex justify-center">
-          <Link href="/sustainability" className="inline-flex items-center gap-2 text-sm text-frost-500 hover:text-white font-inter transition-colors">
-            Full sustainability &amp; traceability statement <ArrowRight size={13} />
-          </Link>
-        </FadeUp>
       </div>
     </section>
   );
@@ -291,7 +286,7 @@ const homeSchema = {
   description: 'Frozen shrimp range across raw, cooked, and added value formats, plus a wider frozen seafood range',
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Frozen Raw Shrimp', url: 'https://iaquatic.com/products/frozen-raw-shrimp' },
-    { '@type': 'ListItem', position: 2, name: 'IQF Cooked Shrimp', url: 'https://iaquatic.com/products/cooked-shrimp' },
+    { '@type': 'ListItem', position: 2, name: 'Cooked Shrimp', url: 'https://iaquatic.com/products/cooked-shrimp' },
     { '@type': 'ListItem', position: 3, name: 'Added Value Innovation', url: 'https://iaquatic.com/products/ready-to-cook' },
     { '@type': 'ListItem', position: 4, name: 'Wider Seafood Range', url: 'https://iaquatic.com/products/wider-seafood-range' },
   ],

@@ -14,4 +14,3 @@ export const CERTIFICATIONS = [
   { id: 'eu-approval', logo: '/images/certs/eu-approval.png', name: 'EU Approved', sub: 'EU Market Approval', desc: 'EU establishment approval for export to EU markets.', status: 'held', highlight: false },
 ];
 
-export const heldCertifications = CERTIFICATIONS.filter(c => c.status === 'held');

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { ArrowRight, Target, MapPin, Users, Snowflake, Award } from 'lucide-react';
+import { ArrowRight, Target, MapPin, Users, Snowflake } from 'lucide-react';
 import { buildMetadata } from '@/lib/metadata';
 import { FadeUp, FadeUpGrid, FadeUpItem } from '@/components/FadeUp';
 import SectionLabel from '@/components/SectionLabel';
@@ -16,11 +16,11 @@ const PILLARS = [
   { icon: Target, title: 'Shrimp-first specialism', desc: 'Shrimp is our core category. Every decision — buying, spec, logistics, QC — is made by people whose careers are built on shrimp, and the same discipline extends to the wider frozen seafood we supply alongside it.' },
   { icon: Snowflake, title: 'Full UK cold-chain', desc: 'Cold storage at Grimsby and Hull. Nationwide frozen delivery. Sterling pricing and UK contracts — no currency conversion risk for your procurement team.' },
   { icon: MapPin, title: 'Traceable origin', desc: 'Lot-level provenance on every shipment. Full chain of custody from our own farms and processing plants — and from trusted partners worldwide — to your UK warehouse.' },
-  { icon: Users, title: 'UK-based account team', desc: 'GMT response times. A single account manager who knows your spec, your volumes, and your delivery requirements. No overseas call centres, no lost emails.' },
+  { icon: Users, title: 'UK-based account team', desc: 'UK business hours, rapid response. A single account manager who knows your spec, your volumes, and your delivery requirements. No overseas call centres, no lost emails.' },
 ];
 
 const STATS = [
-  { value: '3', label: 'Processing formats' },
+  { value: '3', label: 'Product categories' },
   { value: '4', label: 'Sectors served' },
   { value: '20+', label: 'Years aquaculture expertise' },
 ];
@@ -43,7 +43,7 @@ export default function AboutPage() {
     <div className="bg-ice-100 min-h-screen">
 
       <div className="bg-frost-900 relative py-20 md:py-28 overflow-hidden border-b border-white/10">
-        <img src={BRAND_IMGS.processingWorkers} alt="" className="absolute inset-0 w-full h-full object-cover opacity-10" />
+        <img src={BRAND_IMGS.processingWorkers} alt="" loading="lazy" className="absolute inset-0 w-full h-full object-cover opacity-10" />
         <div className="absolute inset-0 bg-frost-900/80" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-xs font-semibold tracking-[0.25em] uppercase text-neon-500 font-inter mb-6">Indo Aquatic UK Ltd</p>
@@ -75,14 +75,14 @@ export default function AboutPage() {
             <FadeUp>
               <SectionLabel number="01" text="Who We Are" />
               <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900 mb-6">A UK entity built on two decades of aquaculture expertise.</h2>
-              <p className="text-frost-700 leading-relaxed mb-5 font-inter">Indo Aquatic UK Ltd is an independent, UK-registered specialist importer and distributor of frozen shrimp. We supply retailers, foodservice operators, retail processors, and wholesale distributors across the United Kingdom. <span className="text-frost-500">(Indo Aquatic Ltd. · Company No. 17230607)</span></p>
+              <p className="text-frost-700 leading-relaxed mb-5 font-inter">Indo Aquatic UK Ltd is an independent, UK-registered specialist importer and distributor of frozen shrimp. We supply retailers, foodservice operators, retail processors, and wholesale distributors across the United Kingdom. <span className="text-frost-700">(Indo Aquatic Ltd. · Company No. 17230607)</span></p>
               <p className="text-frost-700 leading-relaxed mb-5 font-inter">Indo Aquatic is a family business, built on more than 20 years of hands-on experience in shrimp aquaculture. Our directors' family owns and operates its own farms and processing plants, and has grown that operation into an integrated shrimp business spanning farming, processing, and global distribution.</p>
               <p className="text-frost-700 leading-relaxed mb-5 font-inter">Alongside our own farms and plants, we work with a carefully selected network of trusted partners across the world's leading shrimp-producing regions — giving UK buyers access to consistent supply, competitive pricing, and the flexibility that comes from genuine scale.</p>
               <p className="text-frost-700 leading-relaxed font-inter">Indo Aquatic UK Ltd brings all of this directly to the UK market: an independent company with the production expertise, supplier relationships, and quality control of an organisation many times its size — every lot inspected and documented at every step, from pond to UK plate.</p>
             </FadeUp>
             <FadeUp delay={0.12}>
               <div className="rounded-2xl overflow-hidden aspect-[4/3] border border-ice-300 shadow-sm">
-                <img src={BRAND_IMGS.farmFacility} alt="Shrimp farm ponds with bird netting, Andhra Pradesh" className="w-full h-full object-cover" />
+                <img src={BRAND_IMGS.farmFacility} alt="Shrimp farm ponds with bird netting, Andhra Pradesh" loading="lazy" className="w-full h-full object-cover" />
               </div>
             </FadeUp>
           </div>
@@ -93,7 +93,7 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-px bg-ice-300">
           {OPERATIONS_STRIP.map(item => (
             <div key={item.label} className="relative overflow-hidden aspect-[4/3] sm:aspect-auto sm:h-56">
-              <img src={item.img} alt={item.alt} className="absolute inset-0 w-full h-full object-cover" />
+              <img src={item.img} alt={item.alt} loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-frost-900/80 via-frost-900/30 to-transparent" />
               <div className="absolute bottom-4 left-4">
                 <p className="font-fraunces text-white text-sm mb-0.5">{item.label}</p>
@@ -134,13 +134,13 @@ export default function AboutPage() {
             <FadeUp delay={0.12} className="order-2 lg:order-1">
               <div className="grid grid-cols-2 gap-3">
                 <div className="rounded-xl overflow-hidden aspect-[4/3] border border-ice-300 shadow-sm col-span-2">
-                  <img src="/images/frozenRaw.jpg" alt="IQF glazed frozen raw shrimp" className="w-full h-full object-cover" />
+                  <img src="/images/frozenRaw.jpg" alt="IQF glazed frozen raw shrimp" loading="lazy" className="w-full h-full object-cover" />
                 </div>
                 <div className="rounded-xl overflow-hidden aspect-[4/3] border border-ice-300 shadow-sm">
-                  <img src="/images/hlso.jpg" alt="Raw headless shell-on shrimp" className="w-full h-full object-cover" />
+                  <img src="/images/hlso.jpg" alt="Raw headless shell-on shrimp" loading="lazy" className="w-full h-full object-cover" />
                 </div>
                 <div className="rounded-xl overflow-hidden aspect-[4/3] border border-ice-300 shadow-sm">
-                  <img src={BRAND_IMGS.containerShip} alt="Container ship carrying frozen cargo" className="w-full h-full object-cover" />
+                  <img src={BRAND_IMGS.containerShip} alt="Container ship carrying frozen cargo" loading="lazy" className="w-full h-full object-cover" />
                 </div>
               </div>
             </FadeUp>
@@ -165,7 +165,7 @@ export default function AboutPage() {
             <h2 className="font-fraunces text-3xl text-ink-900 mb-3">The standards we hold.</h2>
             <p className="text-frost-700 font-inter max-w-2xl">Our supply chain is built to meet the documentation and certification requirements of UK retail and foodservice buyers.</p>
           </FadeUp>
-          <FadeUpGrid className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+          <FadeUpGrid className="grid grid-cols-2 sm:grid-cols-3 gap-4">
             {CERTS.map(cert => (
               <FadeUpItem key={cert.name}>
                 <div className="bg-white border border-ice-300 rounded-xl p-4 text-center shadow-sm" data-testid={`cert-${cert.name.toLowerCase().replace(/ /g, '-')}`}>
@@ -181,13 +181,13 @@ export default function AboutPage() {
       <section className="py-16 bg-neon-700">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-fraunces text-3xl text-white mb-3">Ready to talk supply?</h2>
-          <p className="text-white/90 mb-8 font-inter">Get in touch with our UK account team to discuss volumes, specifications, and sample arrangements.</p>
+          <p className="text-white/90 mb-8 font-inter">Get in touch with our UK account team to discuss volumes, specifications, and supply arrangements.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-frost-900 hover:bg-ink-900 text-white font-medium rounded-md transition-colors font-inter" data-testid="about-contact-cta">
               Contact us <ArrowRight size={14} />
             </Link>
-            <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-white/40 text-white hover:bg-white/10 font-medium rounded-md transition-colors font-inter">
-              Contact us
+            <Link href="/products" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 border border-white/40 text-white hover:bg-white/10 font-medium rounded-md transition-colors font-inter">
+              View our range
             </Link>
           </div>
         </div>

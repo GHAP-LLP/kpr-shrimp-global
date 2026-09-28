@@ -26,7 +26,7 @@ const SLIDES = [
     tagline: 'One supplier. The whole freezer.',
     title: 'Frozen shrimp, every format.',
     body: 'HOSO to fully peeled, IQF cooked, and an eight-strong coated range — par-fried, consistent piece weights, and ready to cook straight from frozen. Specification locked batch to batch.',
-    primary: { href: '/products', label: 'Explore the range' },
+    primary: { href: '/products/frozen-raw-shrimp', label: 'Explore the shrimp range' },
     secondary: { href: '/contact', label: 'Contact us' },
   },
 ];
@@ -62,7 +62,9 @@ export default function HeroSection() {
             key={s.id}
             src={s.image}
             alt=""
-            fetchPriority={i === 0 ? 'high' : 'low'}
+            // Slide 2 loads lazily so it isn't fetched before first paint
+            // (and not at all on mobile, where the image pane is hidden).
+            {...(i === 0 ? { fetchPriority: 'high' } : { loading: 'lazy' })}
             className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-700 ${i === active ? 'opacity-100' : 'opacity-0'}`}
           />
         ))}
@@ -71,7 +73,9 @@ export default function HeroSection() {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="py-20 md:py-28 max-w-xl lg:max-w-2xl min-h-[560px] md:min-h-[540px] flex flex-col justify-center">
-          <AnimatePresence mode="wait">
+          {/* initial={false}: the first slide's text must be visible in server
+              HTML, not faded in after hydration — it is the page's LCP/H1. */}
+          <AnimatePresence mode="wait" initial={false}>
             <motion.div
               key={slide.id}
               initial={{ opacity: 0, y: 24 }}
@@ -115,8 +119,10 @@ export default function HeroSection() {
                 onClick={() => setActive(i)}
                 aria-label={`Show slide ${i + 1}: ${s.title}`}
                 aria-current={i === active}
-                className={`h-1.5 rounded-full transition-all duration-300 ${i === active ? 'w-8 bg-neon-500' : 'w-4 bg-white/25 hover:bg-white/50'}`}
-              />
+                className="py-3 px-1 -my-3 flex items-center"
+              >
+                <span className={`h-1.5 rounded-full transition-all duration-300 ${i === active ? 'w-8 bg-neon-500' : 'w-4 bg-white/25 hover:bg-white/50'}`} />
+              </button>
             ))}
           </div>
         </div>

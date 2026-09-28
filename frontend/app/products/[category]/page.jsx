@@ -76,7 +76,7 @@ export default async function ProductHubPage({ params }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeUp className="mb-10">
             <SectionLabel number="01" text="Available Variants" />
-            <h2 className="font-fraunces text-3xl text-ink-900">Choose your specification.</h2>
+            <h2 className="font-fraunces text-3xl text-ink-900">Choose your format.</h2>
           </FadeUp>
           <FadeUpGrid className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {category.variants.map(variant => (

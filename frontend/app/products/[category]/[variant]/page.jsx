@@ -19,7 +19,7 @@ export async function generateMetadata({ params }) {
   if (!variant) return {};
   return buildMetadata({
     title: variant.fullName,
-    description: `${variant.fullName} (${variant.name}) frozen shrimp for UK & EU trade buyers from Indo Aquatic — a leading seafood supplier. Specification and pricing on enquiry.`,
+    description: `${variant.fullName}${variant.fullName.includes(variant.name) ? '' : ` (${variant.name})`} frozen shrimp for UK & EU trade buyers from Indo Aquatic. Specification and pricing on enquiry.`,
     path: `/products/${categorySlug}/${variantSlug}`,
     image: variant.image,
   });
@@ -30,22 +30,6 @@ export default async function ProductVariantPage({ params }) {
   const category = getCategoryBySlug(categorySlug);
   const variant = getVariantBySlug(categorySlug, variantSlug);
   if (!category || !variant) notFound();
-
-  const productSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
-    name: variant.fullName,
-    description: variant.description,
-    image: variant.image,
-    category: `Frozen Seafood / ${category.name}`,
-    brand: { '@type': 'Brand', name: 'Indo Aquatic' },
-    offers: {
-      '@type': 'Offer',
-      availability: 'https://schema.org/InStock',
-      priceCurrency: 'GBP',
-      seller: { '@type': 'Organization', '@id': 'https://iaquatic.com/#organization', name: 'Indo Aquatic UK Ltd' },
-    },
-  };
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
@@ -59,7 +43,7 @@ export default async function ProductVariantPage({ params }) {
 
   return (
     <div className="bg-ice-100 min-h-screen">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify([productSchema, breadcrumbSchema]) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       <div className="bg-frost-900 py-16 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -81,11 +65,11 @@ export default async function ProductVariantPage({ params }) {
 
           <div className="lg:col-span-2 space-y-8">
             <div className="bg-white border border-ice-300 rounded-xl overflow-hidden shadow-sm">
-              <img src={variant.image} alt={`${variant.fullName} frozen shrimp`} className="w-full aspect-video object-cover" />
+              <img src={variant.image} alt={variant.fullName} className="w-full aspect-video object-cover" />
               <div className="p-6">
                 <SectionLabel number="01" text="About This Product" />
-                <h2 className="font-fraunces text-xl text-ink-900 mb-3">About this product</h2>
-                <p className="text-frost-700 leading-relaxed font-inter">{variant.description}</p>
+                <h2 className="sr-only">About {variant.fullName}</h2>
+                <p className="text-frost-700 leading-relaxed font-inter">{variant.description.split('.').slice(1).join('.').trim() || variant.description}</p>
               </div>
             </div>
 

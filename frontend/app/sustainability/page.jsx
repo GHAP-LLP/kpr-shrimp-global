@@ -51,7 +51,7 @@ export default function SustainabilityPage() {
     <div className="bg-ice-100 min-h-screen">
 
       <div className="bg-frost-900 relative py-20 md:py-28 overflow-hidden border-b border-white/10">
-        <img src={FARM_IMG} alt="" className="absolute inset-0 w-full h-full object-cover opacity-10" />
+        <img src={FARM_IMG} alt="" loading="lazy" className="absolute inset-0 w-full h-full object-cover opacity-10" />
         <div className="absolute inset-0 bg-frost-900/80" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-xs font-semibold tracking-[0.25em] uppercase text-neon-500 font-inter mb-6">Responsible Sourcing</p>
@@ -144,10 +144,10 @@ export default function SustainabilityPage() {
             <div className="space-y-4">
               <div className="grid grid-cols-2 gap-3">
                 <div className="rounded-xl overflow-hidden aspect-[4/3] border border-ice-300 col-span-2">
-                  <img src={PRACTICES_IMG} alt="Shrimp aquaculture farm ponds, Nellore" className="w-full h-full object-cover" />
+                  <img src={PRACTICES_IMG} alt="Shrimp aquaculture farm ponds, Nellore" loading="lazy" className="w-full h-full object-cover" />
                 </div>
                 <div className="rounded-xl overflow-hidden aspect-[4/3] border border-ice-300">
-                  <img src={WORKERS_IMG} alt="Processing facility workers" className="w-full h-full object-cover" />
+                  <img src={WORKERS_IMG} alt="Processing facility workers" loading="lazy" className="w-full h-full object-cover" />
                 </div>
                 <div className="bg-white border border-ice-300 rounded-xl p-4 shadow-sm flex flex-col justify-center">
                   <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neon-700 font-inter mb-2">Our farm & plant</p>

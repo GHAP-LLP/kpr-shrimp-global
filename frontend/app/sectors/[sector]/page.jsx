@@ -31,7 +31,7 @@ export default async function SectorPage({ params }) {
     <div className="bg-ice-100 min-h-screen">
 
       <div className="bg-frost-900 relative py-24 overflow-hidden border-b border-white/10">
-        <img src={sector.image} alt="" className="absolute inset-0 w-full h-full object-cover opacity-10" />
+        <img src={sector.image} alt="" loading="lazy" className="absolute inset-0 w-full h-full object-cover opacity-10" />
         <div className="absolute inset-0 bg-frost-900/80" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumb items={[{ label: 'Sectors', href: '/sectors' }, { label: sector.name }]} />
@@ -109,13 +109,13 @@ export default async function SectorPage({ params }) {
 
           <div className="space-y-4">
             <div className="bg-neon-700 rounded-xl p-6">
-              <h3 className="font-fraunces text-lg text-white mb-3">Sample the right formats</h3>
+              <h3 className="font-fraunces text-lg text-white mb-3">Talk to our team</h3>
               <p className="text-white/90 text-sm mb-4 font-inter">Discuss supply requirements and sample the relevant product formats for your operation.</p>
               <Link href="/contact" className="block w-full text-center py-3 bg-frost-900 hover:bg-ink-900 text-white font-medium rounded-md transition-colors text-sm mb-3 font-inter" data-testid="sector-contact-us">
                 Contact us
               </Link>
-              <Link href="/contact" className="block w-full text-center py-3 border border-white/30 text-white hover:bg-white/10 font-medium rounded-md transition-colors text-sm font-inter">
-                Contact us
+              <Link href="/products" className="block w-full text-center py-3 border border-white/30 text-white hover:bg-white/10 font-medium rounded-md transition-colors text-sm font-inter">
+                View our products
               </Link>
             </div>
 

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Indo Aquatic (repo: kpr-shrimp-global) — a B2B marketing website for a UK-based frozen shrimp importer/distributor. Frontend deploys to Vercel, backend (FastAPI + MongoDB Atlas) to Render (`render.yaml`, service `kpr-shrimp-backend`). The contact, sample-request, and document-request forms all POST to the backend, which stores enquiries in Mongo and emails the team via Resend. An admin dashboard lives at `/admin` (JWT cookie auth).
+Indo Aquatic (repo: kpr-shrimp-global) — a B2B marketing website for a UK-based frozen shrimp importer/distributor. Frontend deploys to Vercel, backend (FastAPI + MongoDB Atlas) to Render (`render.yaml`, service `kpr-shrimp-backend`). The contact form POSTs to the backend (legacy sample/document-request endpoints remain server-side only), which stores enquiries in Mongo and emails the team via Resend. An admin dashboard lives at `/admin` (JWT cookie auth).
 
 **Vocabulary rule: the site says "shrimp", never "prawn"** (business decision, Sep 2026) — in copy, URLs, slugs, and spec keys. Use "shrimp" for both singular and plural, never "shrimps". Interim `*-prawns` slugs 301-redirect to the shrimp slugs in `next.config.js`.
 

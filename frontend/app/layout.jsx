@@ -23,13 +23,15 @@ const jetbrainsMono = JetBrains_Mono({
   variable: '--font-mono',
   display: 'swap',
   weight: ['400', '500'],
+  // Only used for small badges/labels — not worth a render-blocking preload.
+  preload: false,
 });
 
 export const metadata = {
   metadataBase: new URL('https://iaquatic.com'),
   title: {
     default: 'Leading Seafood Supplier in the UK & EU | Indo Aquatic',
-    template: '%s | Indo Aquatic — Seafood Supplier UK & EU',
+    template: '%s | Indo Aquatic',
   },
   description: 'Indo Aquatic is a leading frozen seafood supplier to the UK & EU. Specialist shrimp — IQF raw, cooked, and added value — plus shellfish, whole fish, and fillets. Own farms, certified processing, full traceability.',
   robots: { index: true, follow: true },
@@ -85,7 +87,7 @@ const orgSchema = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${inter.variable} ${jetbrainsMono.variable}`}>
+    <html lang="en-GB" className={`${fraunces.variable} ${inter.variable} ${jetbrainsMono.variable}`}>
       <body>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgSchema) }} />
         <a href="#main-content" className="skip-link">Skip to main content</a>

@@ -5,7 +5,6 @@ import { BASE_URL } from '@/lib/metadata';
 // Derived from the same data files that drive the routes, so adding a product
 // or sector automatically updates the sitemap.
 export default function sitemap() {
-  const now = new Date();
   const staticPaths = [
     '', '/products', '/products/wider-seafood-range', '/sectors', '/about', '/sustainability', '/policies',
     '/contact',
@@ -18,8 +17,5 @@ export default function sitemap() {
   );
   const sectorPaths = sectors.map(s => `/sectors/${s.slug}`);
 
-  return [...staticPaths, ...categoryPaths, ...variantPaths, ...sectorPaths].map(path => ({
-    url: `${BASE_URL}${path}`,
-    lastModified: now,
-  }));
+  return [...staticPaths, ...categoryPaths, ...variantPaths, ...sectorPaths].map(path => ({ url: `${BASE_URL}${path}` }));
 }

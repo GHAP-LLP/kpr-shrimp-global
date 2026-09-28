@@ -1,15 +1,21 @@
-// Floating WhatsApp chat button, shown on every page (rendered in the root
-// layout). Business WhatsApp number per the team, Sep 2026.
+'use client';
+import { usePathname } from 'next/navigation';
+
+// Floating WhatsApp chat button, shown on every public page (rendered in the
+// root layout). Business WhatsApp number per the team, Sep 2026.
 const NUMBER = '971561818930';
 
 export default function WhatsAppButton() {
+  const pathname = usePathname();
+  if (pathname.startsWith('/admin')) return null;
+
   return (
     <a
       href={`https://wa.me/${NUMBER}`}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with us on WhatsApp"
-      className="fixed bottom-5 right-5 z-[70] w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#1EBE5D] shadow-lg hover:shadow-xl flex items-center justify-center transition-all duration-200 hover:scale-105"
+      className="fixed bottom-5 right-5 z-50 w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#1EBE5D] shadow-lg hover:shadow-xl flex items-center justify-center transition-all duration-200 hover:scale-105"
       data-testid="whatsapp-button"
     >
       <svg viewBox="0 0 24 24" width="30" height="30" fill="#fff" aria-hidden="true">

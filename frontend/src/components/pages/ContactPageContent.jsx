@@ -76,7 +76,7 @@ export default function ContactPageContent() {
                   <div key={label} className="flex items-start gap-3">
                     <Icon size={16} className="text-neon-700 flex-shrink-0 mt-0.5" />
                     <div>
-                      <p className="text-xs text-frost-500 mb-0.5 font-inter">{label}</p>
+                      <p className="text-xs text-frost-700 mb-0.5 font-inter">{label}</p>
                       {href ? (
                         <a href={href} className="text-sm text-frost-700 hover:text-neon-700 transition-colors font-inter">{value}</a>
                       ) : (
@@ -90,7 +90,7 @@ export default function ContactPageContent() {
 
             <div className="bg-white border border-ice-300 rounded-xl p-6 shadow-sm">
               <h3 className="font-fraunces text-base text-ink-900 mb-2">Response times</h3>
-              <p className="text-xs text-frost-700 leading-relaxed font-inter">Sales &amp; samples: within 2 business days.<br />Technical &amp; QA queries: within 3 business days.<br />Office hours: Mon–Fri, 09:00–17:30 GMT.</p>
+              <p className="text-xs text-frost-700 leading-relaxed font-inter">Sales &amp; samples: within 2 business days.<br />Technical &amp; QA queries: within 3 business days.<br />Office hours: Mon–Fri, 09:00–17:30 UK time.</p>
             </div>
 
           </div>

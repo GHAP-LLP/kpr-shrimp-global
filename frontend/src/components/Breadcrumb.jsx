@@ -4,8 +4,8 @@ import { ChevronRight, Home } from 'lucide-react';
 export default function Breadcrumb({ items }) {
   return (
     <nav className="flex flex-wrap items-center gap-1.5 text-sm text-frost-500" aria-label="Breadcrumb" data-testid="breadcrumb">
-      <Link href="/" className="flex items-center gap-1 hover:text-white transition-colors">
-        <Home size={14} />
+      <Link href="/" aria-label="Home" className="flex items-center gap-1 hover:text-white transition-colors">
+        <Home size={14} aria-hidden="true" />
       </Link>
       {items.map((item, i) => (
         <span key={i} className="flex items-center gap-1.5">
