@@ -146,7 +146,7 @@ function ContactSection() {
             <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-frost-900 hover:bg-ink-900 text-white font-semibold rounded-md transition-colors font-inter" data-testid="home-contact-fold-cta">
               Contact us <ArrowRight size={15} />
             </Link>
-            <a href="https://wa.me/447846239357" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-3.5 border border-white/40 text-white hover:bg-white/10 font-semibold rounded-md transition-colors font-inter">
+            <a href="https://wa.me/971561818930" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-8 py-3.5 border border-white/40 text-white hover:bg-white/10 font-semibold rounded-md transition-colors font-inter">
               Chat on WhatsApp
             </a>
           </div>

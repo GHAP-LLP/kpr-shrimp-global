@@ -1,6 +1,6 @@
 // Floating WhatsApp chat button, shown on every page (rendered in the root
-// layout). Omar's UK number, confirmed by the team Sep 2026.
-const NUMBER = '447846239357';
+// layout). Business WhatsApp number per the team, Sep 2026.
+const NUMBER = '971561818930';
 
 export default function WhatsAppButton() {
   return (
