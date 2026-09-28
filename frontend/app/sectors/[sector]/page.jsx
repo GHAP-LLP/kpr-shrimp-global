@@ -120,6 +120,14 @@ export default async function SectorPage({ params }) {
             </div>
 
             <div className="bg-white border border-ice-300 rounded-xl p-6 shadow-sm">
+              <h3 className="font-fraunces text-base text-ink-900 mb-2">Beyond shrimp</h3>
+              <p className="text-xs text-frost-700 mb-3 font-inter leading-relaxed">{sector.name} buyers can also source frozen shellfish, whole fish, and fillets through our wider seafood range.</p>
+              <Link href="/products/wider-seafood-range" className="inline-flex items-center gap-1.5 text-sm text-neon-700 hover:text-neon-800 font-medium font-inter transition-colors" data-testid="sector-wider-range-link">
+                Explore the wider range <ArrowRight size={13} />
+              </Link>
+            </div>
+
+            <div className="bg-white border border-ice-300 rounded-xl p-6 shadow-sm">
               <h3 className="font-fraunces text-base text-ink-900 mb-4">Other sectors</h3>
               <ul className="space-y-1">
                 {sectors.filter(s => s.id !== sector.id).map(s => (
