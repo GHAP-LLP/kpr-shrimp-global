@@ -58,7 +58,7 @@ export default function SectorsHubPage() {
 
       <section className="py-16 bg-neon-700">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-fraunces text-3xl text-white mb-3">Not sure which fits?</h2>
+          <h2 className="font-fraunces text-3xl text-white mb-3">Get in touch with us.</h2>
           <p className="text-white/90 mb-8 font-inter">Tell us how you buy and we'll recommend the right formats, counts, and pack sizes for your operation.</p>
           <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-3.5 bg-frost-900 hover:bg-ink-900 text-white font-medium rounded-md transition-colors font-inter" data-testid="sectors-hub-contact-btn">
             Talk to our team <ArrowRight size={14} />

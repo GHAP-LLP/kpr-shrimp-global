@@ -146,7 +146,7 @@ export const productCategories = [
           origin: "India (Andhra Pradesh) · Multi-country sourcing available",
           certification: "BRC, BAP, HACCP, ISO 22000, FSSC 22000, Halal",
         },
-        useCases: ["Grilled prawn dishes", "Prawns on the barbie", "Interactive dining presentations", "Premium retail packs"],
+        useCases: ["Grilled prawn dishes", "BBQ prawn dishes", "Interactive dining presentations", "Premium retail packs"],
       },
     ],
   },

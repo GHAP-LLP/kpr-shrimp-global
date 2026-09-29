@@ -3,7 +3,7 @@ import { buildMetadata } from '@/lib/metadata';
 
 export const metadata = buildMetadata({
   title: 'Corporate Policies',
-  description: "Indo Aquatic Ltd's corporate policies — conduct, ethics, safety, sourcing, and legal compliance for a UK frozen seafood importer and distributor.",
+  description: "Indo Aquatic Ltd's corporate policies — conduct, ethics, safety, sourcing, and legal compliance for a UK frozen seafood supplier and producer.",
   path: '/policies',
 });
 
@@ -48,7 +48,7 @@ export default function PoliciesPage() {
           <h1 className="font-fraunces text-4xl sm:text-5xl text-white mb-3">Corporate Policies</h1>
           <p className="text-frost-500 font-inter max-w-2xl">
             The commitments detailed below apply to Indo Aquatic Ltd's own conduct as a UK-registered
-            importer and distributor of frozen prawns. They reflect UK law as it applies to a business of
+            supplier and producer of frozen prawns. They reflect UK law as it applies to a business of
             our size and sector — not every obligation that applies to a large listed retailer applies to
             us, and we've noted where that's the case. Last updated: 26 August 2026.
           </p>

@@ -25,7 +25,7 @@ const STANDARDS = [
   'Country of origin certificate',
   'Cold chain temperature record',
   'Allergen declaration',
-  'Lot-level traceability reference',
+  'Full traceability reference',
   'Nutritional information on request',
   'Catch certification for wild-caught species, where applicable',
 ];

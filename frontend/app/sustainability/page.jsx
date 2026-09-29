@@ -8,7 +8,7 @@ import { CERTIFICATIONS } from '@/data/certifications';
 
 export const metadata = buildMetadata({
   title: 'Sustainability',
-  description: "Indo Aquatic's commitment to responsible aquaculture, lot-level traceability, unbroken cold chain, and certification. HACCP in place, BRC and BAP held.",
+  description: "Indo Aquatic's commitment to responsible aquaculture, full traceability, unbroken cold chain, and certification. HACCP in place, BRC and BAP held.",
   path: '/sustainability',
 });
 
@@ -19,7 +19,7 @@ const CERT_ROADMAP = CERTIFICATIONS.map(c => ({
 }));
 
 const COMMITMENTS = [
-  { icon: Eye, title: "Lot-level traceability", desc: "Every shipment carries full provenance documentation — source lot, processing date, cold chain record, and country of origin. Chain of custody available on request for any SKU." },
+  { icon: Eye, title: "Full traceability", desc: "Every shipment carries full provenance documentation — source lot, processing date, cold chain record, and country of origin. Chain of custody available on request for any SKU." },
   { icon: Thermometer, title: "Unbroken cold chain", desc: "Temperature-controlled from processing facility to UK cold storage, whether the shipment originates in India or another partner region worldwide. All shipments logged with time-temperature records, with no breaks in the chain." },
   { icon: Leaf, title: "Responsible aquaculture", desc: "Our own farms and partner operations hold BAP and ASC certification, subject to ongoing third-party audit. ASC is now in place across our primary supply operations, covering environmental and social responsibility standards." },
   { icon: Shield, title: "Documentation on demand", desc: "Full spec sheets, nutritional data, allergen declarations, HACCP documentation, and country of origin certificates available for every product in our range." },
@@ -45,7 +45,7 @@ const ETHICAL_COMMITMENTS = [
 export default function SustainabilityPage() {
   const FARM_IMG = BRAND_IMGS.farmFacility;
   const PRACTICES_IMG = BRAND_IMGS.farmAerial;
-  const WORKERS_IMG = BRAND_IMGS.processingWorkers;
+  const PRACTICES_IMG_2 = BRAND_IMGS.farmFacility;
 
   return (
     <div className="bg-ice-100 min-h-screen">
@@ -147,7 +147,7 @@ export default function SustainabilityPage() {
                   <img src={PRACTICES_IMG} alt="Prawn aquaculture farm ponds, Nellore" loading="lazy" className="w-full h-full object-cover" />
                 </div>
                 <div className="rounded-xl overflow-hidden aspect-[4/3] border border-ice-300">
-                  <img src={WORKERS_IMG} alt="Processing facility workers" loading="lazy" className="w-full h-full object-cover" />
+                  <img src={PRACTICES_IMG_2} alt="Prawn farm ponds with bird netting" loading="lazy" className="w-full h-full object-cover" />
                 </div>
                 <div className="bg-white border border-ice-300 rounded-xl p-4 shadow-sm flex flex-col justify-center">
                   <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neon-700 font-inter mb-2">Our farm & plant</p>
@@ -166,7 +166,7 @@ export default function SustainabilityPage() {
           <FadeUp className="mb-12">
             <SectionLabel number="04" text="Ethical Trading" />
             <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900 mb-3">How we expect our supply chain to operate.</h2>
-            <p className="text-frost-700 font-inter max-w-2xl">As the UK importer and distributor, Indo Aquatic is responsible for the conduct of the supply chain we sell into. These are the standards we hold ourselves and our suppliers to.</p>
+            <p className="text-frost-700 font-inter max-w-2xl">As the UK supplier and producer, Indo Aquatic is responsible for the conduct of the supply chain we sell into. These are the standards we hold ourselves and our suppliers to.</p>
           </FadeUp>
           <FadeUpGrid className="grid grid-cols-1 sm:grid-cols-2 gap-8">
             {ETHICAL_COMMITMENTS.map(item => (
@@ -202,7 +202,7 @@ export default function SustainabilityPage() {
               "Country of origin certificate",
               "Health certificate (EU-equivalent)",
               "Cold chain temperature record",
-              "Lot-level traceability reference",
+              "Full traceability reference",
               "Packaging and labelling spec",
             ].map(doc => (
               <div key={doc} className="flex items-center gap-3 bg-white border border-ice-300 rounded-lg px-4 py-3 shadow-sm">
@@ -216,7 +216,7 @@ export default function SustainabilityPage() {
 
       <section className="py-16 bg-neon-700">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-fraunces text-3xl text-white mb-3">Request our full certification pack.</h2>
+          <h2 className="font-fraunces text-3xl text-white mb-3">All documents available.</h2>
           <p className="text-white/90 mb-8 font-inter">We'll send you the complete documentation set for any product in our range. Procurement, QA, and technical teams only — no marketing materials.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Link href="/contact" className="inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-frost-900 hover:bg-ink-900 text-white font-medium rounded-md transition-colors font-inter" data-testid="sustainability-contact-btn">

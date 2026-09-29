@@ -58,8 +58,7 @@ function WhoWeAreSection() {
           <FadeUp>
             <SectionLabel number="02" text="Who We Are" />
             <h2 className="font-fraunces text-3xl sm:text-4xl text-ink-900 mb-6">A family aquaculture business, supplying the UK &amp; EU.</h2>
-            <p className="text-frost-700 leading-relaxed mb-5 font-inter">Indo Aquatic Ltd is an independent, UK-registered seafood importer and distributor, built on more than two decades of hands-on prawn aquaculture. Our directors' family owns and operates farms and processing plants, grown into an integrated business spanning farming, processing, and global distribution.</p>
-            <p className="text-frost-700 leading-relaxed mb-8 font-inter">That reach comes to UK and EU buyers directly: sterling or euro pricing, delivery across the UK & EU, and every lot inspected and documented from pond to plate.</p>
+            <p className="text-frost-700 leading-relaxed mb-5 font-inter">Indo Aquatic Ltd is an independent, UK-registered seafood supplier and producer, built on more than two decades of hands-on prawn aquaculture. Our directors' family owns and operates farms and processing plants, grown into an integrated business spanning farming, processing, and global distribution.</p>
             <Link href="/about" className="inline-flex items-center gap-2 text-sm text-neon-700 hover:text-neon-800 font-medium font-inter transition-colors" data-testid="home-about-link">
               More about us <ArrowRight size={14} />
             </Link>
@@ -139,7 +138,7 @@ function ContactSection() {
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-8">
           <div className="max-w-2xl">
             <p className="text-white/80 text-xs font-semibold uppercase tracking-widest font-inter mb-3">Get In Touch</p>
-            <h2 className="font-fraunces text-3xl sm:text-4xl text-white mb-3">Ready to talk supply?</h2>
+            <h2 className="font-fraunces text-3xl sm:text-4xl text-white mb-3">Get in touch with us.</h2>
             <p className="text-white/90 font-inter leading-relaxed">Tell us your sector, the products you buy, and your volumes — our team will come back with specification, pricing, and lead times.</p>
           </div>
           <div className="flex flex-col gap-3 flex-shrink-0">
@@ -160,7 +159,7 @@ function ContactSection() {
 const WHY_POINTS = [
   { icon: Target, title: 'Spec consistency, batch to batch', desc: 'Tight count tolerances, glaze, and uniformity across every order, every product line.' },
   { icon: Snowflake, title: 'UK & EU cold-chain delivery', desc: 'Cold storage at Grimsby and Hull, unbroken cold chain from origin to your depot.' },
-  { icon: MapPin, title: 'Traceability to source', desc: 'Lot-level provenance on every shipment. Full chain of custody.' },
+  { icon: MapPin, title: 'Traceability to source', desc: 'Full traceability on every shipment. Full chain of custody.' },
   { icon: Users, title: 'Dedicated account team', desc: 'Sterling pricing, local contracts, one account manager who knows your spec.' },
 ];
 
