@@ -45,7 +45,7 @@ const ETHICAL_COMMITMENTS = [
 export default function SustainabilityPage() {
   const FARM_IMG = BRAND_IMGS.farmFacility;
   const PRACTICES_IMG = BRAND_IMGS.farmAerial;
-  const PRACTICES_IMG_2 = BRAND_IMGS.farmFacility;
+  const PRACTICES_IMG_2 = '/images/aquacultureNets.jpg';
 
   return (
     <div className="bg-ice-100 min-h-screen">
@@ -147,7 +147,7 @@ export default function SustainabilityPage() {
                   <img src={PRACTICES_IMG} alt="Prawn aquaculture farm ponds, Nellore" loading="lazy" className="w-full h-full object-cover" />
                 </div>
                 <div className="rounded-xl overflow-hidden aspect-[4/3] border border-ice-300">
-                  <img src={PRACTICES_IMG_2} alt="Prawn farm ponds with bird netting" loading="lazy" className="w-full h-full object-cover" />
+                  <img src={PRACTICES_IMG_2} alt="Aquaculture net pens tended by hand" loading="lazy" className="w-full h-full object-cover" />
                 </div>
                 <div className="bg-white border border-ice-300 rounded-xl p-4 shadow-sm flex flex-col justify-center">
                   <p className="text-xs font-semibold tracking-[0.2em] uppercase text-neon-700 font-inter mb-2">Our farm & plant</p>
