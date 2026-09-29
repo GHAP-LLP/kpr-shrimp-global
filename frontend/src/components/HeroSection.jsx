@@ -11,7 +11,8 @@ const ROTATE_MS = 8000;
 const SLIDES = [
   {
     id: 'seafood',
-    image: '/images/widerRange.jpg',
+    // Prawns + whole fish in one frame — matches the seafood-wide headline.
+    image: '/images/heroSeafood.jpg',
     eyebrow: 'Indo Aquatic Ltd',
     tagline: 'Premium Seafood. Global Standards.',
     title: 'A leading seafood supplier to the UK & EU.',
